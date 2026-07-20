@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { sendLeadNotification } from '@/lib/email';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -50,6 +51,9 @@ export async function POST(request: Request) {
         source: 'website',
       },
     });
+
+    // Fire the notification but never let an email failure break the submit.
+    await sendLeadNotification(lead);
 
     return NextResponse.json({ ok: true, id: lead.id }, { status: 201 });
   } catch (err) {
