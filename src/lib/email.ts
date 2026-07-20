@@ -6,11 +6,14 @@
 
 type LeadEmail = {
   id: number;
+  kind?: string | null; // "teardown" | "call"
   name: string;
-  email: string;
-  storeUrl: string;
+  email?: string | null;
+  phone?: string | null;
+  storeUrl?: string | null;
   platform?: string | null;
   monthlyRevenue?: string | null;
+  preferredTime?: string | null;
   message?: string | null;
   createdAt: Date;
 };
@@ -54,34 +57,58 @@ export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
     return;
   }
 
-  const store = escapeHtml(lead.storeUrl);
-  const subject = `New teardown request — ${lead.name} (${lead.storeUrl})`;
+  const isCall = lead.kind === 'call';
+  const heading = isCall ? 'New phone-call request' : 'New free-teardown request';
+  const intro = isCall
+    ? 'Someone asked you to give them a call. Reach out at the number below.'
+    : 'A store owner just requested a teardown from the website.';
+  const subject = isCall
+    ? `New call request — ${lead.name}${lead.phone ? ` (${lead.phone})` : ''}`
+    : `New teardown request — ${lead.name}${lead.storeUrl ? ` (${lead.storeUrl})` : ''}`;
+
+  const storeRow = lead.storeUrl
+    ? `<tr><td style="padding:6px 16px 6px 0;color:#77776a;font-size:13px;white-space:nowrap;vertical-align:top;">Store</td><td style="padding:6px 0;font-size:14px;"><a href="${escapeHtml(
+        lead.storeUrl,
+      )}" style="color:#0e6b4a;">${escapeHtml(lead.storeUrl)}</a></td></tr>`
+    : '';
+  const phoneRow = lead.phone
+    ? `<tr><td style="padding:6px 16px 6px 0;color:#77776a;font-size:13px;white-space:nowrap;vertical-align:top;">Phone</td><td style="padding:6px 0;font-size:14px;"><a href="tel:${escapeHtml(
+        lead.phone,
+      )}" style="color:#0e6b4a;font-weight:600;">${escapeHtml(lead.phone)}</a></td></tr>`
+    : '';
+
+  const cta = isCall
+    ? `<a href="tel:${escapeHtml(
+        lead.phone || '',
+      )}" style="display:inline-block;background:#14140f;color:#f5f1e8;text-decoration:none;font-size:14px;font-weight:600;padding:10px 18px;border-radius:999px;">Call ${escapeHtml(
+        lead.name,
+      )} →</a>`
+    : `<a href="mailto:${escapeHtml(
+        lead.email || '',
+      )}?subject=Your%20store%20teardown" style="display:inline-block;background:#14140f;color:#f5f1e8;text-decoration:none;font-size:14px;font-weight:600;padding:10px 18px;border-radius:999px;">Reply to ${escapeHtml(
+        lead.name,
+      )} →</a>`;
 
   const html = `
   <div style="background:#f5f1e8;padding:24px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
     <div style="max-width:520px;margin:0 auto;background:#fff;border:1px solid #e3dbc8;border-radius:14px;overflow:hidden;">
       <div style="background:#14140f;padding:18px 24px;">
-        <span style="color:#f5f1e8;font-size:16px;font-weight:600;">New free-teardown request</span>
+        <span style="color:#f5f1e8;font-size:16px;font-weight:600;">${heading}</span>
       </div>
       <div style="padding:20px 24px;">
-        <p style="margin:0 0 16px;color:#565646;font-size:14px;">
-          A store owner just requested a teardown from the website.
-        </p>
+        <p style="margin:0 0 16px;color:#565646;font-size:14px;">${intro}</p>
         <table style="border-collapse:collapse;width:100%;">
           ${row('Name', lead.name)}
+          ${phoneRow}
           ${row('Email', lead.email)}
-          ${`<tr><td style="padding:6px 16px 6px 0;color:#77776a;font-size:13px;white-space:nowrap;vertical-align:top;">Store</td><td style="padding:6px 0;font-size:14px;"><a href="${store}" style="color:#0e6b4a;">${store}</a></td></tr>`}
+          ${storeRow}
+          ${row('Best time', lead.preferredTime)}
           ${row('Platform', lead.platform)}
           ${row('Monthly revenue', lead.monthlyRevenue)}
           ${row('Message', lead.message)}
           ${row('Submitted', lead.createdAt.toISOString())}
         </table>
-        <div style="margin-top:20px;">
-          <a href="mailto:${escapeHtml(lead.email)}?subject=Your%20store%20teardown"
-             style="display:inline-block;background:#14140f;color:#f5f1e8;text-decoration:none;font-size:14px;font-weight:600;padding:10px 18px;border-radius:999px;">
-            Reply to ${escapeHtml(lead.name)} →
-          </a>
-        </div>
+        <div style="margin-top:20px;">${cta}</div>
       </div>
       <div style="padding:12px 24px;border-top:1px solid #efe9db;color:#a6967e;font-size:12px;">
         Lead #${lead.id} · Maubourg Studio
@@ -99,7 +126,7 @@ export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
       body: JSON.stringify({
         from,
         to: [to],
-        reply_to: lead.email,
+        ...(lead.email ? { reply_to: lead.email } : {}),
         subject,
         html,
       }),

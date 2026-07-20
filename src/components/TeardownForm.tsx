@@ -87,8 +87,6 @@ export default function TeardownForm() {
               Prefer to talk first?{' '}
               <a
                 href={site.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="font-semibold text-emerald underline-offset-4 hover:underline"
               >
                 Book a 15-minute call →

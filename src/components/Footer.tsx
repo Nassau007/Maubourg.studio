@@ -16,12 +16,7 @@ export default function Footer() {
             <a href="#teardown" className="btn-signal w-full sm:w-auto">
               Get my free teardown →
             </a>
-            <a
-              href={site.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost-light w-full sm:w-auto"
-            >
+            <a href={site.bookingUrl} className="btn-ghost-light w-full sm:w-auto">
               Book a 15-min call
             </a>
           </div>

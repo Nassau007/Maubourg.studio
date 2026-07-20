@@ -47,12 +47,7 @@ export default function Hero() {
             <a href="#teardown" className="btn-primary w-full sm:w-auto">
               Get a free store teardown →
             </a>
-            <a
-              href={site.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost w-full sm:w-auto"
-            >
+            <a href={site.bookingUrl} className="btn-ghost w-full sm:w-auto">
               Book a 15-min call
             </a>
           </div>

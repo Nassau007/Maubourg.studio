@@ -3,8 +3,9 @@ export const site = {
   name: 'Maubourg Studio',
   tagline: 'Build & Convert studio for European ecommerce',
   email: 'hello@maubourg.studio',
-  // Swap for your real Calendly / Cal.com link.
-  bookingUrl: 'https://cal.com/maubourg/intro',
+  // Internal request-a-call page. Point this at an external Calendly /
+  // Cal.com link instead if you'd rather use a scheduling widget.
+  bookingUrl: '/call',
   nav: [
     { label: 'The problem', href: '#problem' },
     { label: 'What we do', href: '#work' },

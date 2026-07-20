@@ -10,19 +10,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// A free-teardown request submitted from the site.
+// A lead submitted from the site — either a free-teardown request or a
+// phone-call request (distinguished by `kind`).
 model Lead {
   id             Int      @id @default(autoincrement())
+  kind           String   @default("teardown") // "teardown" | "call"
   name           String
-  email          String
-  storeUrl       String
+  email          String?  // required for teardowns, optional for call requests
+  phone          String?  // required for call requests
+  storeUrl       String?  // required for teardowns, optional for call requests
   platform       String?  // "Shopify" | "WooCommerce" | "Other" | null
   monthlyRevenue String?  // rough band, e.g. "50k-100k"
+  preferredTime  String?  // best time to call, e.g. "Weekday mornings (CET)"
   message        String?
   source         String   @default("website") // where the lead came from
   status         String   @default("NEW")      // "NEW" | "CONTACTED" | "WON" | "LOST"
   createdAt      DateTime @default(now())
 
+  @@index([kind])
   @@index([createdAt])
   @@index([status])
 }
