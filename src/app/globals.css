@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bone text-ink font-sans antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Editorial display headings */
+.font-display {
+  font-feature-settings: 'ss01', 'liga', 'kern';
+}
+
+/* Section eyebrow label */
+.eyebrow {
+  @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald;
+}
+
+.eyebrow::before {
+  content: '';
+  @apply inline-block h-px w-6 bg-emerald/60;
+}
+
+/* Thin top hairline for sections */
+.hairline {
+  @apply border-t border-ink/10;
+}
+
+/* Reusable pill button */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald;
+}
+
+.btn-primary {
+  @apply btn bg-ink text-bone hover:bg-emerald hover:-translate-y-0.5 shadow-[0_1px_0_rgba(0,0,0,0.04)];
+}
+
+.btn-signal {
+  @apply btn bg-signal text-ink hover:brightness-105 hover:-translate-y-0.5;
+}
+
+.btn-ghost {
+  @apply btn border border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-bone;
+}
+
+.btn-ghost-light {
+  @apply btn border border-bone/25 text-bone hover:bg-bone hover:text-ink;
+}
+
+/* Card */
+.card {
+  @apply rounded-card border border-ink/10 bg-bone-100 p-7 transition-all duration-200;
+}
+
+.card-hover:hover {
+  @apply -translate-y-1 border-ink/20 shadow-[0_18px_40px_-24px_rgba(20,20,15,0.4)];
+}
+
+/* Form fields */
+.field {
+  @apply w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-500 transition-colors focus:border-emerald focus:outline-none focus:ring-2 focus:ring-emerald/20;
+}
+
+.field-label {
+  @apply mb-1.5 block text-xs font-semibold uppercase tracking-wider text-ink-600;
+}
+
+/* Fade-up on scroll */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

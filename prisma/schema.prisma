@@ -1,0 +1,28 @@
+// prisma/schema.prisma
+// Maubourg Studio — teardown / lead capture.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// A free-teardown request submitted from the site.
+model Lead {
+  id             Int      @id @default(autoincrement())
+  name           String
+  email          String
+  storeUrl       String
+  platform       String?  // "Shopify" | "WooCommerce" | "Other" | null
+  monthlyRevenue String?  // rough band, e.g. "50k-100k"
+  message        String?
+  source         String   @default("website") // where the lead came from
+  status         String   @default("NEW")      // "NEW" | "CONTACTED" | "WON" | "LOST"
+  createdAt      DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([status])
+}
