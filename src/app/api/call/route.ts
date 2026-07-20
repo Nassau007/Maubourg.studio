@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { sendLeadNotification } from '@/lib/email';
+import { getDictionary } from '@/lib/i18n';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // Loose phone check: at least 7 digits, allows +, spaces, (), -, .
@@ -21,6 +22,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid request body.' }, { status: 400 });
   }
 
+  const t = getDictionary(String(body.lang ?? 'en')).errors;
+
   const name = String(body.name ?? '').trim();
   const phone = String(body.phone ?? '').trim();
   const email = body.email ? String(body.email).trim() : '';
@@ -34,12 +37,12 @@ export async function POST(request: Request) {
   }
 
   const errors: Record<string, string> = {};
-  if (!name) errors.name = 'Please add your name.';
-  if (!PHONE_RE.test(phone)) errors.phone = 'Please add a valid phone number.';
-  if (email && !EMAIL_RE.test(email)) errors.email = 'That email looks off.';
+  if (!name) errors.name = t.name;
+  if (!PHONE_RE.test(phone)) errors.phone = t.phone;
+  if (email && !EMAIL_RE.test(email)) errors.email = t.emailOptional;
 
   if (Object.keys(errors).length > 0) {
-    return NextResponse.json({ error: 'Please check the form.', fields: errors }, { status: 422 });
+    return NextResponse.json({ error: t.form, fields: errors }, { status: 422 });
   }
 
   try {
@@ -62,9 +65,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, id: lead.id }, { status: 201 });
   } catch (err) {
     console.error('Failed to save call request:', err);
-    return NextResponse.json(
-      { error: 'Something went wrong on our side. Please email us directly.' },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: t.server }, { status: 500 });
   }
 }

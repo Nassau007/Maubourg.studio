@@ -1,9 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { site } from '@/lib/site';
+import Link from 'next/link';
+import type { Dictionary } from '@/lib/i18n';
+import type { Locale } from '@/lib/i18n';
+import LanguageSwitcher from './LanguageSwitcher';
 
-export default function Nav() {
+export default function Nav({ dict, lang }: { dict: Dictionary['nav']; lang: Locale }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -14,6 +17,8 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const home = `/${lang}`;
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
@@ -23,62 +28,66 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-content items-center justify-between px-5 md:px-8">
-        <a href="#top" className="group flex items-center gap-2.5" aria-label={site.name}>
+        <Link href={home} className="group flex items-center gap-2.5" aria-label="Maubourg Studio">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-ink text-bone">
             <span className="font-display text-lg font-semibold leading-none">M</span>
           </span>
           <span className="font-display text-lg font-semibold tracking-tight text-ink">
             Maubourg<span className="text-emerald">.</span>
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-8 md:flex">
-          {site.nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
+          {dict.links.map((item) => (
+            <Link
+              key={item.hash}
+              href={`${home}${item.hash}`}
               className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
 
-        <div className="hidden md:block">
-          <a href="#teardown" className="btn-primary">
-            Get a free teardown
-          </a>
+        <div className="hidden items-center gap-4 md:flex">
+          <LanguageSwitcher current={lang} />
+          <Link href={`${home}#teardown`} className="btn-primary">
+            {dict.cta}
+          </Link>
         </div>
 
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink/15 md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-        >
-          <span className="text-lg leading-none">{open ? '×' : '≡'}</span>
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <LanguageSwitcher current={lang} />
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink/15"
+            aria-label="Menu"
+            aria-expanded={open}
+          >
+            <span className="text-lg leading-none">{open ? '×' : '≡'}</span>
+          </button>
+        </div>
       </nav>
 
       {open && (
         <div className="border-t border-ink/10 bg-bone px-5 pb-5 pt-2 md:hidden">
-          {site.nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
+          {dict.links.map((item) => (
+            <Link
+              key={item.hash}
+              href={`${home}${item.hash}`}
               onClick={() => setOpen(false)}
               className="block py-2.5 text-base font-medium text-ink-700"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#teardown"
+          <Link
+            href={`${home}#teardown`}
             onClick={() => setOpen(false)}
             className="btn-primary mt-3 w-full"
           >
-            Get a free teardown
-          </a>
+            {dict.cta}
+          </Link>
         </div>
       )}
     </header>

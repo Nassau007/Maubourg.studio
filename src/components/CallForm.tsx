@@ -1,20 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+import type { Dictionary, Locale } from '@/lib/i18n';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
-const TIMES = [
-  'Weekday mornings',
-  'Weekday afternoons',
-  'Weekday evenings',
-  'As soon as possible',
-];
-
-export default function CallForm() {
+export default function CallForm({ dict, lang }: { dict: Dictionary['call']; lang: Locale }) {
   const [status, setStatus] = useState<Status>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const f = dict.form;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,7 +24,7 @@ export default function CallForm() {
       const res = await fetch('/api/call', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, lang }),
       });
 
       if (res.ok) {
@@ -40,10 +35,10 @@ export default function CallForm() {
 
       const payload = await res.json().catch(() => ({}));
       if (payload.fields) setFieldErrors(payload.fields);
-      setErrorMsg(payload.error || 'Something went wrong. Please try again.');
+      setErrorMsg(payload.error || f.submit);
       setStatus('error');
     } catch {
-      setErrorMsg('Network error — please try again, or email us directly.');
+      setErrorMsg(f.submit);
       setStatus('error');
     }
   }
@@ -54,13 +49,10 @@ export default function CallForm() {
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald text-2xl text-bone">
           ✓
         </div>
-        <h3 className="mt-5 font-display text-2xl font-semibold text-ink">We&rsquo;ll call you.</h3>
-        <p className="mt-2 max-w-sm text-sm text-ink-600">
-          Thanks — we&rsquo;ve got your details and will call within one working day at the time you
-          picked. No pitch, just a useful conversation.
-        </p>
+        <h3 className="mt-5 font-display text-2xl font-semibold text-ink">{dict.success.title}</h3>
+        <p className="mt-2 max-w-sm text-sm text-ink-600">{dict.success.body}</p>
         <button onClick={() => setStatus('idle')} className="btn-ghost mt-6" type="button">
-          Request another call
+          {dict.success.again}
         </button>
       </div>
     );
@@ -86,21 +78,27 @@ export default function CallForm() {
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="name" className="field-label">
-              Your name
+              {f.name}
             </label>
-            <input id="name" name="name" type="text" className="field" placeholder="Jane Doe" />
+            <input
+              id="name"
+              name="name"
+              type="text"
+              className="field"
+              placeholder={f.namePlaceholder}
+            />
             {fieldErrors.name && <p className="mt-1 text-xs text-red-600">{fieldErrors.name}</p>}
           </div>
           <div>
             <label htmlFor="phone" className="field-label">
-              Phone number
+              {f.phone}
             </label>
             <input
               id="phone"
               name="phone"
               type="tel"
               className="field"
-              placeholder="+33 6 12 34 56 78"
+              placeholder={f.phonePlaceholder}
             />
             {fieldErrors.phone && <p className="mt-1 text-xs text-red-600">{fieldErrors.phone}</p>}
           </div>
@@ -109,13 +107,13 @@ export default function CallForm() {
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="preferredTime" className="field-label">
-              Best time to call
+              {f.preferredTime}
             </label>
             <select id="preferredTime" name="preferredTime" className="field" defaultValue="">
               <option value="" disabled>
-                Select…
+                {f.select}
               </option>
-              {TIMES.map((t) => (
+              {f.times.map((t) => (
                 <option key={t} value={t}>
                   {t}
                 </option>
@@ -124,14 +122,15 @@ export default function CallForm() {
           </div>
           <div>
             <label htmlFor="email" className="field-label">
-              Email <span className="font-normal normal-case text-ink-500">(optional)</span>
+              {f.email}{' '}
+              <span className="font-normal normal-case text-ink-500">{f.optional}</span>
             </label>
             <input
               id="email"
               name="email"
               type="email"
               className="field"
-              placeholder="jane@brand.com"
+              placeholder={f.emailPlaceholder}
             />
             {fieldErrors.email && <p className="mt-1 text-xs text-red-600">{fieldErrors.email}</p>}
           </div>
@@ -139,28 +138,29 @@ export default function CallForm() {
 
         <div>
           <label htmlFor="storeUrl" className="field-label">
-            Store URL <span className="font-normal normal-case text-ink-500">(optional)</span>
+            {f.storeUrl}{' '}
+            <span className="font-normal normal-case text-ink-500">{f.optional}</span>
           </label>
           <input
             id="storeUrl"
             name="storeUrl"
             type="text"
             className="field"
-            placeholder="brand.com"
+            placeholder={f.storeUrlPlaceholder}
           />
         </div>
 
         <div>
           <label htmlFor="message" className="field-label">
-            What&rsquo;s on your mind?{' '}
-            <span className="font-normal normal-case text-ink-500">(optional)</span>
+            {f.message}{' '}
+            <span className="font-normal normal-case text-ink-500">{f.optional}</span>
           </label>
           <textarea
             id="message"
             name="message"
             rows={3}
             className="field resize-none"
-            placeholder="A line on what you'd like to talk through."
+            placeholder={f.messagePlaceholder}
           />
         </div>
 
@@ -173,12 +173,10 @@ export default function CallForm() {
           disabled={status === 'submitting'}
           className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {status === 'submitting' ? 'Sending…' : 'Request my call →'}
+          {status === 'submitting' ? f.submitting : f.submit}
         </button>
 
-        <p className="text-center text-xs text-ink-500">
-          A real 15-minute call. No obligation, no hard sell.
-        </p>
+        <p className="text-center text-xs text-ink-500">{f.note}</p>
       </div>
     </form>
   );
