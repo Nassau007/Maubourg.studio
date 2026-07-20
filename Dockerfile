@@ -42,9 +42,10 @@ COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
 # SQLite database lives on persistent volume
 ENV DATABASE_URL="file:/data/maubourg.db"
 
-# Entrypoint: run migrations then start
+# Entrypoint: run migrations then start.
+# Strip any CR (Windows checkouts add CRLF, which breaks the shebang).
 COPY docker-entrypoint.sh ./
-RUN chmod +x docker-entrypoint.sh
+RUN sed -i 's/\r$//' docker-entrypoint.sh && chmod +x docker-entrypoint.sh
 
 # Run as root so we can write to the Railway-mounted volume
 # (Railway mounts volumes as root, nextjs user can't write to them)

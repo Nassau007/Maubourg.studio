@@ -1,0 +1,5 @@
+# Normalize line endings. Shell scripts MUST stay LF or the container
+# entrypoint fails with "No such file or directory" on Windows checkouts.
+* text=auto eol=lf
+*.sh text eol=lf
+docker-entrypoint.sh text eol=lf
