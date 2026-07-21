@@ -11,27 +11,29 @@ export const en = {
   },
 
   hero: {
-    badge: 'Conversion optimization & rebuilds · European ecommerce',
+    badge: 'AI RevOps studio · European ecommerce',
     title: 'Your store already has traffic.',
-    titleAccent: 'Let’s make more of it buy.',
+    titleAccent: 'Let’s make more of it buy — and run itself.',
     subtitle:
-      'We help European ecommerce brands earn more from the visitors they’re already paying for — through conversion optimization, and full rebuilds when the foundation won’t hold.',
+      'We help European ecommerce brands earn more from the visitors they’re already paying for — running the whole revenue operation, from conversion and retention to the AI agents that keep it moving.',
     ctaPrimary: 'Get a free store teardown →',
     ctaSecondary: 'Book a 15-min call',
     note: '8–10 fixes ranked by revenue impact. No strings, no pitch.',
     metrics: [
       { stat: '20–40%', label: 'of store revenue typically comes from email & SMS' },
       { stat: 'Every 1%', label: 'of lost conversion is traffic you already paid for' },
-      { stat: '3-month', label: 'minimum retainer — enough time for tests to prove out' },
+      { stat: 'Always on', label: 'agents that keep working between sprints, without headcount' },
     ],
   },
 
   marquee: {
-    heading: 'The stack we optimize',
+    heading: 'The stack we build on',
     items: [
       'Shopify',
       'WooCommerce',
       'Klaviyo',
+      'AI agents',
+      'Workflow automation',
       'GA4 & server-side tracking',
       'Meta & Google Ads',
       'A/B testing',
@@ -61,10 +63,10 @@ export const en = {
 
   services: {
     eyebrow: 'What we do',
-    title: 'One focus: more of your traffic buys.',
+    title: 'Your whole revenue operation — not one channel of it.',
     intro:
-      'We lead with conversion and retention — the levers that pay for themselves — and rebuild the store only when the foundation is what’s holding you back.',
-    tags: { core: 'Core', foundation: 'Foundation', included: 'Included' },
+      'Most agencies own a single channel. We run the system that turns traffic into repeat revenue — conversion, retention, paid media and the tracking underneath — with AI agents doing the repetitive work behind it. The store gets rebuilt only when the foundation is what’s holding you back.',
+    tags: { core: 'Core', ai: 'AI agents', foundation: 'Foundation', included: 'Included' },
     items: [
       {
         tag: 'Core',
@@ -82,6 +84,21 @@ export const en = {
         body: 'Meta, Google and TikTok spend managed to a target return — so a better-converting store compounds into cheaper acquisition.',
       },
       {
+        tag: 'AI agents',
+        title: 'Custom agents for your ops',
+        body: 'We build agents that take the repetitive work off your team — order triage, supplier chasing, returns, internal reporting. Scoped to your actual workflow, not a generic chatbot.',
+      },
+      {
+        tag: 'AI agents',
+        title: 'Catalog & merchandising agent',
+        body: 'An agent that writes and refreshes product copy, fills metadata gaps, and flags listings that underperform — across a catalog too big to edit by hand.',
+      },
+      {
+        tag: 'AI agents',
+        title: 'Support & pre-sales agent',
+        body: 'Answers the questions that stall a purchase — sizing, stock, shipping, returns — in your brand voice, with a clean handover to a human when it matters.',
+      },
+      {
         tag: 'Foundation',
         title: 'Store builds & rebuilds',
         body: 'Conversion-ready Shopify builds and replatforms, fixed scope, when the current foundation is holding sales back.',
@@ -93,8 +110,8 @@ export const en = {
       },
       {
         tag: 'Included',
-        title: 'Systematized delivery',
-        body: 'An automation-driven process means standardized reporting and onboarding — faster delivery, and nothing slips through.',
+        title: 'Agent-run reporting',
+        body: 'The same agents we build for clients run our own delivery — standardized reporting and onboarding, faster turnaround, and nothing slips through.',
       },
     ],
   },
@@ -140,8 +157,8 @@ export const en = {
         body: 'You see the revenue impact of every change — “lifted conversion from X% to Y%, adding €Z/month at the same ad spend.” Never vanity metrics.',
       },
       {
-        title: 'Systematized, not improvised',
-        body: 'An automation-driven process behind the scenes means faster delivery, standardized reporting, and nothing missed.',
+        title: 'We run on the agents we build',
+        body: 'Our own delivery — audits, reporting, test QA — is run by AI agents we built ourselves. You get faster turnaround, and proof the thing we sell you actually works.',
       },
     ],
   },
@@ -170,6 +187,11 @@ export const en = {
         name: 'Optimization sprint',
         price: '€1,500–3,500',
         desc: 'Fixed 2–3 week fix of the top audit findings.',
+      },
+      {
+        name: 'AI agent build',
+        price: '€3,000–8,000',
+        desc: 'One agent, scoped to a real workflow, built and handed over.',
       },
       {
         name: 'Rebuild / replatform',
@@ -251,12 +273,20 @@ export const en = {
     title: 'Questions, answered.',
     items: [
       {
+        q: 'What does “AI RevOps studio” actually mean?',
+        a: 'RevOps — revenue operations — means owning the whole system that turns traffic into repeat revenue, instead of one slice of it: conversion, retention, paid media and the tracking underneath. The AI part is that we build agents to run the repetitive pieces. In practice it means fewer agencies to coordinate, and one team accountable for the number.',
+      },
+      {
         q: 'Is the teardown really free?',
         a: 'Yes. We audit your live store and send back 8–10 fixes ranked by revenue impact, no charge and no obligation. If the fixes are worth acting on, we can talk about doing them together — but the list is yours either way.',
       },
       {
         q: 'Who do you work with?',
         a: 'Existing European ecommerce brands — typically Shopify or WooCommerce stores already doing meaningful traffic and revenue. We focus on Europe so we know your market and your compliance obligations.',
+      },
+      {
+        q: 'Do you actually build the AI agents, or just resell a tool?',
+        a: 'We build them. Each agent is scoped to one real workflow in your business, built against your systems, tested, and handed over with documentation — you own it. We use the same agents to run our own delivery, so we only ship what we trust ourselves.',
       },
       {
         q: 'Do I need a rebuild?',
@@ -278,6 +308,7 @@ export const en = {
     ctaAccent: 'we start this month.',
     ctaPrimary: 'Get my free teardown →',
     ctaSecondary: 'Book a 15-min call',
+    tagline: 'AI RevOps studio for European ecommerce',
     rights: 'All rights reserved.',
   },
 
@@ -351,9 +382,9 @@ export const en = {
   },
 
   meta: {
-    homeTitle: 'Maubourg Studio — Conversion optimization for European ecommerce',
+    homeTitle: 'Maubourg Studio — AI RevOps studio for European ecommerce',
     homeDescription:
-      "Your store already has traffic. Let's make more of it buy. Conversion optimization and rebuilds for European ecommerce brands — earn more from the visitors you're already paying for.",
+      "Your store already has traffic. Let's make more of it buy — and run itself. We run the whole revenue operation for European ecommerce brands — conversion, retention, paid media and the AI agents behind them.",
   },
 };
 

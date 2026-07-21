@@ -1,8 +1,18 @@
 # Maubourg Studio
 
-Marketing site for **Maubourg Studio** — a conversion-optimization & rebuild studio for European
-ecommerce brands. The site's job is to turn a store owner into a **free-teardown request**
-(primary CTA) or a **booked intro call** (secondary CTA).
+Marketing site for **Maubourg Studio** — an **AI RevOps studio** for European ecommerce brands. The
+site's job is to turn a store owner into a **free-teardown request** (primary CTA) or a **booked
+intro call** (secondary CTA).
+
+Positioning: "AI RevOps studio" is the category label (badge, tagline, meta, footer); the headline
+and body copy deliberately stay in plain outcome language, since RevOps is B2B vocabulary a DTC
+store owner may not use. A FAQ entry defines the term in plain words. The offer covers the whole
+revenue operation — conversion, retention, paid media, tracking — plus **AI agents** for store
+operators (ops, catalog/merchandising, support). The agents double as proof: the studio's own
+delivery runs on them.
+
+The free **store teardown** is intentionally left as the entry point — concrete and ecommerce-native
+— rather than being renamed to match the RevOps label.
 
 ## Stack
 

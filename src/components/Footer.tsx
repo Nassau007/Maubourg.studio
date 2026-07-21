@@ -37,7 +37,7 @@ export default function Footer({ dict, lang }: { dict: Dictionary['footer']; lan
             </span>
           </div>
 
-          <p className="text-sm text-bone/50">{site.tagline}</p>
+          <p className="text-sm text-bone/50">{dict.tagline}</p>
 
           <div className="flex items-center gap-6 text-sm">
             <a

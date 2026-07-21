@@ -13,11 +13,11 @@ export const fr: Dictionary = {
   },
 
   hero: {
-    badge: 'Optimisation de la conversion & refontes · E-commerce européen',
+    badge: 'Studio RevOps IA · E-commerce européen',
     title: 'Votre boutique a déjà du trafic.',
-    titleAccent: 'Transformons-le en ventes.',
+    titleAccent: 'Transformons-le en ventes — et automatisons le reste.',
     subtitle:
-      'Nous aidons les marques e-commerce européennes à tirer plus de revenus des visiteurs qu’elles paient déjà — grâce à l’optimisation de la conversion, et à des refontes complètes quand les fondations ne tiennent plus.',
+      'Nous aidons les marques e-commerce européennes à tirer plus de revenus des visiteurs qu’elles paient déjà — en pilotant toute l’opération de revenus, de la conversion et la rétention jusqu’aux agents IA qui la font tourner.',
     ctaPrimary: 'Recevez un diagnostic gratuit →',
     ctaSecondary: 'Réserver un appel de 15 min',
     note: '8 à 10 correctifs classés par impact sur le chiffre d’affaires. Sans engagement, sans argumentaire.',
@@ -25,18 +25,20 @@ export const fr: Dictionary = {
       { stat: '20–40 %', label: 'du chiffre d’affaires provient généralement de l’e-mail et du SMS' },
       { stat: 'Chaque 1 %', label: 'de conversion perdue, c’est du trafic déjà payé' },
       {
-        stat: '3 mois',
-        label: 'd’engagement minimum — le temps que les tests fassent leurs preuves',
+        stat: 'Toujours actifs',
+        label: 'des agents qui continuent à travailler entre les sprints, sans recruter',
       },
     ],
   },
 
   marquee: {
-    heading: 'Les outils que nous optimisons',
+    heading: 'La stack sur laquelle nous construisons',
     items: [
       'Shopify',
       'WooCommerce',
       'Klaviyo',
+      'Agents IA',
+      'Automatisation des workflows',
       'GA4 & tracking côté serveur',
       'Meta & Google Ads',
       'Tests A/B',
@@ -66,10 +68,10 @@ export const fr: Dictionary = {
 
   services: {
     eyebrow: 'Ce que nous faisons',
-    title: 'Un seul objectif : que davantage de votre trafic achète.',
+    title: 'Toute votre opération de revenus — pas un seul canal.',
     intro:
-      'Nous commençons par la conversion et la rétention — les leviers qui se rentabilisent d’eux-mêmes — et ne refondons la boutique que lorsque ce sont les fondations qui vous freinent.',
-    tags: { core: 'Cœur', foundation: 'Fondations', included: 'Inclus' },
+      'La plupart des agences ne pilotent qu’un canal. Nous pilotons le système qui transforme le trafic en revenus récurrents — conversion, rétention, campagnes payantes et le tracking en dessous — avec des agents IA qui prennent en charge le travail répétitif derrière. La boutique n’est refondue que lorsque ce sont les fondations qui vous freinent.',
+    tags: { core: 'Cœur', ai: 'Agents IA', foundation: 'Fondations', included: 'Inclus' },
     items: [
       {
         tag: 'Cœur',
@@ -87,6 +89,21 @@ export const fr: Dictionary = {
         body: 'Budgets Meta, Google et TikTok pilotés vers un retour cible — pour qu’une boutique qui convertit mieux réduise le coût d’acquisition.',
       },
       {
+        tag: 'Agents IA',
+        title: 'Agents sur mesure pour vos opérations',
+        body: 'Nous construisons des agents qui déchargent votre équipe du travail répétitif — traitement des commandes, relances fournisseurs, retours, reporting interne. Calibrés sur votre vrai workflow, pas un chatbot générique.',
+      },
+      {
+        tag: 'Agents IA',
+        title: 'Agent catalogue & merchandising',
+        body: 'Un agent qui rédige et actualise vos fiches produit, comble les métadonnées manquantes et signale les annonces qui sous-performent — sur un catalogue trop vaste pour être édité à la main.',
+      },
+      {
+        tag: 'Agents IA',
+        title: 'Agent support & avant-vente',
+        body: 'Il répond aux questions qui bloquent un achat — tailles, stock, livraison, retours — dans la voix de votre marque, avec un passage de relais propre à un humain quand c’est nécessaire.',
+      },
+      {
         tag: 'Fondations',
         title: 'Créations & refontes de boutique',
         body: 'Créations et migrations Shopify prêtes à convertir, périmètre fixe, quand les fondations actuelles freinent les ventes.',
@@ -98,8 +115,8 @@ export const fr: Dictionary = {
       },
       {
         tag: 'Inclus',
-        title: 'Exécution systématisée',
-        body: 'Un processus piloté par l’automatisation : reporting et onboarding standardisés — livraison plus rapide, et rien qui passe entre les mailles.',
+        title: 'Reporting piloté par agents',
+        body: 'Les agents que nous construisons pour nos clients pilotent aussi notre propre exécution : reporting et onboarding standardisés, livraison plus rapide, et rien qui passe entre les mailles.',
       },
     ],
   },
@@ -145,8 +162,8 @@ export const fr: Dictionary = {
         body: 'Vous voyez l’impact de chaque changement sur le chiffre d’affaires — « conversion passée de X % à Y %, +Z €/mois au même budget pub ». Jamais d’indicateurs de vanité.',
       },
       {
-        title: 'Systématisé, pas improvisé',
-        body: 'Un processus piloté par l’automatisation en coulisses : livraison plus rapide, reporting standardisé, et rien d’oublié.',
+        title: 'Nous tournons avec les agents que nous construisons',
+        body: 'Notre propre exécution — audits, reporting, contrôle des tests — est pilotée par des agents IA que nous avons construits nous-mêmes. Vous y gagnez en rapidité, et la preuve que ce que nous vous vendons fonctionne vraiment.',
       },
     ],
   },
@@ -175,6 +192,11 @@ export const fr: Dictionary = {
         name: 'Sprint d’optimisation',
         price: '1 500–3 500 €',
         desc: 'Correction en 2 à 3 semaines, périmètre fixe, des principaux points de l’audit.',
+      },
+      {
+        name: 'Développement d’agent IA',
+        price: '3 000–8 000 €',
+        desc: 'Un agent, calibré sur un workflow réel, construit et livré.',
       },
       {
         name: 'Refonte / migration',
@@ -257,12 +279,20 @@ export const fr: Dictionary = {
     title: 'Vos questions, nos réponses.',
     items: [
       {
+        q: 'Que veut dire « studio RevOps IA » concrètement ?',
+        a: 'RevOps — revenue operations — signifie piloter l’ensemble du système qui transforme le trafic en revenus récurrents, plutôt qu’une seule partie : conversion, rétention, campagnes payantes et le tracking en dessous. La partie IA, c’est que nous construisons des agents pour prendre en charge les tâches répétitives. Concrètement : moins d’agences à coordonner, et une seule équipe responsable du résultat.',
+      },
+      {
         q: 'Le diagnostic est-il vraiment gratuit ?',
         a: 'Oui. Nous auditons votre boutique en ligne et vous renvoyons 8 à 10 correctifs classés par impact, sans frais ni engagement. Si les correctifs valent la peine, nous pouvons parler de les mener ensemble — mais la liste est à vous dans tous les cas.',
       },
       {
         q: 'Avec qui travaillez-vous ?',
         a: 'Des marques e-commerce européennes existantes — généralement des boutiques Shopify ou WooCommerce qui génèrent déjà un trafic et un chiffre d’affaires significatifs. Nous nous concentrons sur l’Europe pour connaître votre marché et vos obligations de conformité.',
+      },
+      {
+        q: 'Construisez-vous vraiment les agents IA, ou revendez-vous un outil ?',
+        a: 'Nous les construisons. Chaque agent est calibré sur un workflow réel de votre entreprise, développé sur vos systèmes, testé, puis livré avec sa documentation — il vous appartient. Nous utilisons les mêmes agents pour notre propre exécution : nous ne livrons donc que ce en quoi nous avons nous-mêmes confiance.',
       },
       {
         q: 'Ai-je besoin d’une refonte ?',
@@ -284,6 +314,7 @@ export const fr: Dictionary = {
     ctaAccent: 'on démarre ce mois-ci.',
     ctaPrimary: 'Recevoir mon diagnostic gratuit →',
     ctaSecondary: 'Réserver un appel de 15 min',
+    tagline: 'Studio RevOps IA pour l’e-commerce européen',
     rights: 'Tous droits réservés.',
   },
 
@@ -357,8 +388,8 @@ export const fr: Dictionary = {
   },
 
   meta: {
-    homeTitle: 'Maubourg Studio — Optimisation de la conversion pour l’e-commerce européen',
+    homeTitle: 'Maubourg Studio — Studio RevOps IA pour l’e-commerce européen',
     homeDescription:
-      'Votre boutique a déjà du trafic. Transformons-le en ventes. Optimisation de la conversion et refontes pour les marques e-commerce européennes — tirez plus des visiteurs que vous payez déjà.',
+      'Votre boutique a déjà du trafic. Transformons-le en ventes — et automatisons le reste. Nous pilotons toute l’opération de revenus des marques e-commerce européennes — conversion, rétention, campagnes payantes et les agents IA derrière.',
   },
 };

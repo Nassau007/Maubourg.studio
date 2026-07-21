@@ -62,7 +62,7 @@ export default function Pricing({ dict, lang }: { dict: Dictionary['pricing']; l
 
         {/* One-off projects */}
         <Reveal>
-          <div className="mt-5 grid gap-5 sm:grid-cols-2">
+          <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {dict.project.map((p) => (
               <div key={p.name} className="card flex items-center justify-between gap-4">
                 <div>
