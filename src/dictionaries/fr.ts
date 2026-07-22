@@ -53,11 +53,11 @@ export const fr: Dictionary = {
     pains: [
       {
         title: 'Vous payez pour du trafic qui repart',
-        body: 'Les dépenses en publicité et en SEO grimpent, mais trop de visiteurs arrivent, regardent et repartent — sans jamais ajouter au panier.',
+        body: 'Les dépenses en publicité et en SEO grimpent, mais trop de visiteurs arrivent, regardent et repartent sans jamais ajouter au panier.',
       },
       {
-        title: 'Vous soupçonnez une fuite — sans voir où',
-        body: 'La perte se situe quelque part entre la fiche produit et le paiement. Deviner coûte cher ; tester à l’aveugle, c’est pire.',
+        title: 'Vous soupçonnez une fuite - sans voir où',
+        body: 'La perte se situe quelque part entre la fiche produit et le paiement. Deviner coûte cher, tester à l’aveugle encore plus.',
       },
       {
         title: 'Ce chiffre d’affaires est déjà à portée',
@@ -68,7 +68,7 @@ export const fr: Dictionary = {
 
   services: {
     eyebrow: 'Ce que nous faisons',
-    title: 'Toute votre opération de revenus — pas un seul canal.',
+    title: 'Toute votre RevOps - pas un seul canal.',
     intro:
       'La plupart des agences ne pilotent qu’un canal. Nous pilotons le système qui transforme le trafic en revenus récurrents — conversion, rétention, campagnes payantes et le tracking en dessous — avec des agents IA qui prennent en charge le travail répétitif derrière. La boutique n’est refondue que lorsque ce sont les fondations qui vous freinent.',
     tags: { core: 'Cœur', ai: 'Agents IA', foundation: 'Fondations', included: 'Inclus' },
@@ -86,22 +86,22 @@ export const fr: Dictionary = {
       {
         tag: 'Cœur',
         title: 'Gestion des campagnes payantes',
-        body: 'Budgets Meta, Google et TikTok pilotés vers un retour cible — pour qu’une boutique qui convertit mieux réduise le coût d’acquisition.',
+        body: 'Budgets Meta, Google et TikTok pilotés vers un retour cible pour réduire le coût d’acquisition.',
       },
       {
         tag: 'Agents IA',
         title: 'Agents sur mesure pour vos opérations',
-        body: 'Nous construisons des agents qui déchargent votre équipe du travail répétitif — traitement des commandes, relances fournisseurs, retours, reporting interne. Calibrés sur votre vrai workflow, pas un chatbot générique.',
+        body: 'Nous construisons des agents qui déchargent votre équipe du travail répétitif : traitement des commandes, relances fournisseurs, retours, reporting interne. Calibrés sur votre vrai workflow, pas un chatbot générique.',
       },
       {
         tag: 'Agents IA',
         title: 'Agent catalogue & merchandising',
-        body: 'Un agent qui rédige et actualise vos fiches produit, comble les métadonnées manquantes et signale les annonces qui sous-performent — sur un catalogue trop vaste pour être édité à la main.',
+        body: 'Un agent qui rédige et actualise vos fiches produit, comble les métadonnées manquantes et signale les annonces et pages produit qui sous-performent.',
       },
       {
         tag: 'Agents IA',
         title: 'Agent support & avant-vente',
-        body: 'Il répond aux questions qui bloquent un achat — tailles, stock, livraison, retours — dans la voix de votre marque, avec un passage de relais propre à un humain quand c’est nécessaire.',
+        body: 'Il répond aux questions qui bloquent un achat : tailles, stock, livraison, retours etc. dans la voix de votre marque, avec un passage de relais propre à un humain quand c’est nécessaire.',
       },
       {
         tag: 'Fondations',
@@ -111,7 +111,7 @@ export const fr: Dictionary = {
       {
         tag: 'Fondations',
         title: 'Analytics & tracking',
-        body: 'GA4, tracking côté serveur et consent mode configurés correctement — pour que chaque gain soit mesurable et conforme au RGPD.',
+        body: 'GA4, tracking côté serveur et consent mode configurés correctement pour que chaque conversion soit mesurable et conforme au RGPD.',
       },
       {
         tag: 'Inclus',
