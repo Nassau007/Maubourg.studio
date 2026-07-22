@@ -15,9 +15,9 @@ export const fr: Dictionary = {
   hero: {
     badge: 'Studio RevOps IA · E-commerce européen',
     title: 'Votre boutique a déjà du trafic.',
-    titleAccent: 'Transformons-le en ventes — et automatisons le reste.',
+    titleAccent: 'Transformons-le en ventes. Et automatisons le reste.',
     subtitle:
-      'Nous aidons les marques e-commerce européennes à tirer plus de revenus des visiteurs qu’elles paient déjà — en pilotant toute l’opération de revenus, de la conversion et la rétention jusqu’aux agents IA qui la font tourner.',
+      'Nous aidons les marques e-commerce européennes à tirer plus de revenus des visiteurs qu’elles paient déjà, en pilotant toute l’opération de revenus, de la conversion et la rétention jusqu’aux agents IA qui la font tourner.',
     ctaPrimary: 'Recevez un diagnostic gratuit →',
     ctaSecondary: 'Réserver un appel de 15 min',
     note: '8 à 10 correctifs classés par impact sur le chiffre d’affaires. Sans engagement, sans argumentaire.',
@@ -70,13 +70,13 @@ export const fr: Dictionary = {
     eyebrow: 'Ce que nous faisons',
     title: 'Toute votre RevOps - pas un seul canal.',
     intro:
-      'La plupart des agences ne pilotent qu’un canal. Nous pilotons le système qui transforme le trafic en revenus récurrents — conversion, rétention, campagnes payantes et le tracking en dessous — avec des agents IA qui prennent en charge le travail répétitif derrière. La boutique n’est refondue que lorsque ce sont les fondations qui vous freinent.',
+      'La plupart des agences ne pilotent qu’un canal. Nous pilotons le système qui transforme le trafic en revenus récurrents : conversion, rétention, campagnes payantes et le tracking en dessous, avec des agents IA qui prennent en charge le travail répétitif derrière. La boutique n’est refondue que lorsque ce sont les fondations qui vous freinent.',
     tags: { core: 'Cœur', ai: 'Agents IA', foundation: 'Fondations', included: 'Inclus' },
     items: [
       {
         tag: 'Cœur',
         title: 'Optimisation du taux de conversion',
-        body: 'Tests A/B continus sur les fiches produit, le panier et le checkout — les fuites les plus rentables d’abord. Vous voyez l’impact sur le chiffre d’affaires, pas des indicateurs de vanité.',
+        body: 'Tests A/B continus sur les fiches produit, le panier et le checkout, les fuites les plus rentables d’abord. Vous voyez l’impact sur le chiffre d’affaires, pas des indicateurs de vanité.',
       },
       {
         tag: 'Cœur',
@@ -130,19 +130,19 @@ export const fr: Dictionary = {
         step: '01',
         name: 'Diagnostic',
         price: 'Gratuit',
-        body: 'Nous auditons votre boutique et repérons précisément où les ventes fuient — 8 à 10 correctifs classés par impact sur le chiffre d’affaires. À vous de le garder, que l’on travaille ensemble ou non.',
+        body: 'Nous auditons votre boutique et repérons précisément où les ventes fuient : 8 à 10 correctifs classés par impact sur le chiffre d’affaires. À vous de le garder, que l’on travaille ensemble ou non.',
       },
       {
         step: '02',
         name: 'Sprint',
         price: 'Périmètre fixe',
-        body: 'Nous livrons d’abord les correctifs au meilleur ROI, en un sprint concentré de 2 à 3 semaines — ou nous refondons la boutique quand les fondations ne tiennent plus. Adapté à votre trésorerie, sans engagement long pour démarrer.',
+        body: 'Nous livrons d’abord les correctifs au meilleur ROI, en un sprint concentré de 2 à 3 semaines, ou nous refondons la boutique quand les fondations ne tiennent plus. Adapté à votre trésorerie, sans engagement long pour démarrer.',
       },
       {
         step: '03',
         name: 'Accompagnement',
         price: 'Mensuel',
-        body: 'Nous menons des tests A/B en continu pour faire progresser la conversion mois après mois. C’est là que se jouent les vrais gains — et la vraie relation.',
+        body: 'Nous menons des tests A/B en continu pour faire progresser la conversion mois après mois. C’est là que se jouent les vrais gains, et la vraie relation.',
       },
     ],
   },
@@ -155,15 +155,15 @@ export const fr: Dictionary = {
     points: [
       {
         title: 'Focalisés sur l’Europe',
-        body: 'Nous travaillons uniquement avec des boutiques européennes existantes — nous connaissons donc votre marché, vos acheteurs et vos obligations de conformité dès le premier appel.',
+        body: 'Nous travaillons uniquement avec des boutiques européennes existantes, nous connaissons donc votre marché, vos acheteurs et vos obligations de conformité dès le premier appel.',
       },
       {
         title: 'Tout est mesuré',
-        body: 'Vous voyez l’impact de chaque changement sur le chiffre d’affaires — « conversion passée de X % à Y %, +Z €/mois au même budget pub ». Jamais d’indicateurs de vanité.',
+        body: 'Vous voyez l’impact de chaque changement sur le chiffre d’affaires : « conversion passée de X % à Y %, +Z €/mois au même budget pub ». Jamais d’indicateurs de vanité.',
       },
       {
         title: 'Nous tournons avec les agents que nous construisons',
-        body: 'Notre propre exécution — audits, reporting, contrôle des tests — est pilotée par des agents IA que nous avons construits nous-mêmes. Vous y gagnez en rapidité, et la preuve que ce que nous vous vendons fonctionne vraiment.',
+        body: 'Notre propre exécution (audits, reporting, contrôle des tests) est pilotée par des agents IA que nous avons construits nous-mêmes. Vous y gagnez en rapidité, et la preuve que ce que nous vous vendons fonctionne vraiment.',
       },
     ],
   },
@@ -204,7 +204,7 @@ export const fr: Dictionary = {
         desc: 'Nouvelle boutique Shopify prête à convertir, périmètre fixe.',
       },
     ],
-    retainersHeading: 'Accompagnements mensuels — là où tout se capitalise',
+    retainersHeading: 'Accompagnements mensuels : là où tout se capitalise',
     mostPopular: 'Le plus choisi',
     retainerCta: 'Commencer par un diagnostic',
     perMonth: '/mois',
@@ -233,11 +233,11 @@ export const fr: Dictionary = {
     eyebrow: 'Diagnostic gratuit',
     title: 'Recevez 8 à 10 correctifs classés par impact sur le chiffre d’affaires.',
     intro:
-      'Dites-nous où se trouve votre boutique et nous vous renvoyons un court diagnostic — les fuites au meilleur ROI d’abord, plus les deux ou trois que vous pourriez déployer cette semaine. Gratuit, et à vous de le garder.',
+      'Dites-nous où se trouve votre boutique et nous vous renvoyons un court diagnostic : les fuites au meilleur ROI d’abord, plus les deux ou trois que vous pourriez déployer cette semaine. Gratuit, et à vous de le garder.',
     points: [
-      'Un vrai audit de votre boutique en ligne — pas une checklist générique',
+      'Un vrai audit de votre boutique en ligne, pas une checklist générique',
       'Des points classés par impact × effort, pour savoir par où commencer',
-      'Sans engagement — prenez la liste et foncez, ou parlons-en',
+      'Sans engagement : prenez la liste et foncez, ou parlons-en',
     ],
     talkPrefix: 'Vous préférez d’abord échanger ?',
     talkLink: 'Réserver un appel de 15 minutes →',
@@ -280,19 +280,19 @@ export const fr: Dictionary = {
     items: [
       {
         q: 'Que veut dire « studio RevOps IA » concrètement ?',
-        a: 'RevOps — revenue operations — signifie piloter l’ensemble du système qui transforme le trafic en revenus récurrents, plutôt qu’une seule partie : conversion, rétention, campagnes payantes et le tracking en dessous. La partie IA, c’est que nous construisons des agents pour prendre en charge les tâches répétitives. Concrètement : moins d’agences à coordonner, et une seule équipe responsable du résultat.',
+        a: 'RevOps (revenue operations) signifie piloter l’ensemble du système qui transforme le trafic en revenus récurrents, plutôt qu’une seule partie : conversion, rétention, campagnes payantes et le tracking en dessous. La partie IA, c’est que nous construisons des agents pour prendre en charge les tâches répétitives. Concrètement : moins d’agences à coordonner, et une seule équipe responsable du résultat.',
       },
       {
         q: 'Le diagnostic est-il vraiment gratuit ?',
-        a: 'Oui. Nous auditons votre boutique en ligne et vous renvoyons 8 à 10 correctifs classés par impact, sans frais ni engagement. Si les correctifs valent la peine, nous pouvons parler de les mener ensemble — mais la liste est à vous dans tous les cas.',
+        a: 'Oui. Nous auditons votre boutique en ligne et vous renvoyons 8 à 10 correctifs classés par impact, sans frais ni engagement. Si les correctifs valent la peine, nous pouvons parler de les mener ensemble, mais la liste est à vous dans tous les cas.',
       },
       {
         q: 'Avec qui travaillez-vous ?',
-        a: 'Des marques e-commerce européennes existantes — généralement des boutiques Shopify ou WooCommerce qui génèrent déjà un trafic et un chiffre d’affaires significatifs. Nous nous concentrons sur l’Europe pour connaître votre marché et vos obligations de conformité.',
+        a: 'Des marques e-commerce européennes existantes, généralement des boutiques Shopify ou WooCommerce qui génèrent déjà un trafic et un chiffre d’affaires significatifs. Nous nous concentrons sur l’Europe pour connaître votre marché et vos obligations de conformité.',
       },
       {
         q: 'Construisez-vous vraiment les agents IA, ou revendez-vous un outil ?',
-        a: 'Nous les construisons. Chaque agent est calibré sur un workflow réel de votre entreprise, développé sur vos systèmes, testé, puis livré avec sa documentation — il vous appartient. Nous utilisons les mêmes agents pour notre propre exécution : nous ne livrons donc que ce en quoi nous avons nous-mêmes confiance.',
+        a: 'Nous les construisons. Chaque agent est calibré sur un workflow réel de votre entreprise, développé sur vos systèmes, testé, puis livré avec sa documentation. Il vous appartient. Nous utilisons les mêmes agents pour notre propre exécution : nous ne livrons donc que ce en quoi nous avons nous-mêmes confiance.',
       },
       {
         q: 'Ai-je besoin d’une refonte ?',
@@ -300,11 +300,11 @@ export const fr: Dictionary = {
       },
       {
         q: 'En combien de temps verrai-je des résultats ?',
-        a: 'Les gains rapides d’un sprint peuvent être déployés en quelques semaines. Les gains cumulés viennent des tests continus dans l’accompagnement — c’est pourquoi nous demandons 3 mois minimum, le temps que les tests fassent leurs preuves.',
+        a: 'Les gains rapides d’un sprint peuvent être déployés en quelques semaines. Les gains cumulés viennent des tests continus dans l’accompagnement, c’est pourquoi nous demandons 3 mois minimum, le temps que les tests fassent leurs preuves.',
       },
       {
         q: 'Comment mesurez-vous le succès ?',
-        a: 'Par le chiffre d’affaires, pas par des indicateurs de vanité. Chaque changement est rattaché à un chiffre — taux de conversion amélioré, revenu ajouté au même budget pub. Si nous ne pouvons pas le mesurer, nous ne le revendiquons pas.',
+        a: 'Par le chiffre d’affaires, pas par des indicateurs de vanité. Chaque changement est rattaché à un chiffre : taux de conversion amélioré, revenu ajouté au même budget pub. Si nous ne pouvons pas le mesurer, nous ne le revendiquons pas.',
       },
     ],
   },
@@ -319,19 +319,19 @@ export const fr: Dictionary = {
   },
 
   call: {
-    metaTitle: 'Demander un appel — Maubourg Studio',
+    metaTitle: 'Demander un appel - Maubourg Studio',
     metaDescription:
-      'Laissez votre numéro et nous vous rappelons — un vrai échange de 15 minutes sur la conversion de votre boutique, sans engagement.',
+      'Laissez votre numéro et nous vous rappelons : un vrai échange de 15 minutes sur la conversion de votre boutique, sans engagement.',
     back: '← Retour à l’accueil',
     eyebrow: 'Demander un appel',
-    title: 'Parlons de votre boutique —',
+    title: 'Parlons de votre boutique.',
     titleAccent: 'nous vous rappelons.',
     subtitle:
       'Laissez votre numéro et le meilleur moment pour vous joindre. Nous vous rappelons sous un jour ouvré pour un échange rapide et sans pression sur les points où votre conversion fuit.',
     points: [
       {
         title: 'Un vrai échange, pas une démo',
-        body: '15 minutes sur les endroits où votre boutique perd des ventes et ce qu’il vaut la peine de corriger en premier — utile que l’on travaille ensemble ou non.',
+        body: '15 minutes sur les endroits où votre boutique perd des ventes et ce qu’il vaut la peine de corriger en premier, utile que l’on travaille ensemble ou non.',
       },
       {
         title: 'Nous vous appelons, à votre rythme',
@@ -370,7 +370,7 @@ export const fr: Dictionary = {
     },
     success: {
       title: 'Nous vous rappelons.',
-      body: 'Merci — nous avons vos coordonnées et vous rappellerons sous un jour ouvré au moment choisi. Pas d’argumentaire, juste un échange utile.',
+      body: 'Merci, nous avons vos coordonnées et vous rappellerons sous un jour ouvré au moment choisi. Pas d’argumentaire, juste un échange utile.',
       again: 'Demander un autre appel',
     },
   },
@@ -384,12 +384,12 @@ export const fr: Dictionary = {
     form: 'Merci de vérifier le formulaire.',
     generic: 'Une erreur est survenue. Merci de réessayer.',
     server: 'Une erreur est survenue de notre côté. Merci de nous écrire directement.',
-    network: 'Erreur réseau — réessayez, ou écrivez-nous directement.',
+    network: 'Erreur réseau. Réessayez, ou écrivez-nous directement.',
   },
 
   meta: {
-    homeTitle: 'Maubourg Studio — Studio RevOps IA pour l’e-commerce européen',
+    homeTitle: 'Maubourg Studio - Studio RevOps IA pour l’e-commerce européen',
     homeDescription:
-      'Votre boutique a déjà du trafic. Transformons-le en ventes — et automatisons le reste. Nous pilotons toute l’opération de revenus des marques e-commerce européennes — conversion, rétention, campagnes payantes et les agents IA derrière.',
+      'Votre boutique a déjà du trafic. Transformons-le en ventes. Et automatisons le reste. Nous pilotons toute l’opération de revenus des marques e-commerce européennes : conversion, rétention, campagnes payantes et les agents IA derrière.',
   },
 };

@@ -13,9 +13,9 @@ export const en = {
   hero: {
     badge: 'AI RevOps studio · European ecommerce',
     title: 'Your store already has traffic.',
-    titleAccent: 'Let’s make more of it buy — and run itself.',
+    titleAccent: 'Let’s make more of it buy. And run itself.',
     subtitle:
-      'We help European ecommerce brands earn more from the visitors they’re already paying for — running the whole revenue operation, from conversion and retention to the AI agents that keep it moving.',
+      'We help European ecommerce brands earn more from the visitors they’re already paying for, running the whole revenue operation, from conversion and retention to the AI agents that keep it moving.',
     ctaPrimary: 'Get a free store teardown →',
     ctaSecondary: 'Book a 15-min call',
     note: '8–10 fixes ranked by revenue impact. No strings, no pitch.',
@@ -48,10 +48,10 @@ export const en = {
     pains: [
       {
         title: 'You’re paying for traffic that leaves',
-        body: 'Spend on ads and SEO keeps climbing, but too many visitors land, look, and go — without ever adding to cart.',
+        body: 'Spend on ads and SEO keeps climbing, but too many visitors land, look, and go, without ever adding to cart.',
       },
       {
-        title: 'You suspect a leak — you can’t see where',
+        title: 'You suspect a leak, but you can’t see where',
         body: 'The drop-off is somewhere between the product page and the payment step. Guessing is expensive; testing blind is worse.',
       },
       {
@@ -63,15 +63,15 @@ export const en = {
 
   services: {
     eyebrow: 'What we do',
-    title: 'Your whole revenue operation — not one channel of it.',
+    title: 'Your whole revenue operation, not one channel of it.',
     intro:
-      'Most agencies own a single channel. We run the system that turns traffic into repeat revenue — conversion, retention, paid media and the tracking underneath — with AI agents doing the repetitive work behind it. The store gets rebuilt only when the foundation is what’s holding you back.',
+      'Most agencies own a single channel. We run the system that turns traffic into repeat revenue: conversion, retention, paid media and the tracking underneath, with AI agents doing the repetitive work behind it. The store gets rebuilt only when the foundation is what’s holding you back.',
     tags: { core: 'Core', ai: 'AI agents', foundation: 'Foundation', included: 'Included' },
     items: [
       {
         tag: 'Core',
         title: 'Conversion rate optimization',
-        body: 'Continuous A/B testing across product pages, cart and checkout — the highest-value leaks first. You see the revenue impact, not vanity metrics.',
+        body: 'Continuous A/B testing across product pages, cart and checkout, the highest-value leaks first. You see the revenue impact, not vanity metrics.',
       },
       {
         tag: 'Core',
@@ -81,22 +81,22 @@ export const en = {
       {
         tag: 'Core',
         title: 'Paid media management',
-        body: 'Meta, Google and TikTok spend managed to a target return — so a better-converting store compounds into cheaper acquisition.',
+        body: 'Meta, Google and TikTok spend managed to a target return, so a better-converting store compounds into cheaper acquisition.',
       },
       {
         tag: 'AI agents',
         title: 'Custom agents for your ops',
-        body: 'We build agents that take the repetitive work off your team — order triage, supplier chasing, returns, internal reporting. Scoped to your actual workflow, not a generic chatbot.',
+        body: 'We build agents that take the repetitive work off your team: order triage, supplier chasing, returns, internal reporting. Scoped to your actual workflow, not a generic chatbot.',
       },
       {
         tag: 'AI agents',
         title: 'Catalog & merchandising agent',
-        body: 'An agent that writes and refreshes product copy, fills metadata gaps, and flags listings that underperform — across a catalog too big to edit by hand.',
+        body: 'An agent that writes and refreshes product copy, fills metadata gaps, and flags listings that underperform, across a catalog too big to edit by hand.',
       },
       {
         tag: 'AI agents',
         title: 'Support & pre-sales agent',
-        body: 'Answers the questions that stall a purchase — sizing, stock, shipping, returns — in your brand voice, with a clean handover to a human when it matters.',
+        body: 'Answers the questions that stall a purchase (sizing, stock, shipping, returns) in your brand voice, with a clean handover to a human when it matters.',
       },
       {
         tag: 'Foundation',
@@ -106,12 +106,12 @@ export const en = {
       {
         tag: 'Foundation',
         title: 'Analytics & tracking',
-        body: 'GA4, server-side tracking and consent mode set up properly — so every win is measurable and GDPR-compliant.',
+        body: 'GA4, server-side tracking and consent mode set up properly, so every win is measurable and GDPR-compliant.',
       },
       {
         tag: 'Included',
         title: 'Agent-run reporting',
-        body: 'The same agents we build for clients run our own delivery — standardized reporting and onboarding, faster turnaround, and nothing slips through.',
+        body: 'The same agents we build for clients run our own delivery: standardized reporting and onboarding, faster turnaround, and nothing slips through.',
       },
     ],
   },
@@ -125,19 +125,19 @@ export const en = {
         step: '01',
         name: 'Teardown',
         price: 'Free',
-        body: 'We audit your store and pinpoint exactly where sales leak — 8 to 10 fixes ranked by revenue impact. Yours to keep whether we work together or not.',
+        body: 'We audit your store and pinpoint exactly where sales leak: 8 to 10 fixes ranked by revenue impact. Yours to keep whether we work together or not.',
       },
       {
         step: '02',
         name: 'Sprint',
         price: 'Fixed scope',
-        body: 'We ship the highest-ROI fixes first, in a focused 2–3 week sprint — or rebuild the store when the foundation won’t hold. Cash-flow friendly, no long commitment to start.',
+        body: 'We ship the highest-ROI fixes first, in a focused 2–3 week sprint, or rebuild the store when the foundation won’t hold. Cash-flow friendly, no long commitment to start.',
       },
       {
         step: '03',
         name: 'Retainer',
         price: 'Monthly',
-        body: 'We run continuous A/B testing to compound conversion month over month. This is where the real gains — and the real relationship — live.',
+        body: 'We run continuous A/B testing to compound conversion month over month. This is where the real gains, and the real relationship, live.',
       },
     ],
   },
@@ -150,15 +150,15 @@ export const en = {
     points: [
       {
         title: 'European by focus',
-        body: 'We work only with existing European stores — so we know your market, your buyers and your compliance obligations from the first call.',
+        body: 'We work only with existing European stores, so we know your market, your buyers and your compliance obligations from the first call.',
       },
       {
         title: 'Everything is measured',
-        body: 'You see the revenue impact of every change — “lifted conversion from X% to Y%, adding €Z/month at the same ad spend.” Never vanity metrics.',
+        body: 'You see the revenue impact of every change: “lifted conversion from X% to Y%, adding €Z/month at the same ad spend.” Never vanity metrics.',
       },
       {
         title: 'We run on the agents we build',
-        body: 'Our own delivery — audits, reporting, test QA — is run by AI agents we built ourselves. You get faster turnaround, and proof the thing we sell you actually works.',
+        body: 'Our own delivery (audits, reporting, test QA) is run by AI agents we built ourselves. You get faster turnaround, and proof the thing we sell you actually works.',
       },
     ],
   },
@@ -199,7 +199,7 @@ export const en = {
         desc: 'New conversion-ready Shopify build, fixed scope.',
       },
     ],
-    retainersHeading: 'Monthly retainers — where it compounds',
+    retainersHeading: 'Monthly retainers: where it compounds',
     mostPopular: 'Most popular',
     retainerCta: 'Start with a teardown',
     perMonth: '/mo',
@@ -228,11 +228,11 @@ export const en = {
     eyebrow: 'Free store teardown',
     title: 'Get 8–10 fixes ranked by revenue impact.',
     intro:
-      'Tell us where your store lives and we’ll send back a short teardown — the highest-ROI leaks first, plus the two or three you could ship this week. Free, and yours to keep.',
+      'Tell us where your store lives and we’ll send back a short teardown: the highest-ROI leaks first, plus the two or three you could ship this week. Free, and yours to keep.',
     points: [
-      'A real audit of your live store — not a generic checklist',
+      'A real audit of your live store, not a generic checklist',
       'Issues ranked by impact × effort, so you know what to do first',
-      'No obligation — take the list and run, or we talk',
+      'No obligation: take the list and run, or we talk',
     ],
     talkPrefix: 'Prefer to talk first?',
     talkLink: 'Book a 15-minute call →',
@@ -274,19 +274,19 @@ export const en = {
     items: [
       {
         q: 'What does “AI RevOps studio” actually mean?',
-        a: 'RevOps — revenue operations — means owning the whole system that turns traffic into repeat revenue, instead of one slice of it: conversion, retention, paid media and the tracking underneath. The AI part is that we build agents to run the repetitive pieces. In practice it means fewer agencies to coordinate, and one team accountable for the number.',
+        a: 'RevOps (revenue operations) means owning the whole system that turns traffic into repeat revenue, instead of one slice of it: conversion, retention, paid media and the tracking underneath. The AI part is that we build agents to run the repetitive pieces. In practice it means fewer agencies to coordinate, and one team accountable for the number.',
       },
       {
         q: 'Is the teardown really free?',
-        a: 'Yes. We audit your live store and send back 8–10 fixes ranked by revenue impact, no charge and no obligation. If the fixes are worth acting on, we can talk about doing them together — but the list is yours either way.',
+        a: 'Yes. We audit your live store and send back 8–10 fixes ranked by revenue impact, no charge and no obligation. If the fixes are worth acting on, we can talk about doing them together, but the list is yours either way.',
       },
       {
         q: 'Who do you work with?',
-        a: 'Existing European ecommerce brands — typically Shopify or WooCommerce stores already doing meaningful traffic and revenue. We focus on Europe so we know your market and your compliance obligations.',
+        a: 'Existing European ecommerce brands, typically Shopify or WooCommerce stores already doing meaningful traffic and revenue. We focus on Europe so we know your market and your compliance obligations.',
       },
       {
         q: 'Do you actually build the AI agents, or just resell a tool?',
-        a: 'We build them. Each agent is scoped to one real workflow in your business, built against your systems, tested, and handed over with documentation — you own it. We use the same agents to run our own delivery, so we only ship what we trust ourselves.',
+        a: 'We build them. Each agent is scoped to one real workflow in your business, built against your systems, tested, and handed over with documentation. You own it. We use the same agents to run our own delivery, so we only ship what we trust ourselves.',
       },
       {
         q: 'Do I need a rebuild?',
@@ -294,11 +294,11 @@ export const en = {
       },
       {
         q: 'How fast will I see results?',
-        a: 'The quick wins from a sprint can ship within weeks. Compounding gains come from continuous testing on a retainer — which is why we ask for a 3-month minimum, so tests have time to prove out.',
+        a: 'The quick wins from a sprint can ship within weeks. Compounding gains come from continuous testing on a retainer, which is why we ask for a 3-month minimum, so tests have time to prove out.',
       },
       {
         q: 'How do you measure success?',
-        a: 'By revenue, not vanity metrics. Every change is tied to a number — conversion rate lifted, revenue added at the same ad spend. If we can’t measure it, we don’t claim it.',
+        a: 'By revenue, not vanity metrics. Every change is tied to a number: conversion rate lifted, revenue added at the same ad spend. If we can’t measure it, we don’t claim it.',
       },
     ],
   },
@@ -313,19 +313,19 @@ export const en = {
   },
 
   call: {
-    metaTitle: 'Request a call — Maubourg Studio',
+    metaTitle: 'Request a call - Maubourg Studio',
     metaDescription:
-      'Leave your number and we’ll call you back — a real 15-minute conversation about your store’s conversion, no obligation.',
+      'Leave your number and we’ll call you back: a real 15-minute conversation about your store’s conversion, no obligation.',
     back: '← Back to home',
     eyebrow: 'Request a call',
-    title: 'Let’s talk about your store —',
+    title: 'Let’s talk about your store.',
     titleAccent: 'we’ll call you.',
     subtitle:
       'Leave your number and the best time to reach you. We’ll call within one working day for a quick, no-pressure conversation about where your conversion is leaking.',
     points: [
       {
         title: 'A real conversation, not a demo',
-        body: '15 minutes on where your store is leaking sales and what’s worth fixing first — useful whether or not we work together.',
+        body: '15 minutes on where your store is leaking sales and what’s worth fixing first, useful whether or not we work together.',
       },
       {
         title: 'We call you, on your time',
@@ -364,7 +364,7 @@ export const en = {
     },
     success: {
       title: 'We’ll call you.',
-      body: 'Thanks — we’ve got your details and will call within one working day at the time you picked. No pitch, just a useful conversation.',
+      body: 'Thanks, we’ve got your details and will call within one working day at the time you picked. No pitch, just a useful conversation.',
       again: 'Request another call',
     },
   },
@@ -378,13 +378,13 @@ export const en = {
     form: 'Please check the form.',
     generic: 'Something went wrong. Please try again.',
     server: 'Something went wrong on our side. Please email us directly.',
-    network: 'Network error — please try again, or email us directly.',
+    network: 'Network error. Please try again, or email us directly.',
   },
 
   meta: {
-    homeTitle: 'Maubourg Studio — AI RevOps studio for European ecommerce',
+    homeTitle: 'Maubourg Studio - AI RevOps studio for European ecommerce',
     homeDescription:
-      "Your store already has traffic. Let's make more of it buy — and run itself. We run the whole revenue operation for European ecommerce brands — conversion, retention, paid media and the AI agents behind them.",
+      "Your store already has traffic. Let's make more of it buy. And run itself. We run the whole revenue operation for European ecommerce brands: conversion, retention, paid media and the AI agents behind them.",
   },
 };
 
