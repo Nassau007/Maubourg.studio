@@ -1,12 +1,18 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 import { locales, localeNames, type Locale } from '@/lib/i18n';
 
 /**
  * Swaps the locale segment of the current path, keeping the user on the
  * same page. Renders a compact EN / FR toggle.
+ *
+ * Deliberately a plain <a>, not next/link. A locale switch changes
+ * <html lang>, the per-locale metadata and the hreflang alternates — all
+ * document-level things a soft navigation does not re-render. Worse, <Link>
+ * would preventDefault, fetch /fr?_rsc=… successfully, then fail to commit
+ * the navigation across the shared [lang] segment, leaving the toggle dead
+ * with nothing in the console. Keep this a real browser navigation.
  */
 export default function LanguageSwitcher({
   current,
@@ -41,7 +47,7 @@ export default function LanguageSwitcher({
       {locales.map((locale) => {
         const isActive = locale === current;
         return (
-          <Link
+          <a
             key={locale}
             href={pathForLocale(locale)}
             hrefLang={locale}
@@ -52,7 +58,7 @@ export default function LanguageSwitcher({
             }`}
           >
             {locale}
-          </Link>
+          </a>
         );
       })}
     </div>
