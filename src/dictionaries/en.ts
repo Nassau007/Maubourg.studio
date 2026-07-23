@@ -167,17 +167,11 @@ export const en = {
   },
 
   founder: {
-    eyebrow: 'Who you’ll be working with',
     name: 'Nathan Alcotte',
     role: 'Founder, Maubourg Studio',
     photoAlt: 'Nathan Alcotte, founder of Maubourg Studio',
     initials: 'NA',
-    lines: [
-      'Ecommerce operations: catalog, orders, returns, the day-to-day work behind a storefront.',
-      'Automation specialist. The agents that run our own audits and reporting are ones I built.',
-      'Based in Paris, working with European stores.',
-    ],
-    directPrefix: 'No account manager, no handover. Reach me at',
+    blurb: 'Ecommerce ops and automation. Based in Paris. I read your store myself.',
   },
 
   pricing: {

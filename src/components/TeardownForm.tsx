@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Founder from './Founder';
 import type { Dictionary, Locale } from '@/lib/i18n';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
@@ -13,10 +14,12 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function TeardownForm({
   dict,
+  founder,
   errors,
   lang,
 }: {
   dict: Dictionary['teardown'];
+  founder: Dictionary['founder'];
   errors: Dictionary['errors'];
   lang: Locale;
 }) {
@@ -136,8 +139,9 @@ export default function TeardownForm({
             </p>
           </div>
 
-          {/* Right: form / success */}
-          <div className="rounded-card border border-ink/10 bg-bone-100 p-6 shadow-[0_20px_50px_-30px_rgba(20,20,15,0.5)] md:p-8">
+          {/* Right: form / success, with the founder card directly under the ask */}
+          <div>
+            <div className="rounded-card border border-ink/10 bg-bone-100 p-6 shadow-[0_20px_50px_-30px_rgba(20,20,15,0.5)] md:p-8">
             {status === 'success' ? (
               <div className="flex min-h-[340px] flex-col items-center justify-center text-center">
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald text-2xl text-bone">
@@ -324,6 +328,10 @@ export default function TeardownForm({
                 <p className="text-center text-xs text-ink-500">{f.privacy}</p>
               </form>
             )}
+            </div>
+
+            {/* hasPhoto: flip to true once public/founder.jpg exists. */}
+            <Founder dict={founder} hasPhoto={false} />
           </div>
         </div>
       </div>

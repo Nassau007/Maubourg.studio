@@ -169,17 +169,11 @@ export const fr: Dictionary = {
   },
 
   founder: {
-    eyebrow: 'Avec qui vous allez travailler',
     name: 'Nathan Alcotte',
     role: 'Fondateur, Maubourg Studio',
     photoAlt: 'Nathan Alcotte, fondateur de Maubourg Studio',
     initials: 'NA',
-    lines: [
-      'Opérations e-commerce : catalogue, commandes, retours, le travail quotidien derrière une boutique.',
-      'Spécialiste de l’automatisation. Les agents qui font tourner nos propres audits et notre reporting, c’est moi qui les ai construits.',
-      'Basé à Paris, au service des boutiques européennes.',
-    ],
-    directPrefix: 'Pas de chef de projet, pas de passage de relais. Écrivez-moi à',
+    blurb: 'Opérations e-commerce et automatisation. Basé à Paris. C’est moi qui lis votre boutique.',
   },
 
   pricing: {
