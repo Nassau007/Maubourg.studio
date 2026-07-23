@@ -19,15 +19,15 @@ export const fr: Dictionary = {
     subtitle:
       'Nous aidons les marques e-commerce européennes à tirer plus de revenus des visiteurs qu’elles paient déjà, en pilotant toute l’opération de revenus, de la conversion et la rétention jusqu’aux agents IA qui la font tourner.',
     ctaPrimary: 'Recevez un diagnostic gratuit →',
-    ctaSecondary: 'Réserver un appel de 15 min',
-    note: '8 à 10 correctifs classés par impact sur le chiffre d’affaires. Sans engagement, sans argumentaire.',
-    metrics: [
-      { stat: '20–40 %', label: 'du chiffre d’affaires provient généralement de l’e-mail et du SMS' },
-      { stat: 'Chaque 1 %', label: 'de conversion perdue, c’est du trafic déjà payé' },
-      {
-        stat: 'Toujours actifs',
-        label: 'des agents qui continuent à travailler entre les sprints, sans recruter',
-      },
+    note: '8 à 10 correctifs classés par impact, en PDF de 3 à 4 pages, sous 3 jours ouvrés. Sans engagement, sans argumentaire.',
+    talkPrefix: 'Vous préférez en parler d’abord ?',
+    ctaSecondary: 'Réserver un appel de 15 min →',
+    skillsHeading: 'Ce que nous pilotons pour vous',
+    skills: [
+      { name: 'Conversion', body: 'Tests A/B sur les fiches produit, le panier et le paiement, en commençant par les fuites les plus coûteuses.' },
+      { name: 'Rétention', body: 'Scénarios e-mail et SMS Klaviyo qui récupèrent les paniers et font revenir les acheteurs.' },
+      { name: 'Publicité', body: 'Budgets Meta, Google et TikTok pilotés sur un objectif de retour.' },
+      { name: 'Agents IA', body: 'Construits pour vos opérations, votre catalogue et les questions qui bloquent une vente.' },
     ],
   },
 
@@ -130,7 +130,7 @@ export const fr: Dictionary = {
         step: '01',
         name: 'Diagnostic',
         price: 'Gratuit',
-        body: 'Nous auditons votre boutique et repérons précisément où les ventes fuient : 8 à 10 correctifs classés par impact sur le chiffre d’affaires. À vous de le garder, que l’on travaille ensemble ou non.',
+        body: 'Nous auditons votre boutique en ligne et repérons précisément où les ventes fuient : 8 à 10 correctifs classés par impact, en PDF de 3 à 4 pages sous 3 jours ouvrés. À vous de le garder, que l’on travaille ensemble ou non.',
       },
       {
         step: '02',
@@ -166,6 +166,20 @@ export const fr: Dictionary = {
         body: 'Notre propre exécution (audits, reporting, contrôle des tests) est pilotée par des agents IA que nous avons construits nous-mêmes. Vous y gagnez en rapidité, et la preuve que ce que nous vous vendons fonctionne vraiment.',
       },
     ],
+  },
+
+  founder: {
+    eyebrow: 'Avec qui vous allez travailler',
+    name: 'Nathan Alcotte',
+    role: 'Fondateur, Maubourg Studio',
+    photoAlt: 'Nathan Alcotte, fondateur de Maubourg Studio',
+    initials: 'NA',
+    lines: [
+      'Opérations e-commerce : catalogue, commandes, retours, le travail quotidien derrière une boutique.',
+      'Spécialiste de l’automatisation. Les agents qui font tourner nos propres audits et notre reporting, c’est moi qui les ai construits.',
+      'Basé à Paris, au service des boutiques européennes.',
+    ],
+    directPrefix: 'Pas de chef de projet, pas de passage de relais. Écrivez-moi à',
   },
 
   pricing: {
@@ -225,23 +239,33 @@ export const fr: Dictionary = {
         features: ['Programme CRO complet', 'Plusieurs tests en parallèle', 'Priorité + appels stratégie'],
       },
     ],
-    footnote:
-      'Fourchettes indicatives pour le marché européen. Tarifs réduits pour les premiers clients en échange d’une étude de cas et d’un témoignage.',
+    footnote: 'Fourchettes indicatives pour le marché européen.',
   },
 
   teardown: {
     eyebrow: 'Diagnostic gratuit',
     title: 'Recevez 8 à 10 correctifs classés par impact sur le chiffre d’affaires.',
     intro:
-      'Dites-nous où se trouve votre boutique et nous vous renvoyons un court diagnostic : les fuites au meilleur ROI d’abord, plus les deux ou trois que vous pourriez déployer cette semaine. Gratuit, et à vous de le garder.',
+      'Dites-nous où se trouve votre boutique. Vous recevez un PDF de 3 à 4 pages sous 3 jours ouvrés : les fuites au meilleur ROI d’abord, plus les deux ou trois que vous pourriez déployer cette semaine. Gratuit, et à vous de le garder.',
     points: [
       'Un vrai audit de votre boutique en ligne, pas une checklist générique',
       'Des points classés par impact × effort, pour savoir par où commencer',
+      'Un PDF de 3 à 4 pages dans votre boîte mail sous 3 jours ouvrés',
       'Sans engagement : prenez la liste et foncez, ou parlons-en',
     ],
+    sampleTitle: 'Voyez un vrai diagnostic avant de demander le vôtre.',
+    sampleBody: 'Un diagnostic complet réalisé sur une boutique européenne en ligne, nom de la boutique retiré.',
+    sampleLink: 'Lire le diagnostic d’exemple (PDF) →',
     talkPrefix: 'Vous préférez d’abord échanger ?',
     talkLink: 'Réserver un appel de 15 minutes →',
     form: {
+      step1Of2: 'Étape 1 sur 2',
+      step2Of2: 'Étape 2 sur 2',
+      step1Title: 'Où se trouve votre boutique ?',
+      step2Title: 'Presque terminé.',
+      step2Intro: 'Deux détails rapides pour que le diagnostic arrive dans la bonne boîte mail, à votre nom.',
+      continue: 'Continuer →',
+      back: '← Retour',
       name: 'Votre nom',
       namePlaceholder: 'Marie Dupont',
       email: 'E-mail',
@@ -250,6 +274,7 @@ export const fr: Dictionary = {
       storeUrlPlaceholder: 'marque.com',
       platform: 'Plateforme',
       monthlyRevenue: 'Chiffre d’affaires mensuel',
+      revenueHelp: 'Sert uniquement à calibrer les estimations de revenus de votre diagnostic.',
       select: 'Sélectionner…',
       message: 'Un point précis ?',
       optional: '(facultatif)',
@@ -269,7 +294,7 @@ export const fr: Dictionary = {
     },
     success: {
       title: 'Demande reçue.',
-      body: 'Nous allons analyser votre boutique et vous envoyer votre diagnostic sous quelques jours ouvrés. Surveillez votre boîte de réception.',
+      body: 'Nous allons analyser votre boutique et vous envoyer votre diagnostic en PDF sous 3 jours ouvrés. Surveillez votre boîte de réception.',
       again: 'Envoyer une autre boutique',
     },
   },
@@ -284,7 +309,7 @@ export const fr: Dictionary = {
       },
       {
         q: 'Le diagnostic est-il vraiment gratuit ?',
-        a: 'Oui. Nous auditons votre boutique en ligne et vous renvoyons 8 à 10 correctifs classés par impact, sans frais ni engagement. Si les correctifs valent la peine, nous pouvons parler de les mener ensemble, mais la liste est à vous dans tous les cas.',
+        a: 'Oui. Nous auditons votre boutique en ligne et vous renvoyons un PDF de 3 à 4 pages avec 8 à 10 correctifs classés par impact, sous 3 jours ouvrés, sans frais ni engagement. Un exemple est consultable sur cette page si vous voulez en voir un avant de demander le vôtre. Si les correctifs valent la peine, nous pouvons parler de les mener ensemble, mais la liste est à vous dans tous les cas.',
       },
       {
         q: 'Avec qui travaillez-vous ?',
@@ -313,7 +338,9 @@ export const fr: Dictionary = {
     ctaTitle: 'Commencez par un diagnostic gratuit. Si les correctifs en valent la peine,',
     ctaAccent: 'on démarre ce mois-ci.',
     ctaPrimary: 'Recevoir mon diagnostic gratuit →',
-    ctaSecondary: 'Réserver un appel de 15 min',
+    ctaNote: '8 à 10 correctifs classés par impact, en PDF de 3 à 4 pages, sous 3 jours ouvrés.',
+    talkPrefix: 'Vous préférez en parler d’abord ?',
+    ctaSecondary: 'Réserver un appel de 15 min →',
     tagline: 'Studio RevOps IA pour l’e-commerce européen',
     rights: 'Tous droits réservés.',
   },

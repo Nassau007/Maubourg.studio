@@ -39,15 +39,14 @@ export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: L
             {dict.subtitle}
           </p>
 
+          {/* One primary action for cold traffic. The call is a text link below, not a
+              competing button — every extra choice at this point costs conversion. */}
           <div
-            className="animate-fade-up mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            className="animate-fade-up mt-9 flex justify-center"
             style={{ animationDelay: '240ms' }}
           >
             <Link href={`${home}#teardown`} className="btn-primary w-full sm:w-auto">
               {dict.ctaPrimary}
-            </Link>
-            <Link href={`${home}/call`} className="btn-ghost w-full sm:w-auto">
-              {dict.ctaSecondary}
             </Link>
           </div>
 
@@ -57,19 +56,32 @@ export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: L
           >
             {dict.note}
           </p>
+
+          <p
+            className="animate-fade-up mt-3 text-sm text-ink-500"
+            style={{ animationDelay: '360ms' }}
+          >
+            {dict.talkPrefix}{' '}
+            <Link
+              href={`${home}/call`}
+              className="font-medium text-ink-700 underline underline-offset-4 decoration-ink/25 transition-colors hover:text-emerald"
+            >
+              {dict.ctaSecondary}
+            </Link>
+          </p>
         </div>
 
-        {/* Metric strip */}
-        <div
-          className="animate-fade-up mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-px overflow-hidden rounded-card border border-ink/10 bg-ink/10 sm:grid-cols-3"
-          style={{ animationDelay: '400ms' }}
-        >
-          {dict.metrics.map((m) => (
-            <div key={m.label} className="bg-bone-100 px-6 py-6 text-center sm:text-left">
-              <div className="font-display text-3xl font-semibold text-ink">{m.stat}</div>
-              <div className="mt-1.5 text-sm leading-snug text-ink-600">{m.label}</div>
-            </div>
-          ))}
+        {/* What we actually do — our own capabilities, not borrowed industry averages. */}
+        <div className="animate-fade-up mx-auto mt-16 max-w-4xl" style={{ animationDelay: '400ms' }}>
+          <p className="eyebrow text-center">{dict.skillsHeading}</p>
+          <div className="mt-5 grid grid-cols-1 gap-px overflow-hidden rounded-card border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">
+            {dict.skills.map((s) => (
+              <div key={s.name} className="bg-bone-100 px-6 py-6 text-left">
+                <div className="font-display text-xl font-semibold text-ink">{s.name}</div>
+                <div className="mt-1.5 text-sm leading-snug text-ink-600">{s.body}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

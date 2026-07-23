@@ -6,6 +6,7 @@ import Problem from '@/components/Problem';
 import Services from '@/components/Services';
 import Process from '@/components/Process';
 import WhyMe from '@/components/WhyMe';
+import Founder from '@/components/Founder';
 import Pricing from '@/components/Pricing';
 import TeardownForm from '@/components/TeardownForm';
 import Faq from '@/components/Faq';
@@ -27,8 +28,10 @@ export default function Home({ params }: { params: { lang: string } }) {
         <Services dict={dict.services} />
         <Process dict={dict.process} lang={lang} />
         <WhyMe dict={dict.whyMe} />
+        {/* hasPhoto: flip to true once public/founder.jpg exists. */}
+        <Founder dict={dict.founder} hasPhoto={false} />
         <Pricing dict={dict.pricing} lang={lang} />
-        <TeardownForm dict={dict.teardown} lang={lang} />
+        <TeardownForm dict={dict.teardown} errors={dict.errors} lang={lang} />
         <Faq dict={dict.faq} />
       </main>
       <Footer dict={dict.footer} lang={lang} />

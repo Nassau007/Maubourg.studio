@@ -14,14 +14,24 @@ export default function Footer({ dict, lang }: { dict: Dictionary['footer']; lan
           <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-bone md:text-5xl">
             {dict.ctaTitle} <span className="italic text-signal">{dict.ctaAccent}</span>
           </h2>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          {/* Same rule as the hero: one button, the call demoted to a text link. */}
+          <div className="mt-8 flex justify-center">
             <Link href={`${home}#teardown`} className="btn-signal w-full sm:w-auto">
               {dict.ctaPrimary}
             </Link>
-            <Link href={`${home}/call`} className="btn-ghost-light w-full sm:w-auto">
+          </div>
+
+          <p className="mt-5 text-sm text-bone/60">{dict.ctaNote}</p>
+
+          <p className="mt-3 text-sm text-bone/60">
+            {dict.talkPrefix}{' '}
+            <Link
+              href={`${home}/call`}
+              className="font-medium text-bone underline underline-offset-4 decoration-bone/30 transition-colors hover:text-signal"
+            >
               {dict.ctaSecondary}
             </Link>
-          </div>
+          </p>
         </div>
       </div>
 

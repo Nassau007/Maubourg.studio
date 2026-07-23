@@ -17,12 +17,15 @@ export const en = {
     subtitle:
       'We help European ecommerce brands earn more from the visitors they’re already paying for, running the whole revenue operation, from conversion and retention to the AI agents that keep it moving.',
     ctaPrimary: 'Get a free store teardown →',
-    ctaSecondary: 'Book a 15-min call',
-    note: '8–10 fixes ranked by revenue impact. No strings, no pitch.',
-    metrics: [
-      { stat: '20–40%', label: 'of store revenue typically comes from email & SMS' },
-      { stat: 'Every 1%', label: 'of lost conversion is traffic you already paid for' },
-      { stat: 'Always on', label: 'agents that keep working between sprints, without headcount' },
+    note: '8–10 ranked fixes, as a 3–4 page PDF, within 3 working days. No strings, no pitch.',
+    talkPrefix: 'Prefer to talk first?',
+    ctaSecondary: 'Book a 15-min call →',
+    skillsHeading: 'What we run for you',
+    skills: [
+      { name: 'Conversion', body: 'A/B testing on product pages, cart and checkout, highest-value leaks first.' },
+      { name: 'Retention', body: 'Klaviyo email and SMS flows that recover carts and bring buyers back.' },
+      { name: 'Paid media', body: 'Meta, Google and TikTok spend managed to a target return.' },
+      { name: 'AI agents', body: 'Built for your ops, your catalog, and the questions that stall a sale.' },
     ],
   },
 
@@ -125,7 +128,7 @@ export const en = {
         step: '01',
         name: 'Teardown',
         price: 'Free',
-        body: 'We audit your store and pinpoint exactly where sales leak: 8 to 10 fixes ranked by revenue impact. Yours to keep whether we work together or not.',
+        body: 'We audit your live store and pinpoint exactly where sales leak: 8 to 10 fixes ranked by revenue impact, as a 3–4 page PDF within 3 working days. Yours to keep whether we work together or not.',
       },
       {
         step: '02',
@@ -161,6 +164,20 @@ export const en = {
         body: 'Our own delivery (audits, reporting, test QA) is run by AI agents we built ourselves. You get faster turnaround, and proof the thing we sell you actually works.',
       },
     ],
+  },
+
+  founder: {
+    eyebrow: 'Who you’ll be working with',
+    name: 'Nathan Alcotte',
+    role: 'Founder, Maubourg Studio',
+    photoAlt: 'Nathan Alcotte, founder of Maubourg Studio',
+    initials: 'NA',
+    lines: [
+      'Ecommerce operations: catalog, orders, returns, the day-to-day work behind a storefront.',
+      'Automation specialist. The agents that run our own audits and reporting are ones I built.',
+      'Based in Paris, working with European stores.',
+    ],
+    directPrefix: 'No account manager, no handover. Reach me at',
   },
 
   pricing: {
@@ -220,23 +237,33 @@ export const en = {
         features: ['Full CRO program', 'Multiple concurrent tests', 'Priority + strategy calls'],
       },
     ],
-    footnote:
-      'Indicative ranges for the European market. First few clients discounted in exchange for a case study & testimonial.',
+    footnote: 'Indicative ranges for the European market.',
   },
 
   teardown: {
     eyebrow: 'Free store teardown',
     title: 'Get 8–10 fixes ranked by revenue impact.',
     intro:
-      'Tell us where your store lives and we’ll send back a short teardown: the highest-ROI leaks first, plus the two or three you could ship this week. Free, and yours to keep.',
+      'Tell us where your store lives. You get back a 3–4 page PDF within 3 working days: the highest-ROI leaks first, plus the two or three you could ship this week. Free, and yours to keep.',
     points: [
       'A real audit of your live store, not a generic checklist',
       'Issues ranked by impact × effort, so you know what to do first',
+      'A 3–4 page PDF in your inbox within 3 working days',
       'No obligation: take the list and run, or we talk',
     ],
+    sampleTitle: 'See a real teardown before you ask for yours.',
+    sampleBody: 'A full teardown we ran on a live European store, with the store name removed.',
+    sampleLink: 'Read the example teardown (PDF) →',
     talkPrefix: 'Prefer to talk first?',
     talkLink: 'Book a 15-minute call →',
     form: {
+      step1Of2: 'Step 1 of 2',
+      step2Of2: 'Step 2 of 2',
+      step1Title: 'Where is your store?',
+      step2Title: 'Almost done.',
+      step2Intro: 'Two quick details so the teardown lands in the right inbox, addressed to you.',
+      continue: 'Continue →',
+      back: '← Back',
       name: 'Your name',
       namePlaceholder: 'Jane Doe',
       email: 'Email',
@@ -245,6 +272,7 @@ export const en = {
       storeUrlPlaceholder: 'brand.com',
       platform: 'Platform',
       monthlyRevenue: 'Monthly revenue',
+      revenueHelp: 'Only used to size the revenue estimates in your teardown.',
       select: 'Select…',
       message: 'Anything specific?',
       optional: '(optional)',
@@ -263,7 +291,7 @@ export const en = {
     },
     success: {
       title: 'Request received.',
-      body: 'We’ll go through your store and send your teardown within a couple of working days. Keep an eye on your inbox.',
+      body: 'We’ll go through your store and send your teardown PDF within 3 working days. Keep an eye on your inbox.',
       again: 'Submit another store',
     },
   },
@@ -278,7 +306,7 @@ export const en = {
       },
       {
         q: 'Is the teardown really free?',
-        a: 'Yes. We audit your live store and send back 8–10 fixes ranked by revenue impact, no charge and no obligation. If the fixes are worth acting on, we can talk about doing them together, but the list is yours either way.',
+        a: 'Yes. We audit your live store and send back a 3–4 page PDF with 8–10 fixes ranked by revenue impact, within 3 working days, no charge and no obligation. There is an example on this page if you want to see one before you ask. If the fixes are worth acting on, we can talk about doing them together, but the list is yours either way.',
       },
       {
         q: 'Who do you work with?',
@@ -307,7 +335,9 @@ export const en = {
     ctaTitle: 'Start with a free teardown. If the fixes are worth it,',
     ctaAccent: 'we start this month.',
     ctaPrimary: 'Get my free teardown →',
-    ctaSecondary: 'Book a 15-min call',
+    ctaNote: '8–10 ranked fixes, as a 3–4 page PDF, within 3 working days.',
+    talkPrefix: 'Prefer to talk first?',
+    ctaSecondary: 'Book a 15-min call →',
     tagline: 'AI RevOps studio for European ecommerce',
     rights: 'All rights reserved.',
   },
