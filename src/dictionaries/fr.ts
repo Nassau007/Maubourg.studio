@@ -21,7 +21,7 @@ export const fr: Dictionary = {
     ctaPrimary: 'Recevez un diagnostic gratuit →',
     note: '8 à 10 correctifs classés par impact, en PDF de 3 à 4 pages, sous 3 jours ouvrés. Sans engagement, sans argumentaire.',
     talkPrefix: 'Vous préférez en parler d’abord ?',
-    ctaSecondary: 'Réserver un appel de 15 min →',F
+    ctaSecondary: 'Réserver un appel de 15 min →',
     skillsHeading: 'Ce que nous pilotons pour vous',
     skills: [
       { name: 'Conversion', body: 'Tests A/B sur les fiches produit, le panier et le paiement, en commençant par les fuites les plus coûteuses.' },
