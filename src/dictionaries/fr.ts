@@ -21,7 +21,7 @@ export const fr: Dictionary = {
     ctaPrimary: 'Recevez un diagnostic gratuit →',
     note: '8 à 10 correctifs classés par impact, en PDF de 3 à 4 pages, sous 3 jours ouvrés. Sans engagement, sans argumentaire.',
     talkPrefix: 'Vous préférez en parler d’abord ?',
-    ctaSecondary: 'Réserver un appel de 15 min →',
+    ctaSecondary: 'Réserver un appel de 15 min →',F
     skillsHeading: 'Ce que nous pilotons pour vous',
     skills: [
       { name: 'Conversion', body: 'Tests A/B sur les fiches produit, le panier et le paiement, en commençant par les fuites les plus coûteuses.' },
@@ -68,7 +68,7 @@ export const fr: Dictionary = {
 
   services: {
     eyebrow: 'Ce que nous faisons',
-    title: 'Toute votre RevOps - pas un seul canal.',
+    title: 'Tout votre RevOps - pas un seul canal.',
     intro:
       'La plupart des agences ne pilotent qu’un canal. Nous pilotons le système qui transforme le trafic en revenus récurrents : conversion, rétention, campagnes payantes et le tracking en dessous, avec des agents IA qui prennent en charge le travail répétitif derrière. La boutique n’est refondue que lorsque ce sont les fondations qui vous freinent.',
     tags: { core: 'Cœur', ai: 'Agents IA', foundation: 'Fondations', included: 'Inclus' },
