@@ -240,7 +240,7 @@ export const fr: Dictionary = {
     eyebrow: 'Diagnostic gratuit',
     title: 'Recevez 8 à 10 correctifs classés par impact sur le chiffre d’affaires.',
     intro:
-      'Dites-nous où se trouve votre boutique. Vous recevez un PDF de 3 à 4 pages sous 3 jours ouvrés : les fuites au meilleur ROI d’abord, plus les deux ou trois que vous pourriez déployer cette semaine. Gratuit, et à vous de le garder.',
+      'Donnez-nous l’adresse de votre boutique et vous recevrez un PDF de 3 à 4 pages sous 3 jours ouvrés avec notre analyse : les pertes les plus rentables à corriger en premier, et les deux ou trois actions applicables dès cette semaine. C’est gratuit, et le document vous appartient.',
     points: [
       'Un vrai audit de votre boutique en ligne, pas une checklist générique',
       'Des points classés par impact × effort, pour savoir par où commencer',
@@ -248,7 +248,7 @@ export const fr: Dictionary = {
       'Sans engagement : prenez la liste et foncez, ou parlons-en',
     ],
     sampleTitle: 'Voyez un vrai diagnostic avant de demander le vôtre.',
-    sampleBody: 'Un diagnostic complet réalisé sur une boutique européenne en ligne, nom de la boutique retiré.',
+    sampleBody: 'Un diagnostic complet réalisé sur une boutique en ligne européenne, dont le nom a été retiré.',
     sampleLink: 'Lire le diagnostic d’exemple (PDF) →',
     talkPrefix: 'Vous préférez d’abord échanger ?',
     talkLink: 'Réserver un appel de 15 minutes →',
@@ -268,7 +268,7 @@ export const fr: Dictionary = {
       storeUrlPlaceholder: 'marque.com',
       platform: 'Plateforme',
       monthlyRevenue: 'Chiffre d’affaires mensuel',
-      revenueHelp: 'Sert uniquement à calibrer les estimations de revenus de votre diagnostic.',
+      revenueHelp: 'Sert uniquement à calibrer les estimations de chiffre d’affaires de votre diagnostic.',
       select: 'Sélectionner…',
       message: 'Un point précis ?',
       optional: '(facultatif)',
@@ -276,7 +276,7 @@ export const fr: Dictionary = {
       submit: 'Recevoir mon diagnostic gratuit →',
       submitting: 'Envoi…',
       privacy:
-        'Pas de spam. Nous l’utilisons uniquement pour vous envoyer votre diagnostic et vous relancer une fois.',
+        'Pas de spam. Nous utilisons votre e-mail uniquement pour vous envoyer votre diagnostic et vous relancer une fois.',
       revenueBands: [
         'Moins de 10 k€ / mois',
         '10 k€–50 k€ / mois',
