@@ -19,7 +19,7 @@ export const fr: Dictionary = {
     subtitle:
       'Nous aidons les marques e-commerce européennes à tirer plus de revenus des visiteurs qu’elles paient déjà, en pilotant toute l’opération de revenus, de la conversion et la rétention jusqu’aux agents IA qui la font tourner.',
     ctaPrimary: 'Recevez un diagnostic gratuit →',
-    note: '8 à 10 correctifs classés par impact, en PDF de 3 à 4 pages, sous 3 jours ouvrés. Sans engagement, sans argumentaire.',
+    note: '5 correctifs classés par impact, en PDF de 3 à 4 pages, sous 3 jours ouvrés. Sans engagement, sans argumentaire.',
     talkPrefix: 'Vous préférez en parler d’abord ?',
     ctaSecondary: 'Réserver un appel de 15 min →',
     skillsHeading: 'Ce que nous pilotons pour vous',
@@ -130,7 +130,7 @@ export const fr: Dictionary = {
         step: '01',
         name: 'Diagnostic',
         price: 'Gratuit',
-        body: 'Nous auditons votre boutique en ligne et repérons précisément où les ventes fuient : 8 à 10 correctifs classés par impact, en PDF de 3 à 4 pages sous 3 jours ouvrés. À vous de le garder, que l’on travaille ensemble ou non.',
+        body: 'Nous auditons votre boutique en ligne et repérons précisément où les ventes fuient : 5 correctifs classés par impact, en PDF de 3 à 4 pages sous 3 jours ouvrés. À vous de le garder, que l’on travaille ensemble ou non.',
       },
       {
         step: '02',
@@ -185,7 +185,7 @@ export const fr: Dictionary = {
       {
         name: 'Diagnostic gratuit',
         price: '0 €',
-        desc: '8 à 10 correctifs de conversion classés par impact. Le moyen le plus rapide de voir si nous sommes faits pour travailler ensemble.',
+        desc: '5 correctifs de conversion classés par impact. Le moyen le plus rapide de voir si nous sommes faits pour travailler ensemble.',
         cta: 'Demander le diagnostic',
       },
       {
@@ -238,7 +238,7 @@ export const fr: Dictionary = {
 
   teardown: {
     eyebrow: 'Diagnostic gratuit',
-    title: 'Recevez 8 à 10 correctifs classés par impact sur le chiffre d’affaires.',
+    title: 'Recevez 5 correctifs classés par impact sur le chiffre d’affaires.',
     intro:
       'Donnez-nous l’adresse de votre boutique et vous recevrez un PDF de 3 à 4 pages sous 3 jours ouvrés avec notre analyse : les pertes les plus rentables à corriger en premier, et les deux ou trois actions applicables dès cette semaine. C’est gratuit, et le document vous appartient.',
     points: [
@@ -303,7 +303,7 @@ export const fr: Dictionary = {
       },
       {
         q: 'Le diagnostic est-il vraiment gratuit ?',
-        a: 'Oui. Nous auditons votre boutique en ligne et vous renvoyons un PDF de 3 à 4 pages avec 8 à 10 correctifs classés par impact, sous 3 jours ouvrés, sans frais ni engagement. Un exemple est consultable sur cette page si vous voulez en voir un avant de demander le vôtre. Si les correctifs valent la peine, nous pouvons parler de les mener ensemble, mais la liste est à vous dans tous les cas.',
+        a: 'Oui. Nous auditons votre boutique en ligne et vous renvoyons un PDF de 3 à 4 pages avec 5 correctifs classés par impact, sous 3 jours ouvrés, sans frais ni engagement. Un exemple est consultable sur cette page si vous voulez en voir un avant de demander le vôtre. Si les correctifs valent la peine, nous pouvons parler de les mener ensemble, mais la liste est à vous dans tous les cas.',
       },
       {
         q: 'Avec qui travaillez-vous ?',
@@ -332,7 +332,7 @@ export const fr: Dictionary = {
     ctaTitle: 'Commencez par un diagnostic gratuit. Si les correctifs en valent la peine,',
     ctaAccent: 'on démarre ce mois-ci.',
     ctaPrimary: 'Recevoir mon diagnostic gratuit →',
-    ctaNote: '8 à 10 correctifs classés par impact, en PDF de 3 à 4 pages, sous 3 jours ouvrés.',
+    ctaNote: '5 correctifs classés par impact, en PDF de 3 à 4 pages, sous 3 jours ouvrés.',
     talkPrefix: 'Vous préférez en parler d’abord ?',
     ctaSecondary: 'Réserver un appel de 15 min →',
     tagline: 'Studio RevOps IA pour l’e-commerce européen',
