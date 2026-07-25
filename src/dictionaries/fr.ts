@@ -174,6 +174,8 @@ export const fr: Dictionary = {
     photoAlt: 'Nathan Alcotte, fondateur de Maubourg Studio',
     initials: 'NA',
     blurb: 'Opérations e-commerce et automatisation. Basé à Paris. C’est moi qui lis votre boutique.',
+    network:
+      'Un studio, pas une agence. La production répétitive (audits, reporting, contrôle des tests) tourne sur des agents IA que j’ai construits, et je fais appel à des spécialistes de confiance pour les créations de site et la publicité quand un projet le demande. Un réseau, pas des effectifs : vous avez un intervenant senior, sans l’agence autour.',
   },
 
   pricing: {
