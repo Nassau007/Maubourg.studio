@@ -172,8 +172,6 @@ export const en = {
     photoAlt: 'Nathan Alcotte, founder of Maubourg Studio',
     initials: 'NA',
     blurb: 'Ecommerce ops and automation. Based in Paris. I read your store myself.',
-    network:
-      'A studio, not an agency. The repetitive delivery (audits, reporting, test QA) runs on AI agents I built, and I bring in trusted specialists for builds and paid media when a project needs them. A network, not a headcount, so you get senior hands without an agency around them.',
   },
 
   pricing: {

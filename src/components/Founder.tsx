@@ -57,12 +57,6 @@ export default function Founder({
 
       <p className="mt-4 text-sm leading-relaxed text-ink-700">{dict.blurb}</p>
 
-      {/* The honest "bigger than one person" line: a network of specialists plus
-          the AI agents that run delivery, not invented colleagues. */}
-      <p className="mt-3 border-t border-ink/10 pt-3 text-sm leading-relaxed text-ink-600">
-        {dict.network}
-      </p>
-
       <a
         href={`mailto:${site.email}`}
         className="mt-3 inline-block text-sm font-medium text-emerald underline-offset-4 hover:underline"
