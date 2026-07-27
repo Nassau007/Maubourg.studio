@@ -44,6 +44,9 @@ export default function Reveal({
   return (
     <div
       ref={ref}
+      // Hook for the no-JS fallback style in layout.tsx: without it, every
+      // revealed block stays at opacity 0 when JavaScript never runs.
+      data-reveal=""
       className={className}
       style={{
         opacity: shown ? 1 : 0,

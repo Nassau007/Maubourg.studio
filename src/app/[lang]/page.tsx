@@ -10,6 +10,7 @@ import Pricing from '@/components/Pricing';
 import TeardownForm from '@/components/TeardownForm';
 import Faq from '@/components/Faq';
 import Footer from '@/components/Footer';
+import { HomeJsonLd } from '@/components/JsonLd';
 import { getDictionary, isLocale } from '@/lib/i18n';
 
 export default function Home({ params }: { params: { lang: string } }) {
@@ -19,6 +20,7 @@ export default function Home({ params }: { params: { lang: string } }) {
 
   return (
     <>
+      <HomeJsonLd dict={dict} lang={lang} />
       <Nav dict={dict.nav} lang={lang} />
       <main>
         <Hero dict={dict.hero} lang={lang} />
