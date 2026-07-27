@@ -94,16 +94,24 @@ export default function TeardownForm({
   return (
     <section id="teardown" className="hairline bg-bone-200/50 py-20 md:py-28">
       <div className="mx-auto max-w-content px-5 md:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:items-start">
-          {/* Left: pitch */}
-          <div>
+        {/* On a phone this reads heading -> form -> proof: the nav CTA jumps to
+            this section, so the ask has to be one screen away, not two. The
+            order utilities only bite in the single-column stack; on lg the
+            explicit row/column placement puts the pitch back on the left with
+            the form beside it. */}
+        <div className="grid gap-x-12 gap-y-10 lg:grid-cols-[1fr_1.05fr] lg:items-start">
+          {/* Heading */}
+          <div className="lg:col-start-1 lg:row-start-1">
             <span className="eyebrow">{dict.eyebrow}</span>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-ink md:text-5xl">
               {dict.title}
             </h2>
             <p className="mt-4 max-w-md text-ink-600">{dict.intro}</p>
+          </div>
 
-            <ul className="mt-8 space-y-3">
+          {/* Proof: under the heading on desktop, under the form on a phone */}
+          <div className="order-1 lg:order-none lg:col-start-1 lg:row-start-2">
+            <ul className="space-y-3">
               {dict.points.map((point) => (
                 <li key={point} className="flex items-start gap-3 text-sm text-ink-700">
                   <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-emerald text-xs text-bone">
@@ -139,8 +147,8 @@ export default function TeardownForm({
             </p>
           </div>
 
-          {/* Right: form / success, with the founder card directly under the ask */}
-          <div>
+          {/* Form / success, with the founder card directly under the ask */}
+          <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2">
             <div className="rounded-card border border-ink/10 bg-bone-100 p-6 shadow-[0_20px_50px_-30px_rgba(20,20,15,0.5)] md:p-8">
             {status === 'success' ? (
               <div className="flex min-h-[340px] flex-col items-center justify-center text-center">

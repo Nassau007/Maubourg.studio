@@ -56,11 +56,18 @@ export default function Nav({ dict, lang }: { dict: Dictionary['nav']; lang: Loc
           </Link>
         </div>
 
-        <div className="flex items-center gap-3 md:hidden">
-          <LanguageSwitcher current={lang} />
+        {/* On a phone the bar is the only CTA a visitor sees for most of the page,
+            so the button lives here and the language toggle moves into the menu. */}
+        <div className="flex items-center gap-2 md:hidden">
+          <Link
+            href={`${home}#teardown`}
+            className="btn-primary px-4 py-2.5 text-xs"
+          >
+            {dict.ctaShort}
+          </Link>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink/15"
+            className="flex h-10 w-10 flex-none items-center justify-center rounded-lg border border-ink/15"
             aria-label="Menu"
             aria-expanded={open}
           >
@@ -81,13 +88,10 @@ export default function Nav({ dict, lang }: { dict: Dictionary['nav']; lang: Loc
               {item.label}
             </Link>
           ))}
-          <Link
-            href={`${home}#teardown`}
-            onClick={() => setOpen(false)}
-            className="btn-primary mt-3 w-full"
-          >
-            {dict.cta}
-          </Link>
+          <div className="mt-3 flex items-center justify-between border-t border-ink/10 pt-4">
+            <span className="text-sm font-medium text-ink-500">{dict.languageLabel}</span>
+            <LanguageSwitcher current={lang} />
+          </div>
         </div>
       )}
     </header>

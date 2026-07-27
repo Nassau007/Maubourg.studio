@@ -7,6 +7,7 @@ export const en = {
       { label: 'Pricing', hash: '#pricing' },
     ],
     cta: 'Get a free teardown',
+    ctaShort: 'Free teardown',
     languageLabel: 'Language',
   },
 

@@ -34,7 +34,7 @@ export default function CallPage({ params }: { params: { lang: string } }) {
             <div>
               <Link
                 href={`/${lang}`}
-                className="text-sm font-medium text-ink-500 transition-colors hover:text-ink"
+                className="block w-fit text-sm font-medium text-ink-500 transition-colors hover:text-ink"
               >
                 {c.back}
               </Link>

@@ -9,6 +9,7 @@ export const fr: Dictionary = {
       { label: 'Tarifs', hash: '#pricing' },
     ],
     cta: 'Diagnostic gratuit',
+    ctaShort: 'Diagnostic offert',
     languageLabel: 'Langue',
   },
 
