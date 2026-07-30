@@ -430,7 +430,12 @@ function fromOpenGraph(html: string, url: URL): Extracted {
  * Shopify's own JSON for a product handle. This is the one permitted second
  * request, and only when the path shape says it will exist.
  */
-async function fromShopifyJson(url: URL, deadline: number): Promise<Extracted> {
+async function fromShopifyJson(
+  url: URL,
+  platform: Platform,
+  deadline: number,
+): Promise<Extracted> {
+  if (platform !== 'shopify') return null;
   if (!/\/products\/[^/]+\/?$/.test(url.pathname)) return null;
 
   const jsonUrl = new URL(url.toString());
@@ -489,10 +494,18 @@ export async function fetchProduct(rawUrl: string): Promise<ProductPage> {
   const language = htmlLang(html);
 
   let confidence: Confidence = 'high';
-  let extracted = fromJsonLd(html);
+
+  // The spec puts JSON-LD first. On Shopify that is the wrong way round: its
+  // JSON-LD description is the opening paragraph only (657 characters on
+  // Greige against 1500 in the real page) and it names no variants. The agent
+  // then judged a page it had only seen a third of, and reported the care
+  // instructions and the size run as missing when both were there. The store's
+  // own product JSON is the complete record, so it goes first where it exists.
+  // Both paths are equally trustworthy, so confidence stays high either way.
+  let extracted = await fromShopifyJson(finalUrl, platform, deadline);
 
   if (!extracted) {
-    extracted = await fromShopifyJson(finalUrl, deadline);
+    extracted = fromJsonLd(html);
   }
   if (!extracted) {
     extracted = fromOpenGraph(html, finalUrl);
