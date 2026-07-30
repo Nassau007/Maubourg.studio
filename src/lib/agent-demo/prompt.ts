@@ -9,8 +9,8 @@
 import {
   MAX_DESCRIPTION_CHARS,
   MODEL,
+  MODEL_EFFORT,
   MODEL_MAX_TOKENS,
-  MODEL_TEMPERATURE,
   MODEL_TIMEOUT_MS,
 } from './config';
 import { DemoError, type Gap, type ProductPage } from './types';
@@ -119,7 +119,8 @@ async function callOnce(system: string, user: string): Promise<Reply> {
       body: JSON.stringify({
         model: MODEL,
         max_tokens: MODEL_MAX_TOKENS,
-        temperature: MODEL_TEMPERATURE,
+        thinking: { type: 'disabled' },
+        output_config: { effort: MODEL_EFFORT },
         system,
         messages: [{ role: 'user', content: user }],
       }),

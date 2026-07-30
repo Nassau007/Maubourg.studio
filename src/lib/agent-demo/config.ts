@@ -26,7 +26,14 @@ export const USER_AGENT = 'MaubourgStudio-AgentDemo/1.0 (+https://maubourg.studi
 /** Model call. */
 export const MODEL_TIMEOUT_MS = 30_000;
 export const MODEL_MAX_TOKENS = 1500;
-export const MODEL_TEMPERATURE = 0.7;
+/**
+ * The spec asked for temperature 0.7. Sonnet 5 removed the sampling
+ * parameters and rejects them, so the request sends none. Thinking is off for
+ * the same reason max_tokens is small: thinking and the answer share that
+ * budget, and the page has to return inside 30 seconds. Effort stays low - the
+ * task is one page of copy, not a research problem.
+ */
+export const MODEL_EFFORT = 'low';
 /**
  * Set ANTHROPIC_MODEL in Railway to pin a dated snapshot. The default is the
  * alias named in the build spec.
