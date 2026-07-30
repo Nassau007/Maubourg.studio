@@ -28,6 +28,14 @@ export type ProductPage = {
   confidence: Confidence;
   /** Base subtag read off <html lang>, or null when the page did not say. */
   language: string | null;
+  /**
+   * Variant labels the page offers, when the extraction path could see them
+   * (sizes, colours, formats). Empty means we could not see them, which is not
+   * the same as the page not having any - the prompt says so explicitly,
+   * because a teardown that calls a five-size product sizeless is disproved by
+   * the prospect in five seconds.
+   */
+  variants: string[];
 };
 
 /**

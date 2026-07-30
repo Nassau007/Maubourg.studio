@@ -268,13 +268,58 @@ function detectPlatform(html: string): Platform {
 /* Extraction                                                          */
 /* ------------------------------------------------------------------ */
 
-type Extracted = { name: string; description: string } | null;
+type Extracted = { name: string; description: string; variants: string[] } | null;
 
-function usable(name: unknown, description: unknown): Extracted {
+function usable(name: unknown, description: unknown, variants: string[] = []): Extracted {
   const n = typeof name === 'string' ? name.trim() : '';
   const d = typeof description === 'string' ? toPlainText(description) : '';
   if (!n || d.length < MIN_DESCRIPTION_CHARS) return null;
-  return { name: n, description: d };
+  return { name: n, description: d, variants };
+}
+
+/**
+ * Variant labels off the rendered page: the option pickers a buyer actually
+ * sees. Without these the agent reads a description that never mentions sizing
+ * and concludes the product has no sizes, which is the one kind of error a
+ * prospect disproves instantly. Deliberately generous about what counts as a
+ * picker and strict about length, since this feeds a prompt, not a database.
+ */
+function variantsFromHtml(html: string): string[] {
+  const out: string[] = [];
+
+  for (const select of html.match(/<select\b[\s\S]*?<\/select>/gi) || []) {
+    const head = select.slice(0, select.indexOf('>') + 1);
+    if (!/variant|option|size|taille|colou?r|couleur|attribute|pa_/i.test(head)) continue;
+    for (const option of select.match(/<option\b[^>]*>[\s\S]*?<\/option>/gi) || []) {
+      out.push(toPlainText(option));
+    }
+  }
+
+  // Most themes render swatches as radio labels rather than a select.
+  const labels =
+    html.match(
+      /<label\b[^>]*\bfor\s*=\s*["'][^"']*(?:variant|option|size|swatch)[^"']*["'][^>]*>[\s\S]*?<\/label>/gi,
+    ) || [];
+  for (const label of labels) out.push(toPlainText(label));
+
+  return tidyVariants(out);
+}
+
+/** Drops placeholders and duplicates, caps the list so it cannot flood the prompt. */
+function tidyVariants(values: string[]): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const raw of values) {
+    const v = raw.replace(/\s+/g, ' ').trim();
+    if (!v || v.length > 60) continue;
+    if (/^(choose|select|choisir|s[ée]lectionner|pick|--?)$/i.test(v)) continue;
+    const key = v.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(v);
+    if (out.length >= 30) break;
+  }
+  return out;
 }
 
 /**
@@ -385,9 +430,39 @@ async function fromShopifyJson(url: URL, deadline: number): Promise<Extracted> {
 
   try {
     const { body } = await safeGet(jsonUrl.toString(), 'application/json', deadline);
-    const parsed = JSON.parse(body) as { product?: { title?: unknown; body_html?: unknown } };
+    const parsed = JSON.parse(body) as {
+      product?: {
+        title?: unknown;
+        body_html?: unknown;
+        options?: unknown;
+        variants?: unknown;
+      };
+    };
     if (!parsed.product) return null;
-    return usable(parsed.product.title, parsed.product.body_html);
+
+    // The best variant source in the whole pipeline: the store's own options,
+    // named ("Size: S, M, L") rather than left as bare labels.
+    const named: string[] = [];
+    if (Array.isArray(parsed.product.options)) {
+      for (const opt of parsed.product.options) {
+        if (!opt || typeof opt !== 'object') continue;
+        const o = opt as { name?: unknown; values?: unknown };
+        const name = typeof o.name === 'string' ? o.name.trim() : '';
+        const values = Array.isArray(o.values)
+          ? o.values.filter((v): v is string => typeof v === 'string')
+          : [];
+        if (name && values.length) named.push(`${name}: ${values.join(', ')}`);
+      }
+    }
+    if (!named.length && Array.isArray(parsed.product.variants)) {
+      for (const variant of parsed.product.variants) {
+        if (!variant || typeof variant !== 'object') continue;
+        const title = (variant as { title?: unknown }).title;
+        if (typeof title === 'string') named.push(title);
+      }
+    }
+
+    return usable(parsed.product.title, parsed.product.body_html, tidyVariants(named));
   } catch {
     return null;
   }
@@ -418,11 +493,16 @@ export async function fetchProduct(rawUrl: string): Promise<ProductPage> {
     throw new DemoError('NOT_A_PRODUCT', 'no product data found');
   }
 
+  // Whatever the chosen path found, plus the pickers on the rendered page.
+  // JSON-LD rarely carries variants and the page almost always does.
+  const variants = tidyVariants([...extracted.variants, ...variantsFromHtml(html)]);
+
   return {
     name: extracted.name.slice(0, 200),
     description: extracted.description.slice(0, MAX_DESCRIPTION_CHARS),
     platform,
     confidence,
     language,
+    variants,
   };
 }

@@ -36,11 +36,23 @@ Rules:
   original is formal, stay formal. Do not invent facts, materials,
   certifications, origins or measurements that are not present in the source.
   If the source is thin, write shorter rather than inventing.
-- gaps: 2 or 3 items. Each is something concretely absent from or wrong on
-  this page that costs sales: delivery information not near the price, no
-  benefit in the first line, missing meta description, specification-led
-  opening, no size or fit guidance, and so on. label is 2-5 words. detail is
-  one sentence explaining what is missing and why it costs conversions.
+- gaps: 2 or 3 items, and every one of them must be about the text you were
+  given. You are shown the description and the variant labels, nothing else.
+  You cannot see the page head, the layout, where anything sits on the screen,
+  the images, the reviews, or the checkout, so you never claim anything about
+  those. No gap about meta descriptions, page titles, SEO, positioning on the
+  page, or what appears near the price. If the variant labels list sizes,
+  colours or formats, that product HAS them and saying otherwise is a lie the
+  store owner spots immediately.
+  What a gap may be: the first line opens on specifications instead of the
+  benefit, the copy never says who the product is for, a claim is made with no
+  proof behind it, the description does not say what the material or finish
+  means for the buyer, the register is inconsistent, the text is too thin to
+  answer an obvious buying question. label is 2-5 words. detail is one sentence
+  explaining what is weak in the copy and why it costs conversions.
+- verdict, rewrite and gaps must all survive the same test: the store owner
+  reads their own page and agrees. Never assert that something is absent
+  unless its absence is visible in what you were given.
 - Never mention Maubourg Studio, never sell, never add a call to action.
   The rewrite is a work product, not marketing.
 
@@ -53,11 +65,22 @@ Return ONLY a JSON object. No preamble, no markdown fences, no commentary.
 }`;
 
 export function buildUserMessage(page: ProductPage, detectedLanguage: string): string {
-  return [
+  const lines = [
     `detected_language: ${detectedLanguage}`,
     `product_name: ${page.name}`,
     `current_description: ${page.description.slice(0, MAX_DESCRIPTION_CHARS)}`,
-  ].join('\n');
+  ];
+
+  // Said either way on purpose. An empty list means we could not read the
+  // pickers, not that the product has none, and the agent must not turn one
+  // into the other.
+  lines.push(
+    page.variants.length
+      ? `variants_offered: ${page.variants.join(' | ')}`
+      : 'variants_offered: not visible to you - say nothing about sizes, colours or formats',
+  );
+
+  return lines.join('\n');
 }
 
 type ModelOutput = { verdict: string; rewrite: string; gaps: Gap[] };

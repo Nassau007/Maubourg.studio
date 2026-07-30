@@ -52,7 +52,12 @@ export const TEASER_CHARS = 60;
  * can spend money without ever leaving an address. Ceiling is ~€10/month at
  * roughly 1-2 US cents a run.
  */
-export const RUNS_PER_IP_PER_DAY = 2;
+/**
+ * Spec default is 2. Overridable only so a test window can run the ten
+ * acceptance URLs from one machine without tripping it - put it back to 2
+ * before the page is shown to anyone.
+ */
+export const RUNS_PER_IP_PER_DAY = Number(process.env.AGENT_DEMO_RUNS_PER_IP) || 2;
 export const DAILY_GLOBAL_CAP = Number(process.env.AGENT_DEMO_DAILY_CAP) || 15;
 
 /** Minimum usable description length before a page counts as a product page. */
