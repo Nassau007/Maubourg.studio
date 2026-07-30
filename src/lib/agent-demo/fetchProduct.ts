@@ -396,6 +396,19 @@ function fromJsonLd(html: string): Extracted {
  * the OG type, the URL shape, a price marker, or an add-to-cart control.
  */
 function looksLikeProductPage(html: string, url: URL): boolean {
+  const path = url.pathname.replace(/\/+$/, '');
+
+  // A store front page carries add-to-cart controls and price markup on its
+  // tiles, so those signals alone accepted kidur.fr/ as a product and had the
+  // agent rewrite a homepage. The root is never a product page.
+  if (!path) return false;
+  // Neither is a collection or category listing. Matched at exactly one
+  // segment deep, because plenty of real product URLs sit inside a collection
+  // path (/collection/tabouret/h10-w-stool-65 is a stool, not a listing).
+  if (/^(?:\/[a-z]{2})?\/(?:collections?|categor(?:y|ie|ies)|blogs?|search)\/[^/]+$/i.test(path)) {
+    return false;
+  }
+
   if (/^product\b/i.test(metaContent(html, 'og:type') || '')) return true;
   if (/\/(products?|produits?|produkt|prodotto|p)\/[^/]+/i.test(url.pathname)) return true;
   if (/itemprop\s*=\s*["']price["']|property\s*=\s*["']product:price:amount["']/i.test(html)) {
