@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import CallForm from '@/components/CallForm';
 import { CallJsonLd } from '@/components/JsonLd';
 import { getDictionary, isLocale } from '@/lib/i18n';
+import { serviceMenu } from '@/lib/routes';
 import { siteUrl, site } from '@/lib/site';
 
 export async function generateMetadata({
@@ -62,7 +63,12 @@ export default function CallPage({ params }: { params: { lang: string } }) {
   return (
     <>
       <CallJsonLd dict={dict} lang={lang} />
-      <Nav dict={dict.nav} lang={lang} />
+      <Nav
+        dict={dict.nav}
+        lang={lang}
+        services={serviceMenu(lang)}
+        servicesLabel={dict.verticals.shared.navHeading}
+      />
       <main className="pt-28 md:pt-36">
         <section className="mx-auto max-w-content px-5 pb-20 md:px-8 md:pb-28">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:items-start">

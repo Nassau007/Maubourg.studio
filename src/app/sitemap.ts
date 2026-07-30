@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { siteUrl } from '@/lib/site';
 import { locales } from '@/lib/i18n';
-import { localizedPaths, type LocalizedPage } from '@/lib/routes';
+import { localizedPaths, verticalPages, type LocalizedPage } from '@/lib/routes';
 
 /**
  * Served at /sitemap.xml. Every page in both locales, each declaring the other
@@ -15,12 +15,21 @@ import { localizedPaths, type LocalizedPage } from '@/lib/routes';
  * Add a page here whenever you add one under src/app/[lang]/.
  */
 const sharedPaths = ['', '/call'] as const;
-const localizedPages: LocalizedPage[] = ['agentDemo', 'privacy'];
+
+// The five service pages, then privacy. agentDemo is deliberately absent: that
+// path is now a permanent redirect onto the agents page, and listing a redirect
+// in a sitemap asks a crawler to index a URL we are telling it to leave.
+const localizedPages: LocalizedPage[] = [...verticalPages, 'privacy'];
 
 const priorities: Record<string, number> = {
   '': 1,
   '/call': 0.8,
-  agentDemo: 0.9,
+  // The service pages are what we want found, so they sit just under home.
+  conversion: 0.9,
+  agents: 0.9,
+  acquisition: 0.8,
+  geo: 0.8,
+  foundations: 0.8,
   privacy: 0.3,
 };
 

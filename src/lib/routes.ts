@@ -9,13 +9,52 @@
 // Anything not listed here shares its path across locales (/en, /fr, /en/call).
 
 import type { Metadata } from 'next';
-import type { Locale } from '@/lib/i18n';
+import { getDictionary, type Locale } from '@/lib/i18n';
 import { site, siteUrl } from '@/lib/site';
 
 export const localizedPaths = {
   agentDemo: { en: '/try-an-agent', fr: '/essayer-un-agent' },
   privacy: { en: '/privacy', fr: '/confidentialite' },
+  conversion: { en: '/services/conversion-tracking', fr: '/services/conversion-et-mesure' },
+  acquisition: { en: '/services/acquisition', fr: '/services/acquisition' },
+  geo: { en: '/services/llm-visibility', fr: '/services/visibilite-llm' },
+  agents: { en: '/services/ai-agents', fr: '/services/agents-ia' },
+  foundations: { en: '/services/store-build', fr: '/services/creation-boutique' },
 } as const;
+
+/**
+ * The five service pages, in the order they are offered: fix what you have,
+ * then bring more of it, then be found, then automate, and rebuild only if the
+ * foundation is the problem. Nav, footer and homepage cards all read this, so
+ * the order is defined once.
+ */
+export const verticalPages = [
+  'conversion',
+  'acquisition',
+  'geo',
+  'agents',
+  'foundations',
+] as const satisfies readonly LocalizedPage[];
+
+export type VerticalPage = (typeof verticalPages)[number];
+
+export type ServiceMenuItem = { href: string; label: string; blurb: string };
+
+/**
+ * The services menu, resolved server side.
+ *
+ * Built here rather than inside Nav because Nav is a client component: reading
+ * the dictionary in there would ship both languages to the browser, which is
+ * the reason it takes its copy as a prop in the first place.
+ */
+export function serviceMenu(lang: Locale): ServiceMenuItem[] {
+  const dict = getDictionary(lang);
+  return verticalPages.map((page) => ({
+    href: localizedHref(page, lang),
+    label: dict.verticals[page].nav.label,
+    blurb: dict.verticals[page].nav.blurb,
+  }));
+}
 
 export type LocalizedPage = keyof typeof localizedPaths;
 

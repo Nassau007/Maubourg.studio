@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import { getDictionary, type Locale } from '@/lib/i18n';
+import { serviceMenu } from '@/lib/routes';
 import { site } from '@/lib/site';
 
 /** Shared body of /en/privacy and /fr/confidentialite. */
@@ -11,7 +12,12 @@ export default function PrivacyScreen({ lang }: { lang: Locale }) {
 
   return (
     <>
-      <Nav dict={dict.nav} lang={lang} />
+      <Nav
+        dict={dict.nav}
+        lang={lang}
+        services={serviceMenu(lang)}
+        servicesLabel={dict.verticals.shared.navHeading}
+      />
       <main className="pt-28 md:pt-36">
         <section className="mx-auto max-w-content px-5 pb-20 md:px-8 md:pb-28">
           <div className="max-w-2xl">

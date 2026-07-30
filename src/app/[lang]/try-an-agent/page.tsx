@@ -1,28 +1,16 @@
-// English slug of the live agent demo. The French one lives at
-// /fr/essayer-un-agent; both render AgentDemoScreen. Any other locale 404s
-// here rather than serving an English URL with French copy inside it.
+// The demo used to live here on its own. It is now a section of the AI agents
+// service page, so this path only exists to forward the people and the links
+// that already point at it. Permanent, so search engines move the authority
+// across rather than indexing two pages that hold the same demo.
 
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import AgentDemoScreen from '@/components/AgentDemoScreen';
-import { getDictionary } from '@/lib/i18n';
-import { localizedMetadata } from '@/lib/routes';
+import { redirect, permanentRedirect } from 'next/navigation';
+import { localizedPaths } from '@/lib/routes';
 
 export function generateStaticParams() {
   return [{ lang: 'en' }];
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  const d = getDictionary('en').agentDemo;
-  return localizedMetadata({
-    page: 'agentDemo',
-    lang: 'en',
-    title: d.metaTitle,
-    description: d.metaDescription,
-  });
-}
-
-export default function TryAnAgentPage({ params }: { params: { lang: string } }) {
-  if (params.lang !== 'en') notFound();
-  return <AgentDemoScreen lang="en" />;
+export default function TryAnAgentRedirect({ params }: { params: { lang: string } }) {
+  if (params.lang !== 'en') redirect('/en' + localizedPaths.agents.en);
+  permanentRedirect('/en' + localizedPaths.agents.en);
 }

@@ -12,6 +12,7 @@ import Faq from '@/components/Faq';
 import Footer from '@/components/Footer';
 import { HomeJsonLd } from '@/components/JsonLd';
 import { getDictionary, isLocale } from '@/lib/i18n';
+import { serviceMenu } from '@/lib/routes';
 
 export default function Home({ params }: { params: { lang: string } }) {
   if (!isLocale(params.lang)) notFound();
@@ -21,12 +22,17 @@ export default function Home({ params }: { params: { lang: string } }) {
   return (
     <>
       <HomeJsonLd dict={dict} lang={lang} />
-      <Nav dict={dict.nav} lang={lang} />
+      <Nav
+        dict={dict.nav}
+        lang={lang}
+        services={serviceMenu(lang)}
+        servicesLabel={dict.verticals.shared.navHeading}
+      />
       <main>
         <Hero dict={dict.hero} lang={lang} />
         <Marquee dict={dict.marquee} />
         <Problem dict={dict.problem} />
-        <Services dict={dict.services} />
+        <Services dict={dict.services} lang={lang} />
         <Process dict={dict.process} lang={lang} />
         <WhyMe dict={dict.whyMe} />
         <Pricing dict={dict.pricing} lang={lang} />
