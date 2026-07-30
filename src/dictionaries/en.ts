@@ -335,6 +335,7 @@ export const en = {
     ctaSecondary: 'Book a 15-min call →',
     tagline: 'AI RevOps studio for European ecommerce',
     rights: 'All rights reserved.',
+    privacy: 'Privacy',
   },
 
   call: {
@@ -392,6 +393,149 @@ export const en = {
       body: 'Thanks, we’ve got your details and will call within one working day at the time you picked. No pitch, just a useful conversation.',
       again: 'Request another call',
     },
+  },
+
+  agentDemo: {
+    metaTitle: 'Try an agent on your own product page - Maubourg Studio',
+    metaDescription:
+      'Paste one product page URL from your store. In about 30 seconds an agent reads it, names what is costing you sales, and writes a new description you can paste straight in. Free.',
+    back: '← Back to home',
+    eyebrow: 'Live agent demo',
+    title: 'Watch an agent rewrite',
+    titleAccent: 'one of your product pages.',
+    subtitle:
+      'Paste a product page from your own store. An agent reads it, names the single thing costing you the most sales, and writes a new description ready to paste. About 30 seconds, no signup.',
+    form: {
+      label: 'Product page URL',
+      placeholder: 'brand.com/products/your-product',
+      submit: 'Run the agent →',
+      running: 'Running…',
+      note: 'Free. About 30 seconds. No signup to run it.',
+      privacy: 'The URL is used only to produce this result. We do not store the page.',
+    },
+    loading: {
+      steps: ['Reading your product page…', 'Analysing the copy…', 'Writing the rewrite…'],
+    },
+    what: {
+      heading: 'What you are looking at',
+      items: [
+        {
+          title: 'One agent, one task',
+          body: 'It reads a live page, diagnoses the copy and rewrites it. Nothing is written back to your store, ever.',
+        },
+        {
+          title: 'It answers in your language',
+          body: 'The output follows the language of the page you submit, not the language of this site.',
+        },
+        {
+          title: 'We built it',
+          body: 'Same hand that builds the agents we sell. This one is small on purpose, so you can check its work in a minute.',
+        },
+      ],
+    },
+    gate: {
+      ready: 'Your rewrite is ready.',
+      productLabel: 'Product',
+      verdictLabel: 'The verdict starts',
+      gapsFound: '{n} issues found on this page',
+      gapsFoundOne: '1 issue found on this page',
+      intro: 'Tell us where to send it. The full result opens here as soon as you do.',
+      name: 'Your name',
+      namePlaceholder: 'Jane Doe',
+      email: 'Email',
+      emailPlaceholder: 'jane@brand.com',
+      consent: 'Send me occasional emails about ecommerce conversion. Unsubscribe anytime.',
+      submit: 'Show me the full result →',
+      submitting: 'Opening…',
+      use: 'We use your email to send you a copy of this result and to reply if you write back.',
+      privacyLink: 'How we handle it',
+    },
+    result: {
+      verdictLabel: 'The verdict',
+      beforeLabel: 'Your current copy',
+      afterLabel: 'The rewrite',
+      gapsLabel: 'What is missing',
+      copy: 'Copy the rewrite',
+      copied: 'Copied',
+      emailed: 'A copy is on its way to your inbox.',
+      lowConfidence:
+        'This page was hard to read automatically, so the rewrite may be based on partial content.',
+      again: 'Try another product page',
+    },
+    frame: {
+      title: 'That was one agent doing one task, in about 30 seconds.',
+      body: 'The ones we build run continuously across a full catalog: writing and refreshing copy, filling metadata gaps, and flagging the listings that quietly lose sales.',
+      ctaPrimary: 'Book a 15-min call →',
+      teardownPrefix: 'Rather have fixes in writing first?',
+      teardownLink: 'Get a free store teardown →',
+    },
+    errors: {
+      BAD_REQUEST: 'Something in that request did not come through. Please try again.',
+      INVALID_URL: 'That does not look like a web address. Paste the full URL of a product page.',
+      BLOCKED_URL: 'That address cannot be reached from here. Paste a public product page URL.',
+      INVALID_EMAIL: 'Please add a valid email.',
+      FETCH_FAILED:
+        'We could not open that page. It may be protected against automated visits. Try a different product URL.',
+      NOT_A_PRODUCT:
+        'We could not find a product on that page. Paste the URL of a single product page rather than a homepage or a collection.',
+      TOKEN_EXPIRED: 'This result has expired. Run the agent again on the same URL, it is free.',
+      RATE_LIMITED:
+        'The demo has hit its daily limit. It runs on a small budget. Book a 15-minute call or request a free teardown instead.',
+      MODEL_ERROR: 'The agent could not finish that one. Please try again in a moment.',
+    },
+    resultEmail: {
+      subject: 'Your rewrite: {product}',
+      intro:
+        '{name}, here is what our agent found on your page for {product}, exactly as it appeared on the site.',
+      verdictLabel: 'The verdict',
+      beforeLabel: 'Your current copy',
+      afterLabel: 'The rewrite',
+      gapsLabel: 'What is missing',
+      frame:
+        'That was one agent doing one task. The ones we build run continuously across a full catalog. If you want to see what that would look like on yours, book 15 minutes.',
+      cta: 'Book a 15-minute call',
+      footer:
+        'Sent by Maubourg Studio because you asked for this rewrite on maubourg.studio. Reply to this email and a human reads it.',
+    },
+  },
+
+  privacy: {
+    metaTitle: 'Privacy - Maubourg Studio',
+    metaDescription:
+      'What we collect when you request a teardown, a call or an agent demo, what we do with it, and how to have it deleted.',
+    back: '← Back to home',
+    eyebrow: 'Privacy',
+    title: 'What we collect, and why.',
+    updated: 'Last updated: July 2026',
+    intro:
+      'Maubourg Studio is a one-person studio based in Paris. This page says plainly what happens to what you type into this site. If something here is unclear, email us and ask.',
+    sections: [
+      {
+        title: 'When you request a teardown or a call',
+        body: 'We keep your name, email, phone number, store URL and anything you wrote in the message field. We use them to write your teardown, to call you back, and to follow up once. They are stored on our own server in the EU and are not sold or shared.',
+      },
+      {
+        title: 'When you run the agent demo',
+        body: 'You give us a product page URL and, to see the result, a name and an email. The exchange is deliberate: the result is the thing you get, the email is what we ask for it. We email you the result and keep your address so we can follow up. The URL and the page content are held in memory for 30 minutes and then dropped, never written to a database.',
+      },
+      {
+        title: 'The marketing checkbox',
+        body: 'It is unchecked by default and it changes nothing about the result you get. Tick it and we may send occasional emails about ecommerce conversion. Leave it and we will only reply to you about what you asked for.',
+      },
+      {
+        title: 'The agent and the model',
+        body: 'The text of the page you submit is sent to Anthropic, the provider of the model that writes the rewrite, to produce the answer. Your name and email are never sent with it.',
+      },
+      {
+        title: 'What we do not do',
+        body: 'No advertising cookies, no analytics tags, no consent banner, because there is nothing to consent to. We count runs and results server-side without identifying anyone: IP addresses are hashed for rate limiting and never stored in the clear.',
+      },
+      {
+        title: 'Your rights',
+        body: 'You can ask what we hold on you, ask for a copy, or ask us to delete it. Email us and we do it within a few days, no forms and no questions. You can also complain to the CNIL if you think we handled it badly.',
+      },
+    ],
+    contactPrefix: 'Questions, or want your details deleted? Email',
   },
 
   errors: {

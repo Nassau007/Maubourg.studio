@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { locales, localeNames, type Locale } from '@/lib/i18n';
+import { swapLocaleInPath } from '@/lib/routes';
 
 /**
  * Swaps the locale segment of the current path, keeping the user on the
@@ -25,10 +26,10 @@ export default function LanguageSwitcher({
 
   function pathForLocale(locale: Locale): string {
     if (!pathname) return `/${locale}`;
-    const segments = pathname.split('/');
-    // segments[0] is '' (leading slash), segments[1] is the current locale.
-    segments[1] = locale;
-    return segments.join('/') || `/${locale}`;
+    // Not a plain segment swap: pages with a localized slug (the agent demo,
+    // the privacy page) have a different path per language, and swapping only
+    // the locale would land on a URL that does not exist.
+    return swapLocaleInPath(pathname, locale);
   }
 
   const base =

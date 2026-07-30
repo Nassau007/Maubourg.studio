@@ -338,6 +338,7 @@ export const fr: Dictionary = {
     ctaSecondary: 'Réserver un appel de 15 min →',
     tagline: 'Studio RevOps IA pour l’e-commerce européen',
     rights: 'Tous droits réservés.',
+    privacy: 'Confidentialité',
   },
 
   call: {
@@ -395,6 +396,157 @@ export const fr: Dictionary = {
       body: 'Merci, nous avons vos coordonnées et vous rappellerons sous un jour ouvré au moment choisi. Pas d’argumentaire, juste un échange utile.',
       again: 'Demander un autre appel',
     },
+  },
+
+  agentDemo: {
+    metaTitle: 'Testez un agent sur votre fiche produit - Maubourg Studio',
+    metaDescription:
+      'Collez l’URL d’une fiche produit de votre boutique. En 30 secondes environ, un agent la lit, nomme ce qui vous coûte des ventes et réécrit la description, prête à coller. Gratuit.',
+    back: '← Retour à l’accueil',
+    eyebrow: 'Démo d’agent en direct',
+    title: 'Regardez un agent réécrire',
+    titleAccent: 'une de vos fiches produit.',
+    subtitle:
+      'Collez l’adresse d’une fiche produit de votre boutique. Un agent la lit, nomme ce qui vous coûte le plus de ventes et rédige une nouvelle description prête à coller. 30 secondes environ, sans inscription.',
+    form: {
+      label: 'URL de la fiche produit',
+      placeholder: 'marque.fr/products/votre-produit',
+      submit: 'Lancer l’agent →',
+      running: 'En cours…',
+      note: 'Gratuit. 30 secondes environ. Aucune inscription pour l’essayer.',
+      privacy:
+        'L’URL sert uniquement à produire ce résultat. Nous ne conservons pas le contenu de la page.',
+    },
+    loading: {
+      steps: [
+        'Lecture de votre fiche produit…',
+        'Analyse du texte…',
+        'Rédaction de la nouvelle version…',
+      ],
+    },
+    what: {
+      heading: 'Ce que vous avez sous les yeux',
+      items: [
+        {
+          title: 'Un agent, une tâche',
+          body: 'Il lit une page en ligne, diagnostique le texte et le réécrit. Rien n’est jamais écrit dans votre boutique.',
+        },
+        {
+          title: 'Il répond dans votre langue',
+          body: 'Le résultat suit la langue de la page envoyée, pas celle de ce site.',
+        },
+        {
+          title: 'C’est nous qui l’avons construit',
+          body: 'La même main que les agents que nous livrons à nos clients. Celui-ci est volontairement petit, pour que vous puissiez vérifier son travail en une minute.',
+        },
+      ],
+    },
+    gate: {
+      ready: 'Votre nouvelle fiche est prête.',
+      productLabel: 'Produit',
+      verdictLabel: 'Le verdict commence par',
+      gapsFound: '{n} problèmes trouvés sur cette page',
+      gapsFoundOne: '1 problème trouvé sur cette page',
+      intro: 'Dites-nous où l’envoyer. Le résultat complet s’ouvre ici dans la foulée.',
+      name: 'Votre nom',
+      namePlaceholder: 'Camille Martin',
+      email: 'E-mail',
+      emailPlaceholder: 'camille@marque.fr',
+      consent:
+        'Recevoir occasionnellement des e-mails sur la conversion e-commerce. Désinscription à tout moment.',
+      submit: 'Voir le résultat complet →',
+      submitting: 'Ouverture…',
+      use: 'Votre e-mail sert à vous envoyer une copie de ce résultat et à vous répondre si vous écrivez.',
+      privacyLink: 'Ce que nous en faisons',
+    },
+    result: {
+      verdictLabel: 'Le verdict',
+      beforeLabel: 'Votre texte actuel',
+      afterLabel: 'La nouvelle version',
+      gapsLabel: 'Ce qui manque',
+      copy: 'Copier la nouvelle version',
+      copied: 'Copié',
+      emailed: 'Une copie part vers votre boîte mail.',
+      lowConfidence:
+        'Cette page a été difficile à lire automatiquement : la réécriture peut reposer sur un contenu partiel.',
+      again: 'Tester une autre fiche produit',
+    },
+    frame: {
+      title: 'C’était un agent, une tâche, en 30 secondes environ.',
+      body: 'Ceux que nous construisons tournent en continu sur un catalogue entier : rédaction et mise à jour des textes, métadonnées manquantes, et repérage des fiches qui perdent des ventes sans bruit.',
+      ctaPrimary: 'Réserver un appel de 15 min →',
+      teardownPrefix: 'Vous préférez d’abord des correctifs à l’écrit ?',
+      teardownLink: 'Recevoir mon diagnostic gratuit →',
+    },
+    errors: {
+      BAD_REQUEST: 'Cette requête n’est pas passée. Merci de réessayer.',
+      INVALID_URL:
+        'Cela ne ressemble pas à une adresse web. Collez l’URL complète d’une fiche produit.',
+      BLOCKED_URL:
+        'Cette adresse n’est pas joignable depuis ici. Collez l’URL publique d’une fiche produit.',
+      INVALID_EMAIL: 'Merci d’indiquer un e-mail valide.',
+      FETCH_FAILED:
+        'Nous n’avons pas pu ouvrir cette page. Elle est peut-être protégée contre les visites automatisées. Essayez une autre fiche produit.',
+      NOT_A_PRODUCT:
+        'Nous n’avons trouvé aucun produit sur cette page. Collez l’URL d’une fiche produit, pas d’une page d’accueil ni d’une collection.',
+      TOKEN_EXPIRED: 'Ce résultat a expiré. Relancez l’agent sur la même URL, c’est gratuit.',
+      RATE_LIMITED:
+        'La démo a atteint sa limite du jour : elle tourne sur un petit budget. Réservez 15 minutes ou demandez un diagnostic gratuit à la place.',
+      MODEL_ERROR: 'L’agent n’a pas pu terminer celle-ci. Réessayez dans un instant.',
+    },
+    resultEmail: {
+      subject: 'Votre nouvelle fiche : {product}',
+      intro:
+        '{name}, voici ce que notre agent a trouvé sur votre page {product}, telle qu’elle est en ligne.',
+      verdictLabel: 'Le verdict',
+      beforeLabel: 'Votre texte actuel',
+      afterLabel: 'La nouvelle version',
+      gapsLabel: 'Ce qui manque',
+      frame:
+        'C’était un agent, une tâche. Ceux que nous construisons tournent en continu sur un catalogue entier. Pour voir ce que cela donnerait sur le vôtre, réservez 15 minutes.',
+      cta: 'Réserver un appel de 15 minutes',
+      footer:
+        'Envoyé par Maubourg Studio parce que vous avez demandé cette réécriture sur maubourg.studio. Répondez à cet e-mail, un humain le lit.',
+    },
+  },
+
+  privacy: {
+    metaTitle: 'Confidentialité - Maubourg Studio',
+    metaDescription:
+      'Ce que nous collectons quand vous demandez un diagnostic, un appel ou une démo d’agent, ce que nous en faisons, et comment le faire supprimer.',
+    back: '← Retour à l’accueil',
+    eyebrow: 'Confidentialité',
+    title: 'Ce que nous collectons, et pourquoi.',
+    updated: 'Dernière mise à jour : juillet 2026',
+    intro:
+      'Maubourg Studio est un studio d’une personne, basé à Paris. Cette page dit simplement ce que deviennent les informations que vous saisissez ici. Si un point reste flou, écrivez-nous.',
+    sections: [
+      {
+        title: 'Quand vous demandez un diagnostic ou un appel',
+        body: 'Nous conservons votre nom, votre e-mail, votre téléphone, l’URL de votre boutique et ce que vous avez écrit dans le message. Ils servent à rédiger votre diagnostic, à vous rappeler et à faire une relance. Ils sont stockés sur notre propre serveur dans l’Union européenne, ni vendus ni partagés.',
+      },
+      {
+        title: 'Quand vous lancez la démo d’agent',
+        body: 'Vous nous donnez l’URL d’une fiche produit et, pour voir le résultat, un nom et un e-mail. L’échange est assumé : le résultat est ce que vous obtenez, l’e-mail est ce que nous demandons en retour. Nous vous envoyons le résultat et conservons votre adresse pour pouvoir vous relancer. L’URL et le contenu de la page restent en mémoire 30 minutes puis disparaissent, sans jamais être écrits en base.',
+      },
+      {
+        title: 'La case marketing',
+        body: 'Elle est décochée par défaut et ne change rien au résultat que vous recevez. Cochée, elle nous autorise à vous envoyer occasionnellement des e-mails sur la conversion e-commerce. Laissée vide, nous ne vous répondons que sur ce que vous avez demandé.',
+      },
+      {
+        title: 'L’agent et le modèle',
+        body: 'Le texte de la page soumise est transmis à Anthropic, fournisseur du modèle qui rédige la nouvelle version, le temps de produire la réponse. Votre nom et votre e-mail ne sont jamais transmis avec.',
+      },
+      {
+        title: 'Ce que nous ne faisons pas',
+        body: 'Aucun cookie publicitaire, aucune balise de mesure, aucune bannière de consentement, parce qu’il n’y a rien à consentir. Nous comptons les lancements et les résultats côté serveur sans identifier personne : les adresses IP sont hachées pour la limitation d’usage et jamais conservées en clair.',
+      },
+      {
+        title: 'Vos droits',
+        body: 'Vous pouvez demander ce que nous détenons sur vous, en obtenir une copie, ou nous demander de le supprimer. Écrivez-nous : c’est fait sous quelques jours, sans formulaire et sans question. Vous pouvez aussi saisir la CNIL si vous estimez que nous nous y sommes mal pris.',
+      },
+    ],
+    contactPrefix: 'Une question, ou envie que l’on supprime vos données ? Écrivez à',
   },
 
   errors: {
