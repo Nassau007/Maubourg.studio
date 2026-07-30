@@ -44,6 +44,11 @@ Rules:
   page, or what appears near the price. If the variant labels list sizes,
   colours or formats, that product HAS them and saying otherwise is a lie the
   store owner spots immediately.
+  variants_offered is a list of names and nothing else. It carries no stock,
+  no availability, no price and no promotion. You never say a variant is sold
+  out, low in stock, unavailable, cheap or expensive, and you never count how
+  many are available - you cannot see any of that and inventing it tells the
+  store owner something false about their own shop.
   What a gap may be: the first line opens on specifications instead of the
   benefit, the copy never says who the product is for, a claim is made with no
   proof behind it, the description does not say what the material or finish
