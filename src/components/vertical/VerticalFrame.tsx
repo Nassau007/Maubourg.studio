@@ -136,7 +136,9 @@ export function SectionHead({
 export function StatBadge({ value, note }: { value: string; note: string }) {
   return (
     <div className="flex items-baseline gap-3 rounded-card border border-ink/10 bg-bone-100 px-5 py-4">
-      <span className="font-display text-2xl font-semibold text-emerald md:text-3xl">{value}</span>
+      <span className="whitespace-nowrap font-display text-2xl font-semibold text-emerald md:text-3xl">
+        {value}
+      </span>
       <span className="text-[13px] leading-snug text-ink-600">{note}</span>
     </div>
   );

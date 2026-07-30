@@ -68,7 +68,7 @@ export const en = {
     eyebrow: 'What we do',
     title: 'Your whole revenue operation, not one channel of it.',
     intro:
-      'Most agencies own a single channel. We run the system that turns traffic into repeat revenue: conversion, retention, paid media and the tracking underneath, with AI agents doing the repetitive work behind it. The store gets rebuilt only when the foundation is what’s holding you back.',
+      'Most agencies own a single channel. We run the system that turns traffic into repeat revenue: conversion, retention, paid media and the tracking underneath, with AI agents doing the repetitive work behind it and your store made legible to the assistants buyers now ask first. The store gets rebuilt only when the foundation is what’s holding you back.',
     tags: { core: 'Core', ai: 'AI agents', foundation: 'Foundation', included: 'Included' },
     items: [
       {

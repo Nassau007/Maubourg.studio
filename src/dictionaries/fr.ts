@@ -70,7 +70,7 @@ export const fr: Dictionary = {
     eyebrow: 'Ce que nous faisons',
     title: 'Tout votre RevOps - pas un seul canal.',
     intro:
-      'La plupart des agences ne pilotent qu’un canal. Nous pilotons le système qui transforme le trafic en revenus récurrents : conversion, rétention, campagnes payantes et le tracking en dessous, avec des agents IA qui prennent en charge le travail répétitif derrière. La boutique n’est refondue que lorsque ce sont les fondations qui vous freinent.',
+      'La plupart des agences ne pilotent qu’un canal. Nous pilotons le système qui transforme le trafic en revenus récurrents : conversion, rétention, campagnes payantes et le tracking en dessous, avec des agents IA qui prennent en charge le travail répétitif derrière et votre boutique rendue lisible par les assistants que les acheteurs interrogent désormais en premier. La boutique n’est refondue que lorsque ce sont les fondations qui vous freinent.',
     tags: { core: 'Cœur', ai: 'Agents IA', foundation: 'Fondations', included: 'Inclus' },
     items: [
       {
