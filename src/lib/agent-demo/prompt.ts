@@ -50,9 +50,16 @@ Rules:
   means for the buyer, the register is inconsistent, the text is too thin to
   answer an obvious buying question. label is 2-5 words. detail is one sentence
   explaining what is weak in the copy and why it costs conversions.
+- current_description is the whole of the page's copy run together, and on most
+  stores that means several blocks: the sales paragraph, then specifications,
+  shipping terms, care instructions, guarantees. Read all of it before you say
+  anything is missing. Material, weight, origin, washing, delivery and returns
+  are usually further down rather than absent.
 - verdict, rewrite and gaps must all survive the same test: the store owner
   reads their own page and agrees. Never assert that something is absent
-  unless its absence is visible in what you were given.
+  unless its absence is visible in what you were given. When you are about to
+  call something missing, find it first: if you cannot point to where it should
+  have been and see that it is not there, write a different gap.
 - Never mention Maubourg Studio, never sell, never add a call to action.
   The rewrite is a work product, not marketing.
 

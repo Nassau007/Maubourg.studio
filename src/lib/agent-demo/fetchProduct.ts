@@ -290,9 +290,18 @@ function variantsFromHtml(html: string): string[] {
   for (const select of html.match(/<select\b[\s\S]*?<\/select>/gi) || []) {
     const head = select.slice(0, select.indexOf('>') + 1);
     if (!/variant|option|size|taille|colou?r|couleur|attribute|pa_/i.test(head)) continue;
-    for (const option of select.match(/<option\b[^>]*>[\s\S]*?<\/option>/gi) || []) {
-      out.push(toPlainText(option));
-    }
+    // A picker the buyer cannot see is not a picker. Greige hides a
+    // "product-size" select holding 41 bare measurements; fed to the agent it
+    // read as "the sizes are unlabelled numbers", which is not true.
+    if (/\bhid(?:e|den)\b|aria-hidden\s*=\s*["']true["']|display\s*:\s*none/i.test(head)) continue;
+
+    const values = (select.match(/<option\b[^>]*>[\s\S]*?<\/option>/gi) || [])
+      .map(toPlainText)
+      .filter(Boolean);
+    // All-numeric means a quantity or a measurement table, not sizes a buyer
+    // picks by name. It tells the agent nothing and misleads it about the rest.
+    if (!values.length || values.every((v) => /^[\d.,\s]+$/.test(v))) continue;
+    out.push(...values);
   }
 
   // Most themes render swatches as radio labels rather than a select.
@@ -493,9 +502,12 @@ export async function fetchProduct(rawUrl: string): Promise<ProductPage> {
     throw new DemoError('NOT_A_PRODUCT', 'no product data found');
   }
 
-  // Whatever the chosen path found, plus the pickers on the rendered page.
-  // JSON-LD rarely carries variants and the page almost always does.
-  const variants = tidyVariants([...extracted.variants, ...variantsFromHtml(html)]);
+  // The store's own option list wins outright. Scraping the rendered page is
+  // the fallback for the paths that carry no variants (JSON-LD, Open Graph),
+  // never a supplement - merging the two let theme markup dilute good data.
+  const variants = extracted.variants.length
+    ? extracted.variants
+    : tidyVariants(variantsFromHtml(html));
 
   return {
     name: extracted.name.slice(0, 200),
