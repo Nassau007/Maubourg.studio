@@ -102,10 +102,17 @@ export type StoredRun = {
   expiresAt: number;
 };
 
-/** 200 body of POST /api/agent-demo. */
+/**
+ * 200 body of POST /api/agent-demo.
+ *
+ * Which optional fields are present is decided by GATE_MODE alone. The client
+ * reads the response instead of importing that constant, so the switch stays a
+ * server decision and the browser bundle carries no copy of it.
+ */
 export type RunResponse = {
   ok: true;
-  token: string;
+  /** Absent under GATE_MODE 'open': there is no second step to hold anything for. */
+  token?: string;
   product_name: string;
   teaser: string;
   gaps_count: number;
@@ -118,9 +125,14 @@ export type RunResponse = {
    * substitution did not succeed.
    */
   render_available: boolean;
-  /** Present only under GATE_MODE 'rewrite-only'. */
+  /** Present under GATE_MODE 'rewrite-only' and 'open'. */
   verdict?: string;
   gaps?: Gap[];
+  /** Present only under GATE_MODE 'open' - the whole result, in one response. */
+  rewrite?: string;
+  before_excerpt?: string;
+  preview_url?: string | null;
+  download_url?: string | null;
 };
 
 /** 200 body of POST /api/agent-demo/reveal. */

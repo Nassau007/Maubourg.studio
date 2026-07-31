@@ -4,16 +4,18 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import type { Dictionary, Locale } from '@/lib/i18n';
 
-// The four states of the page. 'gate' is reached the moment the agent finishes
-// and must read as done, not as blocked: the completion marker comes first and
-// the ask sits under it.
+// The four states of the page. 'gate' is only reached when the server is
+// running an email gate; it must read as done, not as blocked, so the
+// completion marker comes first and the ask sits under it. With the gate open
+// the run goes straight from 'running' to 'result' and no form appears.
 type Phase = 'idle' | 'running' | 'gate' | 'result';
 
 type Gap = { label: string; detail: string };
 
 type RunPayload = {
   ok: true;
-  token: string;
+  // Absent when the server is running no gate: there is no second step.
+  token?: string;
   product_name: string;
   teaser: string;
   gaps_count: number;
@@ -23,11 +25,16 @@ type RunPayload = {
   // Whether the rebuilt page exists. Sent before the email so the ask can name
   // the reward, and false whenever the substitution was not certain.
   render_available: boolean;
-  // Present only when the server runs GATE_MODE 'rewrite-only'. The client
+  // Present when the server runs GATE_MODE 'rewrite-only' or 'open'. The client
   // reads the response rather than importing the constant, so the switch stays
   // a server decision and the bundle carries no copy of it.
   verdict?: string;
   gaps?: Gap[];
+  // Present only with no gate: the whole result arrives with the run.
+  rewrite?: string;
+  before_excerpt?: string;
+  preview_url?: string | null;
+  download_url?: string | null;
 };
 
 type Result = {
@@ -60,6 +67,9 @@ export default function AgentDemo({
   const [expired, setExpired] = useState(false);
   const [revealing, setRevealing] = useState(false);
   const [copied, setCopied] = useState(false);
+  // Whether a result was paid for with an email address, which is the only
+  // case where we may say a copy is on its way to an inbox.
+  const [emailedCopy, setEmailedCopy] = useState(false);
   const gateRef = useRef<HTMLDivElement | null>(null);
   const resultRef = useRef<HTMLDivElement | null>(null);
 
@@ -101,7 +111,25 @@ export default function AgentDemo({
         return;
       }
 
-      setRun(payload as RunPayload);
+      const run = payload as RunPayload;
+      setRun(run);
+
+      // No gate on the server: the result is already here, so show it. The
+      // presence of the rewrite is the signal, not a flag the client keeps.
+      if (typeof run.rewrite === 'string' && run.verdict && run.gaps) {
+        setEmailedCopy(false);
+        setResult({
+          verdict: run.verdict,
+          before_excerpt: run.before_excerpt ?? '',
+          rewrite: run.rewrite,
+          gaps: run.gaps,
+          preview_url: run.preview_url ?? null,
+          download_url: run.download_url ?? null,
+        });
+        setPhase('result');
+        return;
+      }
+
       setPhase('gate');
     } catch {
       setError(dict.errors.MODEL_ERROR);
@@ -165,6 +193,7 @@ export default function AgentDemo({
         return;
       }
 
+      setEmailedCopy(true);
       setResult(payload as Result);
       setPhase('result');
     } catch {
@@ -181,6 +210,7 @@ export default function AgentDemo({
     setError('');
     setExpired(false);
     setCopied(false);
+    setEmailedCopy(false);
   }
 
   async function copyRewrite() {
@@ -519,7 +549,7 @@ export default function AgentDemo({
             </div>
           </div>
 
-          <p className="text-sm text-ink-500">{dict.result.emailed}</p>
+          {emailedCopy && <p className="text-sm text-ink-500">{dict.result.emailed}</p>}
 
           <button type="button" onClick={reset} className="btn-ghost">
             {dict.result.again}

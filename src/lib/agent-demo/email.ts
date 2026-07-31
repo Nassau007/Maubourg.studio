@@ -1,5 +1,5 @@
-// The two emails the demo sends, both through the existing Resend integration
-// in src/lib/email.ts. No second provider, no template engine.
+// The emails the demo sends, all through the existing Resend integration in
+// src/lib/email.ts. No second provider, no template engine.
 //
 // 1. Studio notification, on every successful reveal. Carries "agent-demo" in
 //    the subject so these never blur into teardown requests in the same inbox.
@@ -10,6 +10,11 @@
 //    proves the address is real and puts the rewrite somewhere they can find
 //    it a week later. Sending it is performance of the service they asked for,
 //    so it does not depend on the marketing consent box.
+// 3. Run notice, sent instead of 1 and 2 while GATE_MODE is 'open'. With no
+//    address collected there is no lead and nobody to write to: this says which
+//    store ran the demo and what the agent told them, and it says on its face
+//    that there is no one to reply to. Same "Agent demo" subject prefix, still
+//    outside the Apps Script's search.
 
 import { escapeHtml, sendResendEmail } from '@/lib/email';
 import type { Dictionary } from '@/lib/i18n';
@@ -115,6 +120,79 @@ export async function sendDemoNotification(input: {
     html,
     replyTo: email,
     context: `agent-demo lead (${run.platform})`,
+  });
+}
+
+/* ------------------------------------------------------------------ */
+/* 1b. Run notice, while the gate is open                              */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Never throws and never blocks: sendResendEmail swallows its own failures,
+ * and a missing key only logs. A studio notice must not cost a visitor the
+ * result they came for.
+ */
+export async function sendDemoRunNotice(input: {
+  run: Omit<StoredRun, 'createdAt' | 'expiresAt'>;
+}): Promise<void> {
+  const { run } = input;
+  const to = process.env.NOTIFY_EMAIL || 'touchtabletapps@gmail.com';
+  const r = run.result;
+
+  const rows: [string, string][] = [
+    ['Source', 'agent-demo (no gate)'],
+    ['Contact', 'none collected - the demo asks for no name and no email'],
+    ['Product', run.productName],
+    ['URL', run.url],
+    ['Platform', run.platform],
+    ['Page language', run.detectedLanguage],
+    ['Extraction confidence', run.confidence],
+    ['Rebuilt page', run.renderedHtml ? 'yes' : 'no - substitution not certain'],
+    ['Site locale', run.locale],
+    ['Run at', new Date().toISOString()],
+  ];
+
+  const html = `
+  <div style="background:${BONE};padding:24px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+    <div style="max-width:600px;margin:0 auto;background:#fff;border:1px solid #e3dbc8;border-radius:14px;overflow:hidden;">
+      <div style="background:${INK};padding:18px 24px;">
+        <span style="color:${BONE};font-size:16px;font-weight:600;">Agent demo run</span>
+      </div>
+      <div style="padding:20px 24px;">
+        <p style="margin:0 0 16px;color:${MUTED};font-size:14px;line-height:1.6;">Someone ran the demo on the page below. The demo is open, so there is no address here and nobody to reply to. This is a record of what the agent said, and of which store is looking.</p>
+        <table style="border-collapse:collapse;width:100%;">
+          ${rows
+            .map(
+              ([label, value]) =>
+                `<tr><td style="padding:5px 16px 5px 0;color:#77776a;font-size:13px;white-space:nowrap;vertical-align:top;">${escapeHtml(
+                  label,
+                )}</td><td style="padding:5px 0;color:${INK};font-size:14px;">${escapeHtml(
+                  value,
+                )}</td></tr>`,
+            )
+            .join('')}
+        </table>
+
+        <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Verdict</h3>
+        ${paragraphs(r.verdict)}
+
+        <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Rewrite</h3>
+        ${paragraphs(r.rewrite)}
+
+        <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Gaps</h3>
+        <ul style="margin:0;padding-left:18px;">${gapList(r)}</ul>
+
+        <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Their current copy (first 200 characters)</h3>
+        ${paragraphs(r.before_excerpt)}
+      </div>
+    </div>
+  </div>`;
+
+  await sendResendEmail({
+    to,
+    subject: `Agent demo run - ${run.productName}`,
+    html,
+    context: `agent-demo run (${run.platform})`,
   });
 }
 

@@ -1,5 +1,10 @@
 // POST /api/agent-demo/reveal — exchange a token plus an email for the result.
 //
+// UNUSED WHILE GATE_MODE IS 'open': the run route returns everything and the
+// client never posts here, so no token is ever issued and every request lands
+// on TOKEN_EXPIRED. It is kept working on purpose - putting the gate back is
+// meant to be one constant in config.ts and nothing else.
+//
 // The token is single-use and taken out of the store before anything else, so
 // a replay returns TOKEN_EXPIRED instead of a second copy. Email delivery
 // never gates the response: if Resend is down the visitor still gets what they
@@ -10,9 +15,10 @@ import { getDictionary } from '@/lib/i18n';
 import { siteUrl } from '@/lib/site';
 import { sendDemoNotification, sendDemoResult } from '@/lib/agent-demo/email';
 import { countReveal } from '@/lib/agent-demo/metrics';
+import { publishPage } from '@/lib/agent-demo/publish';
 import { fail } from '@/lib/agent-demo/respond';
-import { putPage, takeRun } from '@/lib/agent-demo/store';
-import type { RevealResponse, StoredRun } from '@/lib/agent-demo/types';
+import { takeRun } from '@/lib/agent-demo/store';
+import type { RevealResponse } from '@/lib/agent-demo/types';
 
 export const maxDuration = 60;
 export const runtime = 'nodejs';
@@ -21,40 +27,6 @@ export const dynamic = 'force-dynamic';
 // Mirrored by the client, which uses it as a gate before posting. The server
 // stays the only authority.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-/** ASCII file name for the download, since a browser saves it to a real disk. */
-function slug(name: string): string {
-  const base = name
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-zA-Z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .toLowerCase()
-    .slice(0, 60);
-  return `${base || 'product-page'}-maubourg.html`;
-}
-
-/**
- * Moves the rendered page out of the single-use run and into the page store,
- * which is readable more than once: the visitor previews it, opens it in a tab
- * and downloads it, and those are three reads of the same document.
- *
- * The ring label drawn around the substituted block is written in the page's
- * own language, not the site's - it is printed inside their store's page.
- */
-function publishPage(run: StoredRun): { preview: string; download: string } | null {
-  if (!run.renderedHtml) return null;
-  const pageLocale = run.detectedLanguage.startsWith('fr') ? 'fr' : 'en';
-  const token = putPage({
-    html: run.renderedHtml,
-    label: getDictionary(pageLocale).agentDemo.result.previewMarker,
-    filename: slug(run.productName),
-  });
-  return {
-    preview: `/api/agent-demo/page/${token}`,
-    download: `/api/agent-demo/page/${token}?download=1`,
-  };
-}
 
 export async function POST(request: Request) {
   let body: Record<string, unknown>;

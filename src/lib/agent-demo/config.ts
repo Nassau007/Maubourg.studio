@@ -6,13 +6,26 @@
  *
  * - 'full'         the whole result is gated (v1 default)
  * - 'rewrite-only' verdict and gaps are returned ungated, only the rewrite is gated
+ * - 'open'         nothing is gated: the run response carries the verdict, the
+ *                  gaps, the rewrite and the rebuilt page, no name and no email
+ *                  are asked, and the reveal step never runs
  *
- * Both modes are implemented end to end. Flip this one constant and the API,
- * the client and the reveal payload all follow. Review it against the
- * run-to-reveal ratio (GET /api/agent-demo/metrics) after ~50 runs: below
- * roughly 40%, try 'rewrite-only' and compare.
+ * All three modes are implemented end to end. Flip this one constant and the
+ * API, the client and the payload all follow.
+ *
+ * THE PRICE OF 'open', STATED PLAINLY: the demo captures no leads at all. No
+ * address is collected, no result email goes to the visitor, and the studio
+ * notification becomes a run notice with no one to reply to. Everything the
+ * page earns has to come from the call and teardown CTAs under the result. The
+ * reveal route is left working so this constant is the only thing to change to
+ * put the gate back.
+ *
+ * Under 'full' or 'rewrite-only', review it against the run-to-reveal ratio
+ * (GET /api/agent-demo/metrics) after ~50 runs: below roughly 40%, try
+ * 'rewrite-only' and compare. Under 'open' that ratio does not exist, and the
+ * metrics endpoint reports it as null rather than as zero.
  */
-export const GATE_MODE: 'full' | 'rewrite-only' = 'full';
+export const GATE_MODE: 'full' | 'rewrite-only' | 'open' = 'open';
 
 /** Held result lifetime. After this the token is gone and the run must be redone. */
 export const TOKEN_TTL_MS = 30 * 60 * 1000;

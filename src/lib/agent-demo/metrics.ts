@@ -11,7 +11,17 @@
 // the history survives a restart even though the totals do not. No URL, no
 // email address and no page content is ever counted or logged.
 
+import { GATE_MODE } from './config';
 import type { ErrorCode } from './types';
+
+/**
+ * With the gate open a run and a result are the same event: the reveal route is
+ * never called, so `reveals` stays at zero and a ratio computed from it would
+ * read as a total collapse in conversion rather than as a mode with no second
+ * step. It is reported as null instead, and `results_delivered` carries the
+ * number that still means something.
+ */
+const GATE_OPEN = GATE_MODE === 'open';
 
 type Counters = {
   since: string;
@@ -41,7 +51,7 @@ export function countRun(meta: {
   counters.runs += 1;
   if (meta.rendered) counters.renders += 1;
   console.log(
-    `[agent-demo] run ok platform=${meta.platform} lang=${meta.language} confidence=${meta.confidence} rendered=${meta.rendered} ms=${meta.ms} runs=${counters.runs} renders=${counters.renders} reveals=${counters.reveals}`,
+    `[agent-demo] run ok gate=${GATE_MODE} platform=${meta.platform} lang=${meta.language} confidence=${meta.confidence} rendered=${meta.rendered} ms=${meta.ms} runs=${counters.runs} renders=${counters.renders} reveals=${counters.reveals}`,
   );
 }
 
@@ -62,7 +72,16 @@ export function snapshot() {
   return {
     ...counters,
     errors: { ...counters.errors },
-    reveal_rate: counters.runs > 0 ? Number((counters.reveals / counters.runs).toFixed(3)) : null,
+    // How many visitors walked away with the whole result. Equal to runs while
+    // the gate is open, since finishing a run is receiving it.
+    results_delivered: GATE_OPEN ? counters.runs : counters.reveals,
+    reveal_rate:
+      GATE_OPEN || counters.runs === 0
+        ? null
+        : Number((counters.reveals / counters.runs).toFixed(3)),
     render_rate: counters.runs > 0 ? Number((counters.renders / counters.runs).toFixed(3)) : null,
+    // Stated rather than inferred: with the gate open the demo captures no
+    // leads at all, and this endpoint is the only place that would show it.
+    leads_captured: GATE_OPEN ? 0 : counters.reveals,
   };
 }

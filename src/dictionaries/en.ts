@@ -418,14 +418,15 @@ export const en = {
     title: 'Watch an agent rewrite',
     titleAccent: 'one of your product pages.',
     subtitle:
-      'Paste a product page from your own store. An agent reads it, names the single thing costing you the most sales, and writes a new description ready to paste. About 30 seconds, no signup.',
+      'Paste a product page from your own store. An agent reads it, names the single thing costing you the most sales, and writes a new description ready to paste. About 30 seconds, and the result opens on this page.',
     form: {
       label: 'Product page URL',
       placeholder: 'brand.com/products/your-product',
       submit: 'Run the agent →',
       running: 'Running…',
-      note: 'Free. About 30 seconds. No signup to run it.',
-      privacy: 'The URL is used only to produce this result. We do not store the page.',
+      note: 'Free. About 30 seconds. No email, no signup: the result opens right here.',
+      privacy:
+        'The URL is used only to produce this result. Nothing is written to a database, and the rebuilt page is dropped an hour later.',
     },
     loading: {
       steps: ['Reading your product page…', 'Analysing the copy…', 'Writing the rewrite…'],
@@ -546,15 +547,15 @@ export const en = {
       },
       {
         title: 'When you run the agent demo',
-        body: 'You give us a product page URL and, to see the result, a name and an email. The exchange is deliberate: the result is the thing you get, the email is what we ask for it. We email you the result and keep your address so we can follow up. The URL and the page content are held in memory for 30 minutes and then dropped, never written to a database.',
+        body: 'You give us a product page URL and nothing else. We ask for no name and no email, and the whole result opens on the page. The URL, the page content and the rebuilt copy of your page are held in memory and dropped within the hour, never written to a database. We do send ourselves a copy of what the agent said, so we can see how it performs on real stores.',
       },
       {
-        title: 'The marketing checkbox',
-        body: 'It is unchecked by default and it changes nothing about the result you get. Tick it and we may send occasional emails about ecommerce conversion. Leave it and we will only reply to you about what you asked for.',
+        title: 'Mailing lists',
+        body: 'The demo puts you on no list, because it asks for no address. The only emails we send are replies about a teardown or a call you requested yourself, and you can tell us to stop in one line.',
       },
       {
         title: 'The agent and the model',
-        body: 'The text of the page you submit is sent to Anthropic, the provider of the model that writes the rewrite, to produce the answer. Your name and email are never sent with it.',
+        body: 'The text of the page you submit is sent to Anthropic, the provider of the model that writes the rewrite, to produce the answer. Nothing about you goes with it, because the demo never asked for anything about you.',
       },
       {
         title: 'What we do not do',
@@ -910,7 +911,7 @@ export const en = {
       meta: {
         title: 'AI agents for ecommerce - Maubourg Studio',
         description:
-          'Agents scoped to a real workflow: catalogue upkeep, order triage, pre-sales answers. Try one live on your own product page, no signup.',
+          'Agents scoped to a real workflow: catalogue upkeep, order triage, pre-sales answers. Try one live on your own product page, no email asked.',
       },
       hero: {
         eyebrow: 'AI agents',
@@ -924,7 +925,7 @@ export const en = {
       demoIntro: {
         eyebrow: 'Proof, not a deck',
         title: 'Give it one of your product pages.',
-        body: 'It reads the page, names what is costing you the sale, and writes the description again. About thirty seconds, and no signup to run it. This is one small agent doing one task, which is the point: the ones we build run continuously across a whole catalogue.',
+        body: 'It reads the page, names what is costing you the sale, and writes the description again. About thirty seconds, and we ask for nothing in return: no email, no signup, the result opens here. This is one small agent doing one task, which is the point: the ones we build run continuously across a whole catalogue.',
       },
       families: {
         eyebrow: 'What we build',

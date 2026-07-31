@@ -421,15 +421,15 @@ export const fr: Dictionary = {
     title: 'Regardez un agent réécrire',
     titleAccent: 'une de vos fiches produit.',
     subtitle:
-      'Collez l’adresse d’une fiche produit de votre boutique. Un agent la lit, nomme ce qui vous coûte le plus de ventes et rédige une nouvelle description prête à coller. 30 secondes environ, sans inscription.',
+      'Collez l’adresse d’une fiche produit de votre boutique. Un agent la lit, nomme ce qui vous coûte le plus de ventes et rédige une nouvelle description prête à coller. 30 secondes environ, et le résultat s’affiche sur cette page.',
     form: {
       label: 'URL de la fiche produit',
       placeholder: 'marque.fr/products/votre-produit',
       submit: 'Lancer l’agent →',
       running: 'En cours…',
-      note: 'Gratuit. 30 secondes environ. Aucune inscription pour l’essayer.',
+      note: 'Gratuit. 30 secondes environ. Sans e-mail ni inscription : le résultat s’affiche ici.',
       privacy:
-        'L’URL sert uniquement à produire ce résultat. Nous ne conservons pas le contenu de la page.',
+        'L’URL sert uniquement à produire ce résultat. Rien n’est écrit en base, et la page reconstruite est supprimée une heure après.',
     },
     loading: {
       steps: [
@@ -555,15 +555,15 @@ export const fr: Dictionary = {
       },
       {
         title: 'Quand vous lancez la démo d’agent',
-        body: 'Vous nous donnez l’URL d’une fiche produit et, pour voir le résultat, un nom et un e-mail. L’échange est assumé : le résultat est ce que vous obtenez, l’e-mail est ce que nous demandons en retour. Nous vous envoyons le résultat et conservons votre adresse pour pouvoir vous relancer. L’URL et le contenu de la page restent en mémoire 30 minutes puis disparaissent, sans jamais être écrits en base.',
+        body: 'Vous nous donnez l’URL d’une fiche produit, et rien d’autre. Nous ne demandons ni nom ni e-mail, et le résultat complet s’affiche sur la page. L’URL, le contenu de la page et la copie reconstruite restent en mémoire et disparaissent dans l’heure, sans jamais être écrits en base. Nous nous envoyons en revanche une copie de ce que l’agent a répondu, pour voir ce qu’il vaut sur de vraies boutiques.',
       },
       {
-        title: 'La case marketing',
-        body: 'Elle est décochée par défaut et ne change rien au résultat que vous recevez. Cochée, elle nous autorise à vous envoyer occasionnellement des e-mails sur la conversion e-commerce. Laissée vide, nous ne vous répondons que sur ce que vous avez demandé.',
+        title: 'Listes de diffusion',
+        body: 'La démo ne vous inscrit sur aucune liste, puisqu’elle ne demande aucune adresse. Les seuls e-mails que nous envoyons répondent à un diagnostic ou à un appel que vous avez demandé vous-même, et une ligne suffit pour que cela s’arrête.',
       },
       {
         title: 'L’agent et le modèle',
-        body: 'Le texte de la page soumise est transmis à Anthropic, fournisseur du modèle qui rédige la nouvelle version, le temps de produire la réponse. Votre nom et votre e-mail ne sont jamais transmis avec.',
+        body: 'Le texte de la page soumise est transmis à Anthropic, fournisseur du modèle qui rédige la nouvelle version, le temps de produire la réponse. Rien qui vous concerne ne part avec : la démo ne vous a rien demandé.',
       },
       {
         title: 'Ce que nous ne faisons pas',
@@ -924,7 +924,7 @@ export const fr: Dictionary = {
       meta: {
         title: 'Agents IA pour l’e-commerce - Maubourg Studio',
         description:
-          'Des agents calibrés sur un vrai workflow : tenue du catalogue, traitement des commandes, réponses avant-vente. Essayez-en un sur votre fiche produit, sans inscription.',
+          'Des agents calibrés sur un vrai workflow : tenue du catalogue, traitement des commandes, réponses avant-vente. Essayez-en un sur votre fiche produit, sans e-mail à laisser.',
       },
       hero: {
         eyebrow: 'Agents IA',
@@ -938,7 +938,7 @@ export const fr: Dictionary = {
       demoIntro: {
         eyebrow: 'Une preuve, pas un slide',
         title: 'Donnez-lui une de vos fiches produit.',
-        body: 'Il lit la page, nomme ce qui vous coûte la vente, et réécrit la description. Environ trente secondes, sans inscription pour l’essayer. C’est un petit agent qui fait une seule tâche, et c’est bien le point : ceux que nous construisons tournent en continu sur tout un catalogue.',
+        body: 'Il lit la page, nomme ce qui vous coûte la vente, et réécrit la description. Environ trente secondes, et nous ne demandons rien en échange : ni e-mail, ni inscription, le résultat s’affiche ici. C’est un petit agent qui fait une seule tâche, et c’est bien le point : ceux que nous construisons tournent en continu sur tout un catalogue.',
       },
       families: {
         eyebrow: 'Ce que nous construisons',

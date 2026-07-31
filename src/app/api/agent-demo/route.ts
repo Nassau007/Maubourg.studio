@@ -1,9 +1,15 @@
 // POST /api/agent-demo — run the agent on a visitor-submitted product URL.
 //
-// THE RULE THIS ROUTE EXISTS TO ENFORCE: the full result never leaves the
-// server here. What goes back is a product name, a ~60-character teaser and a
-// token. Anyone opening devtools sees exactly that. Adding the verdict or the
-// rewrite to this response, even to render it hidden, defeats the whole gate.
+// WHAT GOES BACK DEPENDS ON GATE_MODE, and on nothing else.
+//
+// Under 'full' and 'rewrite-only' this route enforces the gate: the full
+// result never leaves the server here, only a product name, a ~60-character
+// teaser and a token. Adding the verdict or the rewrite to that response, even
+// to render it hidden, would defeat the whole thing.
+//
+// Under 'open' there is no gate to defeat. The whole result and the rebuilt
+// page go back in this one response, nothing is held for a second step, and no
+// address is collected anywhere in the flow.
 //
 // maxDuration and runtime below are documentation: this deploys to Railway
 // from the repo Dockerfile, where neither export does anything. The real
@@ -11,14 +17,16 @@
 
 import { NextResponse } from 'next/server';
 import { GATE_MODE, BEFORE_EXCERPT_CHARS, TEASER_CHARS } from '@/lib/agent-demo/config';
+import { sendDemoRunNotice } from '@/lib/agent-demo/email';
 import { fetchProduct } from '@/lib/agent-demo/fetchProduct';
 import { detectLanguage, runAgent } from '@/lib/agent-demo/prompt';
 import { canRun, recordRun, visitorKey } from '@/lib/agent-demo/rateLimit';
 import { countRun } from '@/lib/agent-demo/metrics';
+import { publishPage } from '@/lib/agent-demo/publish';
 import { buildRenderedPage } from '@/lib/agent-demo/renderPage';
 import { fail, failFrom } from '@/lib/agent-demo/respond';
 import { putRun } from '@/lib/agent-demo/store';
-import type { RunResponse } from '@/lib/agent-demo/types';
+import type { RunResponse, StoredRun } from '@/lib/agent-demo/types';
 
 export const maxDuration = 60;
 export const runtime = 'nodejs';
@@ -77,7 +85,7 @@ export async function POST(request: Request) {
       rewrite: model.rewrite,
     });
 
-    const token = putRun({
+    const run: Omit<StoredRun, 'createdAt' | 'expiresAt'> = {
       result: {
         verdict: model.verdict,
         rewrite: model.rewrite,
@@ -91,9 +99,19 @@ export async function POST(request: Request) {
       detectedLanguage,
       confidence: page.confidence,
       locale,
-    });
+    };
+
+    // With the gate open nothing waits for a second step, so the run is never
+    // stored: the page is published straight away and the result goes out in
+    // this response. Holding it as well would keep the same document in memory
+    // twice for a reveal that will never come.
+    const open = GATE_MODE === 'open';
+    const published = open ? publishPage(run) : null;
+    const token = open ? undefined : putRun(run);
 
     // Only a run that produced something counts against the visitor's two.
+    // Unchanged by the gate: the spend guard sits in front of the model call,
+    // not in front of the email, which is the whole reason it can stay open.
     recordRun(key);
     countRun({
       platform: page.platform,
@@ -105,7 +123,7 @@ export async function POST(request: Request) {
 
     const payload: RunResponse = {
       ok: true,
-      token,
+      ...(token ? { token } : {}),
       product_name: page.name,
       teaser: toTeaser(model.verdict),
       gaps_count: model.gaps.length,
@@ -116,7 +134,23 @@ export async function POST(request: Request) {
       // Under 'rewrite-only' the diagnosis is shown before the ask and only the
       // rewrite is held back. Under 'full' neither field is sent at all.
       ...(GATE_MODE === 'rewrite-only' ? { verdict: model.verdict, gaps: model.gaps } : {}),
+      // Under 'open' the visitor gets the lot, here, now.
+      ...(open
+        ? {
+            verdict: model.verdict,
+            gaps: model.gaps,
+            rewrite: model.rewrite,
+            before_excerpt: run.result.before_excerpt,
+            preview_url: published ? published.preview : null,
+            download_url: published ? published.download : null,
+          }
+        : {}),
     };
+
+    // There is no address to reply to with the gate open, so this is a notice
+    // rather than a lead: it tells the studio which store ran the demo and what
+    // the agent said, and it says outright that no contact details exist.
+    if (open) await sendDemoRunNotice({ run });
 
     return NextResponse.json(payload, { status: 200 });
   } catch (err) {
