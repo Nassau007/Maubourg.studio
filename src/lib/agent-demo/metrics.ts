@@ -16,6 +16,7 @@ import type { ErrorCode } from './types';
 type Counters = {
   since: string;
   runs: number;
+  renders: number;
   reveals: number;
   errors: Record<string, number>;
 };
@@ -23,14 +24,24 @@ type Counters = {
 const counters: Counters = {
   since: new Date().toISOString(),
   runs: 0,
+  renders: 0,
   reveals: 0,
   errors: {},
 };
 
-export function countRun(meta: { platform: string; language: string; confidence: string; ms: number }) {
+export function countRun(meta: {
+  platform: string;
+  language: string;
+  confidence: string;
+  ms: number;
+  /** Whether the rewrite could be put back into the page. The one number that says
+   *  how often the main deliverable actually gets produced. */
+  rendered: boolean;
+}) {
   counters.runs += 1;
+  if (meta.rendered) counters.renders += 1;
   console.log(
-    `[agent-demo] run ok platform=${meta.platform} lang=${meta.language} confidence=${meta.confidence} ms=${meta.ms} runs=${counters.runs} reveals=${counters.reveals}`,
+    `[agent-demo] run ok platform=${meta.platform} lang=${meta.language} confidence=${meta.confidence} rendered=${meta.rendered} ms=${meta.ms} runs=${counters.runs} renders=${counters.renders} reveals=${counters.reveals}`,
   );
 }
 
@@ -52,5 +63,6 @@ export function snapshot() {
     ...counters,
     errors: { ...counters.errors },
     reveal_rate: counters.runs > 0 ? Number((counters.reveals / counters.runs).toFixed(3)) : null,
+    render_rate: counters.runs > 0 ? Number((counters.renders / counters.runs).toFixed(3)) : null,
   };
 }

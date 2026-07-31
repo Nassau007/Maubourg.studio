@@ -61,6 +61,7 @@ export async function sendDemoNotification(input: {
     ['Platform', run.platform],
     ['Page language', run.detectedLanguage],
     ['Extraction confidence', run.confidence],
+    ['Rebuilt page', run.renderedHtml ? 'yes' : 'no - substitution not certain'],
     ['Site locale', run.locale],
     ['Marketing consent', consent ? 'yes' : 'no'],
     ['Result email', visitorEmailSent ? 'sent' : 'NOT SENT - check Resend'],
@@ -151,6 +152,14 @@ export async function sendDemoResult(input: {
           copy.afterLabel,
         )}</h3>
         <div style="background:${BONE};border-radius:12px;padding:14px 16px;">${paragraphs(r.rewrite)}</div>
+
+        ${
+          run.renderedHtml
+            ? `<p style="margin:16px 0 0;color:${MUTED};font-size:13px;line-height:1.6;">${escapeHtml(
+                copy.previewNote,
+              )}</p>`
+            : ''
+        }
 
         <h3 style="margin:24px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">${escapeHtml(
           copy.beforeLabel,

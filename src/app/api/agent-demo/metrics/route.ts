@@ -13,7 +13,7 @@
 import { NextResponse } from 'next/server';
 import { snapshot } from '@/lib/agent-demo/metrics';
 import { limiterSnapshot } from '@/lib/agent-demo/rateLimit';
-import { heldRunCount } from '@/lib/agent-demo/store';
+import { heldPageStats, heldRunCount } from '@/lib/agent-demo/store';
 import { GATE_MODE } from '@/lib/agent-demo/config';
 
 export const runtime = 'nodejs';
@@ -34,6 +34,7 @@ export async function GET(request: Request) {
     gate_mode: GATE_MODE,
     ...snapshot(),
     tokens_held: heldRunCount(),
+    rendered_pages_held: heldPageStats(),
     limiter: limiterSnapshot(),
   });
 }

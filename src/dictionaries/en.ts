@@ -453,6 +453,11 @@ export const en = {
       verdictLabel: 'The verdict starts',
       gapsFound: '{n} issues found on this page',
       gapsFoundOne: '1 issue found on this page',
+      // The reward, named at the point of the ask. Withheld when the
+      // substitution did not work, because promising a page we cannot show is
+      // the one thing worse than not promising it.
+      previewPromise:
+        'Your own product page has been rebuilt with the new description in place of the old one. It opens here, and you can download it.',
       intro: 'Tell us where to send it. The full result opens here as soon as you do.',
       name: 'Your name',
       namePlaceholder: 'Jane Doe',
@@ -471,6 +476,15 @@ export const en = {
       gapsLabel: 'What is missing',
       copy: 'Copy the rewrite',
       copied: 'Copied',
+      previewLabel: 'Your page, with the new copy in it',
+      previewNote:
+        'This is your own product page, your design and your images, with the new description where the old one was. It runs with all scripts removed, so parts that need JavaScript may look different. Nothing was written to your store.',
+      previewMarker: 'New copy',
+      previewOpen: 'Open in a new tab',
+      previewDownload: 'Download the HTML',
+      previewExpires: 'This page stays available for an hour, then the copy on our side is dropped.',
+      previewUnavailable:
+        'We could not place the new copy back into this page with certainty, so we did not rebuild it. Rather than risk showing you a broken version of your own store, here is the rewrite on its own.',
       emailed: 'A copy is on its way to your inbox.',
       lowConfidence:
         'This page was hard to read automatically, so the rewrite may be based on partial content.',
@@ -505,6 +519,8 @@ export const en = {
       beforeLabel: 'Your current copy',
       afterLabel: 'The rewrite',
       gapsLabel: 'What is missing',
+      previewNote:
+        'Your page with the new copy already in it is open in the browser tab you ran this from, for the next hour. It is a rebuilt copy for you to look at, nothing was changed on your store.',
       frame:
         'That was one agent doing one task. The ones we build run continuously across a full catalog. If you want to see what that would look like on yours, book 15 minutes.',
       cta: 'Book a 15-minute call',

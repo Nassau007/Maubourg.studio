@@ -20,6 +20,9 @@ type RunPayload = {
   platform: string;
   detected_language: string;
   confidence: 'high' | 'low';
+  // Whether the rebuilt page exists. Sent before the email so the ask can name
+  // the reward, and false whenever the substitution was not certain.
+  render_available: boolean;
   // Present only when the server runs GATE_MODE 'rewrite-only'. The client
   // reads the response rather than importing the constant, so the switch stays
   // a server decision and the bundle carries no copy of it.
@@ -32,6 +35,8 @@ type Result = {
   before_excerpt: string;
   rewrite: string;
   gaps: Gap[];
+  preview_url: string | null;
+  download_url: string | null;
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -303,6 +308,14 @@ export default function AgentDemo({
             )}
           </dl>
 
+          {/* The reward, named at the ask. Only when it exists: a promise we
+              cannot keep costs more than the extra line earns. */}
+          {run.render_available && (
+            <p className="mt-6 rounded-xl border border-emerald/25 bg-emerald-50/60 px-4 py-3 text-sm leading-relaxed text-ink">
+              {dict.gate.previewPromise}
+            </p>
+          )}
+
           <p className="mt-6 text-sm text-ink-600">{dict.gate.intro}</p>
 
           <form onSubmit={handleReveal} noValidate className="mt-4 space-y-4">
@@ -399,7 +412,51 @@ export default function AgentDemo({
             </p>
           </div>
 
-          {/* 2. Before / after. Stacked on mobile with the rewrite first. */}
+          {/* 2. The deliverable: their own page with the new copy in it.
+              Sandboxed with no permissions at all - the document is a third
+              party's markup, already stripped of scripts server side, and this
+              is the second lock on that door. */}
+          {result.preview_url ? (
+            <div>
+              <div className="flex flex-wrap items-end justify-between gap-3">
+                <span className="eyebrow">{dict.result.previewLabel}</span>
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    href={result.preview_url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="rounded-full border border-ink/20 px-3 py-1 text-xs font-semibold text-ink transition-colors hover:bg-ink hover:text-bone"
+                  >
+                    {dict.result.previewOpen}
+                  </a>
+                  {result.download_url && (
+                    <a
+                      href={result.download_url}
+                      className="rounded-full border border-ink/20 px-3 py-1 text-xs font-semibold text-ink transition-colors hover:bg-ink hover:text-bone"
+                    >
+                      {dict.result.previewDownload}
+                    </a>
+                  )}
+                </div>
+              </div>
+              <div className="mt-4 overflow-hidden rounded-card border border-ink/15 bg-white shadow-[0_20px_50px_-30px_rgba(20,20,15,0.5)]">
+                <iframe
+                  src={`${result.preview_url}#maubourg-rewrite`}
+                  sandbox=""
+                  title={dict.result.previewLabel}
+                  className="h-[520px] w-full border-0 bg-white md:h-[640px]"
+                />
+              </div>
+              <p className="mt-3 text-xs leading-relaxed text-ink-500">{dict.result.previewNote}</p>
+              <p className="mt-1 text-xs text-ink-500">{dict.result.previewExpires}</p>
+            </div>
+          ) : (
+            <p className="rounded-xl border border-ink/10 bg-bone-200 px-4 py-3 text-sm leading-relaxed text-ink-600">
+              {dict.result.previewUnavailable}
+            </p>
+          )}
+
+          {/* 3. Before / after. Stacked on mobile with the rewrite first. */}
           <div className="grid gap-5 md:grid-cols-2">
             <div className="card order-1 md:order-2">
               <div className="flex items-center justify-between gap-3">
@@ -425,7 +482,7 @@ export default function AgentDemo({
             </div>
           </div>
 
-          {/* 3. What is missing */}
+          {/* 4. What is missing */}
           <div>
             <span className="eyebrow">{dict.result.gapsLabel}</span>
             <ul className="mt-4 space-y-3">
@@ -440,7 +497,7 @@ export default function AgentDemo({
             </ul>
           </div>
 
-          {/* 4. The frame */}
+          {/* 5. The frame */}
           <div className="rounded-card bg-ink p-7 text-bone md:p-9">
             <h2 className="font-display text-2xl font-semibold leading-tight md:text-3xl">
               {dict.frame.title}

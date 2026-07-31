@@ -11,8 +11,8 @@ import { siteUrl } from '@/lib/site';
 import { sendDemoNotification, sendDemoResult } from '@/lib/agent-demo/email';
 import { countReveal } from '@/lib/agent-demo/metrics';
 import { fail } from '@/lib/agent-demo/respond';
-import { takeRun } from '@/lib/agent-demo/store';
-import type { RevealResponse } from '@/lib/agent-demo/types';
+import { putPage, takeRun } from '@/lib/agent-demo/store';
+import type { RevealResponse, StoredRun } from '@/lib/agent-demo/types';
 
 export const maxDuration = 60;
 export const runtime = 'nodejs';
@@ -21,6 +21,40 @@ export const dynamic = 'force-dynamic';
 // Mirrored by the client, which uses it as a gate before posting. The server
 // stays the only authority.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/** ASCII file name for the download, since a browser saves it to a real disk. */
+function slug(name: string): string {
+  const base = name
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-zA-Z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .toLowerCase()
+    .slice(0, 60);
+  return `${base || 'product-page'}-maubourg.html`;
+}
+
+/**
+ * Moves the rendered page out of the single-use run and into the page store,
+ * which is readable more than once: the visitor previews it, opens it in a tab
+ * and downloads it, and those are three reads of the same document.
+ *
+ * The ring label drawn around the substituted block is written in the page's
+ * own language, not the site's - it is printed inside their store's page.
+ */
+function publishPage(run: StoredRun): { preview: string; download: string } | null {
+  if (!run.renderedHtml) return null;
+  const pageLocale = run.detectedLanguage.startsWith('fr') ? 'fr' : 'en';
+  const token = putPage({
+    html: run.renderedHtml,
+    label: getDictionary(pageLocale).agentDemo.result.previewMarker,
+    filename: slug(run.productName),
+  });
+  return {
+    preview: `/api/agent-demo/page/${token}`,
+    download: `/api/agent-demo/page/${token}?download=1`,
+  };
+}
 
 export async function POST(request: Request) {
   let body: Record<string, unknown>;
@@ -40,7 +74,15 @@ export async function POST(request: Request) {
   // Honeypot, same contract as the lead routes: a filled hidden field gets a
   // plausible-looking 200 and nothing happens.
   if (typeof body.company === 'string' && body.company.trim() !== '') {
-    return NextResponse.json({ ok: true, verdict: '', before_excerpt: '', rewrite: '', gaps: [] });
+    return NextResponse.json({
+      ok: true,
+      verdict: '',
+      before_excerpt: '',
+      rewrite: '',
+      gaps: [],
+      preview_url: null,
+      download_url: null,
+    });
   }
 
   if (!token) return fail('TOKEN_EXPIRED', locale);
@@ -54,6 +96,10 @@ export async function POST(request: Request) {
 
   const run = takeRun(token);
   if (!run) return fail('TOKEN_EXPIRED', locale);
+
+  // Published before anything that can fail, so an email problem never costs
+  // the visitor the page they came for.
+  const page = publishPage(run);
 
   try {
     // The result email speaks the product page's language, not the site
@@ -79,6 +125,8 @@ export async function POST(request: Request) {
       before_excerpt: run.result.before_excerpt,
       rewrite: run.result.rewrite,
       gaps: run.result.gaps,
+      preview_url: page ? page.preview : null,
+      download_url: page ? page.download : null,
     };
     return NextResponse.json(payload, { status: 200 });
   } catch (err) {
@@ -93,6 +141,8 @@ export async function POST(request: Request) {
         before_excerpt: run.result.before_excerpt,
         rewrite: run.result.rewrite,
         gaps: run.result.gaps,
+        preview_url: page ? page.preview : null,
+        download_url: page ? page.download : null,
       },
       { status: 200 },
     );

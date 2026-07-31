@@ -11,7 +11,7 @@
 // this needs Redis or a table before the second instance starts.
 
 import { randomUUID } from 'node:crypto';
-import { TOKEN_TTL_MS } from './config';
+import { PAGE_STORE_MAX_CHARS, PAGE_TTL_MS, TOKEN_TTL_MS } from './config';
 import type { StoredRun } from './types';
 
 const runs = new Map<string, StoredRun>();
@@ -51,4 +51,83 @@ export function takeRun(token: string): StoredRun | null {
 export function heldRunCount(): number {
   sweep(Date.now());
   return runs.size;
+}
+
+/* ------------------------------------------------------------------ */
+/* Rendered pages                                                      */
+/* ------------------------------------------------------------------ */
+
+/**
+ * The rendered page is the reward, so unlike a run it is NOT single use: the
+ * visitor previews it in an iframe, opens it in a tab and downloads it, which
+ * is three reads of the same token. It expires on a timer instead.
+ *
+ * This is the one thing in the demo that is big. A run holds a few kilobytes
+ * of JSON; a rendered page holds a whole HTML document. Same in-memory store,
+ * so it carries a byte ceiling and drops the oldest pages when it is reached
+ * rather than growing until the container is killed. The volume is not
+ * involved and nothing is written to disk: a store's page is not ours to keep.
+ */
+type StoredPage = {
+  html: string;
+  /** Text of the ring label drawn around the substituted block, in the page's language. */
+  label: string;
+  filename: string;
+  createdAt: number;
+  expiresAt: number;
+};
+
+const pages = new Map<string, StoredPage>();
+
+function pageBytes(): number {
+  let total = 0;
+  Array.from(pages.keys()).forEach((token) => {
+    const page = pages.get(token);
+    if (page) total += page.html.length;
+  });
+  return total;
+}
+
+function sweepPages(now: number): void {
+  Array.from(pages.keys()).forEach((token) => {
+    const page = pages.get(token);
+    if (page && page.expiresAt <= now) pages.delete(token);
+  });
+
+  while (pageBytes() > PAGE_STORE_MAX_CHARS && pages.size > 1) {
+    let oldest = '';
+    let oldestAt = Infinity;
+    Array.from(pages.keys()).forEach((token) => {
+      const page = pages.get(token);
+      if (page && page.createdAt < oldestAt) {
+        oldestAt = page.createdAt;
+        oldest = token;
+      }
+    });
+    if (!oldest) break;
+    pages.delete(oldest);
+  }
+}
+
+export function putPage(page: { html: string; label: string; filename: string }): string {
+  const now = Date.now();
+  sweepPages(now);
+  const token = randomUUID();
+  pages.set(token, { ...page, createdAt: now, expiresAt: now + PAGE_TTL_MS });
+  sweepPages(now);
+  return token;
+}
+
+export function getPage(token: string): StoredPage | null {
+  const now = Date.now();
+  sweepPages(now);
+  const page = pages.get(token);
+  if (!page || page.expiresAt <= now) return null;
+  return page;
+}
+
+/** Held pages and their size, for the metrics endpoint. */
+export function heldPageStats(): { pages: number; chars: number } {
+  sweepPages(Date.now());
+  return { pages: pages.size, chars: pageBytes() };
 }

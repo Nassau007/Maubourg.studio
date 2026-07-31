@@ -461,6 +461,8 @@ export const fr: Dictionary = {
       verdictLabel: 'Le verdict commence par',
       gapsFound: '{n} problèmes trouvés sur cette page',
       gapsFoundOne: '1 problème trouvé sur cette page',
+      previewPromise:
+        'Votre fiche produit a été reconstruite avec la nouvelle description à la place de l’ancienne. Elle s’ouvre ici, et vous pouvez la télécharger.',
       intro: 'Dites-nous où l’envoyer. Le résultat complet s’ouvre ici dans la foulée.',
       name: 'Votre nom',
       namePlaceholder: 'Camille Martin',
@@ -480,6 +482,16 @@ export const fr: Dictionary = {
       gapsLabel: 'Ce qui manque',
       copy: 'Copier la nouvelle version',
       copied: 'Copié',
+      previewLabel: 'Votre page, avec le nouveau texte dedans',
+      previewNote:
+        'C’est votre fiche produit, votre design et vos images, avec la nouvelle description à la place de l’ancienne. Elle tourne sans aucun script : les éléments qui dépendent du JavaScript peuvent s’afficher autrement. Rien n’a été écrit dans votre boutique.',
+      previewMarker: 'Nouveau texte',
+      previewOpen: 'Ouvrir dans un nouvel onglet',
+      previewDownload: 'Télécharger le HTML',
+      previewExpires:
+        'Cette page reste disponible une heure, puis notre copie est supprimée.',
+      previewUnavailable:
+        'Nous n’avons pas pu replacer le nouveau texte dans cette page avec certitude, donc nous ne l’avons pas reconstruite. Plutôt que de vous montrer une version cassée de votre propre boutique, voici la réécriture seule.',
       emailed: 'Une copie part vers votre boîte mail.',
       lowConfidence:
         'Cette page a été difficile à lire automatiquement : la réécriture peut reposer sur un contenu partiel.',
@@ -516,6 +528,8 @@ export const fr: Dictionary = {
       beforeLabel: 'Votre texte actuel',
       afterLabel: 'La nouvelle version',
       gapsLabel: 'Ce qui manque',
+      previewNote:
+        'Votre page avec le nouveau texte déjà dedans reste ouverte pendant une heure dans l’onglet où vous avez lancé la démo. C’est une copie reconstruite, à regarder : rien n’a été modifié dans votre boutique.',
       frame:
         'C’était un agent, une tâche. Ceux que nous construisons tournent en continu sur un catalogue entier. Pour voir ce que cela donnerait sur le vôtre, réservez 15 minutes.',
       cta: 'Réserver un appel de 15 minutes',

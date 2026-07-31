@@ -17,7 +17,17 @@ import {
   MIN_DESCRIPTION_CHARS,
   USER_AGENT,
 } from './config';
+import {
+  decodeEntities,
+  htmlLang,
+  metaContent,
+  productJsonLd,
+  toPlainText,
+} from './htmlText';
+import { readSignals } from './signals';
 import { DemoError, type Confidence, type Platform, type ProductPage } from './types';
+
+export { toPlainText };
 
 /* ------------------------------------------------------------------ */
 /* Address safety                                                      */
@@ -187,76 +197,8 @@ async function readCapped(res: Response): Promise<string> {
 }
 
 /* ------------------------------------------------------------------ */
-/* HTML helpers                                                        */
+/* Platform                                                            */
 /* ------------------------------------------------------------------ */
-
-const ENTITIES: Record<string, string> = {
-  amp: '&',
-  lt: '<',
-  gt: '>',
-  quot: '"',
-  apos: "'",
-  nbsp: ' ',
-  eacute: 'é',
-  egrave: 'è',
-  ecirc: 'ê',
-  agrave: 'à',
-  ccedil: 'ç',
-  ugrave: 'ù',
-  ocirc: 'ô',
-  icirc: 'î',
-  laquo: '«',
-  raquo: '»',
-  hellip: '…',
-  rsquo: '’',
-  lsquo: '‘',
-  ldquo: '“',
-  rdquo: '”',
-  ndash: '–',
-  mdash: '—',
-  euro: '€',
-  deg: '°',
-};
-
-function decodeEntities(s: string): string {
-  return s
-    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
-    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(Number(dec)))
-    .replace(/&([a-z]+);/gi, (m, name) => ENTITIES[String(name).toLowerCase()] ?? m);
-}
-
-/** Strips tags and collapses whitespace. Scripts and styles go first. */
-export function toPlainText(html: string): string {
-  return decodeEntities(
-    html
-      .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
-      .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
-      .replace(/<br\s*\/?>/gi, '\n')
-      .replace(/<\/(p|div|li|h[1-6])>/gi, '\n')
-      .replace(/<[^>]+>/g, ' '),
-  )
-    .replace(/[ \t ]+/g, ' ')
-    .replace(/\s*\n\s*/g, '\n')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
-}
-
-function metaContent(html: string, property: string): string | null {
-  const pattern = new RegExp(
-    `<meta[^>]+(?:property|name)\\s*=\\s*["']${property}["'][^>]*>`,
-    'i',
-  );
-  const tag = html.match(pattern)?.[0];
-  if (!tag) return null;
-  const content = tag.match(/content\s*=\s*["']([\s\S]*?)["']/i)?.[1];
-  return content ? decodeEntities(content).trim() : null;
-}
-
-function htmlLang(html: string): string | null {
-  const tag = html.match(/<html[^>]*>/i)?.[0];
-  const value = tag?.match(/\blang\s*=\s*["']([a-z]{2,3})(?:[-_][a-z0-9]+)?["']/i)?.[1];
-  return value ? value.toLowerCase() : null;
-}
 
 function detectPlatform(html: string): Platform {
   if (/cdn\.shopify\.com|Shopify\.theme|"Shopify"|shopify-features/i.test(html)) return 'shopify';
@@ -321,7 +263,9 @@ function tidyVariants(values: string[]): string[] {
   for (const raw of values) {
     const v = raw.replace(/\s+/g, ' ').trim();
     if (!v || v.length > 60) continue;
-    if (/^(choose|select|choisir|s[ée]lectionner|pick|--?)$/i.test(v)) continue;
+    // Prefix, not whole string: pickers label their empty option "Choisir une
+    // option", and fed to the agent that reads as a variant called "choose".
+    if (/^(choose|select|choisir|s[ée]lectionne|pick|please|--?$)/i.test(v)) continue;
     const key = v.toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);
@@ -332,60 +276,15 @@ function tidyVariants(values: string[]): string[] {
 }
 
 /**
- * Walks a parsed JSON-LD value for the first node whose @type includes
- * "Product". Handles the three shapes seen in the wild: a bare object, an
- * array of nodes, and an @graph wrapper.
- */
-function findProductNode(value: unknown, depth = 0): Record<string, unknown> | null {
-  if (depth > 6 || value === null || typeof value !== 'object') return null;
-
-  if (Array.isArray(value)) {
-    for (const item of value) {
-      const hit = findProductNode(item, depth + 1);
-      if (hit) return hit;
-    }
-    return null;
-  }
-
-  const node = value as Record<string, unknown>;
-  const type = node['@type'];
-  const types = Array.isArray(type) ? type : [type];
-  if (types.some((t) => typeof t === 'string' && /product/i.test(t))) return node;
-
-  // Deliberately not walking itemListElement: a homepage carousel publishes
-  // Product nodes for products it merely links to, and rewriting one of those
-  // would answer a URL the visitor never submitted.
-  for (const key of ['@graph', 'mainEntity']) {
-    const hit = findProductNode(node[key], depth + 1);
-    if (hit) return hit;
-  }
-  return null;
-}
-
-/**
- * JSON-LD blocks, read by regex rather than a DOM parser. The repo has no HTML
- * parser dependency and this needs only the contents of one script tag.
+ * The JSON-LD Product node, when the description in it is usable. Parsing
+ * lives in htmlText.ts now that signals.ts reads the same node for price,
+ * rating and specifications: two parsers over one script tag is how the copy
+ * and the facts start disagreeing.
  */
 function fromJsonLd(html: string): Extracted {
-  const blocks = html.match(
-    /<script[^>]+type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
-  );
-  if (!blocks) return null;
-
-  for (const block of blocks) {
-    const json = block.replace(/^[\s\S]*?>/, '').replace(/<\/script>$/i, '');
-    let parsed: unknown;
-    try {
-      parsed = JSON.parse(json.trim());
-    } catch {
-      continue;
-    }
-    const product = findProductNode(parsed);
-    if (!product) continue;
-    const hit = usable(product.name, product.description);
-    if (hit) return hit;
-  }
-  return null;
+  const product = productJsonLd(html);
+  if (!product) return null;
+  return usable(product.name, product.description);
 }
 
 /**
@@ -430,12 +329,22 @@ function fromOpenGraph(html: string, url: URL): Extracted {
     html.match(/<[^>]+itemprop\s*=\s*["']description["'][\s\S]*?<\/[a-z]+>/i)?.[0] ||
     html;
 
+  // Document order, not longest first. Two reasons: it is the order the buyer
+  // reads them in, and a description assembled out of order can no longer be
+  // found in the page, which is what the rebuilt page needs in order to put
+  // the new copy back where the old copy was.
   const paragraphs = (scope.match(/<p\b[^>]*>[\s\S]*?<\/p>/gi) || [])
     .map(toPlainText)
-    .filter((p) => p.length > 40);
-  const cluster = paragraphs.sort((a, b) => b.length - a.length).slice(0, 5).join('\n');
+    .filter((p) => p.length > 40)
+    .slice(0, 12);
+  const cluster = paragraphs.join('\n');
 
-  const description = [ogDescription, cluster].filter(Boolean).join('\n').trim();
+  // og:description is usually a truncated copy of the first paragraph, so it
+  // is only used when the body gave us nothing to read.
+  const description =
+    cluster.length >= MIN_DESCRIPTION_CHARS
+      ? cluster
+      : [ogDescription, cluster].filter(Boolean).join('\n').trim();
   return usable(name ? decodeEntities(name).trim() : '', description);
 }
 
@@ -519,6 +428,22 @@ export async function fetchProduct(rawUrl: string): Promise<ProductPage> {
 
   if (!extracted) {
     extracted = fromJsonLd(html);
+
+    // A JSON-LD description is frequently the meta description and nothing
+    // more: on Friendly Frenchy it was 143 characters that appear nowhere in
+    // the visible page, while the page itself carries several paragraphs the
+    // buyer actually reads. Judging a page by that is how the analysis stays
+    // thin, and copy that is not in the document cannot be substituted back
+    // into it either. So a short JSON-LD description gives way to the rendered
+    // text when the rendered text is substantially longer. The store's own
+    // Shopify JSON is never overruled this way - it is the complete record,
+    // which is the point of trying it first.
+    if (extracted && extracted.description.length < 400) {
+      const richer = fromOpenGraph(html, finalUrl);
+      if (richer && richer.description.length > extracted.description.length * 1.5) {
+        extracted = { ...richer, name: extracted.name };
+      }
+    }
   }
   if (!extracted) {
     extracted = fromOpenGraph(html, finalUrl);
@@ -535,12 +460,24 @@ export async function fetchProduct(rawUrl: string): Promise<ProductPage> {
     ? extracted.variants
     : tidyVariants(variantsFromHtml(html));
 
+  const description = extracted.description.slice(0, MAX_DESCRIPTION_CHARS);
+
   return {
     name: extracted.name.slice(0, 200),
-    description: extracted.description.slice(0, MAX_DESCRIPTION_CHARS),
+    description,
     platform,
     confidence,
     language,
     variants,
+    // The document is kept, not discarded. It is what the rewrite is put back
+    // into, and it is where every signal below was read from.
+    html,
+    finalUrl: finalUrl.toString(),
+    signals: readSignals({
+      html,
+      url: finalUrl,
+      description,
+      jsonld: productJsonLd(html),
+    }),
   };
 }

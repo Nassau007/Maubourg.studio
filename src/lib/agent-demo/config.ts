@@ -62,3 +62,30 @@ export const DAILY_GLOBAL_CAP = Number(process.env.AGENT_DEMO_DAILY_CAP) || 15;
 
 /** Minimum usable description length before a page counts as a product page. */
 export const MIN_DESCRIPTION_CHARS = 50;
+
+/* ------------------------------------------------------------------ */
+/* The rendered page                                                   */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Ceiling on the document we hold and serve back. The fetch cap is 2 MB of raw
+ * page, most of which is JavaScript that the sanitiser removes, so a typical
+ * Shopify product page lands between 100 and 400 KB here. Anything still above
+ * this after cleaning is not worth holding in memory for thirty minutes: the
+ * demo drops the render and falls back to the text result.
+ */
+export const RENDER_MAX_CHARS = 1_200_000;
+
+/**
+ * How long the rendered page stays servable after the reveal. Longer than the
+ * run token because the visitor reads the result, then goes looking for the
+ * download.
+ */
+export const PAGE_TTL_MS = 60 * 60 * 1000;
+
+/**
+ * Total characters the rendered-page store may hold. Same memory as everything
+ * else here, so it needs a ceiling: past it, the oldest pages are dropped and
+ * their links return 410, which the UI reports as expired.
+ */
+export const PAGE_STORE_MAX_CHARS = 24_000_000;

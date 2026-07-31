@@ -15,6 +15,7 @@ import { fetchProduct } from '@/lib/agent-demo/fetchProduct';
 import { detectLanguage, runAgent } from '@/lib/agent-demo/prompt';
 import { canRun, recordRun, visitorKey } from '@/lib/agent-demo/rateLimit';
 import { countRun } from '@/lib/agent-demo/metrics';
+import { buildRenderedPage } from '@/lib/agent-demo/renderPage';
 import { fail, failFrom } from '@/lib/agent-demo/respond';
 import { putRun } from '@/lib/agent-demo/store';
 import type { RunResponse } from '@/lib/agent-demo/types';
@@ -65,6 +66,17 @@ export async function POST(request: Request) {
     const detectedLanguage = detectLanguage(page);
     const model = await runAgent(page, detectedLanguage);
 
+    // The deliverable: their own page, cleaned of everything active, with the
+    // new copy sitting in the element the old copy came from. Null whenever we
+    // could not be certain which element that was, and the visitor is told so
+    // rather than shown a mangled version of their store.
+    const renderedHtml = buildRenderedPage({
+      html: page.html,
+      pageUrl: page.finalUrl,
+      description: page.description,
+      rewrite: model.rewrite,
+    });
+
     const token = putRun({
       result: {
         verdict: model.verdict,
@@ -72,6 +84,7 @@ export async function POST(request: Request) {
         gaps: model.gaps,
         before_excerpt: page.description.slice(0, BEFORE_EXCERPT_CHARS).trim(),
       },
+      renderedHtml,
       productName: page.name,
       url,
       platform: page.platform,
@@ -87,6 +100,7 @@ export async function POST(request: Request) {
       language: detectedLanguage,
       confidence: page.confidence,
       ms: Date.now() - started,
+      rendered: renderedHtml !== null,
     });
 
     const payload: RunResponse = {
@@ -98,6 +112,7 @@ export async function POST(request: Request) {
       platform: page.platform,
       detected_language: detectedLanguage,
       confidence: page.confidence,
+      render_available: renderedHtml !== null,
       // Under 'rewrite-only' the diagnosis is shown before the ask and only the
       // rewrite is held back. Under 'full' neither field is sent at all.
       ...(GATE_MODE === 'rewrite-only' ? { verdict: model.verdict, gaps: model.gaps } : {}),
