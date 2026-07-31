@@ -1,4 +1,8 @@
 // Central place to tweak contact details / links without hunting through JSX.
+
+/** Canonical origin. Read by layout metadata, robots.ts, sitemap.ts and the JSON-LD. */
+export const siteUrl = 'https://maubourg.studio';
+
 export const site = {
   name: 'Maubourg Studio',
   tagline: 'AI RevOps studio for European ecommerce',

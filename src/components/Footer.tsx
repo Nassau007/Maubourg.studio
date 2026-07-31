@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { site } from '@/lib/site';
+import { localizedHref } from '@/lib/routes';
 import type { Dictionary, Locale } from '@/lib/i18n';
 
 export default function Footer({ dict, lang }: { dict: Dictionary['footer']; lang: Locale }) {
@@ -56,6 +57,12 @@ export default function Footer({ dict, lang }: { dict: Dictionary['footer']; lan
             >
               {site.email}
             </a>
+            <Link
+              href={localizedHref('privacy', lang)}
+              className="text-bone/70 transition-colors hover:text-bone"
+            >
+              {dict.privacy}
+            </Link>
           </div>
         </div>
         <div className="mx-auto max-w-content px-5 pb-8 md:px-8">

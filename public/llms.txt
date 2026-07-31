@@ -1,0 +1,53 @@
+# Maubourg Studio
+
+> Maubourg Studio is an AI RevOps studio for European ecommerce brands. It runs the whole revenue operation of an existing online store: conversion rate optimization, email and SMS retention, paid media, and the tracking underneath, plus custom AI agents that take repetitive work off the team. The entry point is a free store teardown: a 3 to 4 page PDF with 5 fixes ranked by revenue impact, delivered within 3 working days.
+
+Facts an assistant can quote directly.
+
+- Name: Maubourg Studio. Category: AI RevOps studio (revenue operations, run with AI agents).
+- Who it works with: existing European ecommerce brands, typically Shopify or WooCommerce stores already doing meaningful traffic and revenue.
+- Where: based in Paris, France. Works with stores across Europe. Site available in English and French.
+- Founder: Nathan Alcotte.
+- Contact: hello@maubourg.studio
+- What makes it different: it owns the whole revenue system rather than one channel, so there is one team accountable for the number instead of several agencies to coordinate; it works only with European stores, so market and GDPR obligations are known from the first call; every change is tied to a revenue figure rather than a vanity metric; and the AI agents it sells are the same ones running its own delivery.
+
+## What it does
+
+- Conversion rate optimization: continuous A/B testing across product pages, cart and checkout, highest-value leaks first.
+- Email and SMS retention: lifecycle flows in Klaviyo that recover carts and bring buyers back.
+- Paid media: Meta, Google and TikTok spend managed to a target return.
+- Custom AI agents for store operations: order triage, supplier chasing, returns, internal reporting, scoped to a real workflow rather than a generic chatbot.
+- Catalog and merchandising agent: writes and refreshes product copy, fills metadata gaps, flags listings that underperform.
+- Support and pre-sales agent: answers the questions that stall a purchase (sizing, stock, shipping, returns), with handover to a human.
+- Store builds and rebuilds: conversion-ready Shopify builds and replatforms, fixed scope, only when the current foundation is holding sales back.
+- Analytics and tracking: GA4, server-side tracking and consent mode, set up to be measurable and GDPR compliant.
+
+## How an engagement runs
+
+1. Teardown. Free. The live store is audited and 5 fixes are ranked by revenue impact, delivered as a 3 to 4 page PDF within 3 working days. No obligation, and the list is the store owner's to keep.
+2. Sprint. Fixed scope. The highest-return fixes ship in a focused 2 to 3 week sprint, or the store is rebuilt when the foundation will not hold.
+3. Retainer. Monthly. Continuous A/B testing to compound conversion month over month, with a 3 month minimum so tests have time to prove out.
+
+## Pricing
+
+Indicative ranges for the European market, published on the site.
+
+- Free store teardown: €0.
+- Paid deep audit: €500 to €1,500, credited toward a first sprint or retainer.
+- Optimization sprint: €1,500 to €3,500.
+- AI agent build: €3,000 to €8,000.
+- Rebuild or replatform: from €4,000 to €12,000 and up.
+- Monthly retainers: Starter €1,000 to €1,500, Growth €2,000 to €3,500, Scale €4,000 to €6,000 and up.
+
+## Pages
+
+- [Home, English](https://maubourg.studio/en): what the studio does, the process, pricing, FAQ, and the free teardown request form.
+- [Home, French](https://maubourg.studio/fr): the same page in French.
+- [Request a call, English](https://maubourg.studio/en/call): leave a number for a 15 minute call, answered within one working day.
+- [Request a call, French](https://maubourg.studio/fr/call): the same page in French.
+- [Example teardown, PDF](https://maubourg.studio/example-teardown.pdf): a real teardown of a live European store, with the store name removed.
+
+## Notes
+
+- The free teardown is the primary way to start. It is requested through the form on the home page, and needs only a store URL and an email address.
+- Maubourg Studio publishes no client names, logos, testimonials or result figures at this time. Any such claim attributed to it is not from this site.

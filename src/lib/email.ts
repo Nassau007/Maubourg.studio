@@ -20,7 +20,62 @@ type LeadEmail = {
 
 const RESEND_ENDPOINT = 'https://api.resend.com/emails';
 
-function escapeHtml(s: string): string {
+/**
+ * Low-level Resend POST. Never throws and never blocks a request: a broken
+ * inbox must not cost a lead, and it must not cost a visitor their result
+ * either. Returns false when nothing was sent, so a caller can log it.
+ *
+ * Note for anyone editing the notification above: the five strings the
+ * sales-machine Apps Script parses out of Gmail (subject shape, reply_to,
+ * the Platform / Monthly revenue / Lead # rows) are a wire format, not copy.
+ * Nothing in this helper touches them.
+ */
+export async function sendResendEmail(message: {
+  to: string;
+  subject: string;
+  html: string;
+  replyTo?: string | null;
+  from?: string;
+  context?: string;
+}): Promise<boolean> {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = message.from || process.env.NOTIFY_FROM || 'Maubourg Studio <onboarding@resend.dev>';
+  const label = message.context || 'email';
+
+  if (!apiKey) {
+    console.warn(`[email] RESEND_API_KEY not set - skipping ${label}.`);
+    return false;
+  }
+
+  try {
+    const res = await fetch(RESEND_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from,
+        to: [message.to],
+        ...(message.replyTo ? { reply_to: message.replyTo } : {}),
+        subject: message.subject,
+        html: message.html,
+      }),
+    });
+
+    if (!res.ok) {
+      const detail = await res.text().catch(() => '');
+      console.error(`[email] Resend responded ${res.status} for ${label}: ${detail}`);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error(`[email] Failed to send ${label}:`, err);
+    return false;
+  }
+}
+
+export function escapeHtml(s: string): string {
   return s
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -116,27 +171,12 @@ export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
     </div>
   </div>`;
 
-  try {
-    const res = await fetch(RESEND_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from,
-        to: [to],
-        ...(lead.email ? { reply_to: lead.email } : {}),
-        subject,
-        html,
-      }),
-    });
-
-    if (!res.ok) {
-      const detail = await res.text().catch(() => '');
-      console.error(`[email] Resend responded ${res.status} for lead #${lead.id}: ${detail}`);
-    }
-  } catch (err) {
-    console.error(`[email] Failed to send notification for lead #${lead.id}:`, err);
-  }
+  await sendResendEmail({
+    to,
+    from,
+    subject,
+    html,
+    replyTo: lead.email,
+    context: `lead #${lead.id}`,
+  });
 }
