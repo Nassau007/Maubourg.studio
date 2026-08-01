@@ -1,9 +1,12 @@
-// Conversion & measurement. Layout: wide hero with the arithmetic beside it,
-// then a funnel that narrows, then a three-column table of real findings, then
-// the measurement half on an inverted band, then the three commercial steps.
+// Conversion & measurement. One column, top to bottom.
 //
-// The table is the point of this page: it is the only vertical where we can
-// show the actual output of the work, so it gets the most space.
+// This page was originally built on side-by-side splits: title beside the
+// subtitle, section heading beside its diagram, the chain beside its checks.
+// It read badly - the eye had to keep choosing which side to continue on. Now
+// every section is heading, then prose, then the thing it introduces, stacked
+// in one column. Prose stays inside a measure that is comfortable to read;
+// only the funnel and the table use the full column width, because both are
+// scanned rather than read.
 
 import VerticalFrame, { SectionHead, StatBadge } from '@/components/vertical/VerticalFrame';
 import { FunnelDiagram, MeasureChain } from '@/components/vertical/diagrams';
@@ -17,29 +20,25 @@ export default function ConversionScreen({ lang }: { lang: Locale }) {
   return (
     <VerticalFrame lang={lang} related={v.related}>
       <section className="mx-auto max-w-content px-5 pb-16 pt-6 md:px-8 md:pb-20">
-        <div className="grid gap-10 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:items-end">
-          <div>
-            <span className="eyebrow">{v.hero.eyebrow}</span>
-            <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.03] tracking-tightest text-ink md:text-6xl">
-              {v.hero.title} <span className="italic text-emerald">{v.hero.titleAccent}</span>
-            </h1>
-          </div>
-          <div>
-            <p className="text-[17px] leading-relaxed text-ink-600">{v.hero.subtitle}</p>
-            <div className="mt-6">
-              <StatBadge value={v.hero.stat} note={v.hero.statNote} />
-            </div>
+        <div className="max-w-3xl">
+          <span className="eyebrow">{v.hero.eyebrow}</span>
+          <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.03] tracking-tightest text-ink md:text-6xl">
+            {v.hero.title} <span className="italic text-emerald">{v.hero.titleAccent}</span>
+          </h1>
+          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-ink-600">
+            {v.hero.subtitle}
+          </p>
+          <div className="mt-8 max-w-xl">
+            <StatBadge value={v.hero.stat} note={v.hero.statNote} />
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-content px-5 pb-16 md:px-8 md:pb-24">
-        <div className="grid gap-10 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:items-start md:gap-16">
-          <SectionHead eyebrow={v.funnel.eyebrow} title={v.funnel.title} intro={v.funnel.intro} />
-          <div>
-            <FunnelDiagram steps={v.funnel.steps} />
-            <p className="mt-5 text-[13px] italic text-ink-500">{v.funnel.caption}</p>
-          </div>
+        <SectionHead eyebrow={v.funnel.eyebrow} title={v.funnel.title} intro={v.funnel.intro} />
+        <div className="mt-10 max-w-3xl">
+          <FunnelDiagram steps={v.funnel.steps} />
+          <p className="mt-5 text-[13px] italic text-ink-500">{v.funnel.caption}</p>
         </div>
       </section>
 
@@ -75,8 +74,8 @@ export default function ConversionScreen({ lang }: { lang: Locale }) {
         </div>
       </section>
 
-      {/* Measurement, on an inverted band so the page has a spine break and
-          the second half reads as a different subject. */}
+      {/* Measurement, on an inverted band so the page has a spine break and the
+          second half reads as a different subject. Still one column inside it. */}
       <section className="bg-ink py-16 md:py-24">
         <div className="mx-auto max-w-content px-5 md:px-8">
           <div className="max-w-2xl">
@@ -87,49 +86,52 @@ export default function ConversionScreen({ lang }: { lang: Locale }) {
             <p className="mt-5 text-[15.5px] leading-relaxed text-bone/70">{v.measure.body}</p>
           </div>
 
-          <div className="mt-12 grid gap-10 md:grid-cols-2 md:gap-16">
-            <div className="rounded-card border border-bone/15 bg-bone-100 p-7">
-              <MeasureChain chain={v.measure.chain} />
-            </div>
-            <div>
-              <ul className="space-y-4">
-                {v.measure.checks.map((check) => (
-                  <li key={check} className="flex gap-3">
-                    <span aria-hidden className="mt-0.5 shrink-0 font-semibold text-signal">
-                      +
-                    </span>
-                    <span className="text-[14.5px] leading-relaxed text-bone/80">{check}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-8 border-l-2 border-signal/60 pl-4 text-[13.5px] leading-relaxed text-bone/60">
-                {v.measure.caveat}
-              </p>
-            </div>
+          <div className="mt-10 max-w-2xl rounded-card border border-bone/15 bg-bone-100 p-7">
+            <MeasureChain chain={v.measure.chain} />
           </div>
+
+          <ul className="mt-10 max-w-2xl space-y-4">
+            {v.measure.checks.map((check) => (
+              <li key={check} className="flex gap-3">
+                <span aria-hidden className="mt-0.5 shrink-0 font-semibold text-signal">
+                  +
+                </span>
+                <span className="text-[14.5px] leading-relaxed text-bone/80">{check}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-8 max-w-2xl border-l-2 border-signal/60 pl-4 text-[13.5px] leading-relaxed text-bone/60">
+            {v.measure.caveat}
+          </p>
         </div>
       </section>
 
+      {/* The three commercial steps, stacked. They are a sequence, not three
+          options to compare, so reading them down the page matches the order
+          a client actually moves through them. */}
       <section className="mx-auto max-w-content px-5 py-16 md:px-8 md:py-24">
         <SectionHead eyebrow={v.how.eyebrow} title={v.how.title} />
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <ol className="mt-10 max-w-3xl space-y-4">
           {v.how.steps.map((step, i) => (
-            <div
+            <li
               key={step.name}
               className={[
-                'card',
-                i === 2 ? 'border-emerald/30 bg-emerald-50/50' : '',
+                'flex flex-col gap-3 rounded-card border p-6 sm:flex-row sm:items-baseline sm:gap-8',
+                i === 2 ? 'border-emerald/30 bg-emerald-50/50' : 'border-ink/10 bg-bone-100',
               ].join(' ')}
             >
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-500">
-                {String(i + 1).padStart(2, '0')}
-              </p>
-              <h3 className="mt-2 font-display text-xl font-semibold text-ink">{step.name}</h3>
-              <p className="mt-1 font-display text-lg font-semibold text-emerald">{step.price}</p>
-              <p className="mt-3 text-[14px] leading-relaxed text-ink-600">{step.body}</p>
-            </div>
+              <div className="flex shrink-0 items-baseline gap-3 sm:w-52 sm:flex-col sm:gap-1">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-ink-500">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="font-display text-xl font-semibold text-ink">{step.name}</h3>
+                <p className="font-display text-lg font-semibold text-emerald">{step.price}</p>
+              </div>
+              <p className="text-[14.5px] leading-relaxed text-ink-600">{step.body}</p>
+            </li>
           ))}
-        </div>
+        </ol>
         <p className="mt-6 text-[13px] italic text-ink-500">{s.priceNote}</p>
       </section>
     </VerticalFrame>
