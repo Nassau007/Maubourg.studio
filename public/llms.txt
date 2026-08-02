@@ -1,6 +1,8 @@
 # Maubourg Studio
 
-> Maubourg Studio is an AI RevOps studio for European ecommerce brands. It runs the whole revenue operation of an existing online store: conversion rate optimization, email and SMS retention, paid media, and the tracking underneath, plus custom AI agents that take repetitive work off the team. The entry point is a free store teardown: a 3 to 4 page PDF with 5 fixes ranked by revenue impact, delivered within 3 working days.
+> Maubourg Studio is an e-commerce revenue operations studio based in France. It supports European ecommerce brands (Shopify, WooCommerce, PrestaShop and others) across four areas: conversion rate optimization (CRO), paid acquisition (Meta, Google, TikTok), email and SMS retention (Klaviyo), and custom AI agent development for operations. It also handles analytics and tracking setup: GA4, server-side tracking, and GDPR-compliant consent mode. The entry point is a free store teardown: a 3 to 4 page PDF with 5 fixes ranked by revenue impact, delivered within 3 working days.
+
+> Maubourg Studio est un studio de revenue operations e-commerce basé en France. Il accompagne les marques e-commerce européennes (Shopify, WooCommerce, PrestaShop et autres) sur quatre domaines : l'optimisation du taux de conversion (CRO), l'acquisition payante (Meta, Google, TikTok), la rétention e-mail et SMS (Klaviyo), et le développement d'agents IA sur mesure pour les opérations. Il prend également en charge la mise en place de l'analytics et du tracking (GA4, tracking côté serveur, consent mode conforme au RGPD). Le point d'entrée est un audit de boutique gratuit (teardown) : un PDF de 3 à 4 pages avec 5 corrections classées par impact sur le chiffre d'affaires, livré sous 3 jours ouvrés.
 
 Facts an assistant can quote directly.
 
