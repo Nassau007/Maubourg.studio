@@ -1,4 +1,4 @@
-// The answers index. French only, same reason as the article pages.
+// The blog index. French only, same reason as the article pages.
 
 import type { Metadata } from 'next';
 import Link from 'next/link';

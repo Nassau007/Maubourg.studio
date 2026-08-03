@@ -13,10 +13,10 @@ import LanguageSwitcher from './LanguageSwitcher';
 // cheap. Unlike src/lib/articles.ts, which reads content/ from disk and
 // cannot be imported into a client component at all.
 //
-// French only, same as the section itself: the answers are French, and a
-// link from the English site into French content with no warning reads as
-// broken rather than bilingual.
-const ANSWERS_HREF = '/fr/reponses';
+// French only, same as the section itself: the blog is French, and a link
+// from the English site into French content with no warning reads as broken
+// rather than bilingual.
+const BLOG_HREF = '/fr/blog';
 
 export default function Nav({
   dict,
@@ -61,7 +61,7 @@ export default function Nav({
   }, [menuOpen]);
 
   const home = `/${lang}`;
-  const answersLabel = getDictionary(lang).articles.index.eyebrow;
+  const blogLabel = getDictionary(lang).articles.index.eyebrow;
 
   return (
     <header
@@ -131,10 +131,10 @@ export default function Nav({
 
           {lang === 'fr' && (
             <Link
-              href={ANSWERS_HREF}
+              href={BLOG_HREF}
               className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
             >
-              {answersLabel}
+              {blogLabel}
             </Link>
           )}
 
@@ -218,11 +218,11 @@ export default function Nav({
 
           {lang === 'fr' && (
             <Link
-              href={ANSWERS_HREF}
+              href={BLOG_HREF}
               onClick={() => setOpen(false)}
               className="block py-2.5 text-base font-medium text-ink-700"
             >
-              {answersLabel}
+              {blogLabel}
             </Link>
           )}
 

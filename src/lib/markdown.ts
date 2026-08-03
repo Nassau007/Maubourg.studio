@@ -1,4 +1,4 @@
-// A deliberately small markdown reader for the answers section.
+// A deliberately small markdown reader for the blog.
 //
 // Why not a markdown library. Two reasons. The template needs the article
 // *split by its `##` headings* before anything is rendered, one section per

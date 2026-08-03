@@ -61,8 +61,8 @@ export type LocalizedPage = keyof typeof localizedPaths;
 /**
  * Sections that exist in one language only.
  *
- * The answers section is French: every article is written in French and there
- * is no English index to send anyone to. It is deliberately *not* in
+ * The blog is French: every article is written in French and there is no
+ * English index to send anyone to. It is deliberately *not* in
  * localizedPaths, because that map promises both languages exist. Switching
  * language from inside one of these lands on that language's home instead of
  * on a URL nothing was ever built for.
@@ -70,7 +70,7 @@ export type LocalizedPage = keyof typeof localizedPaths;
  * Delete the entry and add a localizedPaths pair the day English articles ship.
  */
 const singleLocaleSections: readonly { locale: Locale; prefix: string }[] = [
-  { locale: 'fr', prefix: '/reponses' },
+  { locale: 'fr', prefix: '/blog' },
 ];
 
 /** Locale-prefixed href, e.g. /fr/essayer-un-agent. */

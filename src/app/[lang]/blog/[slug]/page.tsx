@@ -1,4 +1,4 @@
-// One answers article.
+// One blog article.
 //
 // French only for now, which is enforced here rather than by the middleware:
 // generateStaticParams returns nothing under /en, and dynamicParams is off, so
@@ -8,7 +8,7 @@
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import EditorialArticle from '@/components/article/EditorialArticle';
+import ArticleBody from '@/components/article/ArticleBody';
 import { ArticleJsonLd } from '@/components/JsonLd';
 import {
   ARTICLES_LOCALE,
@@ -79,7 +79,7 @@ export default function Page({ params }: { params: { lang: string; slug: string 
         indexUrl={articlesIndexHref()}
         indexName={dict.articles.index.eyebrow}
       />
-      <EditorialArticle article={article} lang={lang} />
+      <ArticleBody article={article} lang={lang} />
     </>
   );
 }

@@ -67,7 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  // The answers section. Published in one language, so these carry no hreflang
+  // The blog. Published in one language, so these carry no hreflang
   // alternates: declaring an English twin that does not exist is a worse signal
   // than declaring none. Each article's own date is its lastModified rather
   // than today's, so a crawler is not told every article changed on a deploy.

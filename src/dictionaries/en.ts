@@ -1098,28 +1098,28 @@ export const en = {
     },
   },
 
-  // The answers section. Only the French pages are built today, so this block
-  // exists mainly to hold the schema and keep fr.ts honest, but it is written
-  // as real copy rather than as placeholders: the day an English article
-  // lands, the section ships with it instead of waiting on a wording pass.
+  // The blog. Only the French pages are built today, so this block exists
+  // mainly to hold the schema and keep fr.ts honest, but it is written as
+  // real copy rather than as placeholders: the day an English article lands,
+  // the section ships with it instead of waiting on a wording pass.
   articles: {
     meta: {
-      title: 'Answers - Maubourg Studio',
+      title: 'Blog - Maubourg Studio',
       description:
         'Plain answers to the questions ecommerce owners ask about conversion, acquisition, measurement, AI agents and being found by assistants.',
     },
     index: {
-      eyebrow: 'Answers',
+      eyebrow: 'Blog',
       title: 'The questions store owners actually ask.',
       intro:
         'Short pieces on conversion, acquisition, measurement and the rest of the revenue operation. One question each, answered in the first paragraph.',
       empty: 'Nothing published here yet.',
     },
-    backToIndex: '← All answers',
+    backToIndex: '← All articles',
     // Byline row under the headline: source, date, reading time.
     source: 'Maubourg Studio',
     readingTime: '{n} min read',
-    sidebar: {
+    cta: {
       title: 'This is work we do.',
       body: 'How it runs, what it costs, and where it stops.',
       // {service} is replaced with the mapped service's nav label.

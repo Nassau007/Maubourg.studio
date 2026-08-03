@@ -1,5 +1,5 @@
-// The answers section: reading the markdown files and deciding which service
-// each article's call to action points at.
+// The blog: reading the markdown files and deciding which service each
+// article's call to action points at.
 //
 // Server only. Every consumer is a statically generated page, so the files are
 // read at build time and the rendered HTML is what ships. Nothing here runs on
@@ -21,8 +21,8 @@ import { localizedHref, type VerticalPage } from '@/lib/routes';
  */
 export const ARTICLES_LOCALE: Locale = 'fr';
 
-/** URL segment, under the locale prefix: /fr/reponses, /fr/reponses/<slug>. */
-export const ARTICLES_SEGMENT = 'reponses';
+/** URL segment, under the locale prefix: /fr/blog, /fr/blog/<slug>. */
+export const ARTICLES_SEGMENT = 'blog';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'articles');
 

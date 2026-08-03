@@ -1119,25 +1119,25 @@ export const fr: Dictionary = {
     },
   },
 
-  // La section réponses. Seules les pages françaises sont construites
-  // aujourd’hui : c’est la langue dans laquelle les articles sont écrits.
+  // Le blog. Seules les pages françaises sont construites aujourd’hui :
+  // c’est la langue dans laquelle les articles sont écrits.
   articles: {
     meta: {
-      title: 'Réponses - Maubourg Studio',
+      title: 'Blog - Maubourg Studio',
       description:
         'Des réponses claires aux questions que se posent les marques e-commerce : conversion, acquisition, mesure, agents IA et visibilité auprès des assistants.',
     },
     index: {
-      eyebrow: 'Réponses',
+      eyebrow: 'Blog',
       title: 'Les questions que les marques posent vraiment.',
       intro:
         'Des textes courts sur la conversion, l’acquisition, la mesure et le reste de l’opération commerciale. Une question par texte, la réponse dès le premier paragraphe.',
       empty: 'Rien de publié pour l’instant.',
     },
-    backToIndex: '← Toutes les réponses',
+    backToIndex: '← Tous les articles',
     source: 'Maubourg Studio',
     readingTime: '{n} min de lecture',
-    sidebar: {
+    cta: {
       title: 'C’est un sujet que nous traitons.',
       body: 'Comment ça se déroule, ce que ça coûte, et où ça s’arrête.',
       button: '{service} →',
