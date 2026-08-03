@@ -2,10 +2,21 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { getDictionary } from '@/lib/i18n';
 import type { Dictionary } from '@/lib/i18n';
 import type { Locale } from '@/lib/i18n';
 import type { ServiceMenuItem } from '@/lib/routes';
 import LanguageSwitcher from './LanguageSwitcher';
+
+// Plain objects, no filesystem access, so calling this again here (rather
+// than threading one more label through every page that renders Nav) is
+// cheap. Unlike src/lib/articles.ts, which reads content/ from disk and
+// cannot be imported into a client component at all.
+//
+// French only, same as the section itself: the answers are French, and a
+// link from the English site into French content with no warning reads as
+// broken rather than bilingual.
+const ANSWERS_HREF = '/fr/reponses';
 
 export default function Nav({
   dict,
@@ -50,6 +61,7 @@ export default function Nav({
   }, [menuOpen]);
 
   const home = `/${lang}`;
+  const answersLabel = getDictionary(lang).articles.index.eyebrow;
 
   return (
     <header
@@ -116,6 +128,15 @@ export default function Nav({
               </div>
             )}
           </div>
+
+          {lang === 'fr' && (
+            <Link
+              href={ANSWERS_HREF}
+              className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
+            >
+              {answersLabel}
+            </Link>
+          )}
 
           {dict.links.slice(1).map((item) => (
             <Link
@@ -193,6 +214,16 @@ export default function Nav({
                 </Link>
               ))}
             </div>
+          )}
+
+          {lang === 'fr' && (
+            <Link
+              href={ANSWERS_HREF}
+              onClick={() => setOpen(false)}
+              className="block py-2.5 text-base font-medium text-ink-700"
+            >
+              {answersLabel}
+            </Link>
           )}
 
           {dict.links.slice(1).map((item) => (
