@@ -24,11 +24,11 @@ export const fr: Dictionary = {
     ctaSecondary: 'Réserver un appel de 15 min →',
     skillsHeading: 'Ce que nous pilotons pour vous',
     skills: [
-      { name: 'Conversion', body: 'Tests A/B sur les fiches produit, le panier et le paiement, en commençant par les fuites les plus coûteuses.' },
-      { name: 'Rétention', body: 'Scénarios e-mail et SMS Klaviyo qui récupèrent les paniers et font revenir les acheteurs.' },
       { name: 'Publicité', body: 'Budgets Meta, Google et TikTok pilotés sur un objectif de retour.' },
-      { name: 'Agents IA', body: 'Construits pour vos opérations, votre catalogue et les questions qui bloquent une vente.' },
+      { name: 'Conversion', body: 'Tests A/B sur les fiches produit, le panier et le paiement, en commençant par les fuites les plus coûteuses.' },
       { name: 'Visibilité LLM', body: 'Rendre votre boutique lisible et citée par ChatGPT, Perplexity et Gemini, pas seulement classée sur Google.' },
+      { name: 'Rétention', body: 'Scénarios e-mail et SMS Klaviyo qui récupèrent les paniers et font revenir les acheteurs.' },
+      { name: 'Agents IA', body: 'Construits pour vos opérations, votre catalogue et les questions qui bloquent une vente.' },
     ],
   },
 

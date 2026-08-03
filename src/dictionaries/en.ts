@@ -22,11 +22,11 @@ export const en = {
     ctaSecondary: 'Book a 15-min call →',
     skillsHeading: 'What we run for you',
     skills: [
-      { name: 'Conversion', body: 'A/B testing on product pages, cart and checkout, highest-value leaks first.' },
-      { name: 'Retention', body: 'Klaviyo email and SMS flows that recover carts and bring buyers back.' },
       { name: 'Paid media', body: 'Meta, Google and TikTok spend managed to a target return.' },
-      { name: 'AI agents', body: 'Built for your ops, your catalog, and the questions that stall a sale.' },
+      { name: 'Conversion', body: 'A/B testing on product pages, cart and checkout, highest-value leaks first.' },
       { name: 'LLM visibility', body: 'Making your store readable and citable by ChatGPT, Perplexity and Gemini, not just ranked on Google.' },
+      { name: 'Retention', body: 'Klaviyo email and SMS flows that recover carts and bring buyers back.' },
+      { name: 'AI agents', body: 'Built for your ops, your catalog, and the questions that stall a sale.' },
     ],
   },
 
