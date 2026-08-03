@@ -129,15 +129,6 @@ export default function Nav({
             )}
           </div>
 
-          {lang === 'fr' && (
-            <Link
-              href={BLOG_HREF}
-              className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
-            >
-              {blogLabel}
-            </Link>
-          )}
-
           {dict.links.slice(1).map((item) => (
             <Link
               key={item.hash}
@@ -147,6 +138,15 @@ export default function Nav({
               {item.label}
             </Link>
           ))}
+
+          {lang === 'fr' && (
+            <Link
+              href={BLOG_HREF}
+              className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
+            >
+              {blogLabel}
+            </Link>
+          )}
         </div>
 
         <div className="hidden items-center gap-4 md:flex">
@@ -216,16 +216,6 @@ export default function Nav({
             </div>
           )}
 
-          {lang === 'fr' && (
-            <Link
-              href={BLOG_HREF}
-              onClick={() => setOpen(false)}
-              className="block py-2.5 text-base font-medium text-ink-700"
-            >
-              {blogLabel}
-            </Link>
-          )}
-
           {dict.links.slice(1).map((item) => (
             <Link
               key={item.hash}
@@ -236,6 +226,16 @@ export default function Nav({
               {item.label}
             </Link>
           ))}
+
+          {lang === 'fr' && (
+            <Link
+              href={BLOG_HREF}
+              onClick={() => setOpen(false)}
+              className="block py-2.5 text-base font-medium text-ink-700"
+            >
+              {blogLabel}
+            </Link>
+          )}
           <div className="mt-3 flex items-center justify-between border-t border-ink/10 pt-4">
             <span className="text-sm font-medium text-ink-500">{dict.languageLabel}</span>
             <LanguageSwitcher current={lang} />
