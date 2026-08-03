@@ -72,9 +72,9 @@ export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: L
         </div>
 
         {/* What we actually do — our own capabilities, not borrowed industry averages. */}
-        <div className="animate-fade-up mx-auto mt-16 max-w-4xl" style={{ animationDelay: '400ms' }}>
+        <div className="animate-fade-up mx-auto mt-16 max-w-6xl" style={{ animationDelay: '400ms' }}>
           <p className="eyebrow text-center">{dict.skillsHeading}</p>
-          <div className="mt-5 grid grid-cols-1 gap-px overflow-hidden rounded-card border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-5 grid grid-cols-1 gap-px overflow-hidden rounded-card border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-5">
             {dict.skills.map((s) => (
               <div key={s.name} className="bg-bone-100 px-6 py-6 text-left">
                 <div className="font-display text-xl font-semibold text-ink">{s.name}</div>

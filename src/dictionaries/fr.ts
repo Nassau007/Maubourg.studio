@@ -28,6 +28,7 @@ export const fr: Dictionary = {
       { name: 'Rétention', body: 'Scénarios e-mail et SMS Klaviyo qui récupèrent les paniers et font revenir les acheteurs.' },
       { name: 'Publicité', body: 'Budgets Meta, Google et TikTok pilotés sur un objectif de retour.' },
       { name: 'Agents IA', body: 'Construits pour vos opérations, votre catalogue et les questions qui bloquent une vente.' },
+      { name: 'Visibilité LLM', body: 'Rendre votre boutique lisible et citée par ChatGPT, Perplexity et Gemini, pas seulement classée sur Google.' },
     ],
   },
 
