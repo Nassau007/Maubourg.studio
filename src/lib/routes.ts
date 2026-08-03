@@ -58,6 +58,21 @@ export function serviceMenu(lang: Locale): ServiceMenuItem[] {
 
 export type LocalizedPage = keyof typeof localizedPaths;
 
+/**
+ * Sections that exist in one language only.
+ *
+ * The answers section is French: every article is written in French and there
+ * is no English index to send anyone to. It is deliberately *not* in
+ * localizedPaths, because that map promises both languages exist. Switching
+ * language from inside one of these lands on that language's home instead of
+ * on a URL nothing was ever built for.
+ *
+ * Delete the entry and add a localizedPaths pair the day English articles ship.
+ */
+const singleLocaleSections: readonly { locale: Locale; prefix: string }[] = [
+  { locale: 'fr', prefix: '/reponses' },
+];
+
 /** Locale-prefixed href, e.g. /fr/essayer-un-agent. */
 export function localizedHref(page: LocalizedPage, lang: Locale): string {
   return `/${lang}${localizedPaths[page][lang]}`;
@@ -83,6 +98,12 @@ export function swapLocaleInPath(pathname: string, target: Locale): string {
   if (segments.length < 2) return `/${target}`;
 
   const rest = `/${segments.slice(2).join('/')}`.replace(/\/$/, '') || '';
+
+  const single = singleLocaleSections.find(
+    (section) => rest === section.prefix || rest.startsWith(`${section.prefix}/`),
+  );
+  if (single && single.locale !== target) return `/${target}`;
+
   const pages = Object.keys(localizedPaths) as LocalizedPage[];
   const match = pages.find((page) =>
     (Object.values(localizedPaths[page]) as string[]).includes(rest),

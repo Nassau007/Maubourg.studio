@@ -1098,6 +1098,45 @@ export const en = {
     },
   },
 
+  // The answers section. Only the French pages are built today, so this block
+  // exists mainly to hold the schema and keep fr.ts honest, but it is written
+  // as real copy rather than as placeholders: the day an English article
+  // lands, the section ships with it instead of waiting on a wording pass.
+  articles: {
+    meta: {
+      title: 'Answers - Maubourg Studio',
+      description:
+        'Plain answers to the questions ecommerce owners ask about conversion, acquisition, measurement, AI agents and being found by assistants.',
+    },
+    index: {
+      eyebrow: 'Answers',
+      title: 'The questions store owners actually ask.',
+      intro:
+        'Short pieces on conversion, acquisition, measurement and the rest of the revenue operation. One question each, answered in the first paragraph.',
+      empty: 'Nothing published here yet.',
+    },
+    backToIndex: '← All answers',
+    // Byline row under the headline: source, date, reading time.
+    source: 'Maubourg Studio',
+    readingTime: '{n} min read',
+    // Layout C only: the label above the block written to be quoted as it is.
+    answerLabel: 'Short answer',
+    sectionsHeading: 'The detail behind it',
+    sidebar: {
+      title: 'This is work we do.',
+      body: 'How it runs, what it costs, and where it stops.',
+      // {service} is replaced with the mapped service's nav label.
+      button: '{service} →',
+    },
+    relatedHeading: 'Related reading',
+    cta: {
+      eyebrow: 'Next step',
+      title: 'Reading it is not the same as fixing it.',
+      body: 'See how the work runs, what it costs and where it stops. The teardown below is free either way.',
+      button: '{service} →',
+    },
+  },
+
   errors: {
     name: 'Please add your name.',
     email: 'Please add a valid email.',

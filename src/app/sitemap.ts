@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { siteUrl } from '@/lib/site';
 import { locales } from '@/lib/i18n';
 import { localizedPaths, verticalPages, type LocalizedPage } from '@/lib/routes';
+import { allArticles, articleHref, articlesIndexHref } from '@/lib/articles';
 
 /**
  * Served at /sitemap.xml. Every page in both locales, each declaring the other
@@ -66,5 +67,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...shared, ...localized];
+  // The answers section. Published in one language, so these carry no hreflang
+  // alternates: declaring an English twin that does not exist is a worse signal
+  // than declaring none. Each article's own date is its lastModified rather
+  // than today's, so a crawler is not told every article changed on a deploy.
+  const answers = [
+    {
+      url: `${siteUrl}${articlesIndexHref()}`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    ...allArticles().map((article) => ({
+      url: `${siteUrl}${articleHref(article.slug)}`,
+      lastModified: new Date(`${article.date}T00:00:00Z`),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
+  ];
+
+  return [...shared, ...localized, ...answers];
 }
