@@ -1119,9 +1119,6 @@ export const en = {
     // Byline row under the headline: source, date, reading time.
     source: 'Maubourg Studio',
     readingTime: '{n} min read',
-    // Layout C only: the label above the block written to be quoted as it is.
-    answerLabel: 'Short answer',
-    sectionsHeading: 'The detail behind it',
     sidebar: {
       title: 'This is work we do.',
       body: 'How it runs, what it costs, and where it stops.',
@@ -1129,12 +1126,6 @@ export const en = {
       button: '{service} →',
     },
     relatedHeading: 'Related reading',
-    cta: {
-      eyebrow: 'Next step',
-      title: 'Reading it is not the same as fixing it.',
-      body: 'See how the work runs, what it costs and where it stops. The teardown below is free either way.',
-      button: '{service} →',
-    },
   },
 
   errors: {

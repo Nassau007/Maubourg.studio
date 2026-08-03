@@ -1,12 +1,12 @@
 // A deliberately small markdown reader for the answers section.
 //
-// Why not a markdown library. Two reasons. The templates need the article
-// *split by its `##` headings* before anything is rendered, because layout C
-// turns each section into one accordion row, and a library that hands back a
-// finished HTML string cannot be cut up again without parsing it a second
-// time. And the source files are machine-written to one fixed shape: `#` once,
-// `##` sections, paragraphs, bold, italic, cross-links, bullets, numbered
-// lists and pipe tables. Nothing else appears in the eighty of them.
+// Why not a markdown library. Two reasons. The template needs the article
+// *split by its `##` headings* before anything is rendered, one section per
+// heading, and a library that hands back a finished HTML string cannot be cut
+// up again without parsing it a second time. And the source files are
+// machine-written to one fixed shape: `#` once, `##` sections, paragraphs,
+// bold, italic, cross-links, bullets, numbered lists and pipe tables. Nothing
+// else appears in the eighty of them.
 //
 // So this covers exactly that shape and nothing more. Anything it does not
 // recognise falls through as plain text rather than disappearing, which is the
@@ -147,19 +147,6 @@ export function parseBlocks(markdown: string, resolve?: LinkResolver): Block[] {
   }
 
   return blocks;
-}
-
-/**
- * A block as plain text, for the structured data.
- *
- * Anything quoted in JSON-LD has to be the same sentence the visitor reads,
- * so it is flattened from the parsed blocks rather than written a second time.
- */
-export function blockText(block: Block): string {
-  const spans = (content: Inline[]) => content.map((span) => span.text).join('');
-  if (block.kind === 'p') return spans(block.content);
-  if (block.kind === 'ul' || block.kind === 'ol') return block.items.map(spans).join(' ');
-  return block.rows.map((row) => row.map(spans).join(' - ')).join('. ');
 }
 
 /**

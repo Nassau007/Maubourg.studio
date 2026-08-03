@@ -1,9 +1,8 @@
-// Chrome and hero shared by both article templates.
+// Chrome and hero for an answers article.
 //
 // Same split as VerticalFrame on the service pages: this owns the furniture
 // (nav, the way back, the footer) and the headline block, and owns no opinion
-// about the body. Two templates that shared a body component would be one
-// template with a flag.
+// about the body.
 
 import Link from 'next/link';
 import Nav from '@/components/Nav';
@@ -14,16 +13,9 @@ import { serviceMenu } from '@/lib/routes';
 
 export default function ArticleFrame({
   lang,
-  width = 'wide',
   children,
 }: {
   lang: Locale;
-  /**
-   * Which column the way back lines up with. Layout A runs the full content
-   * width, layout C is a centred reading column, and a back link that does not
-   * sit on the same left edge as the headline reads as a stray piece of nav.
-   */
-  width?: 'wide' | 'narrow';
   children: React.ReactNode;
 }) {
   const dict = getDictionary(lang);
@@ -37,9 +29,7 @@ export default function ArticleFrame({
         servicesLabel={dict.verticals.shared.navHeading}
       />
       <main className="pt-28 md:pt-32">
-        <div
-          className={`mx-auto px-5 md:px-8 ${width === 'narrow' ? 'max-w-3xl' : 'max-w-content'}`}
-        >
+        <div className="mx-auto max-w-content px-5 md:px-8">
           <Link
             href={articlesIndexHref()}
             className="block w-fit text-sm font-medium text-ink-500 transition-colors hover:text-ink"
@@ -54,25 +44,15 @@ export default function ArticleFrame({
   );
 }
 
-/**
- * Category pill, headline, byline.
- *
- * `size` is the only difference between the two templates here. Layout A leads
- * on the headline and gets the hero scale one notch down from the homepage;
- * layout C leads on the answer underneath, so the headline steps back rather
- * than competing with the block a reader is meant to land on.
- */
+/** Category pill, headline, byline. The hero scale one notch down from the homepage. */
 export function ArticleHeader({
   article,
   lang,
-  size,
 }: {
   article: ArticleMeta;
   lang: Locale;
-  size: 'large' | 'compact';
 }) {
   const dict = getDictionary(lang);
-  const large = size === 'large';
 
   return (
     <header className="pt-8 md:pt-10">
@@ -82,12 +62,7 @@ export function ArticleHeader({
       </div>
 
       <h1
-        className={[
-          'animate-fade-up mt-5 max-w-3xl font-display font-semibold tracking-tightest text-ink',
-          large
-            ? 'text-[2.15rem] leading-[1.05] sm:text-5xl md:text-[3.25rem]'
-            : 'text-[1.85rem] leading-[1.08] sm:text-4xl md:text-[2.6rem]',
-        ].join(' ')}
+        className="animate-fade-up mt-5 max-w-3xl font-display font-semibold tracking-tightest text-ink text-[2.15rem] leading-[1.05] sm:text-5xl md:text-[3.25rem]"
         style={{ animationDelay: '80ms' }}
       >
         {article.title}

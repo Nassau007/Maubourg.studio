@@ -1,9 +1,9 @@
-// Layout A: editorial hero, one wide reading column, a sticky sidebar CTA.
+// The answers article template: editorial hero, one wide reading column, a
+// sticky sidebar CTA.
 //
-// For the longer articles, the ones that build a case section by section. The
-// reason the call to action is pinned rather than parked at the bottom is that
-// a reader who is convinced at section two should not have to scroll past
-// three more to act on it.
+// The call to action is pinned rather than parked at the bottom because a
+// reader who is convinced at section two should not have to scroll past three
+// more to act on it.
 
 import Link from 'next/link';
 import ArticleFrame, { ArticleHeader } from './ArticleFrame';
@@ -20,7 +20,7 @@ export default function EditorialArticle({ article, lang }: { article: Article; 
   return (
     <ArticleFrame lang={lang}>
       <div className="mx-auto max-w-content px-5 md:px-8">
-        <ArticleHeader article={article} lang={lang} size="large" />
+        <ArticleHeader article={article} lang={lang} />
       </div>
 
       {/* items-start, or the sticky child is stretched to the row height and

@@ -1137,20 +1137,12 @@ export const fr: Dictionary = {
     backToIndex: '← Toutes les réponses',
     source: 'Maubourg Studio',
     readingTime: '{n} min de lecture',
-    answerLabel: 'La réponse courte',
-    sectionsHeading: 'Le détail derrière',
     sidebar: {
       title: 'C’est un sujet que nous traitons.',
       body: 'Comment ça se déroule, ce que ça coûte, et où ça s’arrête.',
       button: '{service} →',
     },
     relatedHeading: 'À lire aussi',
-    cta: {
-      eyebrow: 'La suite',
-      title: 'Lire le sujet ne le règle pas.',
-      body: 'Voyez comment le travail se déroule, ce qu’il coûte et où il s’arrête. Le diagnostic plus bas reste offert dans tous les cas.',
-      button: '{service} →',
-    },
   },
 
   errors: {

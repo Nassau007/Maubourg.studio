@@ -1,5 +1,5 @@
-// The answers section: reading the markdown files, deciding which template an
-// article gets, and deciding which service its call to action points at.
+// The answers section: reading the markdown files and deciding which service
+// each article's call to action points at.
 //
 // Server only. Every consumer is a statically generated page, so the files are
 // read at build time and the rendered HTML is what ships. Nothing here runs on
@@ -25,33 +25,6 @@ export const ARTICLES_LOCALE: Locale = 'fr';
 export const ARTICLES_SEGMENT = 'reponses';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'articles');
-
-/* ------------------------------------------------------------------ */
-/* Which template an article gets                                       */
-/* ------------------------------------------------------------------ */
-
-/**
- * Layout C (answer first, accordion) up to four `##` sections, layout A
- * (editorial, sticky sidebar) from five.
- *
- * The accordion hides every section behind a click. That works while a reader
- * can take in the whole list of follow-ups in one glance and open the one they
- * came for. Past four rows the page reads as a list of closed doors and the
- * argument never gets made, and an article with that many sections is building
- * a case in order rather than answering one question with a few footnotes. So
- * the longer ones get the scrolling column, with the call to action pinned
- * beside it instead of waiting at the bottom.
- *
- * Word count is not the test: these files are all between roughly 650 and 880
- * words, so it separates nothing. Section count ranges from two to eight.
- */
-export const ACCORDION_MAX_SECTIONS = 4;
-
-export type ArticleTemplate = 'answer' | 'editorial';
-
-export function templateFor(sectionCount: number): ArticleTemplate {
-  return sectionCount <= ACCORDION_MAX_SECTIONS ? 'answer' : 'editorial';
-}
 
 /* ------------------------------------------------------------------ */
 /* Which service an article sells                                       */
@@ -126,11 +99,10 @@ export type ArticleMeta = {
   date: string;
   readingTime: number;
   service: VerticalPage;
-  template: ArticleTemplate;
 };
 
 export type Article = ArticleMeta & {
-  /** Everything before the first `##`. In layout C its first block is the quotable answer. */
+  /** Everything before the first `##`. */
   lead: Block[];
   sections: { heading: string; blocks: Block[] }[];
 };
@@ -184,7 +156,6 @@ function load(): Article[] {
       date: isoDate(item.data.date),
       readingTime: Number(item.data.readingTime ?? 0),
       service: (item.data.service as VerticalPage) ?? serviceForCategory(String(item.data.category ?? '')),
-      template: templateFor(sections.length),
       lead: parseBlocks(lead, resolve),
       sections: sections.map((section) => ({
         heading: section.heading,
@@ -237,10 +208,10 @@ export function articleHref(slug: string): string {
 /**
  * The one place a call to action on an article is built.
  *
- * Both templates call this: the sticky sidebar in layout A and the closing
- * block in layout C. The category decides the service, the service decides the
- * href and the label, and the label comes out of the same dictionary entry the
- * navigation menu reads, so a service renamed once is renamed everywhere.
+ * The sticky sidebar calls this. The category decides the service, the
+ * service decides the href and the label, and the label comes out of the
+ * same dictionary entry the navigation menu reads, so a service renamed once
+ * is renamed everywhere.
  */
 export function serviceCta(
   service: VerticalPage,

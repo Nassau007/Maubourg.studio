@@ -2,7 +2,6 @@ import { siteUrl, site } from '@/lib/site';
 // Type only: src/lib/articles.ts reads the filesystem, and this module is
 // imported by the homepage, which has no business pulling that in.
 import type { Article } from '@/lib/articles';
-import { blockText } from '@/lib/markdown';
 import type { Dictionary, Locale } from '@/lib/i18n';
 
 /**
@@ -128,16 +127,7 @@ export function HomeJsonLd({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   );
 }
 
-/**
- * An answers article.
- *
- * Article always, plus a one-entry FAQPage on the answer-first template, where
- * the frontmatter question and the highlighted block really are a question and
- * its answer. The `##` headings are statements rather than questions, so they
- * are deliberately not dressed up as FAQ entries: markup that misdescribes the
- * page is the one thing worse than no markup, since it teaches a model
- * something false with the studio's name on it.
- */
+/** An answers article: Article plus a BreadcrumbList back to the section index. */
 export function ArticleJsonLd({
   article,
   lang,
@@ -151,7 +141,6 @@ export function ArticleJsonLd({
 }) {
   const url = `${siteUrl}${indexUrl}/${article.slug}`;
   const locale = lang === 'fr' ? 'fr-FR' : 'en-GB';
-  const answer = article.lead[0] ? blockText(article.lead[0]) : article.description;
 
   const post = {
     '@type': 'Article',
@@ -180,27 +169,9 @@ export function ArticleJsonLd({
     ],
   };
 
-  const faq =
-    article.template === 'answer'
-      ? [
-          {
-            '@type': 'FAQPage',
-            '@id': `${url}#faq`,
-            inLanguage: locale,
-            mainEntity: [
-              {
-                '@type': 'Question',
-                name: article.question,
-                acceptedAnswer: { '@type': 'Answer', text: answer },
-              },
-            ],
-          },
-        ]
-      : [];
-
   return (
     <Script
-      data={{ '@context': 'https://schema.org', '@graph': [post, breadcrumb, ...faq] }}
+      data={{ '@context': 'https://schema.org', '@graph': [post, breadcrumb] }}
     />
   );
 }

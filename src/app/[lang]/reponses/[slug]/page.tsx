@@ -1,4 +1,4 @@
-// One answers article. The template is chosen by the article, not by the URL.
+// One answers article.
 //
 // French only for now, which is enforced here rather than by the middleware:
 // generateStaticParams returns nothing under /en, and dynamicParams is off, so
@@ -8,7 +8,6 @@
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import AnswerArticle from '@/components/article/AnswerArticle';
 import EditorialArticle from '@/components/article/EditorialArticle';
 import { ArticleJsonLd } from '@/components/JsonLd';
 import {
@@ -80,11 +79,7 @@ export default function Page({ params }: { params: { lang: string; slug: string 
         indexUrl={articlesIndexHref()}
         indexName={dict.articles.index.eyebrow}
       />
-      {article.template === 'answer' ? (
-        <AnswerArticle article={article} lang={lang} />
-      ) : (
-        <EditorialArticle article={article} lang={lang} />
-      )}
+      <EditorialArticle article={article} lang={lang} />
     </>
   );
 }
