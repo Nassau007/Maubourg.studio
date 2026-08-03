@@ -1127,6 +1127,25 @@ export const en = {
       button: '{service} →',
     },
     relatedHeading: 'Related reading',
+    // Closing CTA, narrative and citation templates only. `question`'s
+    // headline is the article's own `question` field, not written here.
+    closing: {
+      question: {
+        body: 'We look at your store, not a category average.',
+        button: '{service} →',
+      },
+      minimal: {
+        prefix: 'Want us to look at yours?',
+        button: '{service} →',
+      },
+      conversational: {
+        title: 'What if your case is different?',
+        body: 'Every diagnostic starts from your store, not a standard template.',
+        button: '{service} →',
+      },
+    },
+    // Citation template only: the label above the pulled-out description.
+    citationLabel: 'The sentence to remember',
   },
 
   errors: {

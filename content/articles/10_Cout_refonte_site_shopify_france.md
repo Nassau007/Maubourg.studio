@@ -8,6 +8,7 @@ date: 2026-08-02
 lang: fr
 readingTime: 3
 draft: false
+template: "citation"
 ---
 # Combien coûte une refonte de site Shopify en France
 

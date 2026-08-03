@@ -8,6 +8,7 @@ date: 2026-08-02
 lang: fr
 readingTime: 4
 draft: false
+template: "citation"
 ---
 # Quelle part de mon chiffre d'affaires devrait venir de l'email et du SMS
 

@@ -8,6 +8,7 @@ date: 2026-08-02
 lang: fr
 readingTime: 4
 draft: false
+template: "sidebar"
 ---
 # Pourquoi mes conversions publicitaires ne remontent plus correctement dans Meta Ads Manager
 

@@ -1,14 +1,15 @@
-// The blog article template: one centered reading column, no sidebar.
+// Template 1, narrative: one centered reading column, no sidebar.
 //
 // A single column keeps the passage a reader (or a model) lifts out
 // self-contained, and it is the shape that holds up best on a phone, which is
-// most of this traffic. The call to action appears twice: once right after
-// the lead, where a reader convinced early should not have to scroll past
-// every section to act on it, and again at the end for anyone who read the
-// whole thing.
+// most of this traffic. The call to action appears twice: an embedded card
+// right after the lead, where a reader convinced early should not have to
+// scroll past every section to act on it, and the rotating closing style
+// (ClosingCta) at the end for anyone who read the whole thing.
 
 import Link from 'next/link';
 import ArticleFrame, { ArticleHeader } from './ArticleFrame';
+import ClosingCta from './ClosingCta';
 import Prose from './Prose';
 import { articleHref, relatedArticles, serviceCta, type Article } from '@/lib/articles';
 import { getDictionary, type Locale } from '@/lib/i18n';
@@ -67,11 +68,8 @@ export default function ArticleBody({ article, lang }: { article: Article; lang:
           </div>
         )}
 
-        <div className="mt-10 pb-8 text-center">
-          <Link href={cta.href} className="btn-ghost">
-            {cta.label}
-          </Link>
-        </div>
+        <ClosingCta article={article} lang={lang} />
+        <div className="pb-8" />
       </div>
     </ArticleFrame>
   );

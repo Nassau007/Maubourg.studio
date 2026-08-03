@@ -149,6 +149,27 @@ export function parseBlocks(markdown: string, resolve?: LinkResolver): Block[] {
   return blocks;
 }
 
+/** A block as plain text, for pulling a sentence out of the parsed structure. */
+export function blockText(block: Block): string {
+  const spans = (content: Inline[]) => content.map((span) => span.text).join('');
+  if (block.kind === 'p') return spans(block.content);
+  if (block.kind === 'ul' || block.kind === 'ol') return block.items.map(spans).join(' ');
+  return block.rows.map((row) => row.map(spans).join(' - ')).join('. ');
+}
+
+/**
+ * The first complete sentence of a paragraph's text, period included.
+ *
+ * Splits on ". " rather than on every period: French thousands use a space
+ * ("2 000€") and decimals use a comma ("0,8 %"), not a period, so the only
+ * periods in this corpus end sentences. Falls back to the whole text if no
+ * sentence break is found, rather than returning nothing.
+ */
+export function firstSentence(text: string): string {
+  const at = text.indexOf('. ');
+  return at === -1 ? text : text.slice(0, at + 1);
+}
+
 /**
  * Splits an article body into the lead (everything before the first `##`) and
  * one entry per `##` section.

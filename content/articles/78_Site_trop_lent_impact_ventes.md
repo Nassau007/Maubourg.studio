@@ -8,6 +8,7 @@ date: 2026-08-02
 lang: fr
 readingTime: 4
 draft: false
+template: "citation"
 ---
 # Comment savoir si mon site est trop lent et si ça impacte mes ventes ?
 

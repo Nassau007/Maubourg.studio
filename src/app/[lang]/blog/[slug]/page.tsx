@@ -9,6 +9,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ArticleBody from '@/components/article/ArticleBody';
+import ArticleBodySidebar from '@/components/article/ArticleBodySidebar';
+import ArticleCitation from '@/components/article/ArticleCitation';
 import { ArticleJsonLd } from '@/components/JsonLd';
 import {
   ARTICLES_LOCALE,
@@ -79,7 +81,9 @@ export default function Page({ params }: { params: { lang: string; slug: string 
         indexUrl={articlesIndexHref()}
         indexName={dict.articles.index.eyebrow}
       />
-      <ArticleBody article={article} lang={lang} />
+      {article.template === 'sidebar' && <ArticleBodySidebar article={article} lang={lang} />}
+      {article.template === 'citation' && <ArticleCitation article={article} lang={lang} />}
+      {article.template === 'narrative' && <ArticleBody article={article} lang={lang} />}
     </>
   );
 }

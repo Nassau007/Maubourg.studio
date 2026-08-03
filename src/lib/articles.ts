@@ -86,6 +86,59 @@ export function serviceForCategory(category: string): VerticalPage {
 }
 
 /* ------------------------------------------------------------------ */
+/* Which page template an article renders in                          */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Three templates, same chrome (nav, hero, byline), different shape and a
+ * different call-to-action rhythm each:
+ *
+ * - narrative: one centered column, one embedded CTA right after the lead,
+ *   the closing CTA rotates through the three closing styles below.
+ * - sidebar: a sticky card follows the reader down the page instead. No
+ *   embedded or closing CTA, since the sidebar is always in view.
+ * - citation: no CTA interrupts the body at all. The lead is followed by a
+ *   pulled-quote treatment of the article's own `description`, already
+ *   written as a self-contained, quotable sentence. Only the closing CTA
+ *   appears, rotating the same as narrative's.
+ *
+ * `template` in an article's frontmatter picks one; a new article with
+ * nothing set defaults to narrative rather than failing to build.
+ */
+export type PageTemplate = 'narrative' | 'sidebar' | 'citation';
+
+const DEFAULT_TEMPLATE: PageTemplate = 'narrative';
+
+function templateFrom(value: unknown): PageTemplate {
+  return value === 'sidebar' || value === 'citation' || value === 'narrative'
+    ? value
+    : DEFAULT_TEMPLATE;
+}
+
+/* ------------------------------------------------------------------ */
+/* Which closing CTA style an article gets                             */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Three closing styles (narrative and citation templates only): a direct
+ * question built from the article's own `question` field, a single minimal
+ * inline link, and a fixed conversational objection-and-answer. Deterministic
+ * per slug rather than per publish batch, so the mix stays stable regardless
+ * of order or how many articles exist, and needs no per-article authoring:
+ * question pulls from data every article already has, minimal and
+ * conversational are fixed copy that reads fine on any topic.
+ */
+export type ClosingStyle = 'question' | 'minimal' | 'conversational';
+
+const CLOSING_STYLES: readonly ClosingStyle[] = ['question', 'minimal', 'conversational'];
+
+export function closingStyleFor(slug: string): ClosingStyle {
+  let sum = 0;
+  for (let i = 0; i < slug.length; i += 1) sum += slug.charCodeAt(i);
+  return CLOSING_STYLES[sum % CLOSING_STYLES.length];
+}
+
+/* ------------------------------------------------------------------ */
 /* Loading                                                              */
 /* ------------------------------------------------------------------ */
 
@@ -99,6 +152,7 @@ export type ArticleMeta = {
   date: string;
   readingTime: number;
   service: VerticalPage;
+  template: PageTemplate;
 };
 
 export type Article = ArticleMeta & {
@@ -156,6 +210,7 @@ function load(): Article[] {
       date: isoDate(item.data.date),
       readingTime: Number(item.data.readingTime ?? 0),
       service: (item.data.service as VerticalPage) ?? serviceForCategory(String(item.data.category ?? '')),
+      template: templateFrom(item.data.template),
       lead: parseBlocks(lead, resolve),
       sections: sections.map((section) => ({
         heading: section.heading,
@@ -206,12 +261,11 @@ export function articleHref(slug: string): string {
 }
 
 /**
- * The one place a call to action on an article is built.
- *
- * The sticky sidebar calls this. The category decides the service, the
- * service decides the href and the label, and the label comes out of the
- * same dictionary entry the navigation menu reads, so a service renamed once
- * is renamed everywhere.
+ * The one place a call to action's link is built. Every template and every
+ * closing style calls this. The category decides the service, the service
+ * decides the href and the label, and the label comes out of the same
+ * dictionary entry the navigation menu reads, so a service renamed once is
+ * renamed everywhere.
  */
 export function serviceCta(
   service: VerticalPage,

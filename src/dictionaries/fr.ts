@@ -1144,6 +1144,25 @@ export const fr: Dictionary = {
       button: '{service} →',
     },
     relatedHeading: 'À lire aussi',
+    // Closing CTA, narrative and citation templates only. `question`'s
+    // headline is the article's own `question` field, not written here.
+    closing: {
+      question: {
+        body: 'On regarde ça sur votre boutique, pas sur une moyenne du secteur.',
+        button: '{service} →',
+      },
+      minimal: {
+        prefix: 'Vous voulez qu’on regarde ça sur votre boutique ?',
+        button: '{service} →',
+      },
+      conversational: {
+        title: 'Et si votre cas est différent ?',
+        body: 'Chaque diagnostic part de votre boutique, pas d’un modèle standard.',
+        button: '{service} →',
+      },
+    },
+    // Citation template only: the label above the pulled-out description.
+    citationLabel: 'La phrase à retenir',
   },
 
   errors: {

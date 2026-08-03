@@ -8,6 +8,7 @@ date: 2026-08-02
 lang: fr
 readingTime: 3
 draft: false
+template: "sidebar"
 ---
 # Quel est un bon taux de conversion pour une boutique Shopify en France
 

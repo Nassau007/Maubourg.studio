@@ -8,6 +8,7 @@ date: 2026-08-02
 lang: fr
 readingTime: 4
 draft: false
+template: "narrative"
 ---
 # Pourquoi mes chiffres Google Analytics ne correspondent pas à mes ventes réelles sur Shopify
 

@@ -8,6 +8,7 @@ date: 2026-08-02
 lang: fr
 readingTime: 4
 draft: false
+template: "sidebar"
 ---
 # Comment rédiger une fiche produit qui convainc sans mentir ?
 
