@@ -4,7 +4,7 @@ slug: "comment-relancer-les-paniers-abandonnes-par-email"
 description: "Un bon email de relance de panier se joue sur trois points : un objet qui donne une vraie raison de l'ouvrir, une image du produit réellement laissé dans le…"
 question: "Comment relancer les paniers abandonnés par email ?"
 category: "Rétention (email et SMS)"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "sidebar"
 ---
 # Comment relancer les paniers abandonnés par email
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Un bon email de relance de panier se joue sur trois points : un objet qui donne une vraie raison de l'ouvrir, une image du produit réellement laissé dans le panier plutôt qu'un visuel générique, et une incitation gardée pour la fin de la séquence plutôt que proposée dès le premier message. Les réglages techniques (délais d'envoi côté Shopify, activation du rappel natif) sont couverts dans notre article sur la réduction de l'abandon de panier sur Shopify ; celui-ci porte uniquement sur ce que l'email doit dire, quelle que soit la plateforme derrière.
 

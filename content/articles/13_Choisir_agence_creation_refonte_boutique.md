@@ -4,7 +4,7 @@ slug: "comment-choisir-une-agence-pour-creer-ou-refaire-ma-boutique-en-ligne"
 description: "Le critère qui départage le plus vite les agences sérieuses des autres, c'est la capacité à montrer des boutiques comparables à la vôtre en taille et en…"
 question: "Comment choisir une agence pour créer ou refaire ma boutique en ligne ?"
 category: "Création et refonte de site"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "narrative"
 ---
 # Comment choisir une agence pour créer ou refaire ma boutique en ligne
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Le critère qui départage le plus vite les agences sérieuses des autres, c'est la capacité à montrer des boutiques comparables à la vôtre en taille et en secteur, avec un prix fixe annoncé avant le premier coup de crayon plutôt qu'un forfait qui gonfle au fil du projet. Le reste (design, technique, discours commercial) se juge après, une fois ces deux points vérifiés.
 

@@ -4,7 +4,7 @@ slug: "comment-savoir-si-mon-pixel-meta-fonctionne-vraiment"
 description: "La façon la plus fiable de vérifier son pixel Meta est de naviguer sur sa propre boutique tout en regardant l'outil \"Test Events\" du gestionnaire d'événements…"
 question: "Comment savoir si mon pixel Meta fonctionne vraiment ?"
 category: "Analytics et tracking"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "citation"
 ---
 # Comment savoir si mon pixel Meta fonctionne vraiment
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 La façon la plus fiable de vérifier son pixel Meta est de naviguer sur sa propre boutique tout en regardant l'outil "Test Events" du gestionnaire d'événements Meta, qui affiche chaque événement en temps réel dès qu'il arrive. Un second contrôle indépendant consiste à ouvrir l'onglet réseau du navigateur pendant la même navigation et à repérer les requêtes envoyées vers Meta directement, sans passer par l'interface de Meta elle-même.
 

@@ -4,7 +4,7 @@ slug: "faut-il-migrer-vers-shopify-si-je-suis-sur-un-autre-cms"
 description: "Migrer vers Shopify a du sens quand la plateforme actuelle coûte cher à maintenir, limite l'accès à des applications utiles, ou ne peut pas suivre la…"
 question: "Faut-il migrer vers Shopify si je suis sur un autre CMS ?"
 category: "Création et refonte de site"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 3
 draft: false
@@ -12,7 +12,7 @@ template: "citation"
 ---
 # Faut-il migrer vers Shopify si je suis sur un autre CMS
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Migrer vers Shopify a du sens quand la plateforme actuelle coûte cher à maintenir, limite l'accès à des applications utiles, ou ne peut pas suivre la croissance prévue. Ce n'est pas la bonne décision quand le système actuel gère bien des besoins spécifiques que Shopify ne couvre pas aussi bien, ou quand le site en place performe déjà correctement et qu'il n'y a rien de concret à gagner à tout reconstruire.
 

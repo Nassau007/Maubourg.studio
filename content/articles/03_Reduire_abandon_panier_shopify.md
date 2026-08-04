@@ -4,7 +4,7 @@ slug: "comment-reduire-le-taux-d-abandon-de-panier-sur-shopify"
 description: "Sur Shopify, la plupart des leviers pour réduire l'abandon de panier tiennent dans les réglages natifs de la plateforme et dans deux ou trois applications…"
 question: "Comment réduire le taux d'abandon de panier sur Shopify ?"
 category: "Conversion (CRO)"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 3
 draft: false
@@ -12,7 +12,7 @@ template: "narrative"
 ---
 # Comment réduire le taux d'abandon de panier sur Shopify
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Sur Shopify, la plupart des leviers pour réduire l'abandon de panier tiennent dans les réglages natifs de la plateforme et dans deux ou trois applications ciblées, pas dans une refonte. Les trois actions qui rapportent le plus vite sont : afficher les frais de livraison avant le paiement, activer le paiement express, et relancer automatiquement les paniers abandonnés par email dans l'heure qui suit.
 

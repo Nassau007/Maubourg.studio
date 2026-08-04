@@ -4,7 +4,7 @@ slug: "comment-savoir-si-les-ia-comme-chatgpt-connaissent-deja-ma-marque"
 description: "Le test le plus fiable prend dix minutes : ouvrir une session déconnectée sur ChatGPT, Perplexity ou Gemini, sans historique ni personnalisation, et poser…"
 question: "Comment savoir si les IA comme ChatGPT connaissent déjà ma marque ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-08-02
+date: 2026-08-04
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "sidebar"
 ---
 # Comment savoir si les IA comme ChatGPT connaissent déjà ma marque
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 4 août 2026_
 
 Le test le plus fiable prend dix minutes : ouvrir une session déconnectée sur ChatGPT, Perplexity ou Gemini, sans historique ni personnalisation, et poser quatre questions précises sur sa propre marque. La qualité de la réponse (exacte, vague, ou carrément fausse) dit immédiatement où on en est, à condition de faire le test dans les bonnes conditions.
 

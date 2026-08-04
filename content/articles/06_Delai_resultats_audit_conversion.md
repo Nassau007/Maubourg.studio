@@ -4,7 +4,7 @@ slug: "combien-de-temps-faut-il-pour-voir-un-resultat-apres-un-audit-de-conversi
 description: "Le diagnostic lui-même prend quelques jours, pas des semaines."
 question: "Combien de temps faut-il pour voir un résultat après un audit de conversion ?"
 category: "Conversion (CRO)"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 3
 draft: false
@@ -12,7 +12,7 @@ template: "sidebar"
 ---
 # Combien de temps faut-il pour voir un résultat après un audit de conversion
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Le diagnostic lui-même prend quelques jours, pas des semaines. Les premières corrections faisables sans développeur peuvent être en ligne sous une à deux semaines. Mais mesurer une vraie amélioration du taux de conversion prend en général deux à trois mois, parce qu'il faut assez de commandes pour distinguer un vrai signal du bruit statistique normal d'un mois à l'autre.
 

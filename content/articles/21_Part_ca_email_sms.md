@@ -4,7 +4,7 @@ slug: "quelle-part-de-mon-chiffre-d-affaires-devrait-venir-de-l-email-et-du-sms"
 description: "Pour une boutique ecommerce avec des flux automatisés complets, l'email et le SMS combinés représentent généralement entre 20 et 30 % du chiffre d'affaires…"
 question: "Quelle part de mon chiffre d'affaires devrait venir de l'email et du SMS ?"
 category: "Rétention (email et SMS)"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "citation"
 ---
 # Quelle part de mon chiffre d'affaires devrait venir de l'email et du SMS
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Pour une boutique ecommerce avec des flux automatisés complets, l'email et le SMS combinés représentent généralement entre 20 et 30 % du chiffre d'affaires total. Ce chiffre grimpe au-delà pour une boutique avec une liste large et engagée, et tombe sous les 5 % pour une boutique qui n'a encore construit aucune automatisation, ce qui fait de cette fourchette un repère à nuancer plutôt qu'un objectif universel.
 
