@@ -4,14 +4,14 @@ slug: "combien-coute-la-mise-en-place-d-un-agent-ia-pour-une-petite-marque-e-com
 description: "Le coût dépend surtout d'un choix initial : un outil du marché déjà prêt à l'emploi, moins cher et rapide à installer mais peu adapté aux particularités de la…"
 question: "Combien coûte la mise en place d'un agent IA pour une petite marque e-commerce ?"
 category: "Agents IA"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 3
 draft: false
 ---
 # Combien coûte la mise en place d'un agent IA pour une petite marque e-commerce
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Le coût dépend surtout d'un choix initial : un outil du marché déjà prêt à l'emploi, moins cher et rapide à installer mais peu adapté aux particularités de la boutique, ou un agent construit sur mesure, plus cher au départ mais branché directement sur les données réelles du magasin. À ça s'ajoute un coût qu'on oublie souvent au moment de décider : l'usage de l'IA sous-jacente, qui augmente avec le volume de conversations ou de tâches traitées, pas seulement l'abonnement fixe affiché au départ.
 

@@ -4,7 +4,7 @@ slug: "pourquoi-mes-chiffres-google-analytics-ne-correspondent-pas-a-mes-ventes-
 description: "Un écart entre Google Analytics et les ventes réelles Shopify est normal, même sur un tracking parfaitement configuré, parce que les deux systèmes ne comptent…"
 question: "Pourquoi mes chiffres Google Analytics ne correspondent pas à mes ventes réelles sur Shopify ?"
 category: "Analytics et tracking"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "narrative"
 ---
 # Pourquoi mes chiffres Google Analytics ne correspondent pas à mes ventes réelles sur Shopify
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Un écart entre Google Analytics et les ventes réelles Shopify est normal, même sur un tracking parfaitement configuré, parce que les deux systèmes ne comptent pas la même chose : GA4 mesure des sessions et des événements, Shopify compte des commandes effectivement passées. Attendre une correspondance exacte entre les deux, c'est comparer deux unités différentes et s'étonner qu'elles ne tombent pas juste.
 

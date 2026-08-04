@@ -104,7 +104,7 @@ export default function Nav({
               {servicesLabel}
               <span
                 aria-hidden
-                className={`text-[10px] transition-transform ${menuOpen ? 'rotate-180' : ''}`}
+                className={`text-sm transition-transform ${menuOpen ? 'rotate-180' : ''}`}
               >
                 ▾
               </span>

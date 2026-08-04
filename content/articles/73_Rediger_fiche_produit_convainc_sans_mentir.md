@@ -4,7 +4,7 @@ slug: "comment-rediger-une-fiche-produit-qui-convainc-sans-mentir"
 description: "Une fiche produit convainc quand elle répond à la question précise que se pose l'acheteur, avec des détails qu'il peut vérifier lui-même."
 question: "Comment rédiger une fiche produit qui convainc sans mentir ?"
 category: "Contenu produit et expérience"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "sidebar"
 ---
 # Comment rédiger une fiche produit qui convainc sans mentir ?
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Une fiche produit convainc quand elle répond à la question précise que se pose l'acheteur, avec des détails qu'il peut vérifier lui-même. Elle ne convainc pas en empilant des adjectifs flatteurs. Le texte le plus persuasif n'est presque jamais le plus enthousiaste : c'est le plus concret, celui qui donne un chiffre, une matière ou un procédé plutôt qu'une promesse générale.
 

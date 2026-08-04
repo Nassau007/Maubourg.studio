@@ -4,7 +4,7 @@ slug: "pourquoi-mes-conversions-publicitaires-ne-remontent-plus-correctement-dan
 description: "Dans la grande majorité des cas, les conversions n'ont pas disparu : elles sont devenues invisibles pour Meta à cause du consentement des visiteurs ou des…"
 question: "Pourquoi mes conversions publicitaires ne remontent plus correctement dans Meta Ads Manager ?"
 category: "Acquisition et publicité payante"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "sidebar"
 ---
 # Pourquoi mes conversions publicitaires ne remontent plus correctement dans Meta Ads Manager
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Dans la grande majorité des cas, les conversions n'ont pas disparu : elles sont devenues invisibles pour Meta à cause du consentement des visiteurs ou des restrictions de suivi sur iPhone, ce qui n'est pas la même chose qu'un pixel cassé. La distinction compte, parce que la correction n'est pas la même selon la cause réelle.
 

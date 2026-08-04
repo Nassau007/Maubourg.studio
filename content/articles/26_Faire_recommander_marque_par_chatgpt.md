@@ -4,7 +4,7 @@ slug: "comment-faire-en-sorte-que-chatgpt-recommande-ma-marque"
 description: "Pour qu'un assistant comme ChatGPT recommande une marque, trois conditions doivent être réunies dans l'ordre : il doit pouvoir lire le site, dire clairement…"
 question: "Comment faire en sorte que ChatGPT recommande ma marque ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "narrative"
 ---
 # Comment faire en sorte que ChatGPT recommande ma marque
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Pour qu'un assistant comme ChatGPT recommande une marque, trois conditions doivent être réunies dans l'ordre : il doit pouvoir lire le site, dire clairement ce qu'est la marque, et trouver quelque chose de précis à citer quand un acheteur pose une vraie question. La première condition, purement technique, est celle que la majorité des boutiques ratent sans le savoir, ce qui rend tout le reste inutile tant qu'elle n'est pas corrigée.
 

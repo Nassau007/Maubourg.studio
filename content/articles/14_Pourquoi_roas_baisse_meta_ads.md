@@ -4,7 +4,7 @@ slug: "pourquoi-mon-roas-baisse-alors-que-je-depense-plus-sur-meta-ads"
 description: "Un ROAS qui baisse quand le budget augmente est presque toujours mécanique, pas accidentel : Meta épuise d'abord l'audience la plus encline à acheter, puis va…"
 question: "Pourquoi mon ROAS baisse alors que je dépense plus sur Meta Ads ?"
 category: "Acquisition et publicité payante"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "narrative"
 ---
 # Pourquoi mon ROAS baisse alors que je dépense plus sur Meta Ads
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Un ROAS qui baisse quand le budget augmente est presque toujours mécanique, pas accidentel : Meta épuise d'abord l'audience la plus encline à acheter, puis va chercher des gens moins intéressés pour dépenser le budget supplémentaire que vous lui donnez. Quatre mécanismes expliquent la grande majorité des cas, et un seul d'entre eux n'a rien à voir avec la performance réelle de la campagne.
 

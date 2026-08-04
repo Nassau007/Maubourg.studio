@@ -4,7 +4,7 @@ slug: "combien-coute-une-refonte-de-site-shopify-en-france"
 description: "Une refonte Shopify coûte généralement entre 2 000€ et 3 000€ pour une simple personnalisation de thème, entre 8 000€ et 20 000€ pour un thème sur mesure, et…"
 question: "Combien coûte une refonte de site Shopify en France ?"
 category: "Création et refonte de site"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 3
 draft: false
@@ -12,7 +12,7 @@ template: "citation"
 ---
 # Combien coûte une refonte de site Shopify en France
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Une refonte Shopify coûte généralement entre 2 000€ et 3 000€ pour une simple personnalisation de thème, entre 8 000€ et 20 000€ pour un thème sur mesure, et au-delà de 30 000€ pour un projet headless entièrement custom. L'écart tient moins à la taille de la boutique qu'au niveau de personnalisation demandé et à qui réalise le travail.
 

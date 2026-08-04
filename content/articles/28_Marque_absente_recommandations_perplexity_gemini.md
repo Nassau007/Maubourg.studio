@@ -4,7 +4,7 @@ slug: "pourquoi-ma-marque-n-apparait-jamais-quand-on-demande-une-recommandation-
 description: "Dans la grande majorité des cas, c'est l'une de ces quatre raisons, dans cet ordre de fréquence : le site bloque sans le savoir les robots qui ont le droit de…"
 question: "Pourquoi ma marque n'apparaît jamais quand on demande une recommandation à Perplexity ou Gemini ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "sidebar"
 ---
 # Pourquoi ma marque n'apparaît jamais quand on demande une recommandation à Perplexity ou Gemini
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Dans la grande majorité des cas, c'est l'une de ces quatre raisons, dans cet ordre de fréquence : le site bloque sans le savoir les robots qui ont le droit de le lire et de le citer, la marque n'a nulle part de description claire et cohérente d'elle-même, aucune page ne répond vraiment à la question posée, ou personne d'autre n'en parle dans les sources que l'assistant consulte déjà. Les quatre se testent en une heure.
 

@@ -4,7 +4,7 @@ slug: "faut-il-faire-de-la-publicite-sur-tiktok-pour-une-petite-marque-francaise
 description: "Ça dépend du produit et de la capacité à produire du contenu vidéo natif, pas d'une règle générale : TikTok fonctionne bien pour certains profils de marque et…"
 question: "Faut-il faire de la publicité sur TikTok pour une petite marque française ?"
 category: "Acquisition et publicité payante"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "citation"
 ---
 # Faut-il faire de la publicité sur TikTok pour une petite marque française
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Ça dépend du produit et de la capacité à produire du contenu vidéo natif, pas d'une règle générale : TikTok fonctionne bien pour certains profils de marque et mal pour d'autres, et se lancer sans vérifier lequel des deux vous êtes est la façon la plus rapide de brûler un budget test sans rien apprendre d'utile.
 

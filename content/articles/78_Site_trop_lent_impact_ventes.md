@@ -4,7 +4,7 @@ slug: "comment-savoir-si-mon-site-est-trop-lent-et-si-ca-impacte-mes-ventes"
 description: "Google PageSpeed Insights donne en quelques secondes une note et un temps de chargement réel pour n'importe quelle page, gratuitement et sans installation."
 question: "Comment savoir si mon site est trop lent et si ça impacte mes ventes ?"
 category: "Mesure, tests et pilotage"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "citation"
 ---
 # Comment savoir si mon site est trop lent et si ça impacte mes ventes ?
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Google PageSpeed Insights donne en quelques secondes une note et un temps de chargement réel pour n'importe quelle page, gratuitement et sans installation. Un site devient un problème de conversion, pas juste un problème technique, quand ce temps dépasse trois secondes sur mobile, parce que c'est le seuil au-delà duquel une part croissante des visiteurs quitte la page avant qu'elle ait fini de s'afficher.
 

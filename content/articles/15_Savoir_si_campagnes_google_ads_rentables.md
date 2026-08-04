@@ -4,7 +4,7 @@ slug: "comment-savoir-si-mes-campagnes-google-ads-sont-rentables"
 description: "Le ROAS affiché dans Google Ads ne dit pas si une campagne est rentable : il faut le comparer à un seuil calculé à partir de votre marge, appelé ROAS de…"
 question: "Comment savoir si mes campagnes Google Ads sont rentables ?"
 category: "Acquisition et publicité payante"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "sidebar"
 ---
 # Comment savoir si mes campagnes Google Ads sont rentables
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Le ROAS affiché dans Google Ads ne dit pas si une campagne est rentable : il faut le comparer à un seuil calculé à partir de votre marge, appelé ROAS de rentabilité (breakeven ROAS), et intégrer des coûts que la plateforme n'affiche jamais. Une campagne à ROAS 3 peut perdre de l'argent, une autre à ROAS 2 peut en gagner : tout dépend de la marge derrière chaque vente.
 

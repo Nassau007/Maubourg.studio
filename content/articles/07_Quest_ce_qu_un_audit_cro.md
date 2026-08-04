@@ -4,14 +4,14 @@ slug: "qu-est-ce-qu-un-audit-cro-et-a-quoi-ca-sert-concretement"
 description: "Un audit CRO (conversion rate optimization) est un examen du parcours d'achat réel d'une boutique en ligne, fait par quelqu'un qui navigue le site comme un…"
 question: "Qu'est-ce qu'un audit CRO et à quoi ça sert concrètement ?"
 category: "Conversion (CRO)"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 3
 draft: false
 ---
 # Qu'est-ce qu'un audit CRO et à quoi ça sert concrètement
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Un audit CRO (conversion rate optimization) est un examen du parcours d'achat réel d'une boutique en ligne, fait par quelqu'un qui navigue le site comme un client, dans le but d'identifier précisément ce qui empêche des visiteurs déjà intéressés de passer commande. Ce n'est ni un rapport automatisé généré en quelques secondes, ni une refonte du site : c'est un diagnostic qui débouche sur une liste d'actions classées par impact et par effort.
 

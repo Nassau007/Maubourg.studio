@@ -4,7 +4,7 @@ slug: "taux-de-conversion-a-0-8-par-ou-commencer-pour-l-ameliorer"
 description: "Un taux de conversion de 0,8 % place une boutique en dessous de la moyenne observée sur la plupart des secteurs du e-commerce français, où le Baymard…"
 question: "Mon taux de conversion est à 0,8 %, par où commencer pour l'améliorer ?"
 category: "Conversion (CRO)"
-date: 2026-08-02
+date: 2026-08-03
 lang: fr
 readingTime: 4
 draft: false
@@ -12,7 +12,7 @@ template: "narrative"
 ---
 # Taux de conversion à 0,8 % : par où commencer pour l'améliorer
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 3 août 2026_
 
 Un taux de conversion de 0,8 % place une boutique en dessous de la moyenne observée sur la plupart des secteurs du e-commerce français, où le Baymard Institute et les principaux outils d'analytics situent la moyenne tous secteurs autour de 2 à 3 %. Ce n'est pas un problème de produit : c'est le signe qu'un point précis du parcours d'achat bloque des visiteurs qui, sans cette friction, seraient allés jusqu'au bout. La première étape n'est pas de refaire le site. C'est de savoir à quelle étape du tunnel de vente on perd le plus de monde, et de ne corriger que ça avant de toucher au reste.
 
