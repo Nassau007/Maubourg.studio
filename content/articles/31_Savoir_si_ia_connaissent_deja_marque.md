@@ -8,6 +8,7 @@ date: 2026-08-02
 lang: fr
 readingTime: 4
 draft: false
+template: "sidebar"
 ---
 # Comment savoir si les IA comme ChatGPT connaissent déjà ma marque
 
