@@ -18,6 +18,8 @@ import LanguageSwitcher from './LanguageSwitcher';
 // rather than bilingual.
 const BLOG_HREF = '/fr/blog';
 
+const LOGO_MARK = '/logo-mark.png';
+
 export default function Nav({
   dict,
   lang,
@@ -72,10 +74,21 @@ export default function Nav({
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-content items-center justify-between px-5 md:px-8">
-        <Link href={home} className="group flex items-center gap-2.5" aria-label="Maubourg Studio">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-ink text-bone">
-            <span className="font-display text-lg font-semibold leading-none">M</span>
-          </span>
+        <Link href={home} className="group flex items-center gap-2" aria-label="Maubourg Studio">
+          {/* The studio mark, cropped from the master logo to the "M." alone:
+              the "STUDIO" line under it is unreadable at bar height and the
+              wordmark beside it already says the name. Plain <img> for the same
+              reason as Founder.tsx — the optimizer needs sharp in the
+              standalone image, which is not worth the deploy risk for one mark. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={LOGO_MARK}
+            alt=""
+            aria-hidden
+            width={204}
+            height={146}
+            className="h-7 w-auto"
+          />
           <span className="font-display text-lg font-semibold tracking-tight text-ink">
             Maubourg<span className="text-emerald">.</span>
           </span>
