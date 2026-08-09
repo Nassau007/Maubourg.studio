@@ -24,6 +24,11 @@ export default function TeardownForm({
   lang: Locale;
 }) {
   const [status, setStatus] = useState<Status>('idle');
+  // The route returns notified:false when the studio notification was rejected.
+  // The lead is saved either way, so this never blocks the success panel — it
+  // only adds a direct address, so a dead inbox cannot swallow a request in
+  // silence the way it did once already.
+  const [notified, setNotified] = useState(true);
   const [step, setStep] = useState<1 | 2>(1);
   const [errorMsg, setErrorMsg] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -72,6 +77,8 @@ export default function TeardownForm({
       });
 
       if (res.ok) {
+        const payload = await res.json().catch(() => ({}));
+        setNotified(payload.notified !== false);
         setStatus('success');
         form.reset();
         setStep(1);
@@ -159,6 +166,11 @@ export default function TeardownForm({
                   {dict.success.title}
                 </h3>
                 <p className="mt-2 max-w-sm text-sm text-ink-600">{dict.success.body}</p>
+                {!notified && (
+                  <p className="mt-4 max-w-sm rounded-lg bg-bone-200 px-4 py-3 text-left text-sm text-ink-700">
+                    {dict.success.fallback}
+                  </p>
+                )}
                 <button onClick={() => setStatus('idle')} className="btn-ghost mt-6" type="button">
                   {dict.success.again}
                 </button>

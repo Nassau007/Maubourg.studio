@@ -55,10 +55,18 @@ export async function POST(request: Request) {
       },
     });
 
-    // Fire the notification but never let an email failure break the submit.
-    await sendLeadNotification(lead);
+    // The lead is saved, so an email failure must never turn this into an
+    // error the visitor has to act on. It is still reported: `notified: false`
+    // tells the form to show a direct address, and the log line below is the
+    // one place a dead inbox announces itself.
+    const notified = await sendLeadNotification(lead);
+    if (!notified) {
+      console.error(
+        `[lead] NOT NOTIFIED — teardown lead #${lead.id} (${lead.email}, ${lead.storeUrl}) is in the database but no notification email was accepted. Check RESEND_API_KEY, NOTIFY_FROM and NOTIFY_EMAIL.`,
+      );
+    }
 
-    return NextResponse.json({ ok: true, id: lead.id }, { status: 201 });
+    return NextResponse.json({ ok: true, id: lead.id, notified }, { status: 201 });
   } catch (err) {
     console.error('Failed to save teardown lead:', err);
     return NextResponse.json({ error: t.server }, { status: 500 });

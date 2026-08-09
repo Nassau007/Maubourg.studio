@@ -59,10 +59,16 @@ export async function POST(request: Request) {
       },
     });
 
-    // Fire the notification but never let an email failure break the submit.
-    await sendLeadNotification(lead);
+    // Same contract as the teardown route: the lead is saved, so a failed
+    // notification is reported rather than raised as an error.
+    const notified = await sendLeadNotification(lead);
+    if (!notified) {
+      console.error(
+        `[lead] NOT NOTIFIED — call lead #${lead.id} (${lead.phone}) is in the database but no notification email was accepted. Check RESEND_API_KEY, NOTIFY_FROM and NOTIFY_EMAIL.`,
+      );
+    }
 
-    return NextResponse.json({ ok: true, id: lead.id }, { status: 201 });
+    return NextResponse.json({ ok: true, id: lead.id, notified }, { status: 201 });
   } catch (err) {
     console.error('Failed to save call request:', err);
     return NextResponse.json({ error: t.server }, { status: 500 });

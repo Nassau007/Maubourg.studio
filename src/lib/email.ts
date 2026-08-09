@@ -20,6 +20,12 @@ type LeadEmail = {
 
 const RESEND_ENDPOINT = 'https://api.resend.com/emails';
 
+// Resend's shared sender. It needs no domain verification, so it is the one
+// address that still works when NOTIFY_FROM points at a domain that was never
+// verified (or whose verification lapsed) — which is exactly how lead
+// notifications went silent once already: a 403 per lead, logged and ignored.
+const FALLBACK_FROM = 'Maubourg Studio <onboarding@resend.dev>';
+
 /**
  * Low-level Resend POST. Never throws and never blocks a request: a broken
  * inbox must not cost a lead, and it must not cost a visitor their result
@@ -39,7 +45,7 @@ export async function sendResendEmail(message: {
   context?: string;
 }): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = message.from || process.env.NOTIFY_FROM || 'Maubourg Studio <onboarding@resend.dev>';
+  const from = message.from || process.env.NOTIFY_FROM || FALLBACK_FROM;
   const label = message.context || 'email';
 
   if (!apiKey) {
@@ -47,32 +53,58 @@ export async function sendResendEmail(message: {
     return false;
   }
 
-  try {
-    const res = await fetch(RESEND_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from,
-        to: [message.to],
-        ...(message.replyTo ? { reply_to: message.replyTo } : {}),
-        subject: message.subject,
-        html: message.html,
-      }),
-    });
-
-    if (!res.ok) {
-      const detail = await res.text().catch(() => '');
-      console.error(`[email] Resend responded ${res.status} for ${label}: ${detail}`);
-      return false;
+  async function post(sender: string): Promise<Response | null> {
+    try {
+      return await fetch(RESEND_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: sender,
+          to: [message.to],
+          ...(message.replyTo ? { reply_to: message.replyTo } : {}),
+          subject: message.subject,
+          html: message.html,
+        }),
+      });
+    } catch (err) {
+      console.error(`[email] Failed to send ${label} as "${sender}":`, err);
+      return null;
     }
-    return true;
-  } catch (err) {
-    console.error(`[email] Failed to send ${label}:`, err);
-    return false;
   }
+
+  const res = await post(from);
+  if (res && res.ok) return true;
+
+  if (res) {
+    const detail = await res.text().catch(() => '');
+    console.error(
+      `[email] Resend responded ${res.status} for ${label} (from "${from}"): ${detail}`,
+    );
+  }
+
+  // Second attempt on the shared sender. Only `from` changes: the subject
+  // shape, reply_to and the body rows the sales-machine Apps Script parses are
+  // identical, so a retried notification is still a parseable lead.
+  if (from === FALLBACK_FROM) return false;
+
+  console.warn(`[email] Retrying ${label} from the unverified-domain fallback sender.`);
+  const retry = await post(FALLBACK_FROM);
+  if (retry && retry.ok) {
+    console.warn(
+      `[email] ${label} sent from "${FALLBACK_FROM}" because "${from}" was rejected. Fix NOTIFY_FROM or verify the domain in Resend.`,
+    );
+    return true;
+  }
+  if (retry) {
+    const detail = await retry.text().catch(() => '');
+    console.error(
+      `[email] Resend also rejected the fallback sender for ${label}: ${retry.status} ${detail}`,
+    );
+  }
+  return false;
 }
 
 export function escapeHtml(s: string): string {
@@ -96,20 +128,25 @@ function row(label: string, value?: string | null): string {
 
 /**
  * Sends a "new teardown request" email to the studio inbox.
- * Never throws — email failures must not break the form submission.
+ *
+ * Never throws — an email failure must not break the form submission, because
+ * the lead is already saved by the time this runs. It does *report* the
+ * failure: the caller returns it to the browser as `notified`, so a silently
+ * dead inbox is visible on the page instead of only in a server log nobody
+ * reads. Returns true only when Resend accepted the message.
  */
-export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
+export async function sendLeadNotification(lead: LeadEmail): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.NOTIFY_EMAIL || 'touchtabletapps@gmail.com';
   // Default sender works out of the box with a Resend account (no domain
   // verification needed to email your own account address).
-  const from = process.env.NOTIFY_FROM || 'Maubourg Studio <onboarding@resend.dev>';
+  const from = process.env.NOTIFY_FROM || FALLBACK_FROM;
 
   if (!apiKey) {
     console.warn(
       `[email] RESEND_API_KEY not set — skipping notification for lead #${lead.id} (${lead.email}).`,
     );
-    return;
+    return false;
   }
 
   const isCall = lead.kind === 'call';
@@ -171,7 +208,7 @@ export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
     </div>
   </div>`;
 
-  await sendResendEmail({
+  return sendResendEmail({
     to,
     from,
     subject,

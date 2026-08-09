@@ -302,6 +302,11 @@ export const en = {
       title: 'Request received.',
       body: 'We’ll go through your store and send your teardown PDF within 3 working days. Keep an eye on your inbox.',
       again: 'Submit another store',
+      // Shown only when the studio notification did not go out. The request is
+      // saved either way, so this gives the visitor a second route rather than
+      // telling them the submission failed.
+      fallback:
+        'One thing: our own confirmation email did not go out. Your request is saved. If you have not heard back in 3 working days, write to hello@maubourg.studio.',
     },
   },
 
@@ -406,6 +411,8 @@ export const en = {
       title: 'We’ll call you.',
       body: 'Thanks, we’ve got your details and will call within one working day at the time you picked. No pitch, just a useful conversation.',
       again: 'Request another call',
+      fallback:
+        'One thing: our own confirmation email did not go out. Your request is saved. If nobody has called within one working day, write to hello@maubourg.studio.',
     },
   },
 

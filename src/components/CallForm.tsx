@@ -7,6 +7,9 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 export default function CallForm({ dict, lang }: { dict: Dictionary['call']; lang: Locale }) {
   const [status, setStatus] = useState<Status>('idle');
+  // See TeardownForm: the lead is saved either way, so a rejected notification
+  // adds a direct address to the success panel rather than raising an error.
+  const [notified, setNotified] = useState(true);
   const [errorMsg, setErrorMsg] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const f = dict.form;
@@ -28,6 +31,8 @@ export default function CallForm({ dict, lang }: { dict: Dictionary['call']; lan
       });
 
       if (res.ok) {
+        const ok = await res.json().catch(() => ({}));
+        setNotified(ok.notified !== false);
         setStatus('success');
         form.reset();
         return;
@@ -51,6 +56,11 @@ export default function CallForm({ dict, lang }: { dict: Dictionary['call']; lan
         </div>
         <h3 className="mt-5 font-display text-2xl font-semibold text-ink">{dict.success.title}</h3>
         <p className="mt-2 max-w-sm text-sm text-ink-600">{dict.success.body}</p>
+        {!notified && (
+          <p className="mt-4 max-w-sm rounded-lg bg-bone-200 px-4 py-3 text-left text-sm text-ink-700">
+            {dict.success.fallback}
+          </p>
+        )}
         <button onClick={() => setStatus('idle')} className="btn-ghost mt-6" type="button">
           {dict.success.again}
         </button>

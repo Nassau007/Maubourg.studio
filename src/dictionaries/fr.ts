@@ -305,6 +305,8 @@ export const fr: Dictionary = {
       title: 'Demande reçue.',
       body: 'Nous allons analyser votre boutique et vous envoyer votre diagnostic en PDF sous 3 jours ouvrés. Surveillez votre boîte de réception.',
       again: 'Envoyer une autre boutique',
+      fallback:
+        'Un point : notre email de confirmation n’est pas parti. Votre demande est bien enregistrée. Sans réponse de notre part sous 3 jours ouvrés, écrivez à hello@maubourg.studio.',
     },
   },
 
@@ -409,6 +411,8 @@ export const fr: Dictionary = {
       title: 'Nous vous rappelons.',
       body: 'Merci, nous avons vos coordonnées et vous rappellerons sous un jour ouvré au moment choisi. Pas d’argumentaire, juste un échange utile.',
       again: 'Demander un autre appel',
+      fallback:
+        'Un point : notre email de confirmation n’est pas parti. Votre demande est bien enregistrée. Si personne ne vous a appelé sous un jour ouvré, écrivez à hello@maubourg.studio.',
     },
   },
 
