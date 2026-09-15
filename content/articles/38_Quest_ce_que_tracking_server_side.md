@@ -4,14 +4,15 @@ slug: "qu-est-ce-que-le-tracking-server-side-et-pourquoi-c-est-utile-pour-mon-e-
 description: "Le tracking server-side envoie les données d'événement (une visite, un ajout au panier, un achat) directement depuis le serveur de la boutique vers la…"
 question: "Qu'est-ce que le tracking server-side et pourquoi c'est utile pour mon e-commerce ?"
 category: "Analytics et tracking"
-date: 2026-08-02
+date: 2026-09-15
 lang: fr
 readingTime: 4
 draft: false
+template: "sidebar"
 ---
 # Qu'est-ce que le tracking server-side et pourquoi c'est utile pour mon e-commerce
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 15 septembre 2026_
 
 Le tracking server-side envoie les données d'événement (une visite, un ajout au panier, un achat) directement depuis le serveur de la boutique vers la plateforme publicitaire, plutôt que depuis un script qui s'exécute dans le navigateur du visiteur. La différence tient en une phrase : le tracking classique dépend de ce qui se passe sur l'appareil du visiteur, le tracking server-side n'en dépend plus.
 

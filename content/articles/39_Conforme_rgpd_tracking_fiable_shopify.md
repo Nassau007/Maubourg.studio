@@ -4,14 +4,15 @@ slug: "comment-etre-conforme-rgpd-tout-en-gardant-un-tracking-fiable-sur-shopify
 description: "La réponse tient dans deux mécanismes complémentaires : une bannière de cookies réellement conforme aux exigences de la CNIL, et le Consent Mode de Google…"
 question: "Comment être conforme RGPD tout en gardant un tracking fiable sur Shopify ?"
 category: "Analytics et tracking"
-date: 2026-08-02
+date: 2026-09-15
 lang: fr
 readingTime: 4
 draft: false
+template: "citation"
 ---
 # Comment être conforme RGPD tout en gardant un tracking fiable sur Shopify
 
-_Maubourg Studio, mis à jour le 2 août 2026_
+_Maubourg Studio, mis à jour le 15 septembre 2026_
 
 La réponse tient dans deux mécanismes complémentaires : une bannière de cookies réellement conforme aux exigences de la CNIL, et le Consent Mode de Google (version 2), qui permet à Google de recevoir des signaux modélisés et limités plutôt que rien du tout quand un visiteur refuse. Ça ne rend pas le tracking parfait, ça le garde utilisable sans suivre quelqu'un qui a dit non.
 
