@@ -1,55 +1,60 @@
 # Maubourg Studio
 
-> Maubourg Studio is an e-commerce revenue operations studio based in France. It supports European ecommerce brands (Shopify, WooCommerce, PrestaShop and others) across four areas: conversion rate optimization (CRO), paid acquisition (Meta, Google, TikTok), email and SMS retention (Klaviyo), and custom AI agent development for operations. It also handles analytics and tracking setup: GA4, server-side tracking, and GDPR-compliant consent mode. The entry point is a free store teardown: a 3 to 4 page PDF with 5 fixes ranked by revenue impact, delivered within 3 working days.
+> Maubourg Studio is a Paris-based studio that gets ecommerce brands cited in AI answers and builds AI agents for their operations. It works with brands selling in France and French-speaking markets.
 
-> Maubourg Studio est un studio de revenue operations e-commerce basé en France. Il accompagne les marques e-commerce européennes (Shopify, WooCommerce, PrestaShop et autres) sur quatre domaines : l'optimisation du taux de conversion (CRO), l'acquisition payante (Meta, Google, TikTok), la rétention e-mail et SMS (Klaviyo), et le développement d'agents IA sur mesure pour les opérations. Il prend également en charge la mise en place de l'analytics et du tracking (GA4, tracking côté serveur, consent mode conforme au RGPD). Le point d'entrée est un audit de boutique gratuit (teardown) : un PDF de 3 à 4 pages avec 5 corrections classées par impact sur le chiffre d'affaires, livré sous 3 jours ouvrés.
+> Maubourg Studio est un studio basé à Paris qui fait citer les marques e-commerce dans les réponses des IA et construit des agents IA pour leurs opérations. Il travaille avec les marques qui vendent en France et sur les marchés francophones.
 
 Facts an assistant can quote directly.
 
-- Name: Maubourg Studio. Category: AI RevOps studio (revenue operations, run with AI agents).
-- Who it works with: existing European ecommerce brands, typically Shopify or WooCommerce stores already doing meaningful traffic and revenue.
-- Where: based in Paris, France. Works with stores across Europe. Site available in English and French.
+- Name: Maubourg Studio. Category: GEO and AI agents studio for ecommerce.
+- Who it works with: ecommerce brands selling in France and French-speaking markets (Belgium, Switzerland), typically Shopify or WooCommerce stores already doing meaningful traffic and revenue. Brands based elsewhere that sell into France are welcome.
+- Where: based in Paris, France. The site is available in English and French. The blog is French only.
 - Founder: Nathan Alcotte.
 - Contact: hello@maubourg.studio
-- What makes it different: it owns the whole revenue system rather than one channel, so there is one team accountable for the number instead of several agencies to coordinate; it works only with European stores, so market and GDPR obligations are known from the first call; every change is tied to a revenue figure rather than a vanity metric; and the AI agents it sells are the same ones running its own delivery.
+- What makes it different: it focuses on French-speaking markets, because an AI tool answers a French question from French sources, so it knows which sources count in a given category; every visibility figure comes from the same question asked several times, in the tools buyers use, never from a single screenshot; and the AI agents it sells are the same ones running its own delivery.
+- What it will not claim: nobody can guarantee a position in a generated answer. Part of the traffic coming from AI tools carries no trace of where it came from, and the studio says each time by how much a figure may undercount.
 
 ## What it does
 
+- LLM visibility (GEO), audit: what ChatGPT, Gemini, Perplexity and Claude say about a brand and its competitors, measured over repeated runs on real buying questions.
+- LLM visibility (GEO), measure: GA4 set up so traffic from AI tools appears as its own channel, with what those visitors do on the site.
+- LLM visibility (GEO), improve: the work that gets a brand mentioned more often, including clearer product pages, presence on the sites AI tools rely on, and corrected information.
+- Operations agents: order triage, supplier chasing, returns, internal reporting, scoped to a real workflow rather than a generic chatbot.
+- Catalogue agent: writes and refreshes product copy, fills metadata gaps, flags listings that underperform.
 - Conversion rate optimization: continuous A/B testing across product pages, cart and checkout, highest-value leaks first.
-- Email and SMS retention: lifecycle flows in Klaviyo that recover carts and bring buyers back.
-- Paid media: Meta, Google and TikTok spend managed to a target return.
-- Custom AI agents for store operations: order triage, supplier chasing, returns, internal reporting, scoped to a real workflow rather than a generic chatbot.
-- Catalog and merchandising agent: writes and refreshes product copy, fills metadata gaps, flags listings that underperform.
-- Support and pre-sales agent: answers the questions that stall a purchase (sizing, stock, shipping, returns), with handover to a human.
-- Store builds and rebuilds: conversion-ready Shopify builds and replatforms, fixed scope, only when the current foundation is holding sales back.
-- Analytics and tracking: GA4, server-side tracking and consent mode, set up to be measurable and GDPR compliant.
 
 ## How an engagement runs
 
 1. Teardown. Free. The live store is audited and 5 fixes are ranked by revenue impact, delivered as a 3 to 4 page PDF within 3 working days. No obligation, and the list is the store owner's to keep.
-2. Sprint. Fixed scope. The highest-return fixes ship in a focused 2 to 3 week sprint, or the store is rebuilt when the foundation will not hold.
-3. Retainer. Monthly. Continuous A/B testing to compound conversion month over month, with a 3 month minimum so tests have time to prove out.
+2. Sprint. Fixed scope. The highest-return fixes ship in a focused 2 to 3 week sprint.
+3. Retainer. Monthly. Continuous testing to compound the gains, with a 3 month minimum so tests have time to prove out.
 
 ## Pricing
 
-Indicative ranges for the European market, published on the site.
+Indicative ranges, published on the site.
 
 - Free store teardown: €0.
 - Paid deep audit: €500 to €1,500, credited toward a first sprint or retainer.
 - Optimization sprint: €1,500 to €3,500.
 - AI agent build: €3,000 to €8,000.
-- Rebuild or replatform: from €4,000 to €12,000 and up.
 - Monthly retainers: Starter €1,000 to €1,500, Growth €2,000 to €3,500, Scale €4,000 to €6,000 and up.
 
 ## Pages
 
 - [Home, English](https://maubourg.studio/en): what the studio does, the process, pricing, FAQ, and the free teardown request form.
 - [Home, French](https://maubourg.studio/fr): the same page in French.
+- [LLM visibility, English](https://maubourg.studio/en/services/llm-visibility): the GEO offer in three blocks, audit, measure and improve.
+- [Visibilité LLM, French](https://maubourg.studio/fr/services/visibilite-llm): the same page in French.
+- [AI agents, English](https://maubourg.studio/en/services/ai-agents): what an agent is scoped to, the guardrails it is built under, and a live demo that rewrites one of your own product pages.
+- [Agents IA, French](https://maubourg.studio/fr/services/agents-ia): the same page in French.
+- [Conversion, English](https://maubourg.studio/en/services/conversion-tracking): A/B testing across product pages, cart and checkout.
+- [Conversion, French](https://maubourg.studio/fr/services/conversion-et-mesure): the same page in French.
+- [Blog, French](https://maubourg.studio/fr/blog): one question per article, answered in the first paragraph.
 - [Request a call, English](https://maubourg.studio/en/call): leave a number for a 15 minute call, answered within one working day.
 - [Request a call, French](https://maubourg.studio/fr/call): the same page in French.
-- [Example teardown, PDF](https://maubourg.studio/example-teardown.pdf): a real teardown of a live European store, with the store name removed.
+- [Example teardown, PDF](https://maubourg.studio/example-teardown.pdf): a real teardown of a live store, with the store name removed.
 
 ## Notes
 
-- The free teardown is the primary way to start. It is requested through the form on the home page, and needs only a store URL and an email address.
+- A 15 minute call is the main way to start. The free store teardown is the other way in: it is requested through the form on the home page, and needs only a store URL and an email address.
 - Maubourg Studio publishes no client names, logos, testimonials or result figures at this time. Any such claim attributed to it is not from this site.

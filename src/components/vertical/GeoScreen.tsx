@@ -1,16 +1,31 @@
 // LLM visibility. Layout: narrow editorial column rather than the wide grids
 // the other pages use, because this page is an explanation before it is an
 // offer. The retrieval chain sits inside the column as the one visual, the
-// levers run as a numbered list, and the page ends on two admissions rather
-// than a price - there is no honest price list for work this young.
+// three blocks of work run as a numbered list, and the page ends on two
+// admissions rather than a price - there is no honest price list for work this
+// young.
+//
+// The two articles linked under the blocks are the studio's own GEO writing.
+// They are French, like the whole blog, and the English page says so rather
+// than pretending otherwise.
 
+import Link from 'next/link';
 import VerticalFrame, { SectionHead } from '@/components/vertical/VerticalFrame';
 import { RetrievalChain } from '@/components/vertical/diagrams';
+import { articleHref, getArticle } from '@/lib/articles';
 import { getDictionary, type Locale } from '@/lib/i18n';
+
+const GEO_ARTICLES = [
+  'comment-faire-en-sorte-que-chatgpt-recommande-ma-marque',
+  'pourquoi-ma-marque-n-apparait-jamais-quand-on-demande-une-recommandation-a-perplexity-ou-gemini',
+];
 
 export default function GeoScreen({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
   const v = dict.verticals.geo;
+  // A slug that stopped existing drops out of the list rather than rendering a
+  // link into a 404.
+  const reading = GEO_ARTICLES.map(getArticle).flatMap((a) => (a ? [a] : []));
 
   return (
     <VerticalFrame lang={lang} related={v.related}>
@@ -56,23 +71,46 @@ export default function GeoScreen({ lang }: { lang: Locale }) {
         </div>
       </section>
 
-      {/* Levers as a numbered editorial list, not cards: five items that read in
-          order rather than five boxes that compete. */}
+      {/* The three blocks of work, as a numbered editorial list rather than
+          cards: they are one sequence, and each has a lead sentence that also
+          appears on the homepage, then what the client actually receives. */}
       <section className="mx-auto max-w-content px-5 pb-16 md:px-8 md:pb-24">
-        <SectionHead eyebrow={v.levers.eyebrow} title={v.levers.title} />
+        <SectionHead eyebrow={v.blocks.eyebrow} title={v.blocks.title} />
         <ol className="mt-10 max-w-3xl divide-y divide-ink/10 border-t border-ink/10">
-          {v.levers.items.map((item, i) => (
+          {v.blocks.items.map((item, i) => (
             <li key={item.title} className="flex gap-5 py-7">
               <span className="font-display text-xl font-semibold text-emerald/70">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <div>
                 <h3 className="font-display text-xl font-semibold text-ink">{item.title}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-ink-600">{item.body}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-ink-700">{item.lead}</p>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink-600">{item.body}</p>
               </div>
             </li>
           ))}
         </ol>
+
+        {reading.length > 0 && (
+          <div className="mt-12 max-w-3xl rounded-card border border-ink/10 bg-bone-100 p-6">
+            <p className="text-[13px] font-semibold uppercase tracking-wider text-ink-500">
+              {v.reading.heading}
+            </p>
+            <ul className="mt-4 space-y-3">
+              {reading.map((article) => (
+                <li key={article.slug}>
+                  <Link
+                    href={articleHref(article.slug)}
+                    className="text-[15px] font-medium text-emerald underline-offset-4 hover:underline"
+                  >
+                    {article.title} →
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-[12.5px] italic text-ink-500">{v.reading.note}</p>
+          </div>
+        )}
       </section>
 
       {/* Two admissions. The honest one is the more persuasive of the two, so it

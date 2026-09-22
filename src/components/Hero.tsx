@@ -39,13 +39,15 @@ export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: L
             {dict.subtitle}
           </p>
 
-          {/* One primary action for cold traffic. The call is a text link below, not a
-              competing button — every extra choice at this point costs conversion. */}
+          {/* One primary action for cold traffic. The teardown is a text link
+              below, not a competing button: every extra choice at this point
+              costs conversion. The call leads while the teardown is still the
+              conversion audit rather than the GEO one. */}
           <div
             className="animate-fade-up mt-9 flex justify-center"
             style={{ animationDelay: '240ms' }}
           >
-            <Link href={`${home}#teardown`} className="btn-primary w-full sm:w-auto">
+            <Link href={`${home}/call`} className="btn-primary w-full sm:w-auto">
               {dict.ctaPrimary}
             </Link>
           </div>
@@ -54,16 +56,9 @@ export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: L
             className="animate-fade-up mt-5 text-sm text-ink-500"
             style={{ animationDelay: '320ms' }}
           >
-            {dict.note}
-          </p>
-
-          <p
-            className="animate-fade-up mt-3 text-sm text-ink-500"
-            style={{ animationDelay: '360ms' }}
-          >
             {dict.talkPrefix}{' '}
             <Link
-              href={`${home}/call`}
+              href={`${home}#teardown`}
               className="font-medium text-ink-700 underline underline-offset-4 decoration-ink/25 transition-colors hover:text-emerald"
             >
               {dict.ctaSecondary}
@@ -74,7 +69,7 @@ export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: L
         {/* What we actually do — our own capabilities, not borrowed industry averages. */}
         <div className="animate-fade-up mx-auto mt-16 max-w-6xl" style={{ animationDelay: '400ms' }}>
           <p className="eyebrow text-center">{dict.skillsHeading}</p>
-          <div className="mt-5 grid grid-cols-1 gap-px overflow-hidden rounded-card border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-5 grid grid-cols-1 gap-px overflow-hidden rounded-card border border-ink/10 bg-ink/10 sm:grid-cols-3">
             {dict.skills.map((s) => (
               <div key={s.name} className="bg-bone-100 px-6 py-6 text-left">
                 <div className="font-display text-xl font-semibold text-ink">{s.name}</div>

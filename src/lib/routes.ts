@@ -16,24 +16,23 @@ export const localizedPaths = {
   agentDemo: { en: '/try-an-agent', fr: '/essayer-un-agent' },
   privacy: { en: '/privacy', fr: '/confidentialite' },
   conversion: { en: '/services/conversion-tracking', fr: '/services/conversion-et-mesure' },
-  acquisition: { en: '/services/acquisition', fr: '/services/acquisition' },
   geo: { en: '/services/llm-visibility', fr: '/services/visibilite-llm' },
   agents: { en: '/services/ai-agents', fr: '/services/agents-ia' },
-  foundations: { en: '/services/store-build', fr: '/services/creation-boutique' },
 } as const;
 
 /**
- * The five service pages, in the order they are offered: fix what you have,
- * then bring more of it, then be found, then automate, and rebuild only if the
- * foundation is the problem. Nav, footer and homepage cards all read this, so
- * the order is defined once.
+ * The three service pages, in the order the studio offers them: be in the
+ * answer, automate the repetitive work, and fix the store when the store is
+ * what loses the sale. Nav, footer and homepage cards all read this, so the
+ * order is defined once.
+ *
+ * Acquisition and store builds were dropped in the refocus. Their URLs are
+ * redirected in src/middleware.ts rather than kept as empty pages.
  */
 export const verticalPages = [
-  'conversion',
-  'acquisition',
   'geo',
   'agents',
-  'foundations',
+  'conversion',
 ] as const satisfies readonly LocalizedPage[];
 
 export type VerticalPage = (typeof verticalPages)[number];

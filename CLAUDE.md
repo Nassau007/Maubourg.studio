@@ -11,7 +11,7 @@ steps clearly, and put anything the user has to do themselves in its own clearly
 
 ## What this is
 
-The marketing site for **Maubourg Studio**, an AI RevOps studio for European ecommerce brands.
+The marketing site for **Maubourg Studio**, a GEO and AI agents studio for ecommerce brands selling in France and French-speaking markets.
 It is one landing page in two languages plus a request-a-call page, and its only job is to turn a
 store owner into a lead row: a **free-teardown request** (primary CTA) or a **call request**
 (secondary). Everything else — copy, layout, animation — is in service of that. Judge a change by
@@ -63,8 +63,12 @@ tooling. So:
 
 ### Routing and locale
 
-- `src/middleware.ts` redirects any locale-less path to `/en` or `/fr` by reading `Accept-Language`,
-  defaulting to `en`. Its matcher skips `api`, `_next` and anything with a file extension.
+- `src/middleware.ts` does three things in a single redirect, so a visitor never takes two hops:
+  `www.maubourg.studio` goes to the apex domain, a retired page goes to its replacement in the same
+  language (`RETIRED_PAGES`), and a locale-less path goes to `/en` or `/fr` from `Accept-Language`.
+  Its matcher is every path, because the host redirect has to cover the API routes, the sitemap and
+  the PDF; the `NON_PAGE` pattern is what keeps those from being given a locale prefix. Host and
+  retired-page moves are 308, the locale hop is 307 because it is negotiated per visitor.
 - It **deliberately re-declares `locales` and `defaultLocale`** instead of importing `@/lib/i18n`,
   to keep the dictionaries out of the edge middleware bundle. Change the locale list in one place
   and you must change it in the other.

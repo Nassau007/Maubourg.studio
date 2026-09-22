@@ -15,9 +15,10 @@ export default function Footer({ dict, lang }: { dict: Dictionary['footer']; lan
           <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-bone md:text-5xl">
             {dict.ctaTitle} <span className="italic text-signal">{dict.ctaAccent}</span>
           </h2>
-          {/* Same rule as the hero: one button, the call demoted to a text link. */}
+          {/* Same rule as the hero: one button, the teardown demoted to a text
+              link, so the page closes on the same ask it opened with. */}
           <div className="mt-8 flex justify-center">
-            <Link href={`${home}#teardown`} className="btn-signal w-full sm:w-auto">
+            <Link href={`${home}/call`} className="btn-signal w-full sm:w-auto">
               {dict.ctaPrimary}
             </Link>
           </div>
@@ -27,7 +28,7 @@ export default function Footer({ dict, lang }: { dict: Dictionary['footer']; lan
           <p className="mt-3 text-sm text-bone/60">
             {dict.talkPrefix}{' '}
             <Link
-              href={`${home}/call`}
+              href={`${home}#teardown`}
               className="font-medium text-bone underline underline-offset-4 decoration-bone/30 transition-colors hover:text-signal"
             >
               {dict.ctaSecondary}
@@ -48,7 +49,11 @@ export default function Footer({ dict, lang }: { dict: Dictionary['footer']; lan
             </span>
           </div>
 
-          <p className="text-sm text-bone/50">{dict.tagline}</p>
+          {/* Tagline, then the one place on the page that names the market. */}
+          <div className="text-center md:text-left">
+            <p className="text-sm text-bone/50">{dict.tagline}</p>
+            <p className="mt-1 text-xs text-bone/40">{dict.market}</p>
+          </div>
 
           <div className="flex items-center gap-6 text-sm">
             <a

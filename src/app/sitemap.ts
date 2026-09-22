@@ -26,11 +26,10 @@ const priorities: Record<string, number> = {
   '': 1,
   '/call': 0.8,
   // The service pages are what we want found, so they sit just under home.
-  conversion: 0.9,
+  // GEO leads, because it is what the studio now sells first.
+  geo: 0.9,
   agents: 0.9,
-  acquisition: 0.8,
-  geo: 0.8,
-  foundations: 0.8,
+  conversion: 0.8,
   privacy: 0.3,
 };
 

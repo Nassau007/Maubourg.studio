@@ -8,9 +8,9 @@ export default function WhyMe({ dict }: { dict: Dictionary['whyMe'] }) {
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <Reveal>
             <span className="eyebrow !text-signal">{dict.eyebrow}</span>
-            <blockquote className="mt-5 font-display text-3xl font-medium leading-[1.15] tracking-tight text-bone md:text-[2.75rem]">
-              “{dict.quoteBefore} <span className="italic text-signal">{dict.quoteAccent}</span>”
-            </blockquote>
+            <h2 className="mt-5 font-display text-3xl font-medium leading-[1.15] tracking-tight text-bone md:text-[2.75rem]">
+              {dict.title}
+            </h2>
           </Reveal>
 
           <div className="space-y-8">
