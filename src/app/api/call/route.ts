@@ -28,6 +28,7 @@ export async function POST(request: Request) {
   const phone = String(body.phone ?? '').trim();
   const email = body.email ? String(body.email).trim() : '';
   const storeUrlRaw = body.storeUrl ? String(body.storeUrl).trim() : '';
+  const topic = body.topic ? String(body.topic).trim() : null;
   const preferredTime = body.preferredTime ? String(body.preferredTime).trim() : null;
   const message = body.message ? String(body.message).trim() : null;
 
@@ -53,6 +54,7 @@ export async function POST(request: Request) {
         phone,
         email: email || null,
         storeUrl: normalizeUrl(storeUrlRaw) || null,
+        topic,
         preferredTime,
         message,
         source: 'website',

@@ -19,7 +19,17 @@ export default function AgentsScreen({ lang }: { lang: Locale }) {
   const s = dict.verticals.shared;
 
   return (
-    <VerticalFrame lang={lang} related={v.related}>
+    <VerticalFrame
+      lang={lang}
+      related={v.related}
+      cta={{
+        title: v.cta.title,
+        primaryLabel: v.cta.primary,
+        primaryHref: `/${lang}/call`,
+        secondaryLabel: v.cta.secondary,
+        secondaryHref: '#demo',
+      }}
+    >
       <section className="mx-auto max-w-content px-5 pb-12 pt-8 md:px-8 md:pb-16">
         <div className="max-w-3xl">
           <span className="eyebrow">{v.hero.eyebrow}</span>
@@ -80,7 +90,10 @@ export default function AgentsScreen({ lang }: { lang: Locale }) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-content px-5 pb-16 md:px-8 md:pb-24">
+      {/* How one gets built, and the rules it is built under: one block, since
+          the rules are half the answer to "how". The price sits beside them,
+          because that is the other question a buyer has at this point. */}
+      <section className="mx-auto max-w-content px-5 pb-10 md:px-8 md:pb-14">
         <SectionHead eyebrow={v.workflow.eyebrow} title={v.workflow.title} />
         <div className="mt-10">
           <AgentWorkflow nodes={v.workflow.nodes} />
@@ -88,8 +101,6 @@ export default function AgentsScreen({ lang }: { lang: Locale }) {
         <p className="mt-5 text-[13px] italic text-ink-500">{v.workflow.caption}</p>
       </section>
 
-      {/* Guardrails and the price, side by side: the two questions a buyer
-          actually has at this point. */}
       <section className="mx-auto max-w-content px-5 pb-4 md:px-8">
         <div className="grid gap-5 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
           <div className="rounded-card bg-ink p-7 md:p-10">

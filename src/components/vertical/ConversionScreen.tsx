@@ -9,10 +9,10 @@
 // scanned rather than read.
 
 import Link from 'next/link';
+import LeadForm from '@/components/LeadForm';
 import VerticalFrame, { SectionHead, StatBadge } from '@/components/vertical/VerticalFrame';
 import { FunnelDiagram } from '@/components/vertical/diagrams';
 import { getDictionary, type Locale } from '@/lib/i18n';
-import { localizedHref } from '@/lib/routes';
 
 export default function ConversionScreen({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
@@ -20,7 +20,18 @@ export default function ConversionScreen({ lang }: { lang: Locale }) {
   const s = dict.verticals.shared;
 
   return (
-    <VerticalFrame lang={lang} related={v.related}>
+    <VerticalFrame
+      lang={lang}
+      related={v.related}
+      cta={{
+        title: v.cta.title,
+        body: v.cta.body,
+        primaryLabel: v.cta.primary,
+        primaryHref: '#diagnostic',
+        secondaryLabel: s.ctaSecondary,
+        secondaryHref: `/${lang}/call`,
+      }}
+    >
       <section className="mx-auto max-w-content px-5 pb-16 pt-6 md:px-8 md:pb-20">
         <div className="max-w-3xl">
           <span className="eyebrow">{v.hero.eyebrow}</span>
@@ -32,6 +43,14 @@ export default function ConversionScreen({ lang }: { lang: Locale }) {
           </p>
           <div className="mt-8 max-w-xl">
             <StatBadge value={v.hero.stat} note={v.hero.statNote} />
+          </div>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#diagnostic" className="btn-primary w-full sm:w-auto">
+              {v.hero.ctaPrimary}
+            </a>
+            <Link href={`/${lang}/call`} className="btn-ghost w-full sm:w-auto">
+              {v.hero.ctaSecondary}
+            </Link>
           </div>
         </div>
       </section>
@@ -76,26 +95,6 @@ export default function ConversionScreen({ lang }: { lang: Locale }) {
         </div>
       </section>
 
-      {/* One line about measurement, on the inverted band that used to carry a
-          whole section of it. Tracking is no longer sold from this page, so the
-          band exists to hand the subject over rather than to argue it. */}
-      <section className="bg-ink py-14 md:py-16">
-        <div className="mx-auto max-w-content px-5 md:px-8">
-          <div className="max-w-2xl">
-            <h2 className="font-display text-2xl font-semibold leading-[1.15] tracking-tightest text-bone md:text-3xl">
-              {v.geoNote.title}
-            </h2>
-            <p className="mt-4 text-[15.5px] leading-relaxed text-bone/70">{v.geoNote.body}</p>
-            <Link
-              href={localizedHref('geo', lang)}
-              className="mt-6 inline-block font-medium text-signal underline underline-offset-4 decoration-signal/40 transition-colors hover:text-bone"
-            >
-              {v.geoNote.link}
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* The three commercial steps, stacked. They are a sequence, not three
           options to compare, so reading them down the page matches the order
           a client actually moves through them. */}
@@ -123,6 +122,27 @@ export default function ConversionScreen({ lang }: { lang: Locale }) {
         </ol>
         <p className="mt-6 text-[13px] italic text-ink-500">{s.priceNote}</p>
       </section>
+
+      {/* The free conversion diagnostic. It used to sit on the homepage; the
+          homepage now asks for the GEO audit, and this is the page where a
+          conversion diagnostic is the obvious next step. */}
+      <LeadForm
+        anchor="diagnostic"
+        variant="diagnostic"
+        section={v.diagnostic}
+        form={dict.audit.form}
+        submitLabel={v.diagnostic.submit}
+        talk={{ prefix: dict.audit.talkPrefix, link: dict.audit.talkLink }}
+        sample={{
+          title: v.diagnostic.sampleTitle,
+          body: v.diagnostic.sampleBody,
+          link: v.diagnostic.sampleLink,
+          href: '/example-teardown.pdf',
+        }}
+        founder={null}
+        errors={dict.errors}
+        lang={lang}
+      />
     </VerticalFrame>
   );
 }

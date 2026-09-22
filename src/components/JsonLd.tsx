@@ -64,7 +64,7 @@ export function HomeJsonLd({ dict, lang }: { dict: Dictionary; lang: Locale }) {
     ],
     availableLanguage: ['en', 'fr'],
     knowsAbout: dict.marquee.items,
-    serviceType: dict.services.items.map((s) => s.title),
+    serviceType: dict.services.items.map((s) => `${s.tag}: ${s.title}`),
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: dict.services.eyebrow,
@@ -73,16 +73,16 @@ export function HomeJsonLd({ dict, lang }: { dict: Dictionary; lang: Locale }) {
         itemOffered: { '@type': 'Service', name: s.title, description: s.body },
       })),
     },
-    // The one price on the page that is a single number rather than a range.
-    // Ranges stay in the visible HTML instead of being restated here, where a
-    // stale figure would be quoted back as fact.
+    // The free GEO audit: the one price on the page that is a single number
+    // rather than a range. Ranges stay in the visible HTML instead of being
+    // restated here, where a stale figure would be quoted back as fact.
     makesOffer: {
       '@type': 'Offer',
-      name: dict.pricing.entry[0].name,
-      description: dict.pricing.entry[0].desc,
+      name: dict.pricing.groups[0].items[0].name,
+      description: dict.pricing.groups[0].items[0].desc,
       price: 0,
       priceCurrency: 'EUR',
-      url: `${url}#teardown`,
+      url: `${url}#audit`,
       availability: 'https://schema.org/InStock',
     },
   };

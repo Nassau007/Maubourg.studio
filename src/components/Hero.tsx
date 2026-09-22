@@ -39,15 +39,14 @@ export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: L
             {dict.subtitle}
           </p>
 
-          {/* One primary action for cold traffic. The teardown is a text link
-              below, not a competing button: every extra choice at this point
-              costs conversion. The call leads while the teardown is still the
-              conversion audit rather than the GEO one. */}
+          {/* One primary action for cold traffic: the free GEO audit, which is
+              the hook the whole page is built on. The call is a text link
+              below, not a competing button. */}
           <div
             className="animate-fade-up mt-9 flex justify-center"
             style={{ animationDelay: '240ms' }}
           >
-            <Link href={`${home}/call`} className="btn-primary w-full sm:w-auto">
+            <Link href={`${home}#audit`} className="btn-primary w-full sm:w-auto">
               {dict.ctaPrimary}
             </Link>
           </div>
@@ -58,7 +57,7 @@ export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: L
           >
             {dict.talkPrefix}{' '}
             <Link
-              href={`${home}#teardown`}
+              href={`${home}/call`}
               className="font-medium text-ink-700 underline underline-offset-4 decoration-ink/25 transition-colors hover:text-emerald"
             >
               {dict.ctaSecondary}
@@ -66,14 +65,34 @@ export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: L
           </p>
         </div>
 
-        {/* What we actually do — our own capabilities, not borrowed industry averages. */}
+        {/* The three things we do. The first card is the headline offer and
+            runs the full width; the other two sit under it at half size, so the
+            section does not contradict the hero by giving all three equal
+            weight. */}
         <div className="animate-fade-up mx-auto mt-16 max-w-6xl" style={{ animationDelay: '400ms' }}>
           <p className="eyebrow text-center">{dict.skillsHeading}</p>
-          <div className="mt-5 grid grid-cols-1 gap-px overflow-hidden rounded-card border border-ink/10 bg-ink/10 sm:grid-cols-3">
-            {dict.skills.map((s) => (
-              <div key={s.name} className="bg-bone-100 px-6 py-6 text-left">
-                <div className="font-display text-xl font-semibold text-ink">{s.name}</div>
-                <div className="mt-1.5 text-sm leading-snug text-ink-600">{s.body}</div>
+          <div className="mt-5 grid grid-cols-1 gap-px overflow-hidden rounded-card border border-ink/10 bg-ink/10 sm:grid-cols-2">
+            {dict.skills.map((s, i) => (
+              <div
+                key={s.name}
+                className={`bg-bone-100 px-6 py-6 text-left ${
+                  i === 0 ? 'sm:col-span-2 sm:px-8 sm:py-8' : ''
+                }`}
+              >
+                <div
+                  className={`font-display font-semibold text-ink ${
+                    i === 0 ? 'text-2xl md:text-3xl' : 'text-lg'
+                  }`}
+                >
+                  {s.name}
+                </div>
+                <div
+                  className={`mt-1.5 leading-snug text-ink-600 ${
+                    i === 0 ? 'max-w-2xl text-[15px]' : 'text-sm'
+                  }`}
+                >
+                  {s.body}
+                </div>
               </div>
             ))}
           </div>

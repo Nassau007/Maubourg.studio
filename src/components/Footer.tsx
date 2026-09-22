@@ -3,13 +3,26 @@ import { site } from '@/lib/site';
 import { localizedHref } from '@/lib/routes';
 import type { Dictionary, Locale } from '@/lib/i18n';
 
-export default function Footer({ dict, lang }: { dict: Dictionary['footer']; lang: Locale }) {
+export default function Footer({
+  dict,
+  lang,
+  hideCta = false,
+}: {
+  dict: Dictionary['footer'];
+  lang: Locale;
+  /** The call page asks for a call already, so it hides this block rather
+      than closing on a link back to itself. */
+  hideCta?: boolean;
+}) {
   const year = new Date().getFullYear();
   const home = `/${lang}`;
 
   return (
     <footer className="bg-ink text-bone">
-      {/* Final CTA */}
+      {/* Final CTA. Not rendered at all when hidden, rather than hidden with a
+          class: a second H2 asking for the same thing is still in the page for
+          a crawler even when nobody can see it. */}
+      {!hideCta && (
       <div className="mx-auto max-w-content px-5 py-20 md:px-8 md:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-bone md:text-5xl">
@@ -18,24 +31,25 @@ export default function Footer({ dict, lang }: { dict: Dictionary['footer']; lan
           {/* Same rule as the hero: one button, the teardown demoted to a text
               link, so the page closes on the same ask it opened with. */}
           <div className="mt-8 flex justify-center">
-            <Link href={`${home}/call`} className="btn-signal w-full sm:w-auto">
+            <Link href={`${home}#audit`} className="btn-signal w-full sm:w-auto">
               {dict.ctaPrimary}
             </Link>
           </div>
 
-          <p className="mt-5 text-sm text-bone/60">{dict.ctaNote}</p>
-
-          <p className="mt-3 text-sm text-bone/60">
+          <p className="mt-5 text-sm text-bone/60">
             {dict.talkPrefix}{' '}
             <Link
-              href={`${home}#teardown`}
+              href={`${home}/call`}
               className="font-medium text-bone underline underline-offset-4 decoration-bone/30 transition-colors hover:text-signal"
             >
               {dict.ctaSecondary}
             </Link>
           </p>
+
+          <p className="mt-3 text-sm text-bone/50">{dict.ctaNote}</p>
         </div>
       </div>
+      )}
 
       {/* Bottom bar */}
       <div className="border-t border-bone/10">

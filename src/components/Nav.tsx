@@ -142,7 +142,7 @@ export default function Nav({
 
         <div className="hidden items-center gap-4 md:flex">
           <LanguageSwitcher current={lang} />
-          <Link href={`${home}#teardown`} className="btn-primary">
+          <Link href={`${home}#audit`} className="btn-primary">
             {dict.cta}
           </Link>
         </div>
@@ -150,10 +150,7 @@ export default function Nav({
         {/* On a phone the bar is the only CTA a visitor sees for most of the page,
             so the button lives here and the language toggle moves into the menu. */}
         <div className="flex items-center gap-2 md:hidden">
-          <Link
-            href={`${home}#teardown`}
-            className="btn-primary px-4 py-2.5 text-xs"
-          >
+          <Link href={`${home}#audit`} className="btn-primary px-4 py-2.5 text-xs">
             {dict.ctaShort}
           </Link>
           <button

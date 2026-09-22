@@ -50,7 +50,7 @@ export default function Process({ dict, lang }: { dict: Dictionary['process']; l
                     {s.body}
                   </p>
                   {highlight && (
-                    <Link href={`/${lang}#teardown`} className="btn-signal mt-6 w-full">
+                    <Link href={`/${lang}#audit`} className="btn-signal mt-6 w-full">
                       {dict.claim}
                     </Link>
                   )}

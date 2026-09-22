@@ -12,17 +12,42 @@ import { localizedHref, type VerticalPage, serviceMenu } from '@/lib/routes';
 
 type Related = readonly { page: string; text: string }[];
 
+/**
+ * The closing block. By default every page closes on the free GEO audit, which
+ * is the one hook on the site. A page passes its own when that ask is wrong for
+ * it: the agents page closes on a call, the conversion page on its own
+ * diagnostic.
+ */
+export type FrameCta = {
+  title: string;
+  body?: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
+};
+
 export default function VerticalFrame({
   lang,
   related,
+  cta,
   children,
 }: {
   lang: Locale;
   related: Related;
+  cta?: FrameCta;
   children: React.ReactNode;
 }) {
   const dict = getDictionary(lang);
   const s = dict.verticals.shared;
+  const closing: FrameCta = cta ?? {
+    title: s.ctaTitle,
+    body: s.ctaBody,
+    primaryLabel: s.ctaPrimary,
+    primaryHref: `/${lang}#audit`,
+    secondaryLabel: s.ctaSecondary,
+    secondaryHref: `/${lang}/call`,
+  };
 
   return (
     <>
@@ -82,17 +107,19 @@ export default function VerticalFrame({
               {s.ctaEyebrow}
             </span>
             <h2 className="mx-auto mt-4 max-w-2xl font-display text-3xl font-semibold leading-[1.1] tracking-tightest text-bone md:text-4xl">
-              {s.ctaTitle}
+              {closing.title}
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-bone/70">
-              {s.ctaBody}
-            </p>
+            {closing.body && (
+              <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-bone/70">
+                {closing.body}
+              </p>
+            )}
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link href={`/${lang}#teardown`} className="btn-signal w-full sm:w-auto">
-                {s.ctaPrimary}
+              <Link href={closing.primaryHref} className="btn-signal w-full sm:w-auto">
+                {closing.primaryLabel}
               </Link>
-              <Link href={`/${lang}/call`} className="btn-ghost-light w-full sm:w-auto">
-                {s.ctaSecondary}
+              <Link href={closing.secondaryHref} className="btn-ghost-light w-full sm:w-auto">
+                {closing.secondaryLabel}
               </Link>
             </div>
           </div>

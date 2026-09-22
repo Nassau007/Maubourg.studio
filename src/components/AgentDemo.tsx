@@ -540,7 +540,7 @@ export default function AgentDemo({
               <p className="text-sm text-bone/60">
                 {dict.frame.teardownPrefix}{' '}
                 <Link
-                  href={`/${lang}#teardown`}
+                  href={`/${lang}#audit`}
                   className="font-medium text-bone underline underline-offset-4 decoration-bone/30 transition-colors hover:text-signal"
                 >
                   {dict.frame.teardownLink}

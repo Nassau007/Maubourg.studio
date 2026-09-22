@@ -104,7 +104,7 @@ export default function CallPage({ params }: { params: { lang: string } }) {
               <p className="mt-9 text-sm text-ink-500">
                 {c.teardownPrefix}{' '}
                 <Link
-                  href={`/${lang}#teardown`}
+                  href={`/${lang}#audit`}
                   className="font-semibold text-emerald underline-offset-4 hover:underline"
                 >
                   {c.teardownLink}
@@ -119,7 +119,8 @@ export default function CallPage({ params }: { params: { lang: string } }) {
           </div>
         </section>
       </main>
-      <Footer dict={dict.footer} lang={lang} />
+      {/* The closing block asks for a call, which is what this page is. */}
+      <Footer dict={dict.footer} lang={lang} hideCta />
     </>
   );
 }

@@ -7,19 +7,46 @@ import type { Dictionary, Locale } from '@/lib/i18n';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
-// Mirrors EMAIL_RE in src/app/api/teardown/route.ts. This is a gate between the
-// two steps, not validation: the server still re-checks every field on submit
-// and remains the only authority on what is valid.
+/**
+ * The lead form, used twice on the site with the same fields and two different
+ * asks: the free GEO audit on the homepage (#audit), and the free conversion
+ * diagnostic on the conversion page (#diagnostic).
+ *
+ * Both post to /api/teardown, which is also the shape the sales machine parses
+ * out of the notification email. `variant` decides the product category field,
+ * which the GEO audit cannot be written without, and the request type recorded
+ * against the lead.
+ */
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export default function TeardownForm({
-  dict,
+export type LeadFormSection = {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  points: readonly string[];
+  success: { title: string; body: string; again: string };
+};
+
+export default function LeadForm({
+  anchor,
+  variant,
+  section,
+  form: f,
+  submitLabel,
+  talk,
+  sample,
   founder,
   errors,
   lang,
 }: {
-  dict: Dictionary['teardown'];
-  founder: Dictionary['founder'];
+  anchor: string;
+  variant: 'audit' | 'diagnostic';
+  section: LeadFormSection;
+  form: Dictionary['audit']['form'];
+  submitLabel: string;
+  talk: { prefix: string; link: string } | null;
+  sample: { title: string; body: string; link: string; href: string } | null;
+  founder: Dictionary['founder'] | null;
   errors: Dictionary['errors'];
   lang: Locale;
 }) {
@@ -27,19 +54,21 @@ export default function TeardownForm({
   const [step, setStep] = useState<1 | 2>(1);
   const [errorMsg, setErrorMsg] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
-  const f = dict.form;
+  const needsCategory = variant === 'audit';
 
-  // Step 1 asks for the two things a teardown genuinely cannot be produced
+  // Step 1 asks for the things the deliverable genuinely cannot be produced
   // without. Everything else waits for step 2 — revenue in particular reads as
   // being screened and priced, and it was the field most likely to lose people.
   function goToStep2(form: HTMLFormElement) {
     const data = new FormData(form);
     const storeUrl = String(data.get('storeUrl') ?? '').trim();
     const email = String(data.get('email') ?? '').trim();
+    const category = String(data.get('category') ?? '').trim();
 
     const next: Record<string, string> = {};
     if (!storeUrl) next.storeUrl = errors.storeUrl;
     if (!EMAIL_RE.test(email)) next.email = errors.email;
+    if (needsCategory && !category) next.category = errors.category;
 
     setFieldErrors(next);
     if (Object.keys(next).length === 0) {
@@ -68,7 +97,7 @@ export default function TeardownForm({
       const res = await fetch('/api/teardown', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, lang }),
+        body: JSON.stringify({ ...data, lang, requestType: variant }),
       });
 
       if (res.ok) {
@@ -82,7 +111,9 @@ export default function TeardownForm({
       if (payload.fields) setFieldErrors(payload.fields);
       // A step-1 field failing server validation must send the user back to it,
       // or they see an error pointing at an input they cannot reach.
-      if (payload.fields?.storeUrl || payload.fields?.email) setStep(1);
+      if (payload.fields?.storeUrl || payload.fields?.email || payload.fields?.category) {
+        setStep(1);
+      }
       setErrorMsg(payload.error || errors.generic);
       setStatus('error');
     } catch {
@@ -92,7 +123,7 @@ export default function TeardownForm({
   }
 
   return (
-    <section id="teardown" className="hairline bg-bone-200/50 py-20 md:py-28">
+    <section id={anchor} className="hairline scroll-mt-24 bg-bone-200/50 py-20 md:py-28">
       <div className="mx-auto max-w-content px-5 md:px-8">
         {/* On a phone this reads heading -> form -> proof: the nav CTA jumps to
             this section, so the ask has to be one screen away, not two. The
@@ -102,17 +133,17 @@ export default function TeardownForm({
         <div className="grid gap-x-12 gap-y-10 lg:grid-cols-[1fr_1.05fr] lg:items-start">
           {/* Heading */}
           <div className="lg:col-start-1 lg:row-start-1">
-            <span className="eyebrow">{dict.eyebrow}</span>
+            <span className="eyebrow">{section.eyebrow}</span>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-ink md:text-5xl">
-              {dict.title}
+              {section.title}
             </h2>
-            <p className="mt-4 max-w-md text-ink-600">{dict.intro}</p>
+            <p className="mt-4 max-w-md text-ink-600">{section.intro}</p>
           </div>
 
           {/* Proof: under the heading on desktop, under the form on a phone */}
           <div className="order-1 lg:order-none lg:col-start-1 lg:row-start-2">
             <ul className="space-y-3">
-              {dict.points.map((point) => (
+              {section.points.map((point) => (
                 <li key={point} className="flex items-start gap-3 text-sm text-ink-700">
                   <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-emerald text-xs text-bone">
                     ✓
@@ -122,29 +153,35 @@ export default function TeardownForm({
               ))}
             </ul>
 
-            {/* Proof the deliverable is worth an email address, right beside the ask. */}
-            <div className="mt-8 max-w-md rounded-card border border-ink/10 bg-bone-100 p-5">
-              <h3 className="font-display text-base font-semibold text-ink">{dict.sampleTitle}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-ink-600">{dict.sampleBody}</p>
-              <a
-                href="/example-teardown.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-block text-sm font-semibold text-emerald underline-offset-4 hover:underline"
-              >
-                {dict.sampleLink}
-              </a>
-            </div>
+            {/* Proof the deliverable is worth an email address, right beside the
+                ask. The GEO audit has no example PDF yet, so it renders none
+                rather than linking to the conversion one. */}
+            {sample && (
+              <div className="mt-8 max-w-md rounded-card border border-ink/10 bg-bone-100 p-5">
+                <h3 className="font-display text-base font-semibold text-ink">{sample.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-ink-600">{sample.body}</p>
+                <a
+                  href={sample.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-block text-sm font-semibold text-emerald underline-offset-4 hover:underline"
+                >
+                  {sample.link}
+                </a>
+              </div>
+            )}
 
-            <p className="mt-8 text-sm text-ink-500">
-              {dict.talkPrefix}{' '}
-              <Link
-                href={`/${lang}/call`}
-                className="font-semibold text-emerald underline-offset-4 hover:underline"
-              >
-                {dict.talkLink}
-              </Link>
-            </p>
+            {talk && (
+              <p className="mt-8 text-sm text-ink-500">
+                {talk.prefix}{' '}
+                <Link
+                  href={`/${lang}/call`}
+                  className="font-semibold text-emerald underline-offset-4 hover:underline"
+                >
+                  {talk.link}
+                </Link>
+              </p>
+            )}
           </div>
 
           {/* Form / success, with the founder card directly under the ask */}
@@ -156,11 +193,11 @@ export default function TeardownForm({
                   ✓
                 </div>
                 <h3 className="mt-5 font-display text-2xl font-semibold text-ink">
-                  {dict.success.title}
+                  {section.success.title}
                 </h3>
-                <p className="mt-2 max-w-sm text-sm text-ink-600">{dict.success.body}</p>
+                <p className="mt-2 max-w-sm text-sm text-ink-600">{section.success.body}</p>
                 <button onClick={() => setStatus('idle')} className="btn-ghost mt-6" type="button">
-                  {dict.success.again}
+                  {section.success.again}
                 </button>
               </div>
             ) : (
@@ -225,6 +262,27 @@ export default function TeardownForm({
                       <p className="mt-1 text-xs text-red-600">{fieldErrors.email}</p>
                     )}
                   </div>
+
+                  {/* The audit cannot be written without a category: it is what
+                      the four buying questions are built from. */}
+                  {needsCategory && (
+                    <div>
+                      <label htmlFor="category" className="field-label">
+                        {f.category}
+                      </label>
+                      <input
+                        id="category"
+                        name="category"
+                        type="text"
+                        className="field"
+                        placeholder={f.categoryPlaceholder}
+                      />
+                      <p className="mt-1 text-xs text-ink-500">{f.categoryHelp}</p>
+                      {fieldErrors.category && (
+                        <p className="mt-1 text-xs text-red-600">{fieldErrors.category}</p>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 <div className={step === 2 ? 'space-y-4' : 'hidden'}>
@@ -321,7 +379,7 @@ export default function TeardownForm({
                       disabled={status === 'submitting'}
                       className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60"
                     >
-                      {status === 'submitting' ? f.submitting : f.submit}
+                      {status === 'submitting' ? f.submitting : submitLabel}
                     </button>
                     <button
                       type="button"
@@ -339,7 +397,7 @@ export default function TeardownForm({
             </div>
 
             {/* hasPhoto: flip to true once public/founder.jpg exists. */}
-            <Founder dict={founder} hasPhoto={false} />
+            {founder && <Founder dict={founder} hasPhoto={false} />}
           </div>
         </div>
       </div>

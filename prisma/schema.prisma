@@ -21,9 +21,13 @@ model Lead {
   storeUrl       String?  // required for teardowns, optional for call requests
   platform       String?  // "Shopify" | "WooCommerce" | "Other" | null
   monthlyRevenue String?  // rough band, e.g. "50k-100k"
+  category       String?  // product category, required for a GEO audit request
+  topic          String?  // what a call request is about
   preferredTime  String?  // best time to call, e.g. "Weekday mornings (CET)"
   message        String?
-  source         String   @default("website") // where the lead came from
+  // Where the lead came from, and which ask it answered:
+  // "website-geo-audit" | "website-conversion-diagnostic" | "website"
+  source         String   @default("website")
   status         String   @default("NEW")      // "NEW" | "CONTACTED" | "WON" | "LOST"
   createdAt      DateTime @default(now())
 
