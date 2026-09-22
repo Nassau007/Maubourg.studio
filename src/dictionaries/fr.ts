@@ -7,28 +7,33 @@ export const fr: Dictionary = {
       { label: 'Méthode', hash: '#process' },
       { label: 'Tarifs', hash: '#pricing' },
     ],
+    blog: 'Blog',
     cta: 'Diagnostic gratuit',
     ctaShort: 'Diagnostic offert',
     languageLabel: 'Langue',
   },
 
   hero: {
-    badge: 'Studio RevOps IA · E-commerce européen',
-    title: 'Votre boutique a déjà du trafic.',
-    titleAccent: 'Transformons-le en ventes. Et automatisons le reste.',
+    // REVIEW-FR: bloc réécrit pour le recentrage GEO et agents.
+    badge: 'Studio GEO et agents IA pour l’e-commerce',
+    title: 'Quand un acheteur demande à ChatGPT quoi acheter,',
+    titleAccent: 'votre marque est-elle dans la réponse ?',
     subtitle:
-      'Nous aidons les marques e-commerce européennes à tirer plus de revenus des visiteurs qu’elles paient déjà, en pilotant toute l’opération de revenus, de la conversion et la rétention jusqu’aux agents IA qui la font tourner.',
-    ctaPrimary: 'Recevez un diagnostic gratuit →',
-    note: '5 correctifs classés par impact, en PDF de 3 à 4 pages, sous 3 jours ouvrés. Sans engagement, sans argumentaire.',
-    talkPrefix: 'Vous préférez en parler d’abord ?',
-    ctaSecondary: 'Réserver un appel de 15 min →',
+      'Nous faisons citer votre marque dans les réponses des IA et mesurons ce que ce trafic rapporte. Nous construisons aussi des agents qui retirent à vos équipes le travail répétitif.',
+    ctaPrimary: 'Réserver un appel de 15 min →',
+    talkPrefix: 'Pas encore prêt pour un appel ?',
+    ctaSecondary: 'Recevez un diagnostic gratuit →',
     skillsHeading: 'Ce que nous pilotons pour vous',
     skills: [
-      { name: 'Publicité', body: 'Budgets Meta, Google et TikTok pilotés sur un objectif de retour.' },
-      { name: 'Conversion', body: 'Tests A/B sur les fiches produit, le panier et le paiement, en commençant par les fuites les plus coûteuses.' },
-      { name: 'Visibilité LLM', body: 'Rendre votre boutique lisible et citée par ChatGPT, Perplexity et Gemini, pas seulement classée sur Google.' },
-      { name: 'Rétention', body: 'Scénarios e-mail et SMS Klaviyo qui récupèrent les paniers et font revenir les acheteurs.' },
-      { name: 'Agents IA', body: 'Construits pour vos opérations, votre catalogue et les questions qui bloquent une vente.' },
+      {
+        name: 'Visibilité LLM (GEO)',
+        body: 'Faire citer votre marque quand un acheteur interroge ChatGPT, Gemini, Perplexity ou Claude.',
+      },
+      {
+        name: 'Agents IA',
+        body: 'Des agents construits autour de la façon de travailler de vos équipes, pour les tâches qui prennent du temps sans rien apporter.',
+      },
+      { name: 'Conversion', body: 'Tests A/B sur les fiches produit, le panier et le paiement.' },
     ],
   },
 
@@ -37,102 +42,77 @@ export const fr: Dictionary = {
     items: [
       'Shopify',
       'WooCommerce',
-      'Klaviyo',
-      'Agents IA',
+      // REVIEW-FR: liste de la stack revue pour le recentrage.
+      'ChatGPT',
+      'Gemini',
+      'Perplexity',
+      'Claude',
+      'GA4',
       'Automatisation des workflows',
-      'GA4 & tracking côté serveur',
-      'Meta & Google Ads',
       'Tests A/B',
-      'Optimisation du checkout',
       'Conforme UE / RGPD',
     ],
   },
 
   problem: {
     eyebrow: 'Le problème',
-    title: 'Plus de budget pub ne réparera pas une boutique qui fuit.',
+    // REVIEW-FR: nouveau titre et deux constats, écrits pour cette version.
+    title: 'Les acheteurs interrogent une IA avant de chercher.',
     pains: [
       {
-        title: 'Vous payez pour du trafic qui repart',
-        body: 'Les dépenses en publicité et en SEO grimpent, mais trop de visiteurs arrivent, regardent et repartent sans jamais ajouter au panier.',
+        title: 'Votre marque n’est pas dans la réponse',
+        body: 'De plus en plus d’acheteurs demandent une recommandation à ChatGPT, Gemini ou Perplexity. La réponse cite quelques marques, et les autres n’existent tout simplement pas à ce moment-là.',
       },
       {
-        title: 'Vous soupçonnez une fuite - sans voir où',
-        body: 'La perte se situe quelque part entre la fiche produit et le paiement. Deviner coûte cher, tester à l’aveugle encore plus.',
-      },
-      {
-        title: 'Ce chiffre d’affaires est déjà à portée',
-        body: 'Vous n’avez pas besoin de plus de trafic pour croître. Une boutique qui convertit mieux gagne plus avec exactement les mêmes visiteurs, au même coût publicitaire.',
+        title: 'Vos statistiques ne le montrent pas',
+        body: 'L’essentiel se joue sans clic. Les visites qui arrivent malgré tout se rangent souvent en trafic direct, donc vous ne voyez ni ce que vous gagnez ni ce que vous manquez.',
       },
     ],
   },
 
   services: {
     eyebrow: 'Ce que nous faisons',
-    title: 'Tout votre RevOps - pas un seul canal.',
+    // REVIEW-FR: titre, intro et six cartes réécrits pour le recentrage.
+    title: 'Être dans la réponse. Puis retirer à vos équipes le travail répétitif.',
     intro:
-      'La plupart des agences ne pilotent qu’un canal. Nous pilotons le système qui transforme le trafic en revenus récurrents : conversion, rétention, campagnes payantes et le tracking en dessous, avec des agents IA qui prennent en charge le travail répétitif derrière et votre boutique rendue lisible par les assistants que les acheteurs interrogent désormais en premier. La boutique n’est refondue que lorsque ce sont les fondations qui vous freinent.',
-    tags: { core: 'Cœur', ai: 'Agents IA', foundation: 'Fondations', included: 'Inclus' },
+      'Nous travaillons sur deux choses. Rendre votre marque visible et correctement décrite dans les réponses des IA, et construire des agents qui retirent à vos équipes le travail répétitif. La conversion intervient quand c’est la boutique elle-même qui fait perdre la vente.',
+    tags: { geo: 'GEO', ai: 'Agents IA', conversion: 'Conversion' },
     items: [
       {
-        tag: 'Cœur',
-        title: 'Optimisation du taux de conversion',
-        page: 'conversion',
-        body: 'Tests A/B continus sur les fiches produit, le panier et le checkout, les fuites les plus rentables d’abord. Vous voyez l’impact sur le chiffre d’affaires, pas des indicateurs de vanité.',
-      },
-      {
-        tag: 'Cœur',
-        title: 'Rétention e-mail & SMS',
-        page: 'acquisition',
-        body: 'Des scénarios lifecycle dans Klaviyo qui récupèrent les paniers et font revenir les acheteurs. Souvent 20 à 40 % du chiffre d’affaires, et généralement le plus négligé.',
-      },
-      {
-        tag: 'Cœur',
-        title: 'Gestion des campagnes payantes',
-        page: 'acquisition',
-        body: 'Budgets Meta, Google et TikTok pilotés vers un retour cible pour réduire le coût d’acquisition.',
-      },
-      {
-        tag: 'Cœur',
-        title: 'Visibilité sur les LLMs (GEO)',
+        tag: 'GEO',
+        title: 'Audit',
         page: 'geo',
-        body: 'Être la boutique qu’un assistant cite quand un acheteur l’interroge au lieu de Google. Des réponses lisibles, des données structurées justes, et une présence mesurée sur de vraies questions d’achat.',
+        body: 'Ce que ChatGPT, Gemini, Perplexity et Claude disent de votre marque et de vos concurrents, mesuré sur des séries de vraies questions d’achat.',
+      },
+      {
+        tag: 'GEO',
+        title: 'Mesure',
+        page: 'geo',
+        body: 'GA4 configuré pour montrer le trafic qui vient des IA et ce que ces visiteurs font sur votre site.',
+      },
+      {
+        tag: 'GEO',
+        title: 'Amélioration',
+        page: 'geo',
+        body: 'Le travail qui fait citer votre marque plus souvent : des fiches produit plus claires, une présence sur les sites dont les IA se servent, des informations corrigées. En grande partie mené par nos propres agents.',
       },
       {
         tag: 'Agents IA',
-        title: 'Agents sur mesure pour vos opérations',
+        title: 'Agents d’opérations',
         page: 'agents',
-        body: 'Nous construisons des agents qui déchargent votre équipe du travail répétitif : traitement des commandes, relances fournisseurs, retours, reporting interne. Calibrés sur votre vrai workflow, pas un chatbot générique.',
+        body: 'Ce qui prend du temps à vos équipes sans rien apporter, nous l’automatisons. Nous construisons des agents qui déchargent votre équipe du travail répétitif : traitement des commandes, relances fournisseurs, retours, reporting interne. Calibrés sur votre vrai workflow, pas un chatbot générique.',
       },
       {
         tag: 'Agents IA',
-        title: 'Agent catalogue & merchandising',
+        title: 'Agent catalogue',
         page: 'agents',
         body: 'Un agent qui rédige et actualise vos fiches produit, comble les métadonnées manquantes et signale les annonces et pages produit qui sous-performent.',
       },
       {
-        tag: 'Agents IA',
-        title: 'Agent support & avant-vente',
-        page: 'agents',
-        body: 'Il répond aux questions qui bloquent un achat : tailles, stock, livraison, retours etc. dans la voix de votre marque, avec un passage de relais propre à un humain quand c’est nécessaire.',
-      },
-      {
-        tag: 'Fondations',
-        title: 'Créations & refontes de boutique',
-        page: 'foundations',
-        body: 'Créations et migrations Shopify prêtes à convertir, périmètre fixe, quand les fondations actuelles freinent les ventes.',
-      },
-      {
-        tag: 'Fondations',
-        title: 'Analytics & tracking',
+        tag: 'Conversion',
+        title: 'Optimisation du taux de conversion',
         page: 'conversion',
-        body: 'GA4, tracking côté serveur et consent mode configurés correctement pour que chaque conversion soit mesurable et conforme au RGPD.',
-      },
-      {
-        tag: 'Inclus',
-        title: 'Reporting piloté par agents',
-        page: 'agents',
-        body: 'Les agents que nous construisons pour nos clients pilotent aussi notre propre exécution : reporting et onboarding standardisés, livraison plus rapide, et rien qui passe entre les mailles.',
+        body: 'Tests A/B continus sur les fiches produit, le panier et le checkout, les fuites les plus rentables d’abord. Vous voyez l’impact sur le chiffre d’affaires, pas des indicateurs de vanité.',
       },
     ],
   },
@@ -152,7 +132,7 @@ export const fr: Dictionary = {
         step: '02',
         name: 'Sprint',
         price: 'Périmètre fixe',
-        body: 'Nous livrons d’abord les correctifs au meilleur ROI, en un sprint concentré de 2 à 3 semaines, ou nous refondons la boutique quand les fondations ne tiennent plus. Adapté à votre trésorerie, sans engagement long pour démarrer.',
+        body: 'Nous livrons d’abord les correctifs au meilleur ROI, en un sprint concentré de 2 à 3 semaines. Adapté à votre trésorerie, sans engagement long pour démarrer.',
       },
       {
         step: '03',
@@ -165,17 +145,16 @@ export const fr: Dictionary = {
 
   whyMe: {
     eyebrow: 'Pourquoi Maubourg',
-    quoteBefore:
-      'Les visiteurs que vous payez déjà sont la croissance la moins chère que vous puissiez acheter. Nous aidons simplement davantage d’entre eux à',
-    quoteAccent: 'dire oui.',
+    // REVIEW-FR: titre de section et deux premiers points réécrits.
+    title: 'Trois choses à savoir avant de nous parler.',
     points: [
       {
-        title: 'Focalisés sur l’Europe',
-        body: 'Nous travaillons uniquement avec des boutiques européennes existantes, nous connaissons donc votre marché, vos acheteurs et vos obligations de conformité dès le premier appel.',
+        title: 'Centrés sur le marché francophone',
+        body: 'Une IA répond à une question française à partir de sources françaises : presse française, forums français, sites d’avis français. Nous travaillons uniquement avec des marques qui vendent en France et sur les marchés francophones, donc nous savons quelles sources comptent dans votre catégorie.',
       },
       {
-        title: 'Tout est mesuré',
-        body: 'Vous voyez l’impact de chaque changement sur le chiffre d’affaires : « conversion passée de X % à Y %, +Z €/mois au même budget pub ». Jamais d’indicateurs de vanité.',
+        title: 'Des chiffres que vous pouvez vérifier',
+        body: 'Chaque chiffre de visibilité que nous donnons vient de la même question posée plusieurs fois, dans les outils que vos acheteurs utilisent. Jamais d’une capture d’écran isolée.',
       },
       {
         title: 'Nous tournons avec les agents que nous construisons',
@@ -222,11 +201,6 @@ export const fr: Dictionary = {
         price: '3 000–8 000 €',
         desc: 'Un agent, calibré sur un workflow réel, construit et livré.',
       },
-      {
-        name: 'Refonte / migration',
-        price: '4 000–12 000 €+',
-        desc: 'Nouvelle boutique Shopify prête à convertir, périmètre fixe.',
-      },
     ],
     retainersHeading: 'Accompagnements mensuels : là où tout se capitalise',
     mostPopular: 'Le plus choisi',
@@ -241,7 +215,7 @@ export const fr: Dictionary = {
       {
         tier: 'Growth',
         price: '2 000–3 500 €',
-        features: ['Tests A/B continus', 'Travail fiche produit & checkout', 'Support des scénarios e-mail'],
+        features: ['Tests A/B continus', 'Travail fiche produit & checkout'],
       },
       {
         tier: 'Scale',
@@ -249,7 +223,8 @@ export const fr: Dictionary = {
         features: ['Programme CRO complet', 'Plusieurs tests en parallèle', 'Priorité + appels stratégie'],
       },
     ],
-    footnote: 'Fourchettes indicatives pour le marché européen.',
+    // REVIEW-FR: mention du marché européen retirée.
+    footnote: 'Fourchettes indicatives.',
   },
 
   teardown: {
@@ -264,7 +239,8 @@ export const fr: Dictionary = {
       'Sans engagement : prenez la liste et foncez, ou parlons-en',
     ],
     sampleTitle: 'Voyez un vrai diagnostic avant de demander le vôtre.',
-    sampleBody: 'Un diagnostic complet réalisé sur une boutique en ligne européenne, dont le nom a été retiré.',
+    // REVIEW-FR: « européenne » retiré.
+    sampleBody: 'Un diagnostic complet réalisé sur une boutique en ligne, dont le nom a été retiré.',
     sampleLink: 'Lire le diagnostic d’exemple (PDF) →',
     talkPrefix: 'Vous préférez d’abord échanger ?',
     talkLink: 'Réserver un appel de 15 minutes →',
@@ -314,8 +290,17 @@ export const fr: Dictionary = {
     title: 'Vos questions, nos réponses.',
     items: [
       {
-        q: 'Que veut dire « studio RevOps IA » concrètement ?',
-        a: 'RevOps (revenue operations) signifie piloter l’ensemble du système qui transforme le trafic en revenus récurrents, plutôt qu’une seule partie : conversion, rétention, campagnes payantes et le tracking en dessous. La partie IA, c’est que nous construisons des agents pour prendre en charge les tâches répétitives. Concrètement : moins d’agences à coordonner, et une seule équipe responsable du résultat.',
+        // REVIEW-FR: trois questions ajoutées et une réécrite pour le recentrage.
+        q: 'Qu’est-ce que le GEO ?',
+        a: 'Le GEO (generative engine optimization) consiste à faire citer votre marque, et à la faire décrire correctement, quand quelqu’un demande une recommandation à une IA comme ChatGPT ou Perplexity. Cela recoupe le SEO, mais dépend bien davantage de ce que les autres sites disent de vous.',
+      },
+      {
+        q: 'Pouvez-vous garantir que ChatGPT nous recommandera ?',
+        a: 'Non, et personne ne peut l’affirmer honnêtement. Les réponses des IA varient d’une question à l’autre. Ce que nous pouvons faire : mesurer où vous en êtes aujourd’hui, corriger ce qui dépend de vous, et vous montrer l’évolution dans le temps avec la même méthode.',
+      },
+      {
+        q: 'Comment mesurez-vous le trafic venu des IA ?',
+        a: 'Nous configurons GA4 pour que les visites venues de ChatGPT, Perplexity et outils similaires apparaissent comme un canal à part, avec ce que ces visiteurs font sur le site. Une partie de ce trafic arrive sans aucune trace de sa provenance : nous disons donc toujours de combien les chiffres peuvent sous-estimer la réalité.',
       },
       {
         q: 'Le diagnostic est-il vraiment gratuit ?',
@@ -323,15 +308,11 @@ export const fr: Dictionary = {
       },
       {
         q: 'Avec qui travaillez-vous ?',
-        a: 'Des marques e-commerce européennes existantes, généralement des boutiques Shopify ou WooCommerce qui génèrent déjà un trafic et un chiffre d’affaires significatifs. Nous nous concentrons sur l’Europe pour connaître votre marché et vos obligations de conformité.',
+        a: 'Des marques e-commerce qui vendent en France et sur les marchés francophones (Belgique, Suisse), généralement sur Shopify ou WooCommerce. Nous nous concentrons sur les marchés francophones parce qu’une IA répond à une question française à partir de sources françaises, et que c’est le terrain que nous connaissons. Les marques basées ailleurs qui vendent en France sont les bienvenues.',
       },
       {
         q: 'Construisez-vous vraiment les agents IA, ou revendez-vous un outil ?',
         a: 'Nous les construisons. Chaque agent est calibré sur un workflow réel de votre entreprise, développé sur vos systèmes, testé, puis livré avec sa documentation. Il vous appartient. Nous utilisons les mêmes agents pour notre propre exécution : nous ne livrons donc que ce en quoi nous avons nous-mêmes confiance.',
-      },
-      {
-        q: 'Ai-je besoin d’une refonte ?',
-        a: 'Le plus souvent, non. Nous commençons par l’optimisation de la conversion car elle rapporte davantage avec la boutique que vous avez déjà. Nous ne recommandons une refonte ou une migration que lorsque ce sont les fondations elles-mêmes qui freinent les ventes.',
       },
       {
         q: 'En combien de temps verrai-je des résultats ?',
@@ -345,13 +326,15 @@ export const fr: Dictionary = {
   },
 
   footer: {
-    ctaTitle: 'Commencez par un diagnostic gratuit. Si les correctifs en valent la peine,',
-    ctaAccent: 'on démarre ce mois-ci.',
-    ctaPrimary: 'Recevoir mon diagnostic gratuit →',
-    ctaNote: '5 correctifs classés par impact, en PDF de 3 à 4 pages, sous 3 jours ouvrés.',
-    talkPrefix: 'Vous préférez en parler d’abord ?',
-    ctaSecondary: 'Réserver un appel de 15 min →',
-    tagline: 'Studio RevOps IA pour l’e-commerce européen',
+    // REVIEW-FR: bloc de clôture inversé, l’appel devient l’action principale.
+    ctaTitle: 'Commencez par un',
+    ctaAccent: 'appel de 15 minutes.',
+    ctaPrimary: 'Réserver un appel de 15 min →',
+    ctaNote: 'Quinze minutes, sans présentation commerciale, sans engagement.',
+    talkPrefix: 'Vous préférez lire quelque chose d’abord ?',
+    ctaSecondary: 'Recevez un diagnostic gratuit →',
+    tagline: 'Studio GEO et agents IA pour l’e-commerce',
+    market: 'France et marchés francophones',
     rights: 'Tous droits réservés.',
     privacy: 'Confidentialité',
   },
@@ -581,7 +564,8 @@ export const fr: Dictionary = {
   verticals: {
     shared: {
       navHeading: 'Services',
-      navBlurb: 'Cinq métiers, et ce que chacun rapporte.',
+      // REVIEW-FR: trois services au lieu de cinq.
+      navBlurb: 'Trois métiers, et ce que chacun rapporte.',
       breadcrumb: 'Services',
       backHome: '← Retour à l’accueil',
       relatedHeading: 'La suite logique',
@@ -596,21 +580,22 @@ export const fr: Dictionary = {
     },
 
     conversion: {
+      // REVIEW-FR: page recentrée sur la conversion seule, sans la partie mesure.
       nav: {
-        label: 'Conversion & mesure',
-        blurb: 'Réparer ce qui fait perdre la vente, et le mesurer correctement.',
+        label: 'Conversion',
+        blurb: 'Réparer ce qui fait perdre la vente sur la boutique que vous avez déjà.',
       },
       meta: {
-        title: 'Conversion & mesure - Maubourg Studio',
+        title: 'Optimisation du taux de conversion - Maubourg Studio',
         description:
-          'Tests A/B sur les fiches produit, le panier et le checkout, avec le tracking GA4 et côté serveur qui rend le résultat lisible. Pour les marques e-commerce européennes.',
+          'Tests A/B sur les fiches produit, le panier et le checkout, les fuites les plus rentables d’abord, pour les marques e-commerce qui vendent en France et sur les marchés francophones.',
       },
       hero: {
-        eyebrow: 'Conversion & mesure',
+        eyebrow: 'Conversion',
         title: 'Vous avez déjà payé ce trafic.',
         titleAccent: 'Faites-en des acheteurs.',
         subtitle:
-          'La conversion et la mesure sont un seul métier, pas deux. Un test que vous ne pouvez pas lire est une intuition déguisée, et un tableau de bord impeccable sur une boutique qui fuit ne fait que montrer la fuite en meilleure résolution.',
+          'Être recommandé, par une IA ou par qui que ce soit, ne vaut rien si la page d’arrivée fait perdre la vente. Ici, le travail porte sur la boutique elle-même : trouver où les acheteurs décrochent, corriger cela en premier, puis tester le correctif au lieu de le supposer.',
         stat: '+1 point',
         statNote:
           'de conversion sur 20 000 sessions à 60€ représente environ 12 000€ par mois, à budget publicitaire identique.',
@@ -663,25 +648,11 @@ export const fr: Dictionary = {
           },
         ],
       },
-      measure: {
-        eyebrow: 'La moitié qu’on ne vous vend pas',
-        title: 'Un test illisible n’est pas un test.',
-        body: 'La mesure est ce qui fait que le travail de conversion se cumule au lieu de repartir de zéro chaque trimestre. C’est aussi là que la plupart des boutiques sont silencieusement cassées : le tag part avant le consentement, le même événement arrive deux fois, l’étape du tunnel qui compte n’a jamais été instrumentée. Rien de tout cela n’est visible depuis le tableau de bord, et c’est précisément le problème.',
-        chain: [
-          { step: 'Visiteur', note: 'Un vrai navigateur, un vrai choix de consentement' },
-          { step: 'Consentement', note: 'Répondu avant tout déclenchement, sinon la donnée ne vous appartient pas' },
-          { step: 'Tags', note: 'Un par plateforme. Deux est un chiffre auquel on ne peut pas se fier' },
-          { step: 'Côté serveur', note: 'Ce qui survit à un navigateur qui bloque' },
-          { step: 'Rapport', note: 'Un tunnel, pas un total quotidien' },
-        ],
-        checks: [
-          'GA4 configuré pour que les étapes de votre tunnel soient séparables, et pas seulement les sessions et le chiffre d’affaires.',
-          'Tracking côté serveur là où le navigateur n’est plus fiable.',
-          'Consent mode réglé pour que la mesure et le RGPD ne s’opposent pas.',
-          'Tags en double ou morts supprimés, ce qui se règle souvent dans la semaine.',
-        ],
-        caveat:
-          'Une précision honnête : vue de l’extérieur, une boutique au tracking serveur impeccable ressemble exactement à une boutique cassée. Nous vous disons ce que nous avons vu et ce que nous n’avons pas pu voir, jamais l’inverse.',
+      geoNote: {
+        // REVIEW-FR: remplace l’ancien bloc mesure, renvoyé vers la page GEO.
+        title: 'Mesurer ce que les IA vous envoient fait partie du GEO.',
+        body: 'Configurer GA4 pour que les visites venues de ChatGPT, Perplexity et outils similaires apparaissent comme un canal à part relève de l’offre de visibilité, pas de cette page.',
+        link: 'Visibilité LLM (GEO) →',
       },
       how: {
         eyebrow: 'Comment ça se déroule',
@@ -706,115 +677,12 @@ export const fr: Dictionary = {
       },
       related: [
         {
-          page: 'acquisition',
-          text: 'Une boutique qui convertit mieux fait travailler chaque euro de publicité plus loin.',
-        },
-        {
-          page: 'foundations',
-          text: 'Quand la plateforme elle-même bloque, tester autour revient à gaspiller le budget.',
-        },
-      ],
-    },
-
-    acquisition: {
-      nav: {
-        label: 'Acquisition',
-        blurb: 'Publicité et scénarios lifecycle, pilotés vers un chiffre.',
-      },
-      meta: {
-        title: 'Acquisition - Maubourg Studio',
-        description:
-          'Meta, Google et TikTok pilotés vers un retour cible, et les scénarios Klaviyo qui transforment un achat en trois. Pour les marques e-commerce européennes.',
-      },
-      hero: {
-        eyebrow: 'Acquisition',
-        title: 'Un trafic moins cher vient plutôt',
-        titleAccent: 'd’une meilleure boutique que d’un plus gros budget.',
-        subtitle:
-          'Deux moteurs qui tirent dans le même sens : de la publicité qui achète de l’attention face à un retour cible, et des scénarios qui évitent de payer deux fois le même client. Les deux se justifient mal quand la boutique visée fuit, et c’est pourquoi nous commençons rarement ici.',
-        stat: '20 à 40%',
-        statNote:
-          'du chiffre d’affaires se joue dans la rétention sur une boutique type, et c’est en général la partie la moins entretenue.',
-      },
-      engines: {
-        eyebrow: 'Deux moteurs',
-        title: 'L’un les amène. L’autre les fait revenir.',
-        paid: {
-          title: 'Publicité payante',
-          body: 'Des budgets Meta, Google et TikTok pilotés face à un retour que vous fixez, pas face à des impressions. Le travail est ingrat : des créas qu’on teste, des audiences qu’on coupe, du budget qui glisse vers ce qui paie.',
-          bullets: [
-            'Un retour cible arrêté avant le premier euro dépensé',
-            'Des créas testées en file, pas lancées en lot',
-            'Un budget réalloué chaque semaine, rapporté chaque mois',
-            'Jugé sur le tracking de votre site, pas seulement sur ce que la plateforme dit d’elle-même',
-          ],
-        },
-        retention: {
-          title: 'Rétention e-mail & SMS',
-          body: 'Des scénarios Klaviyo qui récupèrent les paniers déjà perdus et font revenir les acheteurs sans les racheter. C’est la partie la plus systématiquement sous-construite des boutiques que nous voyons.',
-          bullets: [
-            'Une séquence de bienvenue qui va chercher le premier achat',
-            'Récupération panier et navigation, minutée plutôt qu’envoyée en masse',
-            'Un scénario post-achat qui prépare la deuxième commande',
-            'Une relance pour ceux qui ont discrètement arrêté',
-          ],
-        },
-      },
-      loop: {
-        eyebrow: 'Pourquoi l’ordre compte',
-        title: 'La boucle ne paie que si le milieu tient.',
-        intro:
-          'L’acquisition et la conversion sont le même calcul vu des deux bouts. Doubler le budget sur une boutique qui convertit à 1% achète deux fois plus du même problème. Relever le milieu divise votre coût par client sans toucher au budget.',
-        nodes: [
-          { label: 'Budget', note: 'Meta, Google, TikTok' },
-          { label: 'Visite', note: 'Le trafic que vous avez acheté' },
-          { label: 'Achat', note: 'Là où le travail de conversion paie' },
-          { label: 'Scénarios', note: 'L’e-mail et le SMS prennent le relais' },
-          { label: 'Rachat', note: 'L’achat que vous n’avez pas payé' },
-        ],
-        caption:
-          'Le client le moins cher que vous obtiendrez jamais est celui qui a déjà acheté chez vous.',
-      },
-      flows: {
-        eyebrow: 'Ce qui se construit',
-        title: 'Les scénarios qui portent le chiffre.',
-        columns: { name: 'Scénario', trigger: 'Se déclenche', purpose: 'À quoi il sert' },
-        items: [
-          {
-            name: 'Bienvenue',
-            trigger: 'À l’inscription',
-            purpose: 'Transformer l’intérêt en première commande pendant que l’intention est encore chaude.',
-          },
-          {
-            name: 'Panier abandonné',
-            trigger: 'À l’abandon',
-            purpose: 'Répondre à l’objection qui a bloqué, au lieu de répéter l’offre plus fort.',
-          },
-          {
-            name: 'Navigation abandonnée',
-            trigger: 'À la vue produit',
-            purpose: 'Rattraper le visiteur qui était proche mais n’a rien ajouté.',
-          },
-          {
-            name: 'Post-achat',
-            trigger: 'Après livraison',
-            purpose: 'Réduire les retours, obtenir l’avis, préparer la deuxième commande.',
-          },
-          {
-            name: 'Relance',
-            trigger: 'À l’inactivité',
-            purpose: 'Toucher l’acheteur qui a arrêté avant qu’un concurrent ne le touche.',
-          },
-        ],
-      },
-      related: [
-        {
-          page: 'conversion',
-          text: 'La conversion est le multiplicateur de tout ce que vous dépensez. Commencez là si ce n’est pas fait.',
-        },
-        {
           page: 'geo',
-          text: 'Les assistants deviennent un canal à part entière, et sur celui-là on n’enchérit pas.',
+          text: 'Être cité dans une réponse d’IA amène des acheteurs sur la page que ce travail répare.',
+        },
+        {
+          page: 'agents',
+          text: 'Un agent réécrit un catalogue plus vite qu’une équipe ne teste une page.',
         },
       ],
     },
@@ -823,8 +691,9 @@ export const fr: Dictionary = {
       nav: { label: 'Visibilité LLM', blurb: 'Être la boutique qu’un assistant recommande.' },
       meta: {
         title: 'Visibilité sur les LLMs (GEO) - Maubourg Studio',
+        // REVIEW-FR: description réécrite.
         description:
-          'Generative engine optimization pour l’e-commerce européen : être trouvé, lu et cité quand un acheteur interroge ChatGPT ou Gemini plutôt que Google.',
+          'Auditer, mesurer et améliorer la façon dont ChatGPT, Gemini, Perplexity et Claude citent votre marque. Pour les marques e-commerce qui vendent en France et sur les marchés francophones.',
       },
       hero: {
         eyebrow: 'Generative engine optimization',
@@ -871,31 +740,31 @@ export const fr: Dictionary = {
         caption:
           'Récupération et confiance sont les deux que vous pouvez bouger. Tout ici vise celles-là.',
       },
-      levers: {
-        eyebrow: 'Ce qui bouge l’aiguille',
-        title: 'Le travail, concrètement.',
+      blocks: {
+        // REVIEW-FR: les cinq leviers deviennent les trois blocs audit, mesure, amélioration.
+        eyebrow: 'En quoi consiste le travail',
+        title: 'Auditer, mesurer, améliorer.',
         items: [
           {
-            title: 'Répondre en texte aux questions d’achat',
-            body: 'Tailles, coupe, matières, livraison, retours, comparaisons. Si la réponse vit dans une image, un PDF ou un onglet rendu par script, elle n’est pas dans la réponse que l’assistant donne.',
+            title: 'Audit',
+            lead: 'Ce que ChatGPT, Gemini, Perplexity et Claude disent de votre marque et de vos concurrents, mesuré sur des séries de vraies questions d’achat.',
+            body: 'Vous recevez les questions posées, la fréquence à laquelle chaque outil vous cite, les marques citées à votre place, et la façon dont votre marque est décrite quand elle apparaît. Les mêmes questions sont reposées plus tard, donc le deuxième rapport se compare au premier.',
           },
           {
-            title: 'Des données structurées réellement justes',
-            body: 'Balisage produit, offre, avis et organisation, cohérent avec ce que dit la page. Un balisage faux est pire que rien : il apprend au modèle une contre-vérité signée de votre nom.',
+            title: 'Mesure',
+            lead: 'GA4 configuré pour montrer le trafic qui vient des IA et ce que ces visiteurs font sur votre site.',
+            body: 'Vous recevez le trafic IA comme un canal à part dans GA4, avec ce que ces visiteurs font une fois arrivés. Une partie de ce trafic ne porte aucune trace de sa provenance : nous disons à chaque fois de combien le chiffre peut sous-estimer la réalité.',
           },
           {
-            title: 'Laisser entrer les robots d’IA, volontairement',
-            body: 'Un fichier robots et un sitemap qui décident quel agent peut lire quoi, plus un résumé en texte brut du catalogue pour ceux qui le préfèrent.',
-          },
-          {
-            title: 'Être corroboré hors de votre site',
-            body: 'Une affirmation que vous seul faites reste une affirmation. La même sur une plateforme d’avis, une marketplace ou dans la presse devient une preuve.',
-          },
-          {
-            title: 'Mesurer en posant la question',
-            body: 'Il n’y a pas de rapport de positions ici. Nous suivons dans le temps un jeu de vraies questions d’achat et notons si vous apparaissez, et comment vous êtes décrit quand c’est le cas.',
+            title: 'Amélioration',
+            lead: 'Le travail qui fait citer votre marque plus souvent : des fiches produit plus claires, une présence sur les sites dont les IA se servent, des informations corrigées. En grande partie mené par nos propres agents.',
+            body: 'Vous recevez une liste classée de ce qu’il faut changer, puis le travail lui-même : des pages qui répondent en texte aux questions d’achat, des données structurées conformes à ce que dit la page, les informations fausses corrigées là où un outil les répète, et une présence sur les sites d’où votre catégorie est lue. Nous rapportons ce qui a bougé et ce qui n’a pas bougé.',
           },
         ],
+      },
+      reading: {
+        heading: 'Sur le sujet, dans notre blog',
+        note: 'Articles en français.',
       },
       honest: {
         title: 'Ce que nous ne vous dirons pas là-dessus.',
@@ -924,8 +793,9 @@ export const fr: Dictionary = {
       },
       meta: {
         title: 'Agents IA pour l’e-commerce - Maubourg Studio',
+        // REVIEW-FR: mention avant-vente retirée.
         description:
-          'Des agents calibrés sur un vrai workflow : tenue du catalogue, traitement des commandes, réponses avant-vente. Essayez-en un sur votre fiche produit, sans e-mail à laisser.',
+          'Des agents calibrés sur un vrai workflow : traitement des commandes, relances fournisseurs, tenue du catalogue. Essayez-en un sur votre fiche produit, sans e-mail à laisser.',
       },
       hero: {
         eyebrow: 'Agents IA',
@@ -943,11 +813,12 @@ export const fr: Dictionary = {
       },
       families: {
         eyebrow: 'Ce que nous construisons',
-        title: 'Trois formes, toutes calibrées sur votre workflow.',
+        // REVIEW-FR: deux familles au lieu de trois, opérations en premier.
+        title: 'Deux formes, toutes deux calibrées sur votre workflow.',
         items: [
           {
-            title: 'Opérations',
-            body: 'Décharge votre équipe du travail répétitif : tri des commandes, relances fournisseurs, retours, le rapport interne que quelqu’un refait à la main chaque lundi.',
+            title: 'Agents d’opérations',
+            body: 'Ce qui prend du temps à vos équipes sans rien apporter, nous l’automatisons : tri des commandes, relances fournisseurs, retours, le rapport interne que quelqu’un refait à la main chaque lundi.',
             examples: [
               'Tri des commandes et exceptions',
               'Relances fournisseurs',
@@ -963,16 +834,6 @@ export const fr: Dictionary = {
               'Métadonnées manquantes',
               'Annonces en sous-performance',
               'Hygiène du flux et du catalogue',
-            ],
-          },
-          {
-            title: 'Support & avant-vente',
-            body: 'Répond aux questions qui bloquent un achat, dans la voix de votre marque : tailles, stock, livraison, retours. Passe la main dès qu’il le doit.',
-            examples: [
-              'Tailles et coupe',
-              'Stock et livraison',
-              'Politique de retour',
-              'Relais vers un humain',
             ],
           },
         ],
@@ -1020,104 +881,6 @@ export const fr: Dictionary = {
       ],
     },
 
-    foundations: {
-      nav: {
-        label: 'Création de boutique',
-        blurb: 'Refaire seulement quand la plateforme est le problème.',
-      },
-      meta: {
-        title: 'Créations et refontes de boutique - Maubourg Studio',
-        description:
-          'Créations et migrations Shopify prêtes à convertir, à périmètre fixe, quand les fondations actuelles freinent les ventes.',
-      },
-      hero: {
-        eyebrow: 'Fondations',
-        title: 'Une refonte est la bonne réponse',
-        titleAccent: 'moins souvent qu’on vous le dit.',
-        subtitle:
-          'Une nouvelle boutique est la façon la plus chère de régler un problème qui n’a jamais tenu à la boutique. Alors nous commençons par essayer de vous en dissuader, et si les fondations bloquent réellement, nous construisons à périmètre fixe avec la mesure câblée dès le premier jour.',
-        stat: 'Périmètre fixe',
-        statNote: 'arrêté avant de commencer, pour que le montant validé soit le montant payé.',
-      },
-      gate: {
-        eyebrow: 'Avant toute chose',
-        title: 'Deux listes. Soyez honnête sur celle où vous êtes.',
-        rebuild: {
-          title: 'Une refonte est probablement justifiée',
-          items: [
-            'La plateforme ne sait plus faire ce dont l’activité a besoin, et aucun thème n’y change rien.',
-            'Le checkout ou les performances sont cassés d’une façon que les rustines recassent.',
-            'Vous quittez la plateforme de toute façon, pour son coût ou son support.',
-            'Le code est si emmêlé que chaque changement coûte trois fois son prix.',
-          ],
-        },
-        dont: {
-          title: 'Une refonte n’est probablement pas la réponse',
-          items: [
-            'La conversion est faible mais la boutique marche. C’est un sujet de tests, pas de refonte.',
-            'Le design ne vous plaît plus. Le goût compte, mais c’est rarement là qu’est l’argent.',
-            'Un concurrent vient de refaire son site. Sa refonte n’est peut-être pas rentable non plus.',
-            'Vous n’avez jamais mesuré où les ventes se perdent. Commencez par le savoir, c’est gratuit.',
-          ],
-        },
-        note: 'Si vous êtes sur la seconde liste, le diagnostic vous le dira et ne vous coûtera rien.',
-      },
-      phases: {
-        eyebrow: 'Comment se déroule une refonte',
-        title: 'Cinq phases, un périmètre fixe.',
-        items: [
-          {
-            n: '01',
-            title: 'Audit',
-            body: 'Ce que la boutique actuelle fait assez bien pour être gardé, et ce qui porte réellement le chiffre. Reproduire fidèlement une erreur est l’échec habituel.',
-          },
-          {
-            n: '02',
-            title: 'Structure',
-            body: 'Navigation, gabarits et chemin vers l’achat décidés avant qu’un pixel ne soit dessiné.',
-          },
-          {
-            n: '03',
-            title: 'Construction',
-            body: 'Une boutique Shopify prête à convertir. Périmètre fixe, et tout ajout part en phase deux plutôt que discrètement dans celle-ci.',
-          },
-          {
-            n: '04',
-            title: 'Migration',
-            body: 'Produits, contenus, redirections et historique déplacés sans perdre les positions déjà gagnées.',
-          },
-          {
-            n: '05',
-            title: 'Mesure',
-            body: 'Analytics, tracking côté serveur et consentement configurés au lancement, pour que la nouvelle boutique soit lisible dès le premier jour.',
-          },
-        ],
-      },
-      included: {
-        title: 'Ce qui vient avec, dans tous les cas.',
-        items: [
-          'Analytics et tracking configurés correctement, pas remis à plus tard.',
-          'Redirections cartographiées pour qu’une migration ne coûte pas vos positions.',
-          'Une boutique que votre équipe peut modifier sans nous appeler pour changer un texte.',
-          'La courte liste de ce que nous n’avons volontairement pas construit, et pourquoi.',
-        ],
-      },
-      price: {
-        label: 'Refonte ou changement de plateforme',
-        value: '4 000€ à 12 000€+',
-        note: 'Périmètre fixe, arrêté avant de commencer.',
-      },
-      related: [
-        {
-          page: 'conversion',
-          text: 'Une nouvelle boutique est une ligne de départ. Ce sont les tests qui la font rapporter.',
-        },
-        {
-          page: 'acquisition',
-          text: 'Une fois les fondations solides, la publicité a enfin quelque chose à viser.',
-        },
-      ],
-    },
   },
 
   // Le blog. Seules les pages françaises sont construites aujourd’hui :
@@ -1125,14 +888,15 @@ export const fr: Dictionary = {
   articles: {
     meta: {
       title: 'Blog - Maubourg Studio',
+      // REVIEW-FR: description et intro du blog réécrites.
       description:
-        'Des réponses claires aux questions que se posent les marques e-commerce : conversion, acquisition, mesure, agents IA et visibilité auprès des assistants.',
+        'Des réponses claires aux questions que se posent les marques e-commerce : visibilité dans les réponses des IA, agents IA et conversion.',
     },
     index: {
       eyebrow: 'Blog',
       title: 'Les questions que les marques posent vraiment.',
       intro:
-        'Des textes courts sur la conversion, l’acquisition, la mesure et le reste de l’opération commerciale. Une question par texte, la réponse dès le premier paragraphe.',
+        'Des textes courts sur la visibilité dans les réponses des IA, les agents IA et la conversion. Une question par texte, la réponse dès le premier paragraphe.',
       empty: 'Rien de publié pour l’instant.',
     },
     backToIndex: '← Tous les articles',
@@ -1178,8 +942,9 @@ export const fr: Dictionary = {
   },
 
   meta: {
-    homeTitle: 'Maubourg Studio - Studio RevOps IA pour l’e-commerce européen',
+    // REVIEW-FR: titre et description de la page d’accueil réécrits.
+    homeTitle: 'Maubourg Studio - Studio GEO et agents IA pour l’e-commerce',
     homeDescription:
-      'Votre boutique a déjà du trafic. Transformons-le en ventes. Et automatisons le reste. Nous pilotons toute l’opération de revenus des marques e-commerce européennes : conversion, rétention, campagnes payantes et les agents IA derrière.',
+      'Maubourg Studio est un studio basé à Paris qui fait citer les marques e-commerce dans les réponses des IA et construit des agents IA pour leurs opérations. Il travaille avec les marques qui vendent en France et sur les marchés francophones.',
   },
 };

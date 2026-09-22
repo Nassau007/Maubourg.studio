@@ -2,20 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { getDictionary } from '@/lib/i18n';
 import type { Dictionary } from '@/lib/i18n';
 import type { Locale } from '@/lib/i18n';
 import type { ServiceMenuItem } from '@/lib/routes';
 import LanguageSwitcher from './LanguageSwitcher';
 
-// Plain objects, no filesystem access, so calling this again here (rather
-// than threading one more label through every page that renders Nav) is
-// cheap. Unlike src/lib/articles.ts, which reads content/ from disk and
-// cannot be imported into a client component at all.
-//
-// French only, same as the section itself: the blog is French, and a link
-// from the English site into French content with no warning reads as broken
-// rather than bilingual.
+// The blog is French, and every language links to it. The English label says
+// so in as many words, because a link from the English site into French
+// content with no warning reads as broken rather than bilingual.
 const BLOG_HREF = '/fr/blog';
 
 export default function Nav({
@@ -61,7 +55,6 @@ export default function Nav({
   }, [menuOpen]);
 
   const home = `/${lang}`;
-  const blogLabel = getDictionary(lang).articles.index.eyebrow;
 
   return (
     <header
@@ -93,7 +86,7 @@ export default function Nav({
           ))}
 
           {/* Services menu. Sits where the old "what we do" anchor was, since
-              the five pages are now the real answer to that question. */}
+              the three pages are now the real answer to that question. */}
           <div ref={menuRef} className="relative">
             <button
               onClick={() => setMenuOpen((v) => !v)}
@@ -139,14 +132,12 @@ export default function Nav({
             </Link>
           ))}
 
-          {lang === 'fr' && (
-            <Link
-              href={BLOG_HREF}
-              className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
-            >
-              {blogLabel}
-            </Link>
-          )}
+          <Link
+            href={BLOG_HREF}
+            className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
+          >
+            {dict.blog}
+          </Link>
         </div>
 
         <div className="hidden items-center gap-4 md:flex">
@@ -227,15 +218,13 @@ export default function Nav({
             </Link>
           ))}
 
-          {lang === 'fr' && (
-            <Link
-              href={BLOG_HREF}
-              onClick={() => setOpen(false)}
-              className="block py-2.5 text-base font-medium text-ink-700"
-            >
-              {blogLabel}
-            </Link>
-          )}
+          <Link
+            href={BLOG_HREF}
+            onClick={() => setOpen(false)}
+            className="block py-2.5 text-base font-medium text-ink-700"
+          >
+            {dict.blog}
+          </Link>
           <div className="mt-3 flex items-center justify-between border-t border-ink/10 pt-4">
             <span className="text-sm font-medium text-ink-500">{dict.languageLabel}</span>
             <LanguageSwitcher current={lang} />

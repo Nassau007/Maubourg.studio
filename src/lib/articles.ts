@@ -33,26 +33,24 @@ const CONTENT_DIR = path.join(process.cwd(), 'content', 'articles');
 /**
  * Article category -> service page.
  *
- * The fifteen categories in the source files are finer than the five services,
- * so each one is placed against what the service copy in the dictionaries
- * actually claims, not against the name of the service:
+ * The categories in the source files are finer than the three services, and
+ * several of them belong to work the studio no longer sells. Every article
+ * stays published, so each category is placed against the service that is now
+ * the honest next step for someone who read it:
  *
  * - conversion is the broadest by design. Its leak table names delivery terms
  *   beside the price, product copy, forced accounts at checkout and proof that
- *   arrives after the decision, and its measurement half names GA4, consent
- *   and server-side tagging. That covers pricing, payment and trust, reviews,
- *   product content, delivery and returns terms, analytics, and testing.
- * - acquisition owns both engines on its page: paid media, and the Klaviyo
- *   lifecycle flows including winback. So retention, loyalty and lifetime
- *   value sit here, and so does organic and marketplace traffic, which is the
- *   same job (bringing people in) even though that page leads on paid.
- * - geo, agents and foundations map one to one with their own categories.
+ *   arrives after the decision. That covers pricing, payment and trust,
+ *   reviews, product content, delivery and returns terms, and testing.
+ * - the dropped categories land here too. A reader of a paid media, email or
+ *   rebuild article is best served by the work we still do on the store
+ *   itself, and the closing call to action has to point at a page that exists.
+ * - organic and marketplace traffic goes to GEO, which is now where being
+ *   found without paying for the click is argued.
+ * - geo and agents map one to one with their own categories.
  *
- * The one genuinely arguable row is delivery, returns and customer service.
- * Four of its five articles are about the terms a buyer reads before they buy,
- * which is conversion; the fifth is about deflecting support tickets, which is
- * the agents page. Category wins, and `service` in an article's frontmatter
- * overrides it when a single article deserves the other one.
+ * `service` in an article's frontmatter overrides all of this when a single
+ * article deserves another page.
  */
 const CATEGORY_SERVICE: Record<string, VerticalPage> = {
   'Conversion (CRO)': 'conversion',
@@ -63,13 +61,13 @@ const CATEGORY_SERVICE: Record<string, VerticalPage> = {
   'Avis clients et preuve sociale': 'conversion',
   'Contenu produit et expérience': 'conversion',
   'Livraison, retours et service client': 'conversion',
-  'Acquisition et publicité payante': 'acquisition',
-  'Rétention (email et SMS)': 'acquisition',
-  'Fidélisation, abonnement et valeur client': 'acquisition',
-  'Acquisition organique et marketplaces': 'acquisition',
+  'Acquisition et publicité payante': 'conversion',
+  'Rétention (email et SMS)': 'conversion',
+  'Fidélisation, abonnement et valeur client': 'conversion',
+  'Création et refonte de site': 'conversion',
+  'Acquisition organique et marketplaces': 'geo',
   'Visibilité sur les IA génératives (GEO)': 'geo',
   'Agents IA': 'agents',
-  'Création et refonte de site': 'foundations',
 };
 
 /**

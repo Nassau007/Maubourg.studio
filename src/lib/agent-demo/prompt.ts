@@ -18,8 +18,8 @@ import { DemoError, type Gap, type ProductPage } from './types';
 const ENDPOINT = 'https://api.anthropic.com/v1/messages';
 const API_VERSION = '2023-06-01';
 
-export const SYSTEM_PROMPT = `You are a product copy agent built by Maubourg Studio, an AI RevOps studio
-working with European ecommerce brands.
+export const SYSTEM_PROMPT = `You are a product copy agent built by Maubourg Studio, a GEO and AI agents
+studio working with ecommerce brands that sell in France and French-speaking markets.
 
 You are given one read of one live product page: its selling copy, and the
 signals that were actually present in the page source next to it. You return a

@@ -1,4 +1,4 @@
-// Conversion & measurement. One column, top to bottom.
+// Conversion. One column, top to bottom.
 //
 // This page was originally built on side-by-side splits: title beside the
 // subtitle, section heading beside its diagram, the chain beside its checks.
@@ -8,9 +8,11 @@
 // only the funnel and the table use the full column width, because both are
 // scanned rather than read.
 
+import Link from 'next/link';
 import VerticalFrame, { SectionHead, StatBadge } from '@/components/vertical/VerticalFrame';
-import { FunnelDiagram, MeasureChain } from '@/components/vertical/diagrams';
+import { FunnelDiagram } from '@/components/vertical/diagrams';
 import { getDictionary, type Locale } from '@/lib/i18n';
+import { localizedHref } from '@/lib/routes';
 
 export default function ConversionScreen({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
@@ -74,36 +76,23 @@ export default function ConversionScreen({ lang }: { lang: Locale }) {
         </div>
       </section>
 
-      {/* Measurement, on an inverted band so the page has a spine break and the
-          second half reads as a different subject. Still one column inside it. */}
-      <section className="bg-ink py-16 md:py-24">
+      {/* One line about measurement, on the inverted band that used to carry a
+          whole section of it. Tracking is no longer sold from this page, so the
+          band exists to hand the subject over rather than to argue it. */}
+      <section className="bg-ink py-14 md:py-16">
         <div className="mx-auto max-w-content px-5 md:px-8">
           <div className="max-w-2xl">
-            <span className="eyebrow text-signal before:bg-signal/60">{v.measure.eyebrow}</span>
-            <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.1] tracking-tightest text-bone md:text-4xl">
-              {v.measure.title}
+            <h2 className="font-display text-2xl font-semibold leading-[1.15] tracking-tightest text-bone md:text-3xl">
+              {v.geoNote.title}
             </h2>
-            <p className="mt-5 text-[15.5px] leading-relaxed text-bone/70">{v.measure.body}</p>
+            <p className="mt-4 text-[15.5px] leading-relaxed text-bone/70">{v.geoNote.body}</p>
+            <Link
+              href={localizedHref('geo', lang)}
+              className="mt-6 inline-block font-medium text-signal underline underline-offset-4 decoration-signal/40 transition-colors hover:text-bone"
+            >
+              {v.geoNote.link}
+            </Link>
           </div>
-
-          <div className="mt-10 max-w-2xl rounded-card border border-bone/15 bg-bone-100 p-7">
-            <MeasureChain chain={v.measure.chain} />
-          </div>
-
-          <ul className="mt-10 max-w-2xl space-y-4">
-            {v.measure.checks.map((check) => (
-              <li key={check} className="flex gap-3">
-                <span aria-hidden className="mt-0.5 shrink-0 font-semibold text-signal">
-                  +
-                </span>
-                <span className="text-[14.5px] leading-relaxed text-bone/80">{check}</span>
-              </li>
-            ))}
-          </ul>
-
-          <p className="mt-8 max-w-2xl border-l-2 border-signal/60 pl-4 text-[13.5px] leading-relaxed text-bone/60">
-            {v.measure.caveat}
-          </p>
         </div>
       </section>
 

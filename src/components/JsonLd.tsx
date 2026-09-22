@@ -8,8 +8,8 @@ import type { Dictionary, Locale } from '@/lib/i18n';
  * Structured data (schema.org, JSON-LD).
  *
  * Two audiences, one purpose: search engines that show rich results, and the
- * AI crawlers that answer "who does conversion work for European ecommerce
- * brands". A model quoting the site is only as accurate as the facts it can
+ * AI crawlers that answer "who gets a French ecommerce brand cited in AI
+ * answers". A model quoting the site is only as accurate as the facts it can
  * lift cleanly, so everything below is derived from the dictionaries, which
  * are the same source the visible page renders from. Nothing is asserted here
  * that a visitor cannot read on the page.
@@ -57,7 +57,11 @@ export function HomeJsonLd({ dict, lang }: { dict: Dictionary; lang: Locale }) {
       addressLocality: 'Paris',
       addressCountry: 'FR',
     },
-    areaServed: { '@type': 'Place', name: 'Europe' },
+    areaServed: [
+      { '@type': 'Country', name: 'France' },
+      { '@type': 'Country', name: 'Belgium' },
+      { '@type': 'Country', name: 'Switzerland' },
+    ],
     availableLanguage: ['en', 'fr'],
     knowsAbout: dict.marquee.items,
     serviceType: dict.services.items.map((s) => s.title),

@@ -12,7 +12,7 @@ export default function Problem({ dict }: { dict: Dictionary['problem'] }) {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
           {dict.pains.map((p, i) => (
             <Reveal key={p.title} delay={i * 90}>
               <div className="card card-hover h-full">

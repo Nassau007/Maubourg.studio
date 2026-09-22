@@ -24,9 +24,9 @@ export default function Services({
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {dict.items.map((s, i) => (
             <Reveal key={s.title} delay={(i % 3) * 80}>
-              {/* Every card belongs to one of the five service pages, so the
+              {/* Every card belongs to one of the three service pages, so the
                   whole card is the link. The arrow only appears on hover, so a
-                  grid of ten does not read as a wall of arrows. */}
+                  grid of six does not read as a wall of arrows. */}
               <Link
                 href={localizedHref(s.page as VerticalPage, lang)}
                 className="card card-hover group flex h-full flex-col"

@@ -1,8 +1,8 @@
 // The parts every service page shares: chrome, a breadcrumb, the cross-links
 // at the bottom and the closing call to action. Deliberately thin - it does
-// not own the hero or the body, because five pages that share a hero component
-// end up looking like five instances of one page. Each screen composes its own
-// middle and hands the repeated furniture to this.
+// not own the hero or the body, because pages that share a hero component end
+// up looking like instances of one page. Each screen composes its own middle
+// and hands the repeated furniture to this.
 
 import Link from 'next/link';
 import Nav from '@/components/Nav';
@@ -45,7 +45,7 @@ export default function VerticalFrame({
         {children}
 
         {/* Cross-links. Each page names the two verticals that genuinely follow
-            from it, with a sentence saying why, rather than a grid of all five. */}
+            from it, with a sentence saying why, rather than a grid of all three. */}
         <section className="mx-auto max-w-content px-5 pb-4 md:px-8">
           <div className="hairline pt-12">
             <h2 className="font-display text-xl font-semibold text-ink">{s.relatedHeading}</h2>

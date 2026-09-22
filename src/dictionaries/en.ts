@@ -5,28 +5,32 @@ export const en = {
       { label: 'Process', hash: '#process' },
       { label: 'Pricing', hash: '#pricing' },
     ],
+    blog: 'Blog (FR)',
     cta: 'Get a free teardown',
     ctaShort: 'Free teardown',
     languageLabel: 'Language',
   },
 
   hero: {
-    badge: 'AI RevOps studio · European ecommerce',
-    title: 'Your store already has traffic.',
-    titleAccent: 'Let’s make more of it buy. And run itself.',
+    badge: 'GEO and AI agents studio for ecommerce',
+    title: 'When buyers ask ChatGPT what to buy,',
+    titleAccent: 'is your brand in the answer?',
     subtitle:
-      'We help European ecommerce brands earn more from the visitors they’re already paying for, running the whole revenue operation, from conversion and retention to the AI agents that keep it moving.',
-    ctaPrimary: 'Get a free store teardown →',
-    note: '5 ranked fixes, as a 3–4 page PDF, within 3 working days. No strings, no pitch.',
-    talkPrefix: 'Prefer to talk first?',
-    ctaSecondary: 'Book a 15-min call →',
+      'We get your brand cited in AI answers and measure what that traffic is worth. We also build agents that take repetitive work off your team.',
+    ctaPrimary: 'Book a 15-min call →',
+    talkPrefix: 'Not ready for a call?',
+    ctaSecondary: 'Get a free store teardown →',
     skillsHeading: 'What we run for you',
     skills: [
-      { name: 'Paid media', body: 'Meta, Google and TikTok spend managed to a target return.' },
-      { name: 'Conversion', body: 'A/B testing on product pages, cart and checkout, highest-value leaks first.' },
-      { name: 'LLM visibility', body: 'Making your store readable and citable by ChatGPT, Perplexity and Gemini, not just ranked on Google.' },
-      { name: 'Retention', body: 'Klaviyo email and SMS flows that recover carts and bring buyers back.' },
-      { name: 'AI agents', body: 'Built for your ops, your catalog, and the questions that stall a sale.' },
+      {
+        name: 'LLM visibility (GEO)',
+        body: 'Getting your brand named when buyers ask ChatGPT, Gemini, Perplexity or Claude.',
+      },
+      {
+        name: 'AI agents',
+        body: 'Agents built around your team’s workflow, for the work that takes time without adding value.',
+      },
+      { name: 'Conversion', body: 'A/B testing on product pages, cart and checkout.' },
     ],
   },
 
@@ -35,102 +39,74 @@ export const en = {
     items: [
       'Shopify',
       'WooCommerce',
-      'Klaviyo',
-      'AI agents',
+      'ChatGPT',
+      'Gemini',
+      'Perplexity',
+      'Claude',
+      'GA4',
       'Workflow automation',
-      'GA4 & server-side tracking',
-      'Meta & Google Ads',
       'A/B testing',
-      'Checkout optimization',
       'EU / GDPR compliant',
     ],
   },
 
   problem: {
     eyebrow: 'The problem',
-    title: 'More ad spend won’t fix a store that leaks.',
+    title: 'Buyers now ask an AI before they search.',
     pains: [
       {
-        title: 'You’re paying for traffic that leaves',
-        body: 'Spend on ads and SEO keeps climbing, but too many visitors land, look, and go, without ever adding to cart.',
+        title: 'Your brand isn’t in the answer',
+        body: 'More shoppers ask ChatGPT, Gemini or Perplexity for a recommendation. The answer names a handful of brands, and the rest simply don’t exist at that moment.',
       },
       {
-        title: 'You suspect a leak, but you can’t see where',
-        body: 'The drop-off is somewhere between the product page and the payment step. Guessing is expensive; testing blind is worse.',
-      },
-      {
-        title: 'The revenue is already yours to win',
-        body: 'You don’t need more traffic to grow. A better-converting store earns more from the exact same visitors, at the same ad spend.',
+        title: 'Your analytics don’t show it',
+        body: 'Most of this happens without a click. The visits that do arrive often show up as direct traffic, so you can’t see what you’re gaining or missing.',
       },
     ],
   },
 
   services: {
     eyebrow: 'What we do',
-    title: 'Your whole revenue operation, not one channel of it.',
+    title: 'Be in the answer. Then take the repetitive work off your team.',
     intro:
-      'Most agencies own a single channel. We run the system that turns traffic into repeat revenue: conversion, retention, paid media and the tracking underneath, with AI agents doing the repetitive work behind it and your store made legible to the assistants buyers now ask first. The store gets rebuilt only when the foundation is what’s holding you back.',
-    tags: { core: 'Core', ai: 'AI agents', foundation: 'Foundation', included: 'Included' },
+      'We work on two things. Making your brand visible and correctly described in AI answers, and building agents that take repetitive work off your team. Conversion work is there when the store itself is what’s holding sales back.',
+    tags: { geo: 'GEO', ai: 'AI agents', conversion: 'Conversion' },
     items: [
       {
-        tag: 'Core',
-        title: 'Conversion rate optimization',
-        page: 'conversion',
-        body: 'Continuous A/B testing across product pages, cart and checkout, the highest-value leaks first. You see the revenue impact, not vanity metrics.',
-      },
-      {
-        tag: 'Core',
-        title: 'Email & SMS retention',
-        page: 'acquisition',
-        body: 'Lifecycle flows in Klaviyo that recover carts and bring buyers back. Often 20–40% of a store’s revenue, and usually the most underserved.',
-      },
-      {
-        tag: 'Core',
-        title: 'Paid media management',
-        page: 'acquisition',
-        body: 'Meta, Google and TikTok spend managed to a target return, so a better-converting store compounds into cheaper acquisition.',
-      },
-      {
-        tag: 'Core',
-        title: 'LLM visibility (GEO)',
+        tag: 'GEO',
+        title: 'Audit',
         page: 'geo',
-        body: 'Being the store an assistant cites when a buyer asks it instead of Google. Readable answers, correct structured data, and presence measured across real buying prompts.',
+        body: 'What ChatGPT, Gemini, Perplexity and Claude say about your brand and your competitors, measured over repeated runs on real buying questions.',
+      },
+      {
+        tag: 'GEO',
+        title: 'Measure',
+        page: 'geo',
+        body: 'GA4 set up to show the traffic that comes from AI tools and what those visitors do on your site.',
+      },
+      {
+        tag: 'GEO',
+        title: 'Improve',
+        page: 'geo',
+        body: 'The work that gets your brand mentioned more often: clearer product pages, presence on the sites AI tools rely on, corrected information. Much of it run by our own agents.',
       },
       {
         tag: 'AI agents',
-        title: 'Custom agents for your ops',
+        title: 'Operations agents',
         page: 'agents',
-        body: 'We build agents that take the repetitive work off your team: order triage, supplier chasing, returns, internal reporting. Scoped to your actual workflow, not a generic chatbot.',
+        body: 'What takes your team’s time without adding value, we automate. We build agents that take the repetitive work off your team: order triage, supplier chasing, returns, internal reporting. Scoped to your actual workflow, not a generic chatbot.',
       },
       {
         tag: 'AI agents',
-        title: 'Catalog & merchandising agent',
+        title: 'Catalogue agent',
         page: 'agents',
         body: 'An agent that writes and refreshes product copy, fills metadata gaps, and flags listings that underperform, across a catalog too big to edit by hand.',
       },
       {
-        tag: 'AI agents',
-        title: 'Support & pre-sales agent',
-        page: 'agents',
-        body: 'Answers the questions that stall a purchase (sizing, stock, shipping, returns) in your brand voice, with a clean handover to a human when it matters.',
-      },
-      {
-        tag: 'Foundation',
-        title: 'Store builds & rebuilds',
-        page: 'foundations',
-        body: 'Conversion-ready Shopify builds and replatforms, fixed scope, when the current foundation is holding sales back.',
-      },
-      {
-        tag: 'Foundation',
-        title: 'Analytics & tracking',
+        tag: 'Conversion',
+        title: 'Conversion rate optimization',
         page: 'conversion',
-        body: 'GA4, server-side tracking and consent mode set up properly, so every win is measurable and GDPR-compliant.',
-      },
-      {
-        tag: 'Included',
-        title: 'Agent-run reporting',
-        page: 'agents',
-        body: 'The same agents we build for clients run our own delivery: standardized reporting and onboarding, faster turnaround, and nothing slips through.',
+        body: 'Continuous A/B testing across product pages, cart and checkout, the highest-value leaks first. You see the revenue impact, not vanity metrics.',
       },
     ],
   },
@@ -150,7 +126,7 @@ export const en = {
         step: '02',
         name: 'Sprint',
         price: 'Fixed scope',
-        body: 'We ship the highest-ROI fixes first, in a focused 2–3 week sprint, or rebuild the store when the foundation won’t hold. Cash-flow friendly, no long commitment to start.',
+        body: 'We ship the highest-ROI fixes first, in a focused 2–3 week sprint. Cash-flow friendly, no long commitment to start.',
       },
       {
         step: '03',
@@ -163,17 +139,15 @@ export const en = {
 
   whyMe: {
     eyebrow: 'Why Maubourg',
-    quoteBefore:
-      'The visitors you’re already paying for are the cheapest growth you’ll ever buy. We just help more of them',
-    quoteAccent: 'say yes.',
+    title: 'Three things worth knowing before you talk to us.',
     points: [
       {
-        title: 'European by focus',
-        body: 'We work only with existing European stores, so we know your market, your buyers and your compliance obligations from the first call.',
+        title: 'French-speaking by focus',
+        body: 'AI tools answer a French question from French sources: French press, French forums, French review sites. We work only with brands selling in France and French-speaking markets, so we know which sources count in your category.',
       },
       {
-        title: 'Everything is measured',
-        body: 'You see the revenue impact of every change: “lifted conversion from X% to Y%, adding €Z/month at the same ad spend.” Never vanity metrics.',
+        title: 'Figures you can check',
+        body: 'Every visibility figure we give comes from the same question asked several times, in the same tools your buyers use. Never from a single screenshot.',
       },
       {
         title: 'We run on the agents we build',
@@ -220,11 +194,6 @@ export const en = {
         price: '€3,000–8,000',
         desc: 'One agent, scoped to a real workflow, built and handed over.',
       },
-      {
-        name: 'Rebuild / replatform',
-        price: '€4,000–12,000+',
-        desc: 'New conversion-ready Shopify build, fixed scope.',
-      },
     ],
     retainersHeading: 'Monthly retainers: where it compounds',
     mostPopular: 'Most popular',
@@ -239,7 +208,7 @@ export const en = {
       {
         tier: 'Growth',
         price: '€2,000–3,500',
-        features: ['Ongoing A/B testing', 'PDP & checkout work', 'Email flow support'],
+        features: ['Ongoing A/B testing', 'PDP & checkout work'],
       },
       {
         tier: 'Scale',
@@ -247,7 +216,7 @@ export const en = {
         features: ['Full CRO program', 'Multiple concurrent tests', 'Priority + strategy calls'],
       },
     ],
-    footnote: 'Indicative ranges for the European market.',
+    footnote: 'Indicative ranges.',
   },
 
   teardown: {
@@ -262,7 +231,7 @@ export const en = {
       'No obligation: take the list and run, or we talk',
     ],
     sampleTitle: 'See a real teardown before you ask for yours.',
-    sampleBody: 'A full teardown we ran on a live European store, with the store name removed.',
+    sampleBody: 'A full teardown we ran on a live store, with the store name removed.',
     sampleLink: 'Read the example teardown (PDF) →',
     talkPrefix: 'Prefer to talk first?',
     talkLink: 'Book a 15-minute call →',
@@ -311,8 +280,16 @@ export const en = {
     title: 'Questions, answered.',
     items: [
       {
-        q: 'What does “AI RevOps studio” actually mean?',
-        a: 'RevOps (revenue operations) means owning the whole system that turns traffic into repeat revenue, instead of one slice of it: conversion, retention, paid media and the tracking underneath. The AI part is that we build agents to run the repetitive pieces. In practice it means fewer agencies to coordinate, and one team accountable for the number.',
+        q: 'What is GEO?',
+        a: 'GEO (generative engine optimization) is the work of getting your brand mentioned, and described correctly, when someone asks an AI tool like ChatGPT or Perplexity for a recommendation. It overlaps with SEO but depends much more on what other sites say about you.',
+      },
+      {
+        q: 'Can you guarantee ChatGPT will recommend us?',
+        a: 'No, and nobody honestly can. AI answers vary from one question to the next. What we can do is measure where you stand today, fix what’s in your control, and show you the change over time with the same method.',
+      },
+      {
+        q: 'How do you measure traffic from AI tools?',
+        a: 'We set up GA4 so that visits coming from ChatGPT, Perplexity and similar tools appear as their own channel, with what those visitors do on the site. Part of this traffic arrives without any trace of where it came from, so we always say how much the numbers may undercount.',
       },
       {
         q: 'Is the teardown really free?',
@@ -320,15 +297,11 @@ export const en = {
       },
       {
         q: 'Who do you work with?',
-        a: 'Existing European ecommerce brands, typically Shopify or WooCommerce stores already doing meaningful traffic and revenue. We focus on Europe so we know your market and your compliance obligations.',
+        a: 'Ecommerce brands selling in France and French-speaking markets (Belgium, Switzerland), typically on Shopify or WooCommerce. We focus on French-speaking markets because AI tools answer French questions from French sources, and that’s the ground we know. Brands based elsewhere that sell into France are welcome.',
       },
       {
         q: 'Do you actually build the AI agents, or just resell a tool?',
         a: 'We build them. Each agent is scoped to one real workflow in your business, built against your systems, tested, and handed over with documentation. You own it. We use the same agents to run our own delivery, so we only ship what we trust ourselves.',
-      },
-      {
-        q: 'Do I need a rebuild?',
-        a: 'Usually not. We lead with conversion optimization because it earns more from the store you already have. We only recommend a rebuild or replatform when the foundation itself is what’s holding sales back.',
       },
       {
         q: 'How fast will I see results?',
@@ -342,13 +315,14 @@ export const en = {
   },
 
   footer: {
-    ctaTitle: 'Start with a free teardown. If the fixes are worth it,',
-    ctaAccent: 'we start this month.',
-    ctaPrimary: 'Get my free teardown →',
-    ctaNote: '5 ranked fixes, as a 3–4 page PDF, within 3 working days.',
-    talkPrefix: 'Prefer to talk first?',
-    ctaSecondary: 'Book a 15-min call →',
-    tagline: 'AI RevOps studio for European ecommerce',
+    ctaTitle: 'Start with a',
+    ctaAccent: '15-minute call.',
+    ctaPrimary: 'Book a 15-min call →',
+    ctaNote: 'Fifteen minutes, no deck, no obligation.',
+    talkPrefix: 'Rather read something first?',
+    ctaSecondary: 'Get a free store teardown →',
+    tagline: 'GEO and AI agents studio for ecommerce',
+    market: 'France and French-speaking markets',
     rights: 'All rights reserved.',
     privacy: 'Privacy',
   },
@@ -570,14 +544,14 @@ export const en = {
     contactPrefix: 'Questions, or want your details deleted? Email',
   },
 
-  // The five service pages. Each has its own shape rather than a shared
-  // template, because each argument is made differently: conversion argues with
-  // a funnel, acquisition with a loop, GEO with a retrieval chain, agents with a
-  // live demo, foundations with a gate. fr.ts mirrors this key for key.
+  // The three service pages. Each has its own shape rather than a shared
+  // template, because each argument is made differently: GEO with a retrieval
+  // chain and three blocks of work, agents with a live demo, conversion with a
+  // funnel. fr.ts mirrors this key for key.
   verticals: {
     shared: {
       navHeading: 'Services',
-      navBlurb: 'Five things we do, and how each one earns its keep.',
+      navBlurb: 'Three things we do, and how each one earns its keep.',
       breadcrumb: 'Services',
       backHome: '← Back to home',
       relatedHeading: 'Where this leads next',
@@ -592,20 +566,20 @@ export const en = {
 
     conversion: {
       nav: {
-        label: 'Conversion & measurement',
-        blurb: 'Fix what loses the sale, and measure it properly.',
+        label: 'Conversion',
+        blurb: 'Fix what loses the sale on the store you already have.',
       },
       meta: {
-        title: 'Conversion & measurement - Maubourg Studio',
+        title: 'Conversion rate optimization - Maubourg Studio',
         description:
-          'A/B testing across product pages, cart and checkout, with the GA4 and server-side tracking that makes the result readable. For European ecommerce brands.',
+          'A/B testing across product pages, cart and checkout, highest-value leaks first, for ecommerce brands selling in France and French-speaking markets.',
       },
       hero: {
-        eyebrow: 'Conversion & measurement',
+        eyebrow: 'Conversion',
         title: 'You already paid for the traffic.',
         titleAccent: 'Make more of it buy.',
         subtitle:
-          'Conversion work and measurement are one job, not two. A test you cannot read is a guess with extra steps, and a clean dashboard on a leaking store only shows you the leak in higher resolution.',
+          'Being recommended, by an AI tool or by anyone else, is worth nothing if the page it lands on loses the sale. This is the work on the store itself: find where buyers drop, fix that first, and test the fix rather than assume it.',
         stat: '+1 point',
         statNote:
           'of conversion on 20,000 sessions at 60€ is roughly 12,000€ a month, at the same ad spend.',
@@ -658,25 +632,10 @@ export const en = {
           },
         ],
       },
-      measure: {
-        eyebrow: 'The half nobody sells you',
-        title: 'A test you cannot read is not a test.',
-        body: 'Measurement is why conversion work compounds instead of resetting every quarter. It is also where most stores are quietly broken: the tag fires before consent, the same event lands twice, the funnel step that matters was never instrumented. None of that is visible from the dashboard, which is the whole problem.',
-        chain: [
-          { step: 'Visitor', note: 'A real browser, a real consent choice' },
-          { step: 'Consent', note: 'Answered before anything fires, or the data is not yours to use' },
-          { step: 'Tags', note: 'One per platform. Two is a number you cannot trust' },
-          { step: 'Server side', note: 'What survives a blocked browser' },
-          { step: 'Report', note: 'A funnel, not a daily total' },
-        ],
-        checks: [
-          'GA4 configured so the steps of your funnel are separable, not just sessions and revenue.',
-          'Server-side tracking where the browser is no longer reliable.',
-          'Consent mode set up so measurement and the GDPR are not in conflict.',
-          'Duplicate and dead tags removed, which is often a same-week fix.',
-        ],
-        caveat:
-          'One honest note: from the outside, a store with flawless server-side tagging looks identical to a broken one. We tell you what we saw and what we could not see, never the reverse.',
+      geoNote: {
+        title: 'Measuring what AI tools send you is part of GEO.',
+        body: 'Setting up GA4 so that visits from ChatGPT, Perplexity and similar tools appear as their own channel belongs to the visibility offer, not to this page.',
+        link: 'LLM visibility (GEO) →',
       },
       how: {
         eyebrow: 'How it runs',
@@ -701,111 +660,12 @@ export const en = {
       },
       related: [
         {
-          page: 'acquisition',
-          text: 'A better-converting store makes every euro of ad spend go further.',
-        },
-        {
-          page: 'foundations',
-          text: 'When the platform itself is the constraint, testing around it wastes the budget.',
-        },
-      ],
-    },
-
-    acquisition: {
-      nav: { label: 'Acquisition', blurb: 'Paid media and lifecycle flows, run to a number.' },
-      meta: {
-        title: 'Acquisition - Maubourg Studio',
-        description:
-          'Meta, Google and TikTok managed to a target return, plus the Klaviyo lifecycle flows that turn one purchase into three. For European ecommerce brands.',
-      },
-      hero: {
-        eyebrow: 'Acquisition',
-        title: 'Cheaper traffic usually comes from',
-        titleAccent: 'a better store, not a bigger budget.',
-        subtitle:
-          'Two engines pulling the same direction: paid media buying attention against a target return, and lifecycle flows that stop you paying for the same customer twice. Both get harder to justify when the store they point at leaks, which is why we rarely start here.',
-        stat: '20 to 40%',
-        statNote:
-          'of revenue sits in retention on a typical store, and it is usually the least tended part of the operation.',
-      },
-      engines: {
-        eyebrow: 'Two engines',
-        title: 'One brings them in. One brings them back.',
-        paid: {
-          title: 'Paid media',
-          body: 'Budget across Meta, Google and TikTok managed against a return you set, not against impressions. The work is unglamorous: creative that gets tested, audiences that get cut, spend that moves toward what pays.',
-          bullets: [
-            'A target return agreed before anything is spent',
-            'Creative tested in a queue, not launched in a batch',
-            'Spend reallocated weekly, reported monthly',
-            'Judged against the tracking on your own site, not only the platform’s account of itself',
-          ],
-        },
-        retention: {
-          title: 'Email & SMS retention',
-          body: 'Lifecycle flows in Klaviyo that recover the carts you already lost and bring buyers back without buying them again. This is the most consistently underbuilt part of the stores we see.',
-          bullets: [
-            'A welcome sequence that earns the first purchase',
-            'Cart and browse recovery, timed rather than blasted',
-            'A post-purchase flow that sets up the second order',
-            'Winback for the buyers who quietly stopped',
-          ],
-        },
-      },
-      loop: {
-        eyebrow: 'Why the order matters',
-        title: 'The loop only pays if the middle holds.',
-        intro:
-          'Acquisition and conversion are the same arithmetic seen from two ends. Doubling spend on a store that converts at 1% buys twice as much of the same problem. Lifting the middle divides your cost per customer without touching the budget.',
-        nodes: [
-          { label: 'Spend', note: 'Meta, Google, TikTok' },
-          { label: 'Visit', note: 'The traffic you bought' },
-          { label: 'Buy', note: 'Where conversion work pays' },
-          { label: 'Flows', note: 'Email and SMS take over' },
-          { label: 'Buy again', note: 'The purchase you did not pay for' },
-        ],
-        caption: 'The cheapest customer you will ever get is the one who already bought from you.',
-      },
-      flows: {
-        eyebrow: 'What gets built',
-        title: 'The flows that carry the weight.',
-        columns: { name: 'Flow', trigger: 'Fires on', purpose: 'What it is for' },
-        items: [
-          {
-            name: 'Welcome',
-            trigger: 'First signup',
-            purpose: 'Turn interest into a first order while the intent is still warm.',
-          },
-          {
-            name: 'Cart recovery',
-            trigger: 'Abandonment',
-            purpose: 'Answer the objection that stopped them instead of repeating the offer louder.',
-          },
-          {
-            name: 'Browse abandonment',
-            trigger: 'Product view',
-            purpose: 'Catch the visitor who was close but never added anything.',
-          },
-          {
-            name: 'Post-purchase',
-            trigger: 'After delivery',
-            purpose: 'Reduce returns, earn the review, set up the second order.',
-          },
-          {
-            name: 'Winback',
-            trigger: 'Lapse',
-            purpose: 'Reach the buyer who stopped before a competitor reaches them.',
-          },
-        ],
-      },
-      related: [
-        {
-          page: 'conversion',
-          text: 'Conversion is the multiplier on everything you spend. Start there if you have not.',
-        },
-        {
           page: 'geo',
-          text: 'Assistants are becoming a channel of their own, and it is not one you bid on.',
+          text: 'Being named in an AI answer brings buyers to the page this work fixes.',
+        },
+        {
+          page: 'agents',
+          text: 'An agent can rewrite a catalogue faster than a team can test one page.',
         },
       ],
     },
@@ -815,7 +675,7 @@ export const en = {
       meta: {
         title: 'LLM visibility (GEO) - Maubourg Studio',
         description:
-          'Generative engine optimization for European ecommerce: being found, read and cited when a buyer asks ChatGPT or Gemini instead of Google.',
+          'Audit, measure and improve how ChatGPT, Gemini, Perplexity and Claude name your brand. For ecommerce brands selling in France and French-speaking markets.',
       },
       hero: {
         eyebrow: 'Generative engine optimization',
@@ -861,31 +721,30 @@ export const en = {
         ],
         caption: 'Retrieval and trust are the two you can move. Everything here aims at those.',
       },
-      levers: {
-        eyebrow: 'What moves it',
-        title: 'The work, concretely.',
+      blocks: {
+        eyebrow: 'What the work is',
+        title: 'Audit, measure, improve.',
         items: [
           {
-            title: 'Answer the buying questions in text',
-            body: 'Sizing, fit, materials, delivery, returns, comparisons. If the answer lives in an image, a PDF or a tab rendered by script, it is not in the answer the assistant gives.',
+            title: 'Audit',
+            lead: 'What ChatGPT, Gemini, Perplexity and Claude say about your brand and your competitors, measured over repeated runs on real buying questions.',
+            body: 'You get the questions we ran, how often each tool named you, which brands were named instead, and how your brand was described when it came up. The same questions are asked again later, so the second report is comparable to the first.',
           },
           {
-            title: 'Structured data that is actually correct',
-            body: 'Product, offer, review and organisation markup that matches what the page says. Wrong markup is worse than none: it teaches the model something false with your name on it.',
+            title: 'Measure',
+            lead: 'GA4 set up to show the traffic that comes from AI tools and what those visitors do on your site.',
+            body: 'You get AI traffic as its own channel in GA4, with what those visitors do once they arrive. Part of this traffic carries no trace of where it came from, so we say each time how much the figure may undercount.',
           },
           {
-            title: 'Let the AI crawlers in, deliberately',
-            body: 'A robots file and a sitemap that decide which agents may read what, plus a plain-text summary of the catalogue for the ones that prefer it.',
-          },
-          {
-            title: 'Be corroborated off your own site',
-            body: 'A claim only you make is a claim. The same claim on a review platform, a marketplace listing or a press mention is evidence.',
-          },
-          {
-            title: 'Measure by asking',
-            body: 'There is no ranking report here. We track a set of real buying prompts over time and record whether you appear, and how you get described when you do.',
+            title: 'Improve',
+            lead: 'The work that gets your brand mentioned more often: clearer product pages, presence on the sites AI tools rely on, corrected information. Much of it run by our own agents.',
+            body: 'You get a ranked list of what to change, then the work itself: pages that answer buying questions in text, structured data that matches what the page says, wrong information corrected where a tool repeats it, and presence on the sites your category is read from. We report what moved and what did not.',
           },
         ],
+      },
+      reading: {
+        heading: 'On this subject, from our blog',
+        note: 'Written in French.',
       },
       honest: {
         title: 'What we will not tell you about this.',
@@ -912,7 +771,7 @@ export const en = {
       meta: {
         title: 'AI agents for ecommerce - Maubourg Studio',
         description:
-          'Agents scoped to a real workflow: catalogue upkeep, order triage, pre-sales answers. Try one live on your own product page, no email asked.',
+          'Agents scoped to a real workflow: order triage, supplier chasing, catalogue upkeep. Try one live on your own product page, no email asked.',
       },
       hero: {
         eyebrow: 'AI agents',
@@ -930,11 +789,11 @@ export const en = {
       },
       families: {
         eyebrow: 'What we build',
-        title: 'Three shapes, all scoped to your workflow.',
+        title: 'Two shapes, both scoped to your workflow.',
         items: [
           {
-            title: 'Operations',
-            body: 'Takes the repetitive work off your team: order triage, chasing suppliers, processing returns, the internal report someone rebuilds by hand every Monday.',
+            title: 'Operations agents',
+            body: 'What takes your team’s time without adding value, we automate: order triage, chasing suppliers, processing returns, the internal report someone rebuilds by hand every Monday.',
             examples: [
               'Order triage and exceptions',
               'Supplier follow-up',
@@ -951,11 +810,6 @@ export const en = {
               'Underperforming listings',
               'Feed and catalogue hygiene',
             ],
-          },
-          {
-            title: 'Support & pre-sales',
-            body: 'Answers the questions that block a purchase, in your brand’s voice: sizing, stock, delivery, returns. Hands over to a person the moment it should.',
-            examples: ['Sizing and fit', 'Stock and delivery', 'Returns policy', 'Handover to a human'],
           },
         ],
       },
@@ -1002,101 +856,6 @@ export const en = {
       ],
     },
 
-    foundations: {
-      nav: { label: 'Store build', blurb: 'Rebuild only when the platform is the problem.' },
-      meta: {
-        title: 'Store builds & replatforming - Maubourg Studio',
-        description:
-          'Conversion-ready Shopify builds and migrations on a fixed scope, for when the current foundation is what holds sales back.',
-      },
-      hero: {
-        eyebrow: 'Foundations',
-        title: 'A rebuild is the right answer',
-        titleAccent: 'less often than you are told.',
-        subtitle:
-          'A new store is the most expensive way to fix a problem that was never about the store. So the first thing we do is try to talk you out of it, and if the foundation really is the constraint, we build on a fixed scope with the measurement wired in from the first day.',
-        stat: 'Fixed scope',
-        statNote: 'agreed before we start, so the number you approve is the number you pay.',
-      },
-      gate: {
-        eyebrow: 'Before anything else',
-        title: 'Two lists. Be honest about which one you are on.',
-        rebuild: {
-          title: 'A rebuild is probably right',
-          items: [
-            'The platform cannot do what the business now needs, and no theme fixes that.',
-            'Checkout or performance is broken in a way that patching keeps re-breaking.',
-            'You are leaving the platform anyway, for cost or for support.',
-            'The build is so tangled that every change costs three times what it should.',
-          ],
-        },
-        dont: {
-          title: 'A rebuild is probably not',
-          items: [
-            'Conversion is low but the store works. That is a testing problem, not a build problem.',
-            'You do not like how it looks. Taste is real, but it is rarely where the money is.',
-            'A competitor relaunched. Their rebuild may not be paying for itself either.',
-            'You have never measured where sales are actually lost. Find that out first, it is free.',
-          ],
-        },
-        note: 'If you are on the second list, the teardown will say so and cost you nothing.',
-      },
-      phases: {
-        eyebrow: 'How a build runs',
-        title: 'Five phases, one fixed scope.',
-        items: [
-          {
-            n: '01',
-            title: 'Audit',
-            body: 'What the current store does well enough to keep, and what is genuinely load-bearing. Rebuilding a mistake faithfully is the usual failure.',
-          },
-          {
-            n: '02',
-            title: 'Structure',
-            body: 'Navigation, templates and the path to purchase decided before a pixel is designed.',
-          },
-          {
-            n: '03',
-            title: 'Build',
-            body: 'A conversion-ready Shopify build. Fixed scope, and anything new goes into a second phase rather than quietly into this one.',
-          },
-          {
-            n: '04',
-            title: 'Migrate',
-            body: 'Products, content, redirects and history moved without losing the search positions you already earned.',
-          },
-          {
-            n: '05',
-            title: 'Measure',
-            body: 'Analytics, server-side tracking and consent configured at launch, so the new store is readable from day one.',
-          },
-        ],
-      },
-      included: {
-        title: 'What comes with it either way.',
-        items: [
-          'Analytics and tracking configured properly, not left for later.',
-          'Redirects mapped so a migration does not cost you your rankings.',
-          'A store your team can edit without calling us for a text change.',
-          'A short list of what we deliberately did not build, and why.',
-        ],
-      },
-      price: {
-        label: 'Rebuild or replatform',
-        value: '4,000€ to 12,000€+',
-        note: 'Fixed scope, agreed before we start.',
-      },
-      related: [
-        {
-          page: 'conversion',
-          text: 'A new store is a starting line. Testing is what makes it earn.',
-        },
-        {
-          page: 'acquisition',
-          text: 'Once the foundation holds, paid media has something worth pointing at.',
-        },
-      ],
-    },
   },
 
   // The blog. Only the French pages are built today, so this block exists
@@ -1107,13 +866,13 @@ export const en = {
     meta: {
       title: 'Blog - Maubourg Studio',
       description:
-        'Plain answers to the questions ecommerce owners ask about conversion, acquisition, measurement, AI agents and being found by assistants.',
+        'Plain answers to the questions ecommerce owners ask about being cited by AI tools, AI agents and conversion.',
     },
     index: {
       eyebrow: 'Blog',
       title: 'The questions store owners actually ask.',
       intro:
-        'Short pieces on conversion, acquisition, measurement and the rest of the revenue operation. One question each, answered in the first paragraph.',
+        'Short pieces on visibility in AI answers, AI agents and conversion. One question each, answered in the first paragraph.',
       empty: 'Nothing published here yet.',
     },
     backToIndex: '← All articles',
@@ -1161,9 +920,9 @@ export const en = {
   },
 
   meta: {
-    homeTitle: 'Maubourg Studio - AI RevOps studio for European ecommerce',
+    homeTitle: 'Maubourg Studio - GEO and AI agents studio for ecommerce',
     homeDescription:
-      "Your store already has traffic. Let's make more of it buy. And run itself. We run the whole revenue operation for European ecommerce brands: conversion, retention, paid media and the AI agents behind them.",
+      'Maubourg Studio is a Paris-based studio that gets ecommerce brands cited in AI answers and builds AI agents for their operations. It works with brands selling in France and French-speaking markets.',
   },
 };
 

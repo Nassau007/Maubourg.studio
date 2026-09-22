@@ -60,7 +60,7 @@ export default function AgentsScreen({ lang }: { lang: Locale }) {
 
       <section className="mx-auto max-w-content px-5 py-16 md:px-8 md:py-24">
         <SectionHead eyebrow={v.families.eyebrow} title={v.families.title} />
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           {v.families.items.map((item) => (
             <div key={item.title} className="card card-hover flex flex-col">
               <h3 className="font-display text-xl font-semibold text-ink">{item.title}</h3>
