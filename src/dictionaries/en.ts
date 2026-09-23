@@ -6,6 +6,7 @@ export const en = {
       { label: 'Pricing', hash: '#pricing' },
     ],
     blog: 'Blog (FR)',
+    observatory: 'Observatory',
     // One label on desktop and on a phone: the hook has one name everywhere.
     cta: 'Free GEO audit',
     ctaShort: 'Free GEO audit',

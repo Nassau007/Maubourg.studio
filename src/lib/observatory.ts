@@ -33,8 +33,8 @@
  *   4. add the section to public/llms.txt, which is a static file and cannot
  *      read this flag: one line under "## Pages" per language, plus a line in
  *      "## What it does";
- *   5. set this to true;
- *   6. decide whether it also belongs in the main nav, which is Nass's call.
+ *   5. set this to true. The main nav link comes with it: Nass confirmed the
+ *      section belongs there once campaign 1 is published.
  */
 export const OBSERVATORY_LIVE = false;
 

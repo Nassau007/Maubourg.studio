@@ -8,6 +8,7 @@ export const fr: Dictionary = {
       { label: 'Tarifs', hash: '#pricing' },
     ],
     blog: 'Blog',
+    observatory: 'Observatoire',
     // Un seul libellé sur ordinateur et sur mobile.
     cta: 'Audit GEO gratuit',
     ctaShort: 'Audit GEO gratuit',
