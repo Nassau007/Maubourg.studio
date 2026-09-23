@@ -67,7 +67,7 @@ export const OBSERVATORY_SEGMENTS = {
  * put on it.
  */
 export type ObservatoryVertical = {
-  /** Query ID prefix in LLM_Visibility_Study/panel/queries.md. */
+  /** Query ID prefix in Observatory/llm-visibility/panel/queries.md. */
   id: 'LIT' | 'COS' | 'CHA';
   slug: { en: string; fr: string };
 };
@@ -104,7 +104,7 @@ export type ObservatoryEdition = {
   aggregate: string | null;
 };
 
-/** No campaign has been run yet. See LLM_Visibility_Study/campaigns/. */
+/** No campaign has been run yet. See Observatory/llm-visibility/campaigns/. */
 export const OBSERVATORY_EDITIONS: readonly ObservatoryEdition[] = [];
 
 export function latestEdition(): ObservatoryEdition | null {
