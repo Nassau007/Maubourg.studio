@@ -2,7 +2,14 @@ import { siteUrl, site } from '@/lib/site';
 // Type only: src/lib/articles.ts reads the filesystem, and this module is
 // imported by the homepage, which has no business pulling that in.
 import type { Article } from '@/lib/articles';
-import type { Dictionary, Locale } from '@/lib/i18n';
+import { getDictionary, type Dictionary, type Locale } from '@/lib/i18n';
+import {
+  OBSERVATORY_LIVE,
+  latestEdition,
+  observatoryHref,
+  verticalHref,
+  type ObservatoryVertical,
+} from '@/lib/observatory';
 
 /**
  * Structured data (schema.org, JSON-LD).
@@ -31,6 +38,64 @@ function Script({ data }: { data: Record<string, unknown> }) {
 
 const ORG_ID = `${siteUrl}/#organization`;
 const SITE_ID = `${siteUrl}/#website`;
+
+/**
+ * Dataset markup for the observatory. This is the schema that tells a crawler a
+ * page is a source rather than an opinion, which is the whole reason the
+ * section exists.
+ *
+ * It renders nothing until a campaign has been published: a Dataset that
+ * declares no measurement period, no engines and no distribution is a claim to
+ * be a source with nothing behind it, which is exactly what this site must not
+ * do.
+ */
+export function ObservatoryJsonLd({
+  lang,
+  vertical,
+}: {
+  lang: Locale;
+  vertical?: ObservatoryVertical;
+}) {
+  const edition = latestEdition();
+  if (!OBSERVATORY_LIVE || !edition) return null;
+
+  const dict = getDictionary(lang);
+  const o = dict.observatory;
+  const url = vertical
+    ? `${siteUrl}${verticalHref(vertical, lang)}`
+    : `${siteUrl}${observatoryHref(lang)}`;
+  const name = vertical ? `${o.verticals[vertical.id]} - ${o.meta.title}` : o.meta.title;
+
+  const dataset = {
+    '@type': 'Dataset',
+    '@id': `${url}#dataset`,
+    name,
+    description: o.meta.description,
+    url,
+    inLanguage: lang === 'fr' ? 'fr-FR' : 'en-GB',
+    creator: { '@id': ORG_ID },
+    publisher: { '@id': ORG_ID },
+    // The measurement period is the campaign, and the campaign is what a
+    // reader retypes the query against.
+    temporalCoverage: edition.date,
+    dateModified: edition.date,
+    measurementTechnique: `${edition.queries} buying questions, each asked ${edition.runsPerQuery} times per engine`,
+    variableMeasured: edition.engines,
+    license: 'https://creativecommons.org/licenses/by/4.0/',
+    isAccessibleForFree: true,
+    ...(edition.aggregate
+      ? {
+          distribution: {
+            '@type': 'DataDownload',
+            contentUrl: `${siteUrl}${edition.aggregate}`,
+            encodingFormat: 'text/csv',
+          },
+        }
+      : {}),
+  };
+
+  return <Script data={{ '@context': 'https://schema.org', '@graph': [dataset] }} />;
+}
 
 export function HomeJsonLd({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const url = `${siteUrl}/${lang}`;

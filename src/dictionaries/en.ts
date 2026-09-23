@@ -6,6 +6,7 @@ export const en = {
       { label: 'Pricing', hash: '#pricing' },
     ],
     blog: 'Blog (FR)',
+    observatory: 'Observatory',
     // One label on desktop and on a phone: the hook has one name everywhere.
     cta: 'Free GEO audit',
     ctaShort: 'Free GEO audit',
@@ -1048,6 +1049,51 @@ export const en = {
       ],
     },
 
+  },
+
+  // The AI visibility observatory. Structural labels only: the section's own
+  // name, what it measures, and the words around a figure. The findings
+  // themselves are written per edition once a campaign has produced them, and
+  // nothing here claims a result.
+  observatory: {
+    nav: 'AI visibility observatory',
+    eyebrow: 'Observatory',
+    title: 'How AI tools answer about French ecommerce brands.',
+    intro:
+      'The studio runs the same panel of buying questions across ChatGPT, Gemini, Perplexity and Claude, several times per question, and publishes what comes back. Every figure carries the query it came from and the campaign that produced it.',
+    meta: {
+      title: 'AI visibility observatory - Maubourg Studio',
+      description:
+        'The studio’s own research on how French ecommerce brands appear in answers from ChatGPT, Gemini, Perplexity and Claude: method, figures by vertical, and archived editions.',
+      methodTitle: 'Method - AI visibility observatory - Maubourg Studio',
+      methodDescription:
+        'How the observatory’s figures are produced: the query panel, the four engines, the number of runs per question, and what the numbers do not say.',
+    },
+    // Shown while a campaign has not produced data yet. It is a status, not a
+    // placeholder: the page says plainly that there is nothing to read.
+    empty: {
+      title: 'No edition published yet.',
+      body: 'The first campaign is being run. Editions are published here once the full panel has been passed, and are never edited afterwards.',
+    },
+    methodHeading: 'Method',
+    verticalsHeading: 'By vertical',
+    editionsHeading: 'Editions',
+    methodLink: 'How these figures are produced →',
+    backToIndex: '← Observatory',
+    // The labels around an edition's own facts.
+    facts: {
+      campaign: 'Campaign',
+      engines: 'Engines',
+      queries: 'Queries',
+      runsPerQuery: 'Runs per question',
+      download: 'Download the aggregate table →',
+    },
+    verticals: {
+      LIT: 'Bedding',
+      COS: 'Clean cosmetics',
+      CHA: 'Comfort shoes',
+    },
+    licence: 'Figures may be quoted with a link to this page.',
   },
 
   // The blog. Only the French pages are built today, so this block exists

@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { site } from '@/lib/site';
 import { localizedHref } from '@/lib/routes';
-import type { Dictionary, Locale } from '@/lib/i18n';
+import { OBSERVATORY_LIVE, observatoryHref } from '@/lib/observatory';
+import { getDictionary, type Dictionary, type Locale } from '@/lib/i18n';
 
 export default function Footer({
   dict,
@@ -70,6 +71,16 @@ export default function Footer({
           </div>
 
           <div className="flex items-center gap-6 text-sm">
+            {/* The observatory appears here the day it has an edition to read.
+                Whether it also earns a place in the main nav is Nass's call. */}
+            {OBSERVATORY_LIVE && (
+              <Link
+                href={observatoryHref(lang)}
+                className="text-bone/70 transition-colors hover:text-bone"
+              >
+                {getDictionary(lang).observatory.nav}
+              </Link>
+            )}
             <a
               href={`mailto:${site.email}`}
               className="text-bone/70 transition-colors hover:text-bone"

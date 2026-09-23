@@ -8,6 +8,7 @@ export const fr: Dictionary = {
       { label: 'Tarifs', hash: '#pricing' },
     ],
     blog: 'Blog',
+    observatory: 'Observatoire',
     // Un seul libellé sur ordinateur et sur mobile.
     cta: 'Audit GEO gratuit',
     ctaShort: 'Audit GEO gratuit',
@@ -1057,6 +1058,45 @@ export const fr: Dictionary = {
       ],
     },
 
+  },
+
+  observatory: {
+    // REVIEW-FR: libellés de structure écrits ici, aucun chiffre ni promesse.
+    nav: 'Observatoire de visibilité IA',
+    eyebrow: 'Observatoire',
+    title: 'Ce que les IA répondent sur les marques e-commerce françaises.',
+    intro:
+      'Le studio pose le même panel de questions d’achat à ChatGPT, Gemini, Perplexity et Claude, plusieurs fois par question, et publie ce qui revient. Chaque chiffre porte la question dont il vient et la campagne qui l’a produit.',
+    meta: {
+      title: 'Observatoire de visibilité IA - Maubourg Studio',
+      description:
+        'La recherche du studio sur la façon dont les marques e-commerce françaises apparaissent dans les réponses de ChatGPT, Gemini, Perplexity et Claude : méthode, chiffres par secteur, éditions archivées.',
+      methodTitle: 'Méthode - Observatoire de visibilité IA - Maubourg Studio',
+      methodDescription:
+        'Comment les chiffres de l’observatoire sont produits : le panel de questions, les quatre moteurs, le nombre de passages par question, et ce que les chiffres ne disent pas.',
+    },
+    empty: {
+      title: 'Aucune édition publiée pour l’instant.',
+      body: 'La première campagne est en cours. Une édition est publiée ici une fois le panel complet passé, et n’est jamais modifiée ensuite.',
+    },
+    methodHeading: 'Méthode',
+    verticalsHeading: 'Par secteur',
+    editionsHeading: 'Éditions',
+    methodLink: 'Comment ces chiffres sont produits →',
+    backToIndex: '← Observatoire',
+    facts: {
+      campaign: 'Campagne',
+      engines: 'Moteurs',
+      queries: 'Questions',
+      runsPerQuery: 'Passages par question',
+      download: 'Télécharger le tableau agrégé →',
+    },
+    verticals: {
+      LIT: 'Literie',
+      COS: 'Cosmétique clean',
+      CHA: 'Chaussures confort',
+    },
+    licence: 'Les chiffres peuvent être cités avec un lien vers cette page.',
   },
 
   // Le blog. Seules les pages françaises sont construites aujourd’hui :

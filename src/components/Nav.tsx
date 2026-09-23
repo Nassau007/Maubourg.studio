@@ -5,6 +5,7 @@ import Link from 'next/link';
 import type { Dictionary } from '@/lib/i18n';
 import type { Locale } from '@/lib/i18n';
 import type { ServiceMenuItem } from '@/lib/routes';
+import { OBSERVATORY_LIVE, observatoryHref } from '@/lib/observatory';
 import LanguageSwitcher from './LanguageSwitcher';
 
 // The blog is French, and every language links to it. The English label says
@@ -132,6 +133,17 @@ export default function Nav({
             </Link>
           ))}
 
+          {/* The observatory joins the main nav the day it has an edition to
+              read. Until then the flag keeps it out. */}
+          {OBSERVATORY_LIVE && (
+            <Link
+              href={observatoryHref(lang)}
+              className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
+            >
+              {dict.observatory}
+            </Link>
+          )}
+
           <Link
             href={BLOG_HREF}
             className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
@@ -214,6 +226,16 @@ export default function Nav({
               {item.label}
             </Link>
           ))}
+
+          {OBSERVATORY_LIVE && (
+            <Link
+              href={observatoryHref(lang)}
+              onClick={() => setOpen(false)}
+              className="block py-2.5 text-base font-medium text-ink-700"
+            >
+              {dict.observatory}
+            </Link>
+          )}
 
           <Link
             href={BLOG_HREF}
