@@ -37,7 +37,7 @@ export default function Home({ params }: { params: { lang: string } }) {
         {/* The mechanism, before the offer: it is what makes the rest credible. */}
         <AiChoice dict={dict.aiChoice} chain={dict.verticals.geo.chain} lang={lang} />
         <Services dict={dict.services} lang={lang} />
-        <Proof dict={dict.proof} />
+        <Proof dict={dict.proof} lang={lang} />
         <Process dict={dict.process} lang={lang} />
         <WhyMe dict={dict.whyMe} />
         <Pricing dict={dict.pricing} lang={lang} />

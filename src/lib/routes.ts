@@ -11,10 +11,20 @@
 import type { Metadata } from 'next';
 import { getDictionary, type Locale } from '@/lib/i18n';
 import { site, siteUrl } from '@/lib/site';
+import { OBSERVATORY_BASE, OBSERVATORY_SEGMENTS, swapObservatoryLocale } from '@/lib/observatory';
 
 export const localizedPaths = {
   agentDemo: { en: '/try-an-agent', fr: '/essayer-un-agent' },
   privacy: { en: '/privacy', fr: '/confidentialite' },
+  // The observatory is research, not a service, so it is in this map (nav,
+  // sitemap and metadata alternates all read it) but not in verticalPages.
+  // Its slugs are defined in src/lib/observatory.ts, which also owns the
+  // vertical and edition paths underneath them.
+  observatory: { en: OBSERVATORY_BASE.en, fr: OBSERVATORY_BASE.fr },
+  observatoryMethod: {
+    en: `${OBSERVATORY_BASE.en}/${OBSERVATORY_SEGMENTS.methodology.en}`,
+    fr: `${OBSERVATORY_BASE.fr}/${OBSERVATORY_SEGMENTS.methodology.fr}`,
+  },
   conversion: { en: '/services/conversion-tracking', fr: '/services/conversion-et-mesure' },
   geo: { en: '/services/llm-visibility', fr: '/services/visibilite-llm' },
   agents: { en: '/services/ai-agents', fr: '/services/agents-ia' },
@@ -95,6 +105,11 @@ export function languageAlternates(page: LocalizedPage): Record<string, string> 
 export function swapLocaleInPath(pathname: string, target: Locale): string {
   const segments = pathname.split('/');
   if (segments.length < 2) return `/${target}`;
+
+  // The observatory has localized slugs below its own root, which this map
+  // cannot express. It answers for its own subtree.
+  const observatory = swapObservatoryLocale(pathname, target);
+  if (observatory) return observatory;
 
   const rest = `/${segments.slice(2).join('/')}`.replace(/\/$/, '') || '';
 

@@ -3,6 +3,15 @@ import { siteUrl } from '@/lib/site';
 import { locales } from '@/lib/i18n';
 import { localizedPaths, verticalPages, type LocalizedPage } from '@/lib/routes';
 import { allArticles, articleHref, articlesIndexHref } from '@/lib/articles';
+import {
+  OBSERVATORY_EDITIONS,
+  OBSERVATORY_LIVE,
+  OBSERVATORY_VERTICALS,
+  editionHref,
+  methodologyHref,
+  observatoryHref,
+  verticalHref,
+} from '@/lib/observatory';
 
 /**
  * Served at /sitemap.xml. Every page in both locales, each declaring the other
@@ -85,5 +94,62 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  return [...shared, ...localized, ...answers];
+  // The observatory. Priority level with the service pages: this is research
+  // we want found and quoted. It stays out of the sitemap entirely until a
+  // campaign has produced data, because asking a crawler to index an empty
+  // section spends the one visit it will give us.
+  const observatory = !OBSERVATORY_LIVE
+    ? []
+    : [
+        ...locales.map((lang) => ({
+          url: `${siteUrl}${observatoryHref(lang)}`,
+          lastModified,
+          changeFrequency: 'monthly' as const,
+          priority: 0.9,
+          alternates: {
+            languages: Object.fromEntries([
+              ...locales.map((l) => [l, `${siteUrl}${observatoryHref(l)}`]),
+              ['x-default', `${siteUrl}${observatoryHref('fr')}`],
+            ]),
+          },
+        })),
+        ...locales.map((lang) => ({
+          url: `${siteUrl}${methodologyHref(lang)}`,
+          lastModified,
+          changeFrequency: 'monthly' as const,
+          priority: 0.7,
+          alternates: {
+            languages: Object.fromEntries([
+              ...locales.map((l) => [l, `${siteUrl}${methodologyHref(l)}`]),
+              ['x-default', `${siteUrl}${methodologyHref('fr')}`],
+            ]),
+          },
+        })),
+        ...OBSERVATORY_VERTICALS.flatMap((vertical) =>
+          locales.map((lang) => ({
+            url: `${siteUrl}${verticalHref(vertical, lang)}`,
+            lastModified,
+            changeFrequency: 'monthly' as const,
+            priority: 0.9,
+            alternates: {
+              languages: Object.fromEntries([
+                ...locales.map((l) => [l, `${siteUrl}${verticalHref(vertical, l)}`]),
+                ['x-default', `${siteUrl}${verticalHref(vertical, 'fr')}`],
+              ]),
+            },
+          })),
+        ),
+        // An edition carries its campaign date, not the deploy date: a crawler
+        // is not told every edition changed because the site shipped.
+        ...OBSERVATORY_EDITIONS.flatMap((edition) =>
+          locales.map((lang) => ({
+            url: `${siteUrl}${editionHref(edition, lang)}`,
+            lastModified: new Date(`${edition.date}T00:00:00Z`),
+            changeFrequency: 'yearly' as const,
+            priority: 0.6,
+          })),
+        ),
+      ];
+
+  return [...shared, ...localized, ...answers, ...observatory];
 }
