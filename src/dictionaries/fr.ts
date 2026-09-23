@@ -3,79 +3,91 @@ import type { Dictionary } from './en';
 export const fr: Dictionary = {
   nav: {
     links: [
-      { label: 'Le problème', hash: '#problem' },
+      { label: 'Pourquoi le GEO', hash: '#problem' },
       { label: 'Méthode', hash: '#process' },
       { label: 'Tarifs', hash: '#pricing' },
     ],
     blog: 'Blog',
-    cta: 'Diagnostic gratuit',
-    ctaShort: 'Diagnostic offert',
+    // Un seul libellé sur ordinateur et sur mobile.
+    cta: 'Audit GEO gratuit',
+    ctaShort: 'Audit GEO gratuit',
     languageLabel: 'Langue',
   },
 
   hero: {
-    // REVIEW-FR: bloc réécrit pour le recentrage GEO et agents.
     badge: 'Studio GEO et agents IA pour l’e-commerce',
     title: 'Quand un acheteur demande à ChatGPT quoi acheter,',
     titleAccent: 'votre marque est-elle dans la réponse ?',
     subtitle:
-      'Nous faisons citer votre marque dans les réponses des IA et mesurons ce que ce trafic rapporte. Nous construisons aussi des agents qui retirent à vos équipes le travail répétitif.',
-    ctaPrimary: 'Réserver un appel de 15 min →',
-    talkPrefix: 'Pas encore prêt pour un appel ?',
-    ctaSecondary: 'Recevez un diagnostic gratuit →',
-    skillsHeading: 'Ce que nous pilotons pour vous',
+      'Nous faisons entrer votre marque dans les réponses de ChatGPT, Gemini et Perplexity, et nous mesurons ce que ce trafic rapporte. Pour vos opérations, nous construisons des agents IA qui absorbent le travail répétitif de vos équipes.',
+    ctaPrimary: 'Demander un audit GEO gratuit →',
+    talkPrefix: 'Vous préférez en parler d’abord ?',
+    ctaSecondary: 'Réserver un appel de 15 min →',
+    skillsHeading: 'Nos trois expertises',
     skills: [
       {
         name: 'Visibilité LLM (GEO)',
-        body: 'Faire citer votre marque quand un acheteur interroge ChatGPT, Gemini, Perplexity ou Claude.',
+        body: 'Faire citer votre marque, et la faire décrire correctement, quand un acheteur interroge ChatGPT, Gemini, Perplexity ou Claude. Puis mesurer ce que ce canal rapporte.',
       },
       {
         name: 'Agents IA',
-        body: 'Des agents construits autour de la façon de travailler de vos équipes, pour les tâches qui prennent du temps sans rien apporter.',
+        body: 'Des agents conçus sur vos processus réels, pour les tâches répétitives qui occupent vos équipes sans créer de valeur.',
       },
-      { name: 'Conversion', body: 'Tests A/B sur les fiches produit, le panier et le paiement.' },
+      {
+        name: 'Conversion',
+        body: 'Quand c’est la boutique qui fait perdre la vente : tests A/B sur les fiches produit, le panier et le checkout.',
+      },
     ],
   },
 
   marquee: {
-    heading: 'La stack sur laquelle nous construisons',
+    heading: 'Nos outils',
     items: [
       'Shopify',
       'WooCommerce',
-      // REVIEW-FR: liste de la stack revue pour le recentrage.
       'ChatGPT',
       'Gemini',
       'Perplexity',
       'Claude',
       'GA4',
-      'Automatisation des workflows',
-      'Tests A/B',
-      'Conforme UE / RGPD',
     ],
+    note: 'Conforme UE / RGPD.',
   },
 
   problem: {
-    eyebrow: 'Le problème',
-    // REVIEW-FR: nouveau titre et deux constats, écrits pour cette version.
+    eyebrow: 'Pourquoi le GEO',
     title: 'Les acheteurs interrogent une IA avant de chercher.',
     pains: [
       {
         title: 'Votre marque n’est pas dans la réponse',
-        body: 'De plus en plus d’acheteurs demandent une recommandation à ChatGPT, Gemini ou Perplexity. La réponse cite quelques marques, et les autres n’existent tout simplement pas à ce moment-là.',
+        body: 'De plus en plus d’acheteurs demandent une recommandation à ChatGPT, Gemini ou Perplexity. La réponse cite quelques marques. Pour l’acheteur, les autres n’existent pas.',
       },
       {
         title: 'Vos statistiques ne le montrent pas',
-        body: 'L’essentiel se joue sans clic. Les visites qui arrivent malgré tout se rangent souvent en trafic direct, donc vous ne voyez ni ce que vous gagnez ni ce que vous manquez.',
+        body: 'L’essentiel se joue sans clic. Les visites qui en découlent sont le plus souvent classées en trafic direct dans vos outils. Vous ne voyez donc ni ce que ce canal vous rapporte, ni ce qu’il vous fait perdre.',
+      },
+      {
+        title: 'Votre SEO n’y répond pas',
+        body: 'Une IA ne classe pas des pages, elle lit des sources et vérifie qu’elles se recoupent. Être premier sur Google aide, mais ne garantit pas d’être cité. Le travail à faire est différent, et la plupart des boutiques ne l’ont pas commencé.',
       },
     ],
+  },
+
+  aiChoice: {
+    // REVIEW-FR: seul le sur-titre est de nous, le reste vient de la revue.
+    eyebrow: 'Le mécanisme',
+    title: 'Comment une IA choisit une marque',
+    subtitle: 'Quatre étapes. Vous n’en influencez que deux.',
+    conclusion: 'Tout notre travail porte sur les deux étapes que vous pouvez influencer.',
+    link: 'Comprendre notre approche →',
   },
 
   services: {
     eyebrow: 'Ce que nous faisons',
     // REVIEW-FR: titre, intro et six cartes réécrits pour le recentrage.
-    title: 'Être dans la réponse. Puis retirer à vos équipes le travail répétitif.',
+    title: 'D’abord être dans la réponse. Ensuite, libérer vos équipes.',
     intro:
-      'Nous travaillons sur deux choses. Rendre votre marque visible et correctement décrite dans les réponses des IA, et construire des agents qui retirent à vos équipes le travail répétitif. La conversion intervient quand c’est la boutique elle-même qui fait perdre la vente.',
+      'Notre travail commence par la visibilité de votre marque dans les réponses des IA : être cité, et correctement décrit. Il se poursuit avec des agents qui prennent en charge les tâches répétitives de vos équipes. Et quand c’est la boutique elle-même qui fait perdre la vente, nous corrigeons la conversion.',
     tags: { geo: 'GEO', ai: 'Agents IA', conversion: 'Conversion' },
     items: [
       {
@@ -94,13 +106,13 @@ export const fr: Dictionary = {
         tag: 'GEO',
         title: 'Amélioration',
         page: 'geo',
-        body: 'Le travail qui fait citer votre marque plus souvent : des fiches produit plus claires, une présence sur les sites dont les IA se servent, des informations corrigées. En grande partie mené par nos propres agents.',
+        body: 'Le travail qui vous fait citer plus souvent : des fiches produit plus lisibles, une présence sur les sites que les IA consultent, des informations erronées corrigées à la source. En grande partie mené par nos propres agents.',
       },
       {
         tag: 'Agents IA',
         title: 'Agents d’opérations',
         page: 'agents',
-        body: 'Ce qui prend du temps à vos équipes sans rien apporter, nous l’automatisons. Nous construisons des agents qui déchargent votre équipe du travail répétitif : traitement des commandes, relances fournisseurs, retours, reporting interne. Calibrés sur votre vrai workflow, pas un chatbot générique.',
+        body: 'Des agents qui déchargent vos équipes du travail répétitif : traitement des commandes, relances fournisseurs, retours, reporting interne. Calibrés sur votre workflow réel, pas un chatbot générique.',
       },
       {
         tag: 'Agents IA',
@@ -112,33 +124,40 @@ export const fr: Dictionary = {
         tag: 'Conversion',
         title: 'Optimisation du taux de conversion',
         page: 'conversion',
-        body: 'Tests A/B continus sur les fiches produit, le panier et le checkout, les fuites les plus rentables d’abord. Vous voyez l’impact sur le chiffre d’affaires, pas des indicateurs de vanité.',
+        body: 'Tests A/B continus sur les fiches produit, le panier et le checkout, en commençant par les fuites qui coûtent le plus. Vous voyez l’impact sur le chiffre d’affaires, pas des métriques flatteuses.',
       },
     ],
   },
 
+  proof: {
+    // REVIEW-FR: sur-titre de nous, texte repris de la revue.
+    eyebrow: 'Preuve',
+    title: 'Nous l’avons d’abord fait sur notre propre site.',
+    body: 'Chaque page de ce site embarque des données structurées, un sitemap lisible par machine, une politique explicite pour les robots d’IA et un résumé en texte brut de ce que fait le studio. Vous lisez ce que nous mettrions en place pour vous.',
+  },
+
   process: {
     eyebrow: 'Comment ça marche',
-    title: 'Commencez gratuitement. Corrigez ce qui rapporte. Puis capitalisez.',
-    claim: 'Demandez le vôtre →',
+    title: 'Un audit gratuit, un programme à périmètre fixe, puis un suivi dans la durée.',
+    claim: 'Demander mon audit →',
     steps: [
       {
         step: '01',
-        name: 'Diagnostic',
+        name: 'Audit GEO',
         price: 'Gratuit',
-        body: 'Nous auditons votre boutique en ligne et repérons précisément où les ventes fuient : 5 correctifs classés par impact, en PDF de 3 à 4 pages sous 3 jours ouvrés. À vous de le garder, que l’on travaille ensemble ou non.',
+        body: 'Nous posons 4 questions d’achat de votre catégorie à ChatGPT, Gemini, Perplexity et Claude, 5 fois chacune, et mesurons si votre marque est citée, par qui elle est remplacée, et comment elle est décrite. Trois actions prioritaires, en PDF de 3 à 4 pages, sous 3 jours ouvrés. Le document vous appartient.',
       },
       {
         step: '02',
-        name: 'Sprint',
+        name: 'Programme',
         price: 'Périmètre fixe',
-        body: 'Nous livrons d’abord les correctifs au meilleur ROI, en un sprint concentré de 2 à 3 semaines. Adapté à votre trésorerie, sans engagement long pour démarrer.',
+        body: 'Nous rendons votre boutique lisible et corroborée : données structurées, pages qui répondent aux questions d’achat, informations erronées corrigées, présence sur les sources que les IA consultent. Six semaines, périmètre et prix fixés à l’avance.',
       },
       {
         step: '03',
-        name: 'Accompagnement',
+        name: 'Suivi',
         price: 'Mensuel',
-        body: 'Nous menons des tests A/B en continu pour faire progresser la conversion mois après mois. C’est là que se jouent les vrais gains, et la vraie relation.',
+        body: 'Les mêmes questions sont reposées chaque mois, le trafic venu des IA est suivi dans GA4, et nous itérons sur ce qui a bougé. La corroboration se gagne lentement : c’est là que les résultats se cumulent.',
       },
     ],
   },
@@ -150,15 +169,15 @@ export const fr: Dictionary = {
     points: [
       {
         title: 'Centrés sur le marché francophone',
-        body: 'Une IA répond à une question française à partir de sources françaises : presse française, forums français, sites d’avis français. Nous travaillons uniquement avec des marques qui vendent en France et sur les marchés francophones, donc nous savons quelles sources comptent dans votre catégorie.',
+        body: 'Une IA répond à une question posée en français à partir de sources en français : presse, forums, sites d’avis. Nous ne travaillons qu’avec des marques qui vendent en France et sur les marchés francophones. Nous savons donc quelles sources comptent dans votre catégorie.',
       },
       {
         title: 'Des chiffres que vous pouvez vérifier',
         body: 'Chaque chiffre de visibilité que nous donnons vient de la même question posée plusieurs fois, dans les outils que vos acheteurs utilisent. Jamais d’une capture d’écran isolée.',
       },
       {
-        title: 'Nous tournons avec les agents que nous construisons',
-        body: 'Notre propre exécution (audits, reporting, contrôle des tests) est pilotée par des agents IA que nous avons construits nous-mêmes. Vous y gagnez en rapidité, et la preuve que ce que nous vous vendons fonctionne vraiment.',
+        title: 'Nos propres agents font tourner le studio',
+        body: 'Audits, reporting, contrôle des tests : notre propre exécution repose sur des agents que nous avons construits. Vous y gagnez en rapidité, et la preuve que ce que nous vendons fonctionne.',
       },
     ],
   },
@@ -168,44 +187,116 @@ export const fr: Dictionary = {
     role: 'Fondateur, Maubourg Studio',
     photoAlt: 'Nathan Alcotte, fondateur de Maubourg Studio',
     initials: 'NA',
-    blurb: 'Opérations e-commerce et automatisation. Basé à Paris. C’est moi qui lis votre boutique.',
+    blurb: 'Opérations e-commerce et automatisation, à Paris. C’est moi qui réalise votre audit.',
   },
 
   pricing: {
     eyebrow: 'Tarifs',
-    title: 'Un prix indexé sur le chiffre d’affaires généré.',
+    title: 'Des fourchettes claires, un engagement court.',
     intro:
-      'Démarrez par un diagnostic ou un projet ponctuel, puis poursuivez avec l’optimisation mensuelle. Chaque accompagnement court sur 3 mois minimum, le temps que les tests fassent leurs preuves.',
-    entry: [
-      {
-        name: 'Diagnostic gratuit',
-        price: '0 €',
-        desc: '5 correctifs de conversion classés par impact. Le moyen le plus rapide de voir si nous sommes faits pour travailler ensemble.',
-        cta: 'Demander le diagnostic',
-      },
-      {
-        name: 'Audit approfondi payant',
-        price: '500–1 500 €',
-        desc: 'Rapport complet et feuille de route priorisée. Déduit de votre premier sprint ou accompagnement.',
-        cta: 'Réserver un appel',
-      },
-    ],
-    project: [
-      {
-        name: 'Sprint d’optimisation',
-        price: '1 500–3 500 €',
-        desc: 'Correction en 2 à 3 semaines, périmètre fixe, des principaux points de l’audit.',
-      },
-      {
-        name: 'Développement d’agent IA',
-        price: '3 000–8 000 €',
-        desc: 'Un agent, calibré sur un workflow réel, construit et livré.',
-      },
-    ],
-    retainersHeading: 'Accompagnements mensuels : là où tout se capitalise',
-    mostPopular: 'Le plus choisi',
-    retainerCta: 'Commencer par un diagnostic',
+      'Démarrez par un audit gratuit ou un projet à périmètre fixe, puis poursuivez avec un suivi mensuel. Chaque suivi s’étend sur 3 mois minimum : c’est le temps qu’il faut pour qu’une évolution soit mesurable.',
+    mostRequested: 'Le plus demandé',
     perMonth: '/mois',
+    // REVIEW-FR: libellés de durée (`meta`) écrits ici ; prix et contenus repris de la revue.
+    groups: [
+      {
+        heading: 'Visibilité dans les IA',
+        items: [
+          {
+            name: 'Audit GEO gratuit',
+            price: '0 €',
+            meta: 'Sous 3 jours ouvrés',
+            desc: '4 questions d’achat, 4 IA, 5 passages chacune. Votre taux de citation, les marques citées à votre place, trois actions prioritaires.',
+            cta: 'Demander mon audit',
+            action: 'audit',
+            featured: true,
+            badge: false,
+          },
+          {
+            name: 'Audit GEO approfondi',
+            price: '900–1 500 €',
+            meta: 'Sous 10 jours ouvrés',
+            desc: '20 questions d’achat, 4 IA. Concurrents cités, sources dont les IA se servent dans votre catégorie, feuille de route priorisée. Déduit de votre programme.',
+            cta: 'Réserver un appel',
+            action: 'call',
+            featured: false,
+            badge: false,
+          },
+          {
+            name: 'Programme GEO',
+            price: '3 500–6 000 €',
+            meta: 'Six semaines, périmètre fixe',
+            desc: 'Votre boutique rendue lisible et corroborée, avec une mesure avant / après sur les mêmes questions.',
+            cta: 'Réserver un appel',
+            action: 'call',
+            featured: false,
+            badge: true,
+          },
+          {
+            name: 'Suivi GEO mensuel',
+            price: '900–1 800 €',
+            meta: 'Par mois, 3 mois minimum',
+            desc: 'Les mêmes questions reposées chaque mois, trafic IA suivi dans GA4, itérations.',
+            cta: 'Réserver un appel',
+            action: 'call',
+            featured: false,
+            badge: false,
+          },
+        ],
+      },
+      {
+        heading: 'Agents IA',
+        items: [
+          {
+            name: 'Développement d’agent IA',
+            price: '3 000–8 000 €',
+            meta: 'Un processus',
+            desc: 'Un agent, calibré sur un processus réel, construit, testé et livré avec sa documentation.',
+            cta: 'Réserver un appel',
+            action: 'call',
+            featured: false,
+            badge: false,
+          },
+        ],
+      },
+      {
+        heading: 'Conversion',
+        items: [
+          {
+            name: 'Diagnostic conversion gratuit',
+            price: '0 €',
+            meta: 'Sous 3 jours ouvrés',
+            desc: '5 correctifs classés par impact sur le chiffre d’affaires.',
+            cta: 'Demander le diagnostic',
+            action: 'diagnostic',
+            featured: false,
+            badge: false,
+          },
+          {
+            name: 'Audit conversion approfondi',
+            price: '500–1 500 €',
+            meta: 'Rapport complet',
+            desc: 'Rapport complet et feuille de route priorisée. Déduit de votre premier sprint ou accompagnement.',
+            cta: 'Réserver un appel',
+            action: 'call',
+            featured: false,
+            badge: false,
+          },
+          {
+            name: 'Sprint d’optimisation',
+            price: '1 500–3 500 €',
+            meta: '2 à 3 semaines',
+            desc: 'Les principaux points de l’audit corrigés en 2 à 3 semaines, à périmètre fixe.',
+            cta: 'Réserver un appel',
+            action: 'call',
+            featured: false,
+            badge: false,
+          },
+        ],
+      },
+    ],
+    retainersHeading: 'Accompagnement conversion mensuel',
+    retainerCta: 'Commencer par un diagnostic',
     retainers: [
       {
         tier: 'Starter',
@@ -215,84 +306,86 @@ export const fr: Dictionary = {
       {
         tier: 'Growth',
         price: '2 000–3 500 €',
-        features: ['Tests A/B continus', 'Travail fiche produit & checkout'],
+        features: ['Tests A/B continus', 'Optimisation des fiches produit et du checkout'],
       },
       {
         tier: 'Scale',
         price: '4 000–6 000 €+',
-        features: ['Programme CRO complet', 'Plusieurs tests en parallèle', 'Priorité + appels stratégie'],
+        features: [
+          'Programme de conversion complet',
+          'Plusieurs tests en parallèle',
+          'Traitement prioritaire et point stratégie mensuel',
+        ],
       },
     ],
-    // REVIEW-FR: mention du marché européen retirée.
-    footnote: 'Fourchettes indicatives.',
+    footnote: 'Fourchettes indicatives, prix fixé avant de démarrer.',
   },
 
-  teardown: {
-    eyebrow: 'Diagnostic gratuit',
-    title: 'Recevez 5 correctifs classés par impact sur le chiffre d’affaires.',
+  audit: {
+    eyebrow: 'Audit GEO gratuit',
+    title: 'Sachez si votre marque est dans la réponse.',
     intro:
-      'Donnez-nous l’adresse de votre boutique et vous recevrez un PDF de 3 à 4 pages sous 3 jours ouvrés avec notre analyse : les pertes les plus rentables à corriger en premier, et les deux ou trois actions applicables dès cette semaine. C’est gratuit, et le document vous appartient.',
+      'Indiquez l’adresse de votre boutique et votre catégorie. Sous 3 jours ouvrés, vous recevez un PDF de 3 à 4 pages : les 4 questions d’achat que nous avons posées à ChatGPT, Gemini, Perplexity et Claude (5 fois chacune), la fréquence à laquelle chacun cite votre marque, les marques citées à votre place, la façon dont vous êtes décrit, et les trois actions à lancer en premier. C’est gratuit, et le document vous appartient.',
     points: [
-      'Un vrai audit de votre boutique en ligne, pas une checklist générique',
-      'Des points classés par impact × effort, pour savoir par où commencer',
-      'Un PDF de 3 à 4 pages dans votre boîte mail sous 3 jours ouvrés',
-      'Sans engagement : prenez la liste et foncez, ou parlons-en',
+      '4 vraies questions d’achat de votre catégorie, posées 5 fois à 4 IA : une fréquence, pas une capture d’écran',
+      'Les marques citées à votre place, et pourquoi',
+      'Un PDF de 3 à 4 pages sous 3 jours ouvrés',
+      'Sans engagement : appliquez les actions vous-même, ou parlons-en',
     ],
-    sampleTitle: 'Voyez un vrai diagnostic avant de demander le vôtre.',
-    // REVIEW-FR: « européenne » retiré.
-    sampleBody: 'Un diagnostic complet réalisé sur une boutique en ligne, dont le nom a été retiré.',
-    sampleLink: 'Lire le diagnostic d’exemple (PDF) →',
-    talkPrefix: 'Vous préférez d’abord échanger ?',
+    talkPrefix: 'Vous préférez en parler d’abord ?',
     talkLink: 'Réserver un appel de 15 minutes →',
     form: {
       step1Of2: 'Étape 1 sur 2',
       step2Of2: 'Étape 2 sur 2',
-      step1Title: 'Où se trouve votre boutique ?',
+      step1Title: 'Quelle est l’adresse de votre boutique ?',
       step2Title: 'Presque terminé.',
-      step2Intro: 'Deux détails rapides pour que le diagnostic arrive dans la bonne boîte mail, à votre nom.',
+      step2Intro: 'Deux informations pour que l’audit vous parvienne, à votre nom.',
       continue: 'Continuer →',
       back: '← Retour',
       name: 'Votre nom',
-      namePlaceholder: 'Marie Dupont',
+      namePlaceholder: 'Jeanne Dupont',
       email: 'E-mail',
-      emailPlaceholder: 'marie@marque.com',
-      storeUrl: 'URL de la boutique',
-      storeUrlPlaceholder: 'marque.com',
+      emailPlaceholder: 'jeanne@marque.fr',
+      storeUrl: 'Adresse de la boutique',
+      storeUrlPlaceholder: 'marque.fr',
+      category: 'Votre catégorie de produits',
+      categoryPlaceholder: 'ex. chemises en lin, compléments alimentaires, mobilier d’extérieur',
+      categoryHelp: 'Sert à formuler les 4 questions d’achat que nous poserons aux IA.',
       platform: 'Plateforme',
       monthlyRevenue: 'Chiffre d’affaires mensuel',
-      revenueHelp: 'Sert uniquement à calibrer les estimations de chiffre d’affaires de votre diagnostic.',
-      select: 'Sélectionner…',
-      message: 'Un point précis ?',
+      revenueHelp: 'Sert uniquement à calibrer les estimations chiffrées de votre audit.',
+      select: 'Choisir…',
+      message: 'Un concurrent ou une question en particulier ?',
       optional: '(facultatif)',
-      messagePlaceholder: 'Où pensez-vous perdre des ventes ?',
-      submit: 'Recevoir mon diagnostic gratuit →',
+      messagePlaceholder: 'Ce que vous aimeriez que nous regardions.',
+      submit: 'Recevoir mon audit GEO gratuit →',
       submitting: 'Envoi…',
       privacy:
-        'Pas de spam. Nous utilisons votre e-mail uniquement pour vous envoyer votre diagnostic et vous relancer une fois.',
+        'Pas de spam. Votre e-mail sert uniquement à vous envoyer l’audit, et à vous relancer une fois.',
       revenueBands: [
         'Moins de 10 k€ / mois',
-        '10 k€–50 k€ / mois',
-        '50 k€–200 k€ / mois',
-        '200 k€–500 k€ / mois',
+        '10–50 k€ / mois',
+        '50–200 k€ / mois',
+        '200–500 k€ / mois',
         '500 k€+ / mois',
       ],
       platforms: ['Shopify', 'WooCommerce', 'Autre'],
     },
     success: {
+      // REVIEW-FR: message de confirmation réécrit pour l’audit GEO.
       title: 'Demande reçue.',
-      body: 'Nous allons analyser votre boutique et vous envoyer votre diagnostic en PDF sous 3 jours ouvrés. Surveillez votre boîte de réception.',
+      body: 'Nous posons les questions d’achat de votre catégorie aux quatre IA et vous envoyons votre audit en PDF sous 3 jours ouvrés. Surveillez votre boîte mail.',
       again: 'Envoyer une autre boutique',
     },
   },
 
   faq: {
     eyebrow: 'FAQ',
-    title: 'Vos questions, nos réponses.',
+    title: 'Questions fréquentes',
     items: [
       {
-        // REVIEW-FR: trois questions ajoutées et une réécrite pour le recentrage.
         q: 'Qu’est-ce que le GEO ?',
-        a: 'Le GEO (generative engine optimization) consiste à faire citer votre marque, et à la faire décrire correctement, quand quelqu’un demande une recommandation à une IA comme ChatGPT ou Perplexity. Cela recoupe le SEO, mais dépend bien davantage de ce que les autres sites disent de vous.',
+        a: 'Le GEO (generative engine optimization) consiste à faire citer votre marque, et à la faire décrire correctement, quand quelqu’un demande une recommandation à une IA comme ChatGPT ou Perplexity. Cela recoupe le SEO, mais dépend surtout de ce que les autres sites disent de vous.',
       },
       {
         q: 'Pouvez-vous garantir que ChatGPT nous recommandera ?',
@@ -300,15 +393,15 @@ export const fr: Dictionary = {
       },
       {
         q: 'Comment mesurez-vous le trafic venu des IA ?',
-        a: 'Nous configurons GA4 pour que les visites venues de ChatGPT, Perplexity et outils similaires apparaissent comme un canal à part, avec ce que ces visiteurs font sur le site. Une partie de ce trafic arrive sans aucune trace de sa provenance : nous disons donc toujours de combien les chiffres peuvent sous-estimer la réalité.',
+        a: 'Nous configurons GA4 pour que les visites venues de ChatGPT, Perplexity et des autres IA apparaissent comme un canal à part, avec le comportement de ces visiteurs sur le site. Une partie de ce trafic arrive sans trace de sa provenance : nous indiquons donc toujours de combien les chiffres peuvent sous-estimer la réalité.',
       },
       {
-        q: 'Le diagnostic est-il vraiment gratuit ?',
-        a: 'Oui. Nous auditons votre boutique en ligne et vous renvoyons un PDF de 3 à 4 pages avec 5 correctifs classés par impact, sous 3 jours ouvrés, sans frais ni engagement. Un exemple est consultable sur cette page si vous voulez en voir un avant de demander le vôtre. Si les correctifs valent la peine, nous pouvons parler de les mener ensemble, mais la liste est à vous dans tous les cas.',
+        q: 'L’audit GEO est-il vraiment gratuit ?',
+        a: 'Oui. Nous posons 4 questions d’achat de votre catégorie à ChatGPT, Gemini, Perplexity et Claude, 5 fois chacune, et vous envoyons sous 3 jours ouvrés un PDF de 3 à 4 pages : votre présence, les marques citées à votre place, et trois actions prioritaires. Sans frais ni engagement. Si les actions en valent la peine, nous pouvons en parler ; le document vous appartient dans tous les cas.',
       },
       {
         q: 'Avec qui travaillez-vous ?',
-        a: 'Des marques e-commerce qui vendent en France et sur les marchés francophones (Belgique, Suisse), généralement sur Shopify ou WooCommerce. Nous nous concentrons sur les marchés francophones parce qu’une IA répond à une question française à partir de sources françaises, et que c’est le terrain que nous connaissons. Les marques basées ailleurs qui vendent en France sont les bienvenues.',
+        a: 'Des marques e-commerce qui vendent en France et sur les marchés francophones (Belgique, Suisse), généralement sur Shopify ou WooCommerce. Nous nous concentrons sur les marchés francophones parce qu’une IA répond à une question posée en français à partir de sources en français, et que c’est le terrain que nous connaissons. Les marques basées ailleurs qui vendent en France sont les bienvenues.',
       },
       {
         q: 'Construisez-vous vraiment les agents IA, ou revendez-vous un outil ?',
@@ -316,11 +409,11 @@ export const fr: Dictionary = {
       },
       {
         q: 'En combien de temps verrai-je des résultats ?',
-        a: 'Les gains rapides d’un sprint peuvent être déployés en quelques semaines. Les gains cumulés viennent des tests continus dans l’accompagnement, c’est pourquoi nous demandons 3 mois minimum, le temps que les tests fassent leurs preuves.',
+        a: 'Sur la visibilité dans les IA : ce qui dépend de votre site (données structurées, pages réponses, informations corrigées) est en place en quelques semaines ; le programme dure six semaines ; la corroboration par d’autres sources se gagne sur plusieurs mois, d’où un suivi de 3 mois minimum. Sur la conversion : les correctifs d’un sprint sont en ligne en quelques semaines, les gains cumulés viennent de l’accompagnement.',
       },
       {
         q: 'Comment mesurez-vous le succès ?',
-        a: 'Par le chiffre d’affaires, pas par des indicateurs de vanité. Chaque changement est rattaché à un chiffre : taux de conversion amélioré, revenu ajouté au même budget pub. Si nous ne pouvons pas le mesurer, nous ne le revendiquons pas.',
+        a: 'Par des chiffres que vous pouvez vérifier : part des réponses d’IA où votre marque apparaît, trafic venu des IA et ce qu’il achète, taux de conversion et revenu ajouté à budget publicitaire constant. Si nous ne pouvons pas le mesurer, nous ne le revendiquons pas.',
       },
     ],
   },
@@ -328,11 +421,11 @@ export const fr: Dictionary = {
   footer: {
     // REVIEW-FR: bloc de clôture inversé, l’appel devient l’action principale.
     ctaTitle: 'Commencez par un',
-    ctaAccent: 'appel de 15 minutes.',
-    ctaPrimary: 'Réserver un appel de 15 min →',
+    ctaAccent: 'audit GEO gratuit.',
+    ctaPrimary: 'Demander mon audit →',
+    talkPrefix: 'Vous préférez en parler d’abord ?',
+    ctaSecondary: 'Réserver un appel de 15 min →',
     ctaNote: 'Quinze minutes, sans présentation commerciale, sans engagement.',
-    talkPrefix: 'Vous préférez lire quelque chose d’abord ?',
-    ctaSecondary: 'Recevez un diagnostic gratuit →',
     tagline: 'Studio GEO et agents IA pour l’e-commerce',
     market: 'France et marchés francophones',
     rights: 'Tous droits réservés.',
@@ -342,35 +435,42 @@ export const fr: Dictionary = {
   call: {
     metaTitle: 'Demander un appel - Maubourg Studio',
     metaDescription:
-      'Laissez votre numéro et nous vous rappelons : un vrai échange de 15 minutes sur la conversion de votre boutique, sans engagement.',
+      'Laissez votre numéro et nous vous rappelons : 15 minutes sur votre présence dans les réponses des IA, vos opérations ou votre boutique. Sans engagement.',
     back: '← Retour à l’accueil',
     eyebrow: 'Demander un appel',
-    title: 'Parlons de votre boutique.',
-    titleAccent: 'nous vous rappelons.',
+    title: 'Laissez-nous votre numéro.',
+    titleAccent: 'Nous vous rappelons.',
     subtitle:
-      'Laissez votre numéro et le meilleur moment pour vous joindre. Nous vous rappelons sous un jour ouvré pour un échange rapide et sans pression sur les points où votre conversion fuit.',
+      'Indiquez le meilleur moment pour vous joindre. Nous vous rappelons sous un jour ouvré pour un échange direct : votre présence dans les réponses des IA, un processus à automatiser, ou ce qui freine vos ventes.',
     points: [
       {
         title: 'Un vrai échange, pas une démo',
-        body: '15 minutes sur les endroits où votre boutique perd des ventes et ce qu’il vaut la peine de corriger en premier, utile que l’on travaille ensemble ou non.',
+        body: '15 minutes sur votre situation et ce qu’il vaut la peine de traiter en premier. Utile, que nous travaillions ensemble ou non.',
       },
       {
         title: 'Nous vous appelons, à votre rythme',
-        body: 'Choisissez le créneau qui vous convient. Pas de ping-pong d’agendas, pas de formulaires à rallonge.',
+        body: 'Choisissez le créneau qui vous convient. Pas d’échanges d’agendas, pas de formulaire à rallonge.',
       },
       {
-        title: 'Sans engagement, sans forcing',
-        body: 'S’il y a un fit, nous vous le dirons. Sinon, vous repartez quand même avec quelque chose d’utile.',
+        title: 'Sans engagement, sans insistance',
+        body: 'Si nous pouvons vous aider, nous vous le dirons. Sinon, vous repartez quand même avec quelque chose d’utile.',
       },
     ],
-    teardownPrefix: 'Vous préférez d’abord des correctifs par écrit ?',
-    teardownLink: 'Recevez un diagnostic gratuit →',
+    teardownPrefix: 'Vous préférez commencer par un document ?',
+    teardownLink: 'Demander un audit GEO gratuit →',
     form: {
       name: 'Votre nom',
       namePlaceholder: 'Marie Dupont',
       phone: 'Numéro de téléphone',
       phonePlaceholder: '+33 6 12 34 56 78',
-      preferredTime: 'Meilleur moment pour appeler',
+      topic: 'C’est à quel sujet ?',
+      topics: [
+        'Visibilité dans les IA (GEO)',
+        'Agents IA',
+        'Conversion',
+        'Je ne sais pas encore',
+      ],
+      preferredTime: 'Meilleur moment pour vous joindre',
       email: 'E-mail',
       emailPlaceholder: 'marie@marque.com',
       storeUrl: 'URL de la boutique',
@@ -381,7 +481,7 @@ export const fr: Dictionary = {
       select: 'Sélectionner…',
       submit: 'Demander mon appel →',
       submitting: 'Envoi…',
-      note: 'Un vrai appel de 15 minutes. Sans engagement, sans forcing.',
+      note: 'Un appel de 15 minutes. Sans engagement, sans insistance.',
       times: [
         'En semaine, le matin',
         'En semaine, l’après-midi',
@@ -485,8 +585,8 @@ export const fr: Dictionary = {
       title: 'C’était un agent, une tâche, en 30 secondes environ.',
       body: 'Ceux que nous construisons tournent en continu sur un catalogue entier : rédaction et mise à jour des textes, métadonnées manquantes, et repérage des fiches qui perdent des ventes sans bruit.',
       ctaPrimary: 'Réserver un appel de 15 min →',
-      teardownPrefix: 'Vous préférez d’abord des correctifs à l’écrit ?',
-      teardownLink: 'Recevoir mon diagnostic gratuit →',
+      teardownPrefix: 'Vous préférez commencer par un document ?',
+      teardownLink: 'Demander un audit GEO gratuit →',
     },
     errors: {
       BAD_REQUEST: 'Cette requête n’est pas passée. Merci de réessayer.',
@@ -501,7 +601,7 @@ export const fr: Dictionary = {
         'Nous n’avons trouvé aucun produit sur cette page. Collez l’URL d’une fiche produit, pas d’une page d’accueil ni d’une collection.',
       TOKEN_EXPIRED: 'Ce résultat a expiré. Relancez l’agent sur la même URL, c’est gratuit.',
       RATE_LIMITED:
-        'La démo a atteint sa limite du jour : elle tourne sur un petit budget. Réservez 15 minutes ou demandez un diagnostic gratuit à la place.',
+        'La démo a atteint sa limite du jour : elle tourne sur un petit budget. Réservez 15 minutes ou demandez un audit GEO gratuit à la place.',
       MODEL_ERROR: 'L’agent n’a pas pu terminer celle-ci. Réessayez dans un instant.',
     },
     resultEmail: {
@@ -570,13 +670,12 @@ export const fr: Dictionary = {
       backHome: '← Retour à l’accueil',
       relatedHeading: 'La suite logique',
       ctaEyebrow: 'Commencez ici',
-      ctaTitle: 'Commencez par un diagnostic offert.',
+      ctaTitle: 'Commencez par un audit GEO gratuit.',
       ctaBody:
-        'Nous regardons votre boutique, nommons les cinq correctifs qui rapportent le plus, et vous les envoyons. Aucun appel nécessaire pour l’obtenir, et rien à devoir si vous le prenez et partez.',
-      ctaPrimary: 'Recevoir le diagnostic →',
+        'Nous posons 4 questions d’achat de votre catégorie à ChatGPT, Gemini, Perplexity et Claude, 5 fois chacune, et vous envoyons votre taux de citation et trois actions prioritaires sous 3 jours ouvrés. Sans appel préalable, sans contrepartie.',
+      ctaPrimary: 'Demander mon audit →',
       ctaSecondary: 'Réserver 15 minutes',
-      priceNote:
-        'Fourchettes indicatives. Nous facturons le revenu en jeu, pas les heures passées.',
+      priceNote: 'Fourchettes indicatives. Le prix dépend de l’enjeu, pas des heures passées.',
     },
 
     conversion: {
@@ -588,23 +687,25 @@ export const fr: Dictionary = {
       meta: {
         title: 'Optimisation du taux de conversion - Maubourg Studio',
         description:
-          'Tests A/B sur les fiches produit, le panier et le checkout, les fuites les plus rentables d’abord, pour les marques e-commerce qui vendent en France et sur les marchés francophones.',
+          'Tests A/B sur les fiches produit, le panier et le checkout, en commençant par les fuites qui coûtent le plus. Pour les marques e-commerce qui vendent en France et sur les marchés francophones.',
       },
       hero: {
         eyebrow: 'Conversion',
         title: 'Vous avez déjà payé ce trafic.',
         titleAccent: 'Faites-en des acheteurs.',
         subtitle:
-          'Être recommandé, par une IA ou par qui que ce soit, ne vaut rien si la page d’arrivée fait perdre la vente. Ici, le travail porte sur la boutique elle-même : trouver où les acheteurs décrochent, corriger cela en premier, puis tester le correctif au lieu de le supposer.',
+          'Être recommandé, par une IA ou par qui que ce soit, ne vaut rien si la page d’arrivée fait perdre la vente. Ici, le travail porte sur la boutique elle-même : trouver où les acheteurs décrochent, corriger en priorité, puis tester le correctif au lieu d’en supposer l’effet.',
+        ctaPrimary: 'Demander un diagnostic conversion gratuit →',
+        ctaSecondary: 'Réserver 15 minutes',
         stat: '+1 point',
         statNote:
           'de conversion sur 20 000 sessions à 60€ représente environ 12 000€ par mois, à budget publicitaire identique.',
       },
       funnel: {
-        eyebrow: 'Où ça part',
+        eyebrow: 'Où la vente se perd',
         title: 'Cinq étapes, quatre endroits pour perdre l’acheteur.',
         intro:
-          'Toutes les boutiques perdent leurs visiteurs aux mêmes jointures. Tout l’intérêt d’un audit est de trouver laquelle vous coûte le plus, parce que corriger la troisième pire en premier, c’est comment six mois disparaissent.',
+          'Toutes les boutiques perdent leurs visiteurs aux mêmes endroits. L’intérêt d’un audit est de trouver lequel vous coûte le plus : corriger le troisième problème avant le premier, c’est six mois de perdus.',
         steps: [
           { label: 'Sessions', note: 'Le trafic que vous payez déjà' },
           { label: 'Fiche produit', note: 'La majorité s’arrête là. Texte, preuve, livraison' },
@@ -612,28 +713,28 @@ export const fr: Dictionary = {
           { label: 'Checkout', note: 'Compte obligatoire, trop de champs' },
           { label: 'Achat', note: 'Ce sur quoi tout le reste est jugé' },
         ],
-        caption: 'À titre indicatif. Vos vrais chiffres sortent du diagnostic.',
+        caption: 'À titre indicatif. Vos chiffres réels sortent du diagnostic.',
       },
       leaks: {
-        eyebrow: 'Ce que nous trouvons vraiment',
+        eyebrow: 'Ce que nous trouvons le plus souvent',
         title: 'Les mêmes fuites, boutique après boutique.',
         intro:
-          'Ce ne sont pas des hypothèses. Ce sont les constats qui reviennent le plus souvent dans les diagnostics que nous produisons, chacun vérifié sur une capture de la vraie page avant d’entrer dans un rapport.',
+          'Ce ne sont pas des hypothèses : ce sont les constats qui reviennent le plus souvent dans nos diagnostics, chacun vérifié sur une capture de la page réelle avant d’entrer dans un rapport.',
         columns: { leak: 'Le constat', cost: 'Ce que ça coûte', fix: 'Ce que nous faisons' },
         rows: [
           {
             leak: 'Conditions de livraison loin du prix',
-            cost: 'La question la plus fréquente au moment de décider reste sans réponse, alors l’acheteur part la chercher ailleurs.',
+            cost: 'La question la plus fréquente au moment de décider reste sans réponse ; l’acheteur part la chercher ailleurs.',
             fix: 'Remonter les conditions à côté du prix, puis tester la formulation et pas seulement l’emplacement.',
           },
           {
             leak: 'Une fiche qui ouvre sur les caractéristiques',
-            cost: 'La première ligne dépense la seule attention disponible sur des détails dont l’acheteur ne peut pas encore se soucier.',
+            cost: 'La première ligne dépense la seule attention disponible sur des détails qui ne comptent pas encore pour l’acheteur.',
             fix: 'Réécrire en partant du bénéfice, et garder la caractéristique dessous comme preuve.',
           },
           {
             leak: 'Un compte obligatoire pour commander',
-            cost: 'Le passage en invité est souvent la plus grosse perte récupérable d’une boutique.',
+            cost: 'L’absence de commande en invité est souvent la plus grosse perte récupérable d’une boutique.',
             fix: 'Ouvrir la commande en invité, puis mesurer l’effet au lieu de le supposer.',
           },
           {
@@ -643,16 +744,10 @@ export const fr: Dictionary = {
           },
           {
             leak: 'Une preuve qui arrive après la décision',
-            cost: 'Des avis sous la ligne de flottaison convainquent ceux qui ont déjà dépassé le bouton d’achat.',
+            cost: 'Des avis placés sous la ligne de flottaison ne convainquent que ceux qui ont déjà dépassé le bouton d’achat.',
             fix: 'Remonter la preuve la plus forte, et tester la place qu’elle mérite vraiment.',
           },
         ],
-      },
-      geoNote: {
-        // REVIEW-FR: remplace l’ancien bloc mesure, renvoyé vers la page GEO.
-        title: 'Mesurer ce que les IA vous envoient fait partie du GEO.',
-        body: 'Configurer GA4 pour que les visites venues de ChatGPT, Perplexity et outils similaires apparaissent comme un canal à part relève de l’offre de visibilité, pas de cette page.',
-        link: 'Visibilité LLM (GEO) →',
       },
       how: {
         eyebrow: 'Comment ça se déroule',
@@ -661,7 +756,7 @@ export const fr: Dictionary = {
           {
             name: 'Diagnostic',
             price: 'Offert',
-            body: 'Cinq correctifs classés par ce qu’ils valent. Il est à vous, que l’on travaille ensemble ou non.',
+            body: 'Cinq correctifs classés par impact. Le document vous appartient, que nous travaillions ensemble ou non.',
           },
           {
             name: 'Sprint',
@@ -671,9 +766,35 @@ export const fr: Dictionary = {
           {
             name: 'Accompagnement',
             price: 'à partir de 1 000€ / mois',
-            body: 'Tests en continu, trois mois minimum, parce qu’un test a besoin de temps pour être vrai.',
+            body: 'Tests en continu, trois mois minimum, le temps qu’un test soit significatif.',
           },
         ],
+      },
+      diagnostic: {
+        eyebrow: 'Diagnostic conversion gratuit',
+        title: 'Recevez 5 correctifs classés par impact sur le chiffre d’affaires.',
+        intro:
+          'Donnez-nous l’adresse de votre boutique. Sous 3 jours ouvrés, vous recevez un PDF de 3 à 4 pages : les pertes qui vous coûtent le plus à corriger en premier, et les deux ou trois actions applicables dès cette semaine. C’est gratuit, et le document vous appartient.',
+        points: [
+          'Un vrai audit de votre boutique en ligne, pas une checklist générique',
+          'Des constats classés par impact et par effort, pour savoir par où commencer',
+          'Un PDF de 3 à 4 pages sous 3 jours ouvrés',
+          'Sans engagement : appliquez les correctifs vous-même, ou parlons-en',
+        ],
+        sampleTitle: 'Voyez un audit réel avant de demander le vôtre.',
+        sampleBody: 'Un audit complet réalisé pour une marque réelle, anonymisé.',
+        sampleLink: 'Lire l’audit d’exemple (PDF) →',
+        submit: 'Recevoir mon diagnostic gratuit →',
+        success: {
+          title: 'Demande reçue.',
+          body: 'Nous passons votre boutique en revue et vous envoyons votre diagnostic en PDF sous 3 jours ouvrés. Surveillez votre boîte mail.',
+          again: 'Envoyer une autre boutique',
+        },
+      },
+      cta: {
+        title: 'Commencez par un diagnostic conversion gratuit.',
+        body: 'Nous analysons votre boutique et vous envoyons les cinq correctifs qui rapportent le plus. Sans appel préalable, sans contrepartie.',
+        primary: 'Demander le diagnostic →',
       },
       related: [
         {
@@ -688,7 +809,7 @@ export const fr: Dictionary = {
     },
 
     geo: {
-      nav: { label: 'Visibilité LLM', blurb: 'Être la boutique qu’un assistant recommande.' },
+      nav: { label: 'Visibilité LLM (GEO)', blurb: 'Être la marque que les IA citent.' },
       meta: {
         title: 'Visibilité sur les LLMs (GEO) - Maubourg Studio',
         // REVIEW-FR: description réécrite.
@@ -697,18 +818,19 @@ export const fr: Dictionary = {
       },
       hero: {
         eyebrow: 'Generative engine optimization',
-        title: 'Les acheteurs interrogent un assistant',
+        title: 'Les acheteurs interrogent une IA',
         titleAccent: 'avant d’interroger un moteur de recherche.',
         subtitle:
-          'Demandez la meilleure chemise en lin sous 120€ et un assistant répond à partir d’une poignée de sources qu’il a récupérées et jugées fiables. Être l’une de ces sources n’a rien à voir avec se classer sur Google, et la plupart des boutiques n’ont rien fait pour.',
+          'Demandez la meilleure chemise en lin à moins de 120 € : une IA répond à partir d’une poignée de sources qu’elle a retenues et jugées fiables. Être l’une de ces sources n’a rien à voir avec se classer sur Google, et rares sont les boutiques qui s’y sont préparées.',
         stat: 'Un nouveau canal',
-        statNote:
-          'sur lequel on n’enchérit pas, qu’on n’achète pas, et qui n’apparaît pas dans vos statistiques.',
+        statNote: 'qui ne s’achète pas, et qui n’apparaît pas dans vos statistiques.',
+        ctaPrimary: 'Demander un audit GEO gratuit →',
+        ctaSecondary: 'Réserver 15 minutes',
       },
       what: {
         eyebrow: 'De quoi il s’agit vraiment',
         title: 'Pas un classement. Une citation.',
-        body: 'La recherche vous tend une liste et laisse le visiteur choisir. Un assistant lit les sources, tranche, et donne une réponse. Il n’y a pas de deuxième page : l’écart entre être cité et être absent est donc le résultat tout entier. Le travail consiste à rendre votre boutique lisible par une machine qui lit plutôt qu’elle n’explore : des réponses claires aux questions que les acheteurs posent vraiment, des données structurées qui disent ce qu’est une page, et assez de mentions ailleurs pour être corroboré hors de votre propre domaine.',
+        body: 'Un moteur de recherche propose une liste et laisse le visiteur choisir. Une IA lit les sources, tranche, et donne une réponse. Il n’y a pas de deuxième page : être cité ou absent, c’est tout le résultat. Le travail consiste donc à rendre votre boutique lisible par une machine qui lit au lieu d’explorer : des réponses nettes aux questions que les acheteurs posent, des données structurées qui décrivent chaque page, et suffisamment de mentions ailleurs pour être corroboré hors de votre domaine.',
       },
       chain: {
         eyebrow: 'Comment la réponse se fabrique',
@@ -722,13 +844,13 @@ export const fr: Dictionary = {
             influence: 'Aucun',
           },
           {
-            step: 'Récupération',
-            note: 'Le modèle rassemble les sources qu’il sait lire et analyser',
+            step: 'Sélection des sources',
+            note: 'L’IA rassemble les sources qu’elle sait lire et comprendre',
             influence: 'C’est là que le travail se fait',
           },
           {
             step: 'Confiance',
-            note: 'Il pèse la corroboration : avis, mentions, cohérence',
+            note: 'Elle pèse la corroboration : avis, mentions, cohérence entre les sources',
             influence: 'Se gagne, lentement',
           },
           {
@@ -738,27 +860,76 @@ export const fr: Dictionary = {
           },
         ],
         caption:
-          'Récupération et confiance sont les deux que vous pouvez bouger. Tout ici vise celles-là.',
+          'Sélection des sources et confiance : ce sont les deux que vous pouvez faire bouger. Tout notre travail porte sur celles-là.',
       },
       blocks: {
         // REVIEW-FR: les cinq leviers deviennent les trois blocs audit, mesure, amélioration.
         eyebrow: 'En quoi consiste le travail',
         title: 'Auditer, mesurer, améliorer.',
+        priceLabel: 'Prix',
+        auditBox: {
+          title: 'Ce que contient l’audit gratuit',
+          items: [
+            '4 questions d’achat de votre catégorie',
+            'Posées 5 fois à ChatGPT, Gemini, Perplexity et Claude',
+            'Votre taux de citation, les marques citées à votre place, la façon dont vous êtes décrit',
+            '3 actions prioritaires, en PDF sous 3 jours ouvrés',
+          ],
+          cta: 'Demander mon audit →',
+        },
         items: [
           {
             title: 'Audit',
+            price: 'Gratuit, ou 900–1 500 € pour l’audit approfondi',
             lead: 'Ce que ChatGPT, Gemini, Perplexity et Claude disent de votre marque et de vos concurrents, mesuré sur des séries de vraies questions d’achat.',
             body: 'Vous recevez les questions posées, la fréquence à laquelle chaque outil vous cite, les marques citées à votre place, et la façon dont votre marque est décrite quand elle apparaît. Les mêmes questions sont reposées plus tard, donc le deuxième rapport se compare au premier.',
           },
           {
             title: 'Mesure',
+            price: 'Incluse dans le programme et dans le suivi, 900–1 800 € / mois',
             lead: 'GA4 configuré pour montrer le trafic qui vient des IA et ce que ces visiteurs font sur votre site.',
-            body: 'Vous recevez le trafic IA comme un canal à part dans GA4, avec ce que ces visiteurs font une fois arrivés. Une partie de ce trafic ne porte aucune trace de sa provenance : nous disons à chaque fois de combien le chiffre peut sous-estimer la réalité.',
+            body: 'Le trafic venu des IA apparaît comme un canal à part dans GA4, avec le comportement de ces visiteurs une fois sur le site. Une partie de ce trafic ne porte aucune trace de sa provenance : nous indiquons à chaque fois de combien le chiffre peut sous-estimer la réalité.',
           },
           {
             title: 'Amélioration',
-            lead: 'Le travail qui fait citer votre marque plus souvent : des fiches produit plus claires, une présence sur les sites dont les IA se servent, des informations corrigées. En grande partie mené par nos propres agents.',
-            body: 'Vous recevez une liste classée de ce qu’il faut changer, puis le travail lui-même : des pages qui répondent en texte aux questions d’achat, des données structurées conformes à ce que dit la page, les informations fausses corrigées là où un outil les répète, et une présence sur les sites d’où votre catégorie est lue. Nous rapportons ce qui a bougé et ce qui n’a pas bougé.',
+            price: 'Programme GEO, 3 500–6 000 €',
+            lead: 'Le travail qui vous fait citer plus souvent : des fiches produit plus lisibles, une présence sur les sites que les IA consultent, des informations erronées corrigées à la source. En grande partie mené par nos propres agents.',
+            body: 'Vous recevez une liste priorisée de ce qu’il faut changer, puis le travail lui-même : des pages qui répondent clairement aux questions d’achat, des données structurées cohérentes avec le contenu, les informations erronées corrigées là où une IA les répète, et une présence sur les sites d’où votre catégorie est lue. Nous rapportons ce qui a bougé, et ce qui n’a pas bougé.',
+          },
+        ],
+      },
+      changes: {
+        // REVIEW-FR: tableau entièrement rédigé ici, sur le modèle de la page Conversion.
+        eyebrow: 'Ce que nous changeons concrètement',
+        title: 'À quoi cela ressemble sur une vraie boutique.',
+        intro:
+          'Cinq constats qui reviennent sur presque toutes les boutiques que nous regardons. Chacun est vérifié sur les pages en ligne avant d’entrer dans un rapport.',
+        columns: { finding: 'Le constat', cost: 'Ce que ça coûte', fix: 'Ce que nous faisons' },
+        rows: [
+          {
+            finding: 'Une fiche produit qui ne répond à aucune question d’usage',
+            cost: 'L’IA n’a rien à citer sur les tailles, les matières ou l’entretien : elle cite un concurrent qui, lui, répond.',
+            fix: 'Répondre aux questions d’achat en texte sur la page, là où une machine peut les lire.',
+          },
+          {
+            finding: 'Données structurées absentes, ou en contradiction avec la page',
+            cost: 'Un balisage faux apprend à une IA quelque chose d’inexact à votre nom. Un balisage absent laisse la page ambiguë.',
+            fix: 'Un balisage produit, offre et avis conforme à ce que dit réellement la page.',
+          },
+          {
+            finding: 'Marque absente des comparatifs et sites d’avis de la catégorie',
+            cost: 'Une affirmation que vous êtes seul à faire reste une affirmation. Une IA cherche la corroboration et n’en trouve pas.',
+            fix: 'Un plan de présence sur les sources dont votre catégorie est réellement lue.',
+          },
+          {
+            finding: 'Prix ou conditions de livraison erronés repris par une IA',
+            cost: 'L’acheteur lit une information périmée : il part, ou il arrive avec une attente fausse.',
+            fix: 'Trouver où vit l’information périmée et la corriger à la source.',
+          },
+          {
+            finding: 'Robots d’IA bloqués dans le robots.txt',
+            cost: 'La boutique ne peut pas être citée parce qu’elle ne peut pas être lue. La perte la moins chère à éviter.',
+            fix: 'Ouvrir délibérément les robots souhaités, et préciser ce qu’ils peuvent lire.',
           },
         ],
       },
@@ -767,12 +938,12 @@ export const fr: Dictionary = {
         note: 'Articles en français.',
       },
       honest: {
-        title: 'Ce que nous ne vous dirons pas là-dessus.',
-        body: 'Personne ne peut promettre une place dans une réponse générée, et quiconque le promet vend ce qu’il ne peut pas livrer. Les mécanismes sont jeunes, ils changent sans prévenir, et il n’existe aucun tableau de positions à montrer. Ce que nous pouvons faire : rendre votre boutique lisible et corroborée, puis mesurer votre présence sur de vraies questions pour que vous voyiez bouger les choses au lieu de nous croire.',
+        title: 'Ce que nous ne vous promettrons pas.',
+        body: 'Personne ne peut garantir une place dans une réponse d’IA, et quiconque le promet vend ce qu’il ne peut pas livrer. Les mécanismes sont récents, ils changent sans prévenir, et il n’existe aucun classement à afficher. Ce que nous pouvons faire : rendre votre boutique lisible et corroborée, puis mesurer votre présence sur de vraies questions, pour que vous constatiez l’évolution au lieu de nous croire sur parole.',
       },
       ourown: {
         title: 'Nous l’avons d’abord fait sur notre propre site.',
-        body: 'Cette page, comme toutes les autres ici, embarque des données structurées, un sitemap lisible par machine, une politique explicite pour les robots d’IA et un résumé en texte brut de ce que fait le studio. C’est la démonstration la moins chère possible : vous lisez ce que nous construirions pour vous.',
+        body: 'Cette page, comme toutes les autres ici, embarque des données structurées, un sitemap lisible par machine, une politique explicite pour les robots d’IA et un résumé en texte brut de ce que fait le studio. Vous lisez ce que nous mettrions en place pour vous.',
       },
       related: [
         {
@@ -781,7 +952,7 @@ export const fr: Dictionary = {
         },
         {
           page: 'agents',
-          text: 'Le catalogue structuré qu’un assistant lit est celui qu’un agent maintient.',
+          text: 'Un catalogue lisible par une IA est un catalogue tenu à jour. C’est le travail d’un agent.',
         },
       ],
     },
@@ -795,30 +966,30 @@ export const fr: Dictionary = {
         title: 'Agents IA pour l’e-commerce - Maubourg Studio',
         // REVIEW-FR: mention avant-vente retirée.
         description:
-          'Des agents calibrés sur un vrai workflow : traitement des commandes, relances fournisseurs, tenue du catalogue. Essayez-en un sur votre fiche produit, sans e-mail à laisser.',
+          'Des agents IA calibrés sur vos processus réels : traitement des commandes, relances fournisseurs, tenue du catalogue. Essayez-en un sur votre fiche produit.',
       },
       hero: {
         eyebrow: 'Agents IA',
-        title: 'Ce que votre équipe fait deux fois',
-        titleAccent: 'n’a pas besoin d’une personne la seconde.',
+        title: 'Ce que vos équipes refont chaque semaine,',
+        titleAccent: 'un agent peut le faire à leur place.',
         subtitle:
-          'Pas un chatbot vissé dans un coin du site. Un agent calibré sur un workflow que vous pouvez nommer, avec les outils pour le faire, une limite qu’il ne franchit pas et un passage de relais propre à un humain quand il doit s’arrêter. Plus simple à montrer qu’à décrire : il y en a un qui tourne plus bas sur cette page.',
+          'Pas un chatbot posé dans un coin du site. Un agent conçu pour un processus précis, avec les outils nécessaires, des limites qu’il ne franchit pas, et une passation à un humain quand il doit s’arrêter. Plus simple à montrer qu’à décrire : un agent tourne plus bas sur cette page.',
         ctaPrimary: 'Essayer sur votre fiche produit ↓',
         ctaSecondary: 'Réserver 15 minutes',
       },
       demoIntro: {
-        eyebrow: 'Une preuve, pas un slide',
+        eyebrow: 'Une démonstration, pas une promesse',
         title: 'Donnez-lui une de vos fiches produit.',
-        body: 'Il lit la page, nomme ce qui vous coûte la vente, et réécrit la description. Environ trente secondes, et nous ne demandons rien en échange : ni e-mail, ni inscription, le résultat s’affiche ici. C’est un petit agent qui fait une seule tâche, et c’est bien le point : ceux que nous construisons tournent en continu sur tout un catalogue.',
+        body: 'Il lit la page, identifie ce qui vous coûte la vente, et réécrit la description. Environ trente secondes, sans e-mail ni inscription : le résultat s’affiche ici. C’est un agent volontairement limité à une tâche. Ceux que nous construisons tournent en continu sur tout un catalogue.',
       },
       families: {
         eyebrow: 'Ce que nous construisons',
         // REVIEW-FR: deux familles au lieu de trois, opérations en premier.
-        title: 'Deux formes, toutes deux calibrées sur votre workflow.',
+        title: 'Deux types d’agents, calibrés sur vos processus.',
         items: [
           {
             title: 'Agents d’opérations',
-            body: 'Ce qui prend du temps à vos équipes sans rien apporter, nous l’automatisons : tri des commandes, relances fournisseurs, retours, le rapport interne que quelqu’un refait à la main chaque lundi.',
+            body: 'Ce qui occupe vos équipes sans créer de valeur : tri des commandes, relances fournisseurs, retours, le rapport interne que quelqu’un refait à la main chaque lundi.',
             examples: [
               'Tri des commandes et exceptions',
               'Relances fournisseurs',
@@ -828,19 +999,19 @@ export const fr: Dictionary = {
           },
           {
             title: 'Catalogue & merchandising',
-            body: 'Rédige et actualise les fiches produit, comble les métadonnées que personne n’a eu le temps de remplir, et signale les annonces et pages qui sous-performent avant que vous ne le voyiez.',
+            body: 'Rédige et actualise les fiches produit, complète les métadonnées que personne n’a eu le temps de remplir, et signale les pages et annonces qui sous-performent avant que vous ne le remarquiez.',
             examples: [
               'Rédaction et mise à jour des fiches',
               'Métadonnées manquantes',
               'Annonces en sous-performance',
-              'Hygiène du flux et du catalogue',
+              'Qualité du flux et du catalogue',
             ],
           },
         ],
       },
       workflow: {
         eyebrow: 'Comment on en construit un',
-        title: 'Un déclencheur, des outils, et une limite nette.',
+        title: 'Comment nous construisons un agent.',
         nodes: [
           { label: 'Déclencheur', note: 'Une commande arrive, une page change, un client demande' },
           { label: 'Contexte', note: 'Seulement la donnée dont la tâche a besoin, rien d’autre' },
@@ -849,25 +1020,30 @@ export const fr: Dictionary = {
           { label: 'Relais', note: 'Un humain, avec le contexte déjà rédigé' },
         ],
         caption:
-          'Le garde-fou est la partie qui compte pour les clients six mois plus tard, donc il se conçoit en premier.',
+          'C’est le garde-fou qui compte encore six mois plus tard. Nous le concevons en premier.',
       },
       guardrails: {
         title: 'Les règles sous lesquelles nous les construisons.',
         items: [
           'Il n’invente jamais un fait sur vos produits. S’il n’a pas pu le lire, il ne l’affirme pas.',
-          'Tout ce qui va au client est rédigé en brouillon et c’est une personne qui envoie, jusqu’à ce que vous en décidiez autrement.',
+          'Tout message destiné à un client reste un brouillon qu’une personne valide, tant que vous n’en décidez pas autrement.',
           'Il touche les systèmes que vous avez listés et aucun autre.',
-          'Chaque exécution est journalisée, pour qu’une mauvaise réponse se retrace au lieu de se discuter.',
+          'Chaque exécution est journalisée : une erreur se retrace, elle ne se débat pas.',
         ],
       },
       included: {
-        title: 'Nous tournons dessus aussi.',
-        body: 'Les agents que nous construisons pour nos clients pilotent aussi notre propre exécution : reporting et onboarding standardisés, livraison plus rapide, et rien qui passe entre les mailles. Ce n’est pas un bénéfice annexe, c’est ce qui permet à un petit studio de porter cette charge.',
+        title: 'Nous les utilisons nous-mêmes.',
+        body: 'Les agents que nous construisons pour nos clients font aussi tourner le studio : reporting et onboarding standardisés, livraison plus rapide, rien qui passe entre les mailles. C’est ce qui permet à un studio de notre taille d’assurer cette charge.',
       },
       price: {
         label: 'Construction d’un agent',
         value: '3 000€ à 8 000€',
-        note: 'Un agent, calibré sur un vrai workflow, construit et transmis.',
+        note: 'Un agent, calibré sur un processus réel, construit, testé et livré avec sa documentation.',
+      },
+      cta: {
+        title: 'Vous avez un processus en tête ?',
+        primary: 'Réserver 15 minutes →',
+        secondary: 'Ou essayez l’agent sur une de vos fiches produit ↑',
       },
       related: [
         {
@@ -876,7 +1052,7 @@ export const fr: Dictionary = {
         },
         {
           page: 'geo',
-          text: 'Tenir un catalogue à grande échelle, c’est aussi ce qui vous rend lisible par un assistant.',
+          text: 'Tenir un catalogue à grande échelle, c’est aussi ce qui vous rend lisible par une IA.',
         },
       ],
     },
@@ -934,6 +1110,7 @@ export const fr: Dictionary = {
     email: 'Merci d’indiquer un e-mail valide.',
     emailOptional: 'Cet e-mail semble incorrect.',
     storeUrl: 'Merci d’indiquer l’URL de votre boutique.',
+    category: 'Merci d’indiquer votre catégorie de produits.',
     phone: 'Merci d’indiquer un numéro de téléphone valide.',
     form: 'Merci de vérifier le formulaire.',
     generic: 'Une erreur est survenue. Merci de réessayer.',
@@ -945,6 +1122,6 @@ export const fr: Dictionary = {
     // REVIEW-FR: titre et description de la page d’accueil réécrits.
     homeTitle: 'Maubourg Studio - Studio GEO et agents IA pour l’e-commerce',
     homeDescription:
-      'Maubourg Studio est un studio basé à Paris qui fait citer les marques e-commerce dans les réponses des IA et construit des agents IA pour leurs opérations. Il travaille avec les marques qui vendent en France et sur les marchés francophones.',
+      'Maubourg Studio, à Paris, rend les marques e-commerce visibles dans les réponses de ChatGPT, Gemini et Perplexity, et construit des agents IA pour leurs opérations. Pour les marques qui vendent en France et sur les marchés francophones.',
   },
 };

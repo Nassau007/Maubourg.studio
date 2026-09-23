@@ -26,7 +26,12 @@ export async function POST(request: Request) {
   const storeUrlRaw = String(body.storeUrl ?? '').trim();
   const platform = body.platform ? String(body.platform).trim() : null;
   const monthlyRevenue = body.monthlyRevenue ? String(body.monthlyRevenue).trim() : null;
+  const category = body.category ? String(body.category).trim() : null;
   const message = body.message ? String(body.message).trim() : null;
+  // Which of the two forms this came from. The GEO audit is the homepage hook;
+  // the conversion diagnostic lives on the conversion page.
+  const isAudit = String(body.requestType ?? 'audit') === 'audit';
+  const source = isAudit ? 'website-geo-audit' : 'website-conversion-diagnostic';
 
   // Honeypot: bots fill hidden fields; humans don't.
   if (typeof body.company === 'string' && body.company.trim() !== '') {
@@ -37,6 +42,9 @@ export async function POST(request: Request) {
   if (!name) errors.name = t.name;
   if (!EMAIL_RE.test(email)) errors.email = t.email;
   if (!storeUrlRaw) errors.storeUrl = t.storeUrl;
+  // The audit cannot be written without a category: it is what the four buying
+  // questions are built from. The conversion diagnostic does not need one.
+  if (isAudit && !category) errors.category = t.category;
 
   if (Object.keys(errors).length > 0) {
     return NextResponse.json({ error: t.form, fields: errors }, { status: 422 });
@@ -50,8 +58,9 @@ export async function POST(request: Request) {
         storeUrl: normalizeUrl(storeUrlRaw),
         platform,
         monthlyRevenue,
+        category,
         message,
-        source: 'website',
+        source,
       },
     });
 

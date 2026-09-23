@@ -13,8 +13,11 @@ type LeadEmail = {
   storeUrl?: string | null;
   platform?: string | null;
   monthlyRevenue?: string | null;
+  category?: string | null;
+  topic?: string | null;
   preferredTime?: string | null;
   message?: string | null;
+  source?: string | null;
   createdAt: Date;
 };
 
@@ -113,10 +116,20 @@ export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
   }
 
   const isCall = lead.kind === 'call';
-  const heading = isCall ? 'New phone-call request' : 'New free-teardown request';
+  const isAudit = lead.source === 'website-geo-audit';
+  // The subject line below is a wire format the sales machine parses. The
+  // heading and intro are not, so they can say which of the two documents was
+  // actually asked for.
+  const heading = isCall
+    ? 'New phone-call request'
+    : isAudit
+      ? 'New free GEO audit request'
+      : 'New free conversion diagnostic request';
   const intro = isCall
     ? 'Someone asked you to give them a call. Reach out at the number below.'
-    : 'A store owner just requested a teardown from the website.';
+    : isAudit
+      ? 'A store owner just requested a free GEO audit from the website.'
+      : 'A store owner just requested a free conversion diagnostic from the website.';
   const subject = isCall
     ? `New call request — ${lead.name}${lead.phone ? ` (${lead.phone})` : ''}`
     : `New teardown request — ${lead.name}${lead.storeUrl ? ` (${lead.storeUrl})` : ''}`;
@@ -157,6 +170,9 @@ export async function sendLeadNotification(lead: LeadEmail): Promise<void> {
           ${phoneRow}
           ${row('Email', lead.email)}
           ${storeRow}
+          ${row('Request', isCall ? null : isAudit ? 'GEO audit' : 'Conversion diagnostic')}
+          ${row('Category', lead.category)}
+          ${row('Topic', lead.topic)}
           ${row('Best time', lead.preferredTime)}
           ${row('Platform', lead.platform)}
           ${row('Monthly revenue', lead.monthlyRevenue)}

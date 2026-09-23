@@ -14,6 +14,8 @@ export default function Marquee({ dict }: { dict: Dictionary['marquee'] }) {
             </span>
           ))}
         </div>
+        {/* Compliance is not a tool, so it sits under the strip, not in it. */}
+        <p className="mt-4 text-center text-xs text-ink-500">{dict.note}</p>
       </div>
     </section>
   );

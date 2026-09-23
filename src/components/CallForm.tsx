@@ -104,6 +104,24 @@ export default function CallForm({ dict, lang }: { dict: Dictionary['call']; lan
           </div>
         </div>
 
+        {/* What the call is about. It qualifies the call and puts the three
+            services in front of the visitor one more time. */}
+        <div>
+          <label htmlFor="topic" className="field-label">
+            {f.topic}
+          </label>
+          <select id="topic" name="topic" className="field" defaultValue="">
+            <option value="" disabled>
+              {f.select}
+            </option>
+            {f.topics.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+        </div>
+
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="preferredTime" className="field-label">

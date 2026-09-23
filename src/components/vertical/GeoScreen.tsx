@@ -42,6 +42,15 @@ export default function GeoScreen({ lang }: { lang: Locale }) {
             <span className="font-display text-2xl font-semibold text-emerald">{v.hero.stat}</span>
             <span className="text-[13.5px] text-ink-600">{v.hero.statNote}</span>
           </p>
+          {/* The page had no ask at all above the fold. */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link href={`/${lang}#audit`} className="btn-primary w-full sm:w-auto">
+              {v.hero.ctaPrimary}
+            </Link>
+            <Link href={`/${lang}/call`} className="btn-ghost w-full sm:w-auto">
+              {v.hero.ctaSecondary}
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -71,6 +80,15 @@ export default function GeoScreen({ lang }: { lang: Locale }) {
         </div>
       </section>
 
+      {/* What we will not promise. Being honest about the limits is what an
+          expert sounds like, so it arrives early rather than as a footnote. */}
+      <section className="mx-auto max-w-content px-5 pb-16 md:px-8 md:pb-20">
+        <div className="max-w-3xl rounded-card border-2 border-dashed border-ink/20 p-7 md:p-9">
+          <h2 className="font-display text-2xl font-semibold text-ink">{v.honest.title}</h2>
+          <p className="mt-3 text-[15px] leading-relaxed text-ink-600">{v.honest.body}</p>
+        </div>
+      </section>
+
       {/* The three blocks of work, as a numbered editorial list rather than
           cards: they are one sequence, and each has a lead sentence that also
           appears on the homepage, then what the client actually receives. */}
@@ -84,12 +102,79 @@ export default function GeoScreen({ lang }: { lang: Locale }) {
               </span>
               <div>
                 <h3 className="font-display text-xl font-semibold text-ink">{item.title}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-ink-700">{item.lead}</p>
+                <p className="mt-1 text-[13px] font-medium text-emerald">
+                  {v.blocks.priceLabel} · {item.price}
+                </p>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink-700">{item.lead}</p>
                 <p className="mt-3 text-[15px] leading-relaxed text-ink-600">{item.body}</p>
+
+                {/* What the free audit actually contains, under the step it
+                    belongs to. No example PDF linked yet: the GEO one does not
+                    exist, and the conversion teardown is a different document. */}
+                {i === 0 && (
+                  <div className="mt-5 rounded-card border border-emerald/25 bg-emerald-50/50 p-5">
+                    <p className="text-[13px] font-semibold uppercase tracking-wide text-emerald">
+                      {v.blocks.auditBox.title}
+                    </p>
+                    <ul className="mt-3 space-y-2">
+                      {v.blocks.auditBox.items.map((line) => (
+                        <li key={line} className="flex gap-2.5 text-[14px] text-ink-700">
+                          <span aria-hidden className="text-emerald">
+                            ·
+                          </span>
+                          {line}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href={`/${lang}#audit`}
+                      className="mt-4 inline-block text-sm font-semibold text-emerald underline-offset-4 hover:underline"
+                    >
+                      {v.blocks.auditBox.cta}
+                    </Link>
+                  </div>
+                )}
               </div>
             </li>
           ))}
         </ol>
+
+      </section>
+
+      {/* What we change on a real store. The GEO equivalent of the conversion
+          page's findings table, and the block that makes the offer tangible. */}
+      <section className="mx-auto max-w-content px-5 pb-16 md:px-8 md:pb-24">
+        <SectionHead
+          eyebrow={v.changes.eyebrow}
+          title={v.changes.title}
+          intro={v.changes.intro}
+        />
+        <div className="mt-10 overflow-x-auto rounded-card border border-ink/10">
+          <table className="w-full min-w-[46rem] border-collapse text-left">
+            <thead>
+              <tr className="bg-bone-200">
+                <th className="w-[26%] px-5 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-ink-600">
+                  {v.changes.columns.finding}
+                </th>
+                <th className="w-[37%] px-5 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-ink-600">
+                  {v.changes.columns.cost}
+                </th>
+                <th className="px-5 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-ink-600">
+                  {v.changes.columns.fix}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {v.changes.rows.map((row) => (
+                <tr key={row.finding} className="border-t border-ink/10 bg-bone-100 align-top">
+                  <td className="px-5 py-4 text-[14px] font-semibold text-ink">{row.finding}</td>
+                  <td className="px-5 py-4 text-[13.5px] leading-snug text-ink-600">{row.cost}</td>
+                  <td className="px-5 py-4 text-[13.5px] leading-snug text-emerald">{row.fix}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         {reading.length > 0 && (
           <div className="mt-12 max-w-3xl rounded-card border border-ink/10 bg-bone-100 p-6">
@@ -113,18 +198,12 @@ export default function GeoScreen({ lang }: { lang: Locale }) {
         )}
       </section>
 
-      {/* Two admissions. The honest one is the more persuasive of the two, so it
-          is set as the louder block. */}
+      {/* We did it here first. The one piece of proof that costs nothing to
+          check: the visitor is reading it. */}
       <section className="mx-auto max-w-content px-5 pb-4 md:px-8">
-        <div className="grid gap-5 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-          <div className="rounded-card border-2 border-dashed border-ink/20 p-7 md:p-9">
-            <h2 className="font-display text-2xl font-semibold text-ink">{v.honest.title}</h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink-600">{v.honest.body}</p>
-          </div>
-          <div className="rounded-card bg-emerald p-7 text-bone md:p-9">
-            <h2 className="font-display text-2xl font-semibold">{v.ourown.title}</h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-bone/80">{v.ourown.body}</p>
-          </div>
+        <div className="rounded-card bg-emerald p-7 text-bone md:p-9">
+          <h2 className="max-w-2xl font-display text-2xl font-semibold">{v.ourown.title}</h2>
+          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-bone/80">{v.ourown.body}</p>
         </div>
       </section>
     </VerticalFrame>
