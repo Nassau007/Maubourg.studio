@@ -49,7 +49,7 @@ Indicative ranges, published on the site.
 - [Agents IA, French](https://maubourg.studio/fr/services/agents-ia): the same page in French.
 - [Conversion, English](https://maubourg.studio/en/services/conversion-tracking): A/B testing across product pages, cart and checkout.
 - [Conversion, French](https://maubourg.studio/fr/services/conversion-et-mesure): the same page in French.
-- [Blog, French](https://maubourg.studio/fr/blog): one question per article, answered in the first paragraph.
+- [Blog, French](https://maubourg.studio/fr/blog): articles on brand visibility in ChatGPT, Perplexity, Gemini and AI search, one question per article, answered in the first paragraph.
 - [Request a call, English](https://maubourg.studio/en/call): leave a number for a 15 minute call, answered within one working day.
 - [Request a call, French](https://maubourg.studio/fr/call): the same page in French.
 - [Example teardown, PDF](https://maubourg.studio/example-teardown.pdf): a real teardown of a live store, with the store name removed.

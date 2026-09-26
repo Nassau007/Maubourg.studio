@@ -33,7 +33,43 @@ const RETIRED_PAGES: Record<string, string> = {
   '/fr/services/acquisition': '/fr',
   '/en/services/store-build': '/en/services/conversion-tracking',
   '/fr/services/creation-boutique': '/fr/services/conversion-et-mesure',
+  ...retiredArticles(),
 };
+
+/**
+ * Blog articles taken down when the blog became GEO only. Each one had been
+ * live and may be linked or indexed, so it goes to the blog index rather than
+ * to a 404. The blog is French only, so only /fr paths ever existed. Slugs,
+ * not filenames: the URL is /fr/blog/<slug from the frontmatter>.
+ */
+function retiredArticles(): Record<string, string> {
+  const slugs = [
+    'taux-de-conversion-a-0-8-par-ou-commencer-pour-l-ameliorer',
+    'comment-reduire-le-taux-d-abandon-de-panier-sur-shopify',
+    'combien-de-temps-faut-il-pour-voir-un-resultat-apres-un-audit-de-conversion',
+    'qu-est-ce-qu-un-audit-cro-et-a-quoi-ca-sert-concretement',
+    'quel-est-un-bon-taux-de-conversion-pour-une-boutique-shopify-en-france',
+    'combien-coute-une-refonte-de-site-shopify-en-france',
+    'faut-il-migrer-vers-shopify-si-je-suis-sur-un-autre-cms',
+    'comment-choisir-une-agence-pour-creer-ou-refaire-ma-boutique-en-ligne',
+    'pourquoi-mon-roas-baisse-alors-que-je-depense-plus-sur-meta-ads',
+    'comment-savoir-si-mes-campagnes-google-ads-sont-rentables',
+    'faut-il-faire-de-la-publicite-sur-tiktok-pour-une-petite-marque-francaise',
+    'quelle-agence-choisir-pour-gerer-mes-campagnes-publicitaires-e-commerce',
+    'pourquoi-mes-conversions-publicitaires-ne-remontent-plus-correctement-dans-meta-ads-manager',
+    'quelle-part-de-mon-chiffre-d-affaires-devrait-venir-de-l-email-et-du-sms',
+    'comment-relancer-les-paniers-abandonnes-par-email',
+    'combien-coute-la-mise-en-place-d-un-agent-ia-pour-une-petite-marque-e-commerce',
+    'comment-savoir-si-mon-pixel-meta-fonctionne-vraiment',
+    'qu-est-ce-que-le-tracking-server-side-et-pourquoi-c-est-utile-pour-mon-e-commerce',
+    'comment-etre-conforme-rgpd-tout-en-gardant-un-tracking-fiable-sur-shopify',
+    'pourquoi-mes-chiffres-google-analytics-ne-correspondent-pas-a-mes-ventes-reelles-sur-shopify',
+    'le-paiement-en-une-seule-page-one-page-checkout-ameliore-t-il-vraiment-les-conversions',
+    'comment-rediger-une-fiche-produit-qui-convainc-sans-mentir',
+    'comment-savoir-si-mon-site-est-trop-lent-et-si-ca-impacte-mes-ventes',
+  ];
+  return Object.fromEntries(slugs.map((slug) => [`/fr/blog/${slug}`, '/fr/blog']));
+}
 
 function detectLocale(request: NextRequest): string {
   const header = request.headers.get('accept-language') || '';

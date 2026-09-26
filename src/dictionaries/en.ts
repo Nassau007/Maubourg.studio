@@ -1104,13 +1104,13 @@ export const en = {
     meta: {
       title: 'Blog - Maubourg Studio',
       description:
-        'Plain answers to the questions ecommerce owners ask about being cited by AI tools, AI agents and conversion.',
+        'Plain answers to the questions ecommerce owners ask about being visible in ChatGPT, Perplexity, Gemini and AI search.',
     },
     index: {
       eyebrow: 'Blog',
       title: 'The questions store owners actually ask.',
       intro:
-        'Short pieces on visibility in AI answers, AI agents and conversion. One question each, answered in the first paragraph.',
+        'Short pieces on how a brand shows up in ChatGPT, Perplexity and Gemini answers. One question each, answered in the first paragraph.',
       empty: 'Nothing published here yet.',
     },
     backToIndex: '← All articles',

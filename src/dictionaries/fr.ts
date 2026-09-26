@@ -1106,13 +1106,13 @@ export const fr: Dictionary = {
       title: 'Blog - Maubourg Studio',
       // REVIEW-FR: description et intro du blog réécrites.
       description:
-        'Des réponses claires aux questions que se posent les marques e-commerce : visibilité dans les réponses des IA, agents IA et conversion.',
+        'Des réponses claires aux questions que se posent les marques e-commerce sur leur visibilité dans ChatGPT, Perplexity, Gemini et les recherches par IA.',
     },
     index: {
       eyebrow: 'Blog',
       title: 'Les questions que les marques posent vraiment.',
       intro:
-        'Des textes courts sur la visibilité dans les réponses des IA, les agents IA et la conversion. Une question par texte, la réponse dès le premier paragraphe.',
+        'Des textes courts sur la visibilité de votre marque dans les réponses de ChatGPT, Perplexity et Gemini. Une question par texte, la réponse dès le premier paragraphe.',
       empty: 'Rien de publié pour l’instant.',
     },
     backToIndex: '← Tous les articles',
