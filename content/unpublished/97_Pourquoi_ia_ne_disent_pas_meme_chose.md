@@ -15,16 +15,23 @@ _Maubourg Studio, mis à jour le 27 septembre 2026_
 
 Parce que chacun s'appuie sur un index de recherche et des sources différents, pas sur une même base d'informations interrogée par trois interfaces distinctes. Une marque bien référencée dans l'index que consulte Gemini peut rester absente de celui que consulte ChatGPT, ce qui explique pourquoi une même question, posée le même jour, donne trois réponses différentes sans qu'aucune des trois ne soit techniquement en panne.
 
+## En bref
+
+- Gemini ancre ses réponses web dans l'index de Google Search, le même qui alimente les AI Overviews, si bien qu'un bon référencement Google classique lui profite directement.
+- OpenAI développe son propre index de recherche pour ChatGPT, selon le témoignage sous serment de Nick Turley, responsable de ChatGPT, le 22 avril 2025 au procès antitrust contre Google, et Bing continue d'alimenter ChatGPT en résultats.
+- Perplexity explore le web avec son propre robot, PerplexityBot, et un index rebâti en interne depuis avril 2025 sur le moteur open source Vespa.
+- Une réponse de ChatGPT ou de Gemini sans aucun lien affiché peut venir de la mémoire d'entraînement du modèle plutôt que d'une recherche web, et n'est donc pas forcément inventée.
+
 ## Trois index, pas un seul
 
-Gemini s'appuie directement sur l'index de Google Search pour ses réponses ancrées dans le web (le "grounding"), le même index qui alimente les AI Overviews affichés dans les résultats de recherche classiques : une page bien classée sur Google a donc de bonnes chances d'être vue par Gemini. ChatGPT construit son propre index de recherche depuis 2023 : cette information vient du témoignage sous serment de Nick Turley, responsable de ChatGPT, lors du procès antitrust intenté à Google en avril 2025, déclaration publique donc, mais pas une annonce produit : OpenAI n'a jamais présenté cet index ni confirmé le nom "Labrador" que lui prêtent les observateurs. Bing n'a pas disparu pour autant : une étude Peec AI publiée le 25 septembre 2026 le voit surtout apparaître dans la fonction Deep Research de ChatGPT, et Microsoft indique que sa plateforme de recherche Web IQ, lancée en juin 2026, alimente toujours ChatGPT en résultats. Perplexity fait tourner son propre robot d'exploration, PerplexityBot, sur un index de recherche rebâti en interne depuis avril 2025 sur le moteur open source Vespa. Une marque peut donc être solidement indexée sur Google et rester peu visible sur l'index propre à ChatGPT, ou l'inverse.
+Gemini s'appuie directement sur l'index de Google Search pour ses réponses ancrées dans le web (le "grounding"), le même index qui alimente les AI Overviews affichés dans les résultats de recherche classiques : une page bien classée sur Google a donc de bonnes chances d'être vue par Gemini. OpenAI développe son propre index de recherche pour ChatGPT : cette information vient du témoignage sous serment de Nick Turley, responsable de ChatGPT, le 22 avril 2025 lors du procès antitrust contre Google, déclaration publique donc, mais pas une annonce produit : OpenAI n'a jamais présenté cet index ni confirmé le nom "Labrador" que lui prêtent les observateurs. Bing n'a pas disparu pour autant : une étude Peec AI publiée le 25 septembre 2026 le voit surtout apparaître dans la fonction Deep Research de ChatGPT, et Microsoft indique que sa plateforme de recherche Web IQ, lancée en juin 2026, alimente toujours ChatGPT en résultats. Perplexity fait tourner son propre robot d'exploration, PerplexityBot, sur un index de recherche rebâti en interne depuis avril 2025 sur le moteur open source Vespa. Une marque peut donc être solidement indexée sur Google et rester peu visible sur l'index propre à ChatGPT, ou l'inverse.
 
 ## Ce que ça change concrètement pour une boutique
 
 | Assistant | Index principal (vérifié le 27 septembre 2026) | Ce qui aide une marque à y apparaître |
 |---|---|---|
 | Gemini | Index de Google Search (grounding) | Un bon référencement Google classique profite directement à Gemini |
-| ChatGPT | Index propre en construction depuis 2023 (selon le témoignage de Nick Turley), plus Bing via Microsoft Web IQ, surtout visible en Deep Research | Être présent sur plusieurs sources à la fois, pas seulement Google |
+| ChatGPT | Index propre en construction (selon le témoignage de Nick Turley, avril 2025), plus Bing via Microsoft Web IQ, surtout visible en Deep Research | Être présent sur plusieurs sources à la fois, pas seulement Google |
 | Perplexity | Robot et index propres (PerplexityBot, rebâtis depuis avril 2025) | Un contenu que PerplexityBot peut explorer directement, sans blocage technique |
 
 ## Sources affichées ou non, une autre différence à connaître

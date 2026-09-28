@@ -15,6 +15,13 @@ _Maubourg Studio, mis à jour le 26 septembre 2026_
 
 Le GEO (Generative Engine Optimization) regroupe les actions qui permettent à une marque d'être décrite correctement, citée dans une réponse et, de plus en plus, achetée directement par les assistants IA, plutôt que seulement bien classée sur Google. Pour une boutique en ligne française, ce n'est plus un sujet théorique : selon une étude FEVAD/Odoxa publiée le 11 février 2026, 31 % des cyberacheteurs français utilisent déjà l'IA générative dans leur parcours d'achat.
 
+## En bref
+
+- Une étude SE Ranking des 7 et 8 août 2026, menée sur 100 000 mots-clés en France, a relevé un AI Overview sur 52,63 % des recherches Google.
+- Depuis mars 2026, selon une enquête de The Information reprise par la presse, OpenAI a réduit Instant Checkout, et un acheteur qui trouve un produit dans ChatGPT est renvoyé vers le site ou l'application du marchand pour payer.
+- Le paiement sans quitter l'app permis par l'UCP, annoncé par Google et Shopify le 11 janvier 2026, ne fonctionne à ce stade dans Google AI Mode et Gemini que pour les acheteurs situés aux États-Unis.
+- Le test de résultats enrichis de Google montre si une fiche produit expose `shippingDetails` et `hasMerchantReturnPolicy`, deux propriétés schema.org que Google classe comme recommandées et sans lesquelles une question sur la livraison ou le retour ne se tranche pas.
+
 ## Les trois mécanismes que le GEO couvre
 
 Un assistant qui parle d'une marque fait toujours l'une de ces trois choses, dans un ordre précis : il la décrit, il la cite en réponse à une question, ou il agit pour le compte de l'acheteur jusqu'à l'achat.

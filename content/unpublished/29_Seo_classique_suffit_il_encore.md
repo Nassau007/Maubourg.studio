@@ -15,6 +15,13 @@ _Maubourg Studio, mis à jour le 27 septembre 2026_
 
 Non : le SEO classique optimise pour Googlebot, qui exécute le JavaScript, alors que les robots de ChatGPT, Claude et Perplexity ne l'exécutent pas et ne lisent que le HTML brut renvoyé au premier chargement de la page (Gemini et les AI Overviews, eux, s'appuient sur l'index de Google, qui rend le JavaScript). Une boutique bien classée sur Google peut donc être invisible pour ChatGPT ou Perplexity si son contenu dépend du JavaScript pour s'afficher, ce qui en fait le vrai point de divergence entre les deux disciplines, plus que le vocabulaire ou les mots-clés.
 
+## En bref
+
+- L'analyse de Vercel publiée le 17 décembre 2024 sur plus de 500 millions de requêtes de GPTBot n'a relevé aucune exécution de JavaScript, même quand le robot télécharge des fichiers `.js` (11,5 % des requêtes).
+- Recharger une fiche produit avec le JavaScript désactivé dans les outils de développement du navigateur montre la version qu'un robot IA en voit, et tout prix ou description qui disparaît alors lui est invisible.
+- Dans le `robots.txt`, les robots à autoriser pour la citation plutôt que pour l'entraînement sont `OAI-SearchBot` et `ChatGPT-User` chez OpenAI, `Claude-SearchBot` et `Claude-User` chez Anthropic, et `PerplexityBot` chez Perplexity.
+- Sur 94 boutiques suivies de janvier à décembre 2025, Visibility Labs (étude du 23 février 2026) a mesuré 1,81 % de conversion pour le trafic référé par ChatGPT contre 1,39 % pour l'organique non-marque, sur un volume de 135 000 sessions ChatGPT seulement.
+
 ## Le point technique qui change tout
 
 Une analyse de Vercel, publiée le 17 décembre 2024 sur plus de 500 millions de requêtes de GPTBot (le robot d'OpenAI), n'a trouvé aucune exécution de JavaScript : le robot télécharge parfois les fichiers `.js` (11,5 % des requêtes) mais ne les exécute jamais. ClaudeBot, le robot d'Anthropic, montre le même comportement, avec un téléchargement de fichiers JavaScript dans 23,84 % des requêtes et une exécution nulle. Rien, à la vérification faite en septembre 2026, n'indique que ce comportement ait changé pour GPTBot, ClaudeBot ou PerplexityBot : les trois lisent l'équivalent d'un "voir le code source" figé, jamais la page telle qu'un navigateur la construit.
