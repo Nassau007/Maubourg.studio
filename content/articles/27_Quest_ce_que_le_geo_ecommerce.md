@@ -4,14 +4,15 @@ slug: "quest-ce-que-le-geo-referencement-sur-les-ia-et-pourquoi-cest-important-p
 description: "Le GEO (Generative Engine Optimization) regroupe les actions qui permettent à une marque d'être décrite correctement, citée dans une réponse…"
 question: "Qu'est-ce que le GEO (référencement sur les IA) et pourquoi c'est important pour l'e-commerce ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-09-26
+date: 2026-09-28
 lang: fr
 readingTime: 4
 draft: false
+template: "sidebar"
 ---
 # Qu'est-ce que le GEO (référencement sur les IA) et pourquoi c'est important pour l'e-commerce
 
-_Maubourg Studio, mis à jour le 26 septembre 2026_
+_Maubourg Studio, mis à jour le 28 septembre 2026_
 
 Le GEO (Generative Engine Optimization) regroupe les actions qui permettent à une marque d'être décrite correctement, citée dans une réponse et, de plus en plus, achetée directement par les assistants IA, plutôt que seulement bien classée sur Google. Pour une boutique en ligne française, ce n'est plus un sujet théorique : selon une étude FEVAD/Odoxa publiée le 11 février 2026, 31 % des cyberacheteurs français utilisent déjà l'IA générative dans leur parcours d'achat.
 
