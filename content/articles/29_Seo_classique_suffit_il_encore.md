@@ -4,14 +4,15 @@ slug: "le-referencement-classique-suffit-il-encore-ou-faut-il-optimiser-pour-les
 description: "Non : le SEO classique optimise pour Googlebot, qui exécute le JavaScript, alors que les robots de ChatGPT, Claude et Perplexity ne l'exécutent pas et ne lisent que le HTML…"
 question: "Le référencement classique (SEO) suffit-il encore ou faut-il aussi optimiser pour les IA ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-09-27
+date: 2026-10-01
 lang: fr
 readingTime: 4
 draft: false
+template: "citation"
 ---
 # Le référencement classique (SEO) suffit-il encore ou faut-il aussi optimiser pour les IA
 
-_Maubourg Studio, mis à jour le 27 septembre 2026_
+_Maubourg Studio, mis à jour le 1er octobre 2026_
 
 Non : le SEO classique optimise pour Googlebot, qui exécute le JavaScript, alors que les robots de ChatGPT, Claude et Perplexity ne l'exécutent pas et ne lisent que le HTML brut renvoyé au premier chargement de la page (Gemini et les AI Overviews, eux, s'appuient sur l'index de Google, qui rend le JavaScript). Une boutique bien classée sur Google peut donc être invisible pour ChatGPT ou Perplexity si son contenu dépend du JavaScript pour s'afficher, ce qui en fait le vrai point de divergence entre les deux disciplines, plus que le vocabulaire ou les mots-clés.
 
