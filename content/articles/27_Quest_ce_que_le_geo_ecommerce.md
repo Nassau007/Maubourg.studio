@@ -12,14 +12,14 @@ template: "sidebar"
 ---
 # Qu'est-ce que le GEO (référencement sur les IA) et pourquoi c'est important pour l'e-commerce
 
-_Maubourg Studio, mis à jour le 28 septembre 2026_
+_Maubourg Studio, mis à jour le 1er octobre 2026_
 
 Le GEO (Generative Engine Optimization) regroupe les actions qui permettent à une marque d'être décrite correctement, citée dans une réponse et, de plus en plus, achetée directement par les assistants IA, plutôt que seulement bien classée sur Google. Pour une boutique en ligne française, ce n'est plus un sujet théorique : selon une étude FEVAD/Odoxa publiée le 11 février 2026, 31 % des cyberacheteurs français utilisent déjà l'IA générative dans leur parcours d'achat.
 
 ## En bref
 
-- Une étude SE Ranking des 7 et 8 août 2026, menée sur 100 000 mots-clés en France, a relevé un AI Overview sur 52,63 % des recherches Google.
-- Depuis mars 2026, selon une enquête de The Information reprise par la presse, OpenAI a réduit Instant Checkout, et un acheteur qui trouve un produit dans ChatGPT est renvoyé vers le site ou l'application du marchand pour payer.
+- Une étude SE Ranking d'août 2026, menée sur 100 000 mots-clés en France, a relevé un AI Overview sur 52,63 % des recherches Google.
+- Depuis mars 2026, OpenAI a réduit Instant Checkout, et un acheteur qui trouve un produit dans ChatGPT est renvoyé vers le site ou l'application du marchand pour payer (source : enquête de The Information).
 - Le paiement sans quitter l'app permis par l'UCP, annoncé par Google et Shopify le 11 janvier 2026, ne fonctionne à ce stade dans Google AI Mode et Gemini que pour les acheteurs situés aux États-Unis.
 - Le test de résultats enrichis de Google montre si une fiche produit expose `shippingDetails` et `hasMerchantReturnPolicy`, deux propriétés schema.org que Google classe comme recommandées et sans lesquelles une question sur la livraison ou le retour ne se tranche pas.
 
@@ -37,11 +37,11 @@ Ces trois mécanismes se corrigent dans cet ordre : il ne sert à rien de soigne
 
 ## Pourquoi c'est le bon moment, en septembre 2026
 
-Le troisième mécanisme a bougé dans deux sens opposés en un an. Depuis mars 2026, OpenAI a réduit Instant Checkout, le paiement sans quitter ChatGPT : selon plusieurs comptes-rendus de presse reprenant une enquête de The Information de début mars 2026, seule une poignée de marchands Shopify (entre une douzaine et une trentaine selon les sources) l'avaient activé. Un acheteur qui trouve un produit dans ChatGPT est désormais renvoyé vers le site ou l'application du marchand pour payer.
+Le troisième mécanisme a bougé dans deux sens opposés en un an. Depuis mars 2026, OpenAI a réduit Instant Checkout, le paiement sans quitter ChatGPT : seule une poignée de marchands Shopify l'avaient activé, entre une douzaine et une trentaine selon les sources (source : enquête de The Information, début mars 2026, reprise par plusieurs médias). Un acheteur qui trouve un produit dans ChatGPT est désormais renvoyé vers le site ou l'application du marchand pour payer.
 
 Google avance dans l'autre sens : le 11 janvier 2026, au keynote NRF, Google et Shopify ont annoncé l'UCP (Universal Commerce Protocol), un standard ouvert co-développé avec Etsy, Wayfair, Target et Walmart, déjà soutenu par plus de 20 acteurs dont Visa, Mastercard, Stripe et Adyen. Depuis, l'UCP permet un paiement sans quitter l'app dans Google AI Mode et Gemini, mais seulement pour les acheteurs situés aux États-Unis à ce stade.
 
-Pour une boutique française, ni l'un ni l'autre ne change le paiement demain matin. Ce qui change déjà, c'est la part de recherche remplacée par une réponse générée : une étude SE Ranking des 7 et 8 août 2026, sur 100 000 mots-clés en France, a mesuré un AI Overview sur 52,63 % des recherches Google. Être décrite et citée correctement dès maintenant prépare le jour où le paiement agentique arrivera sur le marché français.
+Pour une boutique française, ni l'un ni l'autre ne change le paiement demain matin. Ce qui change déjà, c'est la part de recherche remplacée par une réponse générée : une étude SE Ranking d'août 2026, sur 100 000 mots-clés en France, a mesuré un AI Overview sur 52,63 % des recherches Google. Être décrite et citée correctement dès maintenant prépare le jour où le paiement agentique arrivera sur le marché français.
 
 ## Ce que ça change pour une fiche produit
 
