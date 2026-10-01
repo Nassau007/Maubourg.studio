@@ -4,14 +4,15 @@ slug: "comment-savoir-si-les-ia-me-citent-comme-alternative-a-un-plus-gros-concu
 description: "Poser la question « alternative à [concurrent] » en session déconnectée sur chaque assistant, puis lire les sources citées pour le concurrent, pas seulement…"
 question: "Comment savoir si les IA me citent comme alternative à un plus gros concurrent ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-09-27
+date: 2026-10-01
 lang: fr
 readingTime: 4
 draft: false
+template: "citation"
 ---
 # Comment savoir si les IA me citent comme alternative à un plus gros concurrent
 
-_Maubourg Studio, mis à jour le 27 septembre 2026_
+_Maubourg Studio, mis à jour le 1er octobre 2026_
 
 Poser la question "alternative à [nom du concurrent]" en session déconnectée sur ChatGPT, Perplexity, Gemini et Claude, noter si la marque apparaît, puis lire les sources que l'assistant cite pour décrire le concurrent : cette dernière étape dit pourquoi la marque est absente ou reléguée en second plan, ce qu'un simple comptage de mentions ne montre jamais.
 
