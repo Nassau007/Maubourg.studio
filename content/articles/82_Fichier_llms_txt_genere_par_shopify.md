@@ -4,14 +4,15 @@ slug: "le-fichier-llms-txt-genere-automatiquement-par-shopify-quest-ce-que-cest-
 description: "Le fichier llms.txt que Shopify publie sur chaque boutique depuis mai 2026 est un mode d'emploi technique en anglais destiné aux agents d'achat IA, pas une…"
 question: "Le fichier llms.txt généré automatiquement par Shopify, qu'est-ce que c'est et faut-il le modifier ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-09-28
+date: 2026-10-02
 lang: fr
 readingTime: 4
 draft: false
+template: "citation"
 ---
 # Le fichier llms.txt généré automatiquement par Shopify : qu'est-ce que c'est et faut-il le modifier
 
-_Maubourg Studio, mis à jour le 28 septembre 2026_
+_Maubourg Studio, mis à jour le 2 octobre 2026_
 
 Le fichier llms.txt que Shopify publie sur chaque boutique depuis mai 2026 est un mode d'emploi technique en anglais destiné aux agents d'achat IA, pas une présentation de la marque. Il se lit en cinq minutes à l'adresse boutique.fr/llms.txt. Shopify permet de le modifier depuis le 28 mai 2026, ce qui n'a d'intérêt que si l'on sait ce qu'on veut y ajouter.
 
