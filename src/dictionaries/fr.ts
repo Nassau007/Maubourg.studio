@@ -1110,7 +1110,7 @@ export const fr: Dictionary = {
     },
     index: {
       eyebrow: 'Blog',
-      title: 'Les questions que les marques posent vraiment.',
+      title: 'De nouveaux articles chaque semaine pour aider votre marque à être recommandée par les IA.',
       intro:
         'Des textes courts sur la visibilité de votre marque dans les réponses de ChatGPT, Perplexity et Gemini. Une question par texte, la réponse dès le premier paragraphe.',
       empty: 'Rien de publié pour l’instant.',
