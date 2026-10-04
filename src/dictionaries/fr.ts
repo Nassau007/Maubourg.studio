@@ -1112,7 +1112,7 @@ export const fr: Dictionary = {
       eyebrow: 'Blog',
       title: 'De nouveaux articles chaque semaine pour aider votre marque à être recommandée par les IA.',
       intro:
-        'Nous partons des questions que nous lisons sur les forums et Reddit, et nous y répondons le plus simplement possible.',
+        'Nous partons de vraies questions, lues sur les forums et Reddit, et nous y répondons le plus simplement possible.',
       empty: 'Rien de publié pour l’instant.',
     },
     backToIndex: '← Tous les articles',
