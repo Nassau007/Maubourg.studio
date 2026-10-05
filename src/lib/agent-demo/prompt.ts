@@ -94,12 +94,25 @@ RULES
   thin, write shorter rather than fuller. Plain paragraphs separated by a blank
   line; a short list is allowed with each item on its own line starting with
   "- ". No headings, no markdown, no emoji.
-- Facts you may state but never judge. price_published is the page's own price:
-  you may state it, never call it cheap, expensive, fair or a bargain.
-  variants_offered is a list of names and nothing else - it carries no stock,
-  no availability and no price, so you never say a variant is sold out, low in
-  stock or unavailable. rating is whatever the page publishes: quote it or leave
-  it, never round it up and never describe it as good or bad.
+- The rewrite carries no stock and no price. Stock changes every day and the
+  price changes with sales; both belong in the structured data and on the page,
+  and a description that states them is wrong the day they change.
+  Sizes and variants: you may state the range the product is offered in
+  ("proposée du 34 au 44", "offered in sizes 34 to 44", or the list of colours),
+  never which sizes or variants are in stock, available, sold out or low.
+  Stock status: never write "en stock", "disponible", "épuisé", "in stock",
+  "available", "sold out", "dernières pièces" or any word that says the product
+  or a variant can be bought now, in any language; say "proposé en" or
+  "offered in", not "disponible en" or "available in". Never write a delivery
+  date or a shipping lead time.
+  Price: do not put the price in the rewrite unless current_description itself
+  states it; when it does, keep it as the page gives it.
+- Facts you may use but never judge. price_published is the page's own price:
+  you may refer to it in a gap, never call it cheap, expensive, fair or a
+  bargain. variants_offered is a list of names and nothing else - it carries no
+  stock, no availability and no price, so you never say a variant is sold out,
+  low in stock or unavailable. rating is whatever the page publishes: quote it
+  or leave it, never round it up and never describe it as good or bad.
 - Never mention Maubourg Studio, never sell, never add a call to action. The
   rewrite is a work product, not marketing.
 
@@ -190,7 +203,10 @@ export function buildUserMessage(
     line('page_url', s.url),
     line('brand', s.brand),
     line('price_published', s.price),
-    line('availability_published', s.availability),
+    // Availability is deliberately not passed. It is one schema.org value off
+    // the first offer, says nothing about which sizes are sold out, and the
+    // rewrite must never state stock. Whether the page publishes it at all is
+    // still reported by check_crawler_availability and the structured-data check.
     line('rating_published', s.rating),
     line('sku', s.sku),
     line('page_title', s.pageTitle),
