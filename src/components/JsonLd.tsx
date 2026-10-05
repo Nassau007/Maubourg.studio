@@ -10,6 +10,7 @@ import {
   verticalHref,
   type ObservatoryVertical,
 } from '@/lib/observatory';
+import { ogImage } from '@/lib/share';
 
 /**
  * Structured data (schema.org, JSON-LD).
@@ -108,7 +109,7 @@ export function HomeJsonLd({ dict, lang }: { dict: Dictionary; lang: Locale }) {
     alternateName: 'Maubourg',
     url: siteUrl,
     logo: `${siteUrl}/icon.png`,
-    image: `${siteUrl}/opengraph-image.png`,
+    image: `${siteUrl}${ogImage(lang).url}`,
     email: site.email,
     slogan: dict.footer.tagline,
     description: dict.meta.homeDescription,
@@ -171,7 +172,7 @@ export function HomeJsonLd({ dict, lang }: { dict: Dictionary; lang: Locale }) {
     inLanguage: locale,
     isPartOf: { '@id': SITE_ID },
     about: { '@id': ORG_ID },
-    primaryImageOfPage: `${siteUrl}/opengraph-image.png`,
+    primaryImageOfPage: `${siteUrl}${ogImage(lang).url}`,
   };
 
   const faqPage = {

@@ -20,6 +20,7 @@ import {
 } from '@/lib/articles';
 import { getDictionary, isLocale } from '@/lib/i18n';
 import { siteUrl, site } from '@/lib/site';
+import { ogImage, twitterImage } from '@/lib/share';
 
 export const dynamicParams = false;
 
@@ -53,13 +54,13 @@ export async function generateMetadata({
       locale: 'fr_FR',
       type: 'article',
       publishedTime: article.date,
-      images: [{ url: '/opengraph-image.png', width: 1200, height: 630 }],
+      images: [ogImage(ARTICLES_LOCALE)],
     },
     twitter: {
       card: 'summary_large_image',
       title: article.title,
       description: article.description,
-      images: ['/twitter-image.png'],
+      images: [twitterImage(ARTICLES_LOCALE)],
     },
   };
 }

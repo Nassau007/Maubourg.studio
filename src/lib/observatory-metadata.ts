@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
 import { OBSERVATORY_LIVE } from '@/lib/observatory';
 import { site, siteUrl } from '@/lib/site';
 import type { Locale } from '@/lib/i18n';
+import { ogImage, twitterImage } from '@/lib/share';
 
 /**
  * One observatory page's metadata.
@@ -55,13 +56,13 @@ export function observatoryMetadata({
       siteName: site.name,
       locale: lang === 'fr' ? 'fr_FR' : 'en_GB',
       type: 'website',
-      images: [{ url: '/opengraph-image.png', width: 1200, height: 630 }],
+      images: [ogImage(lang)],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: ['/twitter-image.png'],
+      images: [twitterImage(lang)],
     },
   };
 }

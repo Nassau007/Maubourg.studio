@@ -16,6 +16,7 @@ import {
 import { getDictionary, isLocale } from '@/lib/i18n';
 import { serviceMenu } from '@/lib/routes';
 import { siteUrl, site } from '@/lib/site';
+import { ogImage } from '@/lib/share';
 
 export async function generateMetadata({
   params,
@@ -37,7 +38,7 @@ export async function generateMetadata({
       siteName: site.name,
       locale: 'fr_FR',
       type: 'website',
-      images: [{ url: '/opengraph-image.png', width: 1200, height: 630 }],
+      images: [ogImage(ARTICLES_LOCALE)],
     },
   };
 }
