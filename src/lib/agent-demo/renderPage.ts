@@ -8,7 +8,8 @@
 //    redirects, opens a chat widget or rewrites the copy we just put in. What
 //    stays is what makes it look like their page: stylesheets, images, fonts,
 //    markup. A <base> element rebases every relative URL onto the store's
-//    origin in one move, which is why no attribute rewriting is needed.
+//    origin in one move. The one attribute rewriting is on images: photos a
+//    script would have loaded are pointed at their real file (images.ts).
 //
 // 2. SUBSTITUTION. Into the element the description was read from (and its
 //    mobile or desktop twin), only when dom.ts is sure which element that is.
@@ -21,6 +22,7 @@
 
 import { escapeHtml } from '@/lib/email';
 import { RENDER_MAX_CHARS } from './config';
+import { IMAGE_REPAIR_CSS, repairImages } from './images';
 import type { RenderMode } from './types';
 import {
   ancestorsAt,
@@ -45,56 +47,18 @@ const EVENT_ATTR =
 
 /**
  * What a page normally needs JavaScript for and now will not get. Lazy-loaded
- * images are repaired below by promoting data-src; these rules cover the
- * themes that hide the placeholder with CSS until their loader marks it done,
- * and the full-page loader some themes paint first and remove from a script:
- * on Le Slip Français it covered the whole rebuilt page in blue.
+ * images are repaired in images.ts, which also brings the rules for themes
+ * that hide a photo with CSS until their loader marks it done. These cover
+ * the full-page loader some themes paint first and remove from a script: on
+ * Le Slip Français it covered the whole rebuilt page in blue.
  */
-const REPAIR_CSS = `
-img[data-src],img.lazyload,img.lazyloading,img.lazyloaded,.lazyload,.lazyloading{opacity:1!important;visibility:visible!important;}
+const REPAIR_CSS = `${IMAGE_REPAIR_CSS}
 html.no-js body,body{visibility:visible!important;}
 loading-bar,.loading-bar,.page-loader,#page-loader,.preloader,#preloader,.page-loading,.loading-screen,.page-transition,page-transition{display:none!important;}
 `;
 
 const CSP =
   "default-src 'none'; img-src * data: blob:; style-src * 'unsafe-inline'; font-src * data:; media-src *; script-src 'none'; frame-src 'none'; object-src 'none'; form-action 'none'";
-
-function attr(tag: string, name: string): string | null {
-  const m = tag.match(new RegExp(`\\b${name}\\s*=\\s*("[^"]*"|'[^']*'|[^\\s>]+)`, 'i'));
-  if (!m) return null;
-  const raw = m[1];
-  if (raw.startsWith('"') || raw.startsWith("'")) return raw.slice(1, -1);
-  return raw;
-}
-
-/** A src that shows nothing on its own: the placeholder a lazy loader replaces. */
-function isPlaceholder(src: string | null): boolean {
-  if (!src) return true;
-  const s = src.trim();
-  if (!s) return true;
-  if (/^data:image\/(gif|svg)/i.test(s)) return true;
-  if (/(^|\/)(blank|placeholder|spacer|pixel)[.-]/i.test(s)) return true;
-  return false;
-}
-
-/** Promotes data-src / data-srcset so images appear without a lazy loader. */
-function repairImages(html: string): string {
-  return html.replace(/<img\b[^>]*>/gi, (tag) => {
-    const dataSrc = attr(tag, 'data-src') || attr(tag, 'data-lazy-src') || attr(tag, 'data-original');
-    const dataSrcset = attr(tag, 'data-srcset') || attr(tag, 'data-lazy-srcset');
-    let out = tag;
-
-    if (dataSrc && isPlaceholder(attr(tag, 'src'))) {
-      out = /\bsrc\s*=/i.test(out)
-        ? out.replace(/\bsrc\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/i, `src="${dataSrc.replace(/"/g, '&quot;')}"`)
-        : out.replace(/<img\b/i, `<img src="${dataSrc.replace(/"/g, '&quot;')}"`);
-    }
-    if (dataSrcset && !attr(tag, 'srcset')) {
-      out = out.replace(/<img\b/i, `<img srcset="${dataSrcset.replace(/"/g, '&quot;')}"`);
-    }
-    return out.replace(/\bloading\s*=\s*("lazy"|'lazy'|lazy)/i, 'loading="eager"');
-  });
-}
 
 /**
  * Strips everything active out of a document and rebases it on the store's
@@ -106,7 +70,12 @@ export function sanitizeDocument(html: string, pageUrl: string): string {
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/<script\b[\s\S]*?<\/script\s*>/gi, '')
     .replace(/<script\b[^>]*>/gi, '')
-    .replace(/<\/script\s*>/gi, '')
+    .replace(/<\/script\s*>/gi, '');
+
+  // Before <noscript> blocks and event attributes go: the repair reads both.
+  doc = repairImages(doc);
+
+  doc = doc
     .replace(/<noscript\b[\s\S]*?<\/noscript\s*>/gi, '')
     .replace(/<template\b[\s\S]*?<\/template\s*>/gi, '')
     .replace(/<iframe\b[\s\S]*?<\/iframe\s*>/gi, '')
@@ -121,8 +90,6 @@ export function sanitizeDocument(html: string, pageUrl: string): string {
     )
     .replace(EVENT_ATTR, '')
     .replace(/(href|src|action)\s*=\s*("|')\s*javascript:[^"']*\2/gi, '$1="#"');
-
-  doc = repairImages(doc);
 
   // A stylesheet requested with crossorigin needs the store's server to allow
   // our origin, and most do not: Typology's page came back with no styles at
