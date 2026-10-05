@@ -104,23 +104,42 @@ export function findProductNode(value: unknown, depth = 0): Record<string, unkno
   return null;
 }
 
-/** The first JSON-LD Product node in the document, parsed. */
-export function productJsonLd(html: string): Record<string, unknown> | null {
-  const blocks = html.match(
-    /<script[^>]+type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
-  );
-  if (!blocks) return null;
+/**
+ * Every JSON-LD block, parsed, and whether one that looks like a Product failed
+ * to parse. A theme that prints a raw line break inside a string produces JSON
+ * that JSON.parse rejects; those get one lenient retry with the control
+ * characters turned into spaces, since that is what the store meant. A block
+ * that still fails is reported as broken rather than as absent.
+ */
+export function productJsonLdStatus(html: string): {
+  product: Record<string, unknown> | null;
+  brokenProductBlock: boolean;
+} {
+  const blocks =
+    html.match(/<script[^>]+type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi) ||
+    [];
+  let broken = false;
 
   for (const block of blocks) {
-    const json = block.replace(/^[\s\S]*?>/, '').replace(/<\/script>$/i, '');
+    const json = block.replace(/^[\s\S]*?>/, '').replace(/<\/script>$/i, '').trim();
     let parsed: unknown;
     try {
-      parsed = JSON.parse(json.trim());
+      parsed = JSON.parse(json);
     } catch {
-      continue;
+      try {
+        parsed = JSON.parse(json.replace(/[\u0000-\u001f]+/g, ' '));
+      } catch {
+        if (/["']@type["']\s*:\s*["']Product["']/i.test(json)) broken = true;
+        continue;
+      }
     }
     const product = findProductNode(parsed);
-    if (product) return product;
+    if (product) return { product, brokenProductBlock: false };
   }
-  return null;
+  return { product: null, brokenProductBlock: broken };
+}
+
+/** The first JSON-LD Product node in the document, parsed. */
+export function productJsonLd(html: string): Record<string, unknown> | null {
+  return productJsonLdStatus(html).product;
 }

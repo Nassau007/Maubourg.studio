@@ -1,8 +1,8 @@
 // Server-side counters. This is the whole of the analytics on this page.
 //
 // No GA4, no consent banner, no cookies, no client-side tracking: the one
-// number this feature has to produce is the run-to-reveal ratio, which decides
-// whether GATE_MODE stays on 'full'. A tag manager and a consent dialog to
+// number this feature has to produce is the run-to-reveal ratio, which says
+// how many visitors who saw the free checks gave an email for the rest. A tag manager and a consent dialog to
 // answer one ratio would cost the page more conversions than the ratio is
 // worth.
 //
@@ -31,13 +31,18 @@ type Counters = {
   errors: Record<string, number>;
 };
 
-const counters: Counters = {
+// On globalThis for the same reason as the store: the run route, the reveal
+// route and the metrics route may each load their own copy of this module, and
+// a ratio of runs counted in one copy to reveals counted in another is noise.
+const shared = globalThis as typeof globalThis & { __agentDemoCounters?: Counters };
+const counters: Counters = shared.__agentDemoCounters ?? {
   since: new Date().toISOString(),
   runs: 0,
   renders: 0,
   reveals: 0,
   errors: {},
 };
+shared.__agentDemoCounters = counters;
 
 export function countRun(meta: {
   platform: string;

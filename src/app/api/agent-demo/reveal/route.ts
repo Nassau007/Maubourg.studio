@@ -1,9 +1,12 @@
 // POST /api/agent-demo/reveal — exchange a token plus an email for the result.
 //
-// UNUSED WHILE GATE_MODE IS 'open': the run route returns everything and the
-// client never posts here, so no token is ever issued and every request lands
-// on TOKEN_EXPIRED. It is kept working on purpose - putting the gate back is
-// meant to be one constant in config.ts and nothing else.
+// Under GATE_MODE 'rewrite-only' (live) this is where the deliverables open:
+// the rewrite, the rebuilt page and the ready-to-paste Product block. The free
+// half (verdict, gaps, checks) already went out with the run and is sent again
+// here so the client can render the whole result from one payload.
+//
+// Unused while GATE_MODE is 'open': the run route returns everything and no
+// token is ever issued, so every request lands on TOKEN_EXPIRED.
 //
 // The token is single-use and taken out of the store before anything else, so
 // a replay returns TOKEN_EXPIRED instead of a second copy. Email delivery
@@ -81,7 +84,7 @@ export async function POST(request: Request) {
     const callUrl = `${siteUrl}/${emailLocale}/call`;
 
     const visitorEmailSent = await sendDemoResult({
-      copy: getDictionary(emailLocale).agentDemo.resultEmail,
+      demo: getDictionary(emailLocale).agentDemo,
       run,
       name,
       email,
@@ -97,6 +100,8 @@ export async function POST(request: Request) {
       before_excerpt: run.result.before_excerpt,
       rewrite: run.result.rewrite,
       gaps: run.result.gaps,
+      checks: run.checks,
+      product_block: run.productBlock,
       preview_url: page ? page.preview : null,
       download_url: page ? page.download : null,
     };
@@ -106,18 +111,18 @@ export async function POST(request: Request) {
     // an email problem: log it and hand over what the visitor earned.
     console.error('[agent-demo] reveal side-effect failed:', err);
     countReveal(consent);
-    return NextResponse.json(
-      {
-        ok: true,
-        verdict: run.result.verdict,
-        before_excerpt: run.result.before_excerpt,
-        rewrite: run.result.rewrite,
-        gaps: run.result.gaps,
-        preview_url: page ? page.preview : null,
-        download_url: page ? page.download : null,
-      },
-      { status: 200 },
-    );
+    const fallback: RevealResponse = {
+      ok: true,
+      verdict: run.result.verdict,
+      before_excerpt: run.result.before_excerpt,
+      rewrite: run.result.rewrite,
+      gaps: run.result.gaps,
+      checks: run.checks,
+      product_block: run.productBlock,
+      preview_url: page ? page.preview : null,
+      download_url: page ? page.download : null,
+    };
+    return NextResponse.json(fallback, { status: 200 });
   }
 }
 

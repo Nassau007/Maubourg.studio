@@ -14,7 +14,19 @@ import { randomUUID } from 'node:crypto';
 import { PAGE_STORE_MAX_CHARS, PAGE_TTL_MS, TOKEN_TTL_MS } from './config';
 import type { StoredRun } from './types';
 
-const runs = new Map<string, StoredRun>();
+/**
+ * Held on globalThis, not in module scope. Next.js may load this module once
+ * per API route (it always does in dev), and then the run route would write
+ * tokens into one Map while the reveal route reads another, empty one: every
+ * reveal comes back TOKEN_EXPIRED. One process, one store.
+ */
+const shared = globalThis as typeof globalThis & {
+  __agentDemoRuns?: Map<string, StoredRun>;
+  __agentDemoPages?: Map<string, StoredPage>;
+};
+
+const runs: Map<string, StoredRun> = shared.__agentDemoRuns ?? new Map<string, StoredRun>();
+shared.__agentDemoRuns = runs;
 
 function sweep(now: number): void {
   // Array.from rather than iterating the Map directly: this repo's tsconfig
@@ -77,7 +89,8 @@ type StoredPage = {
   expiresAt: number;
 };
 
-const pages = new Map<string, StoredPage>();
+const pages: Map<string, StoredPage> = shared.__agentDemoPages ?? new Map<string, StoredPage>();
+shared.__agentDemoPages = pages;
 
 function pageBytes(): number {
   let total = 0;

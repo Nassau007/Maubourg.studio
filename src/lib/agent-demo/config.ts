@@ -4,28 +4,28 @@
 /**
  * What the email gate holds back.
  *
- * - 'full'         the whole result is gated (v1 default)
- * - 'rewrite-only' verdict and gaps are returned ungated, only the rewrite is gated
- * - 'open'         nothing is gated: the run response carries the verdict, the
- *                  gaps, the rewrite and the rebuilt page, no name and no email
- *                  are asked, and the reveal step never runs
+ * - 'full'         the whole result is gated, checks included
+ * - 'rewrite-only' the free half is returned at once with no email: the
+ *                  verdict, the gaps and the three checks (crawler view,
+ *                  robots.txt, Product structured data). The deliverables wait
+ *                  behind name + email: the rewrite, the rebuilt page and the
+ *                  ready-to-paste Product block
+ * - 'open'         nothing is gated: the run response carries everything, no
+ *                  name and no email are asked, and the reveal step never runs
  *
  * All three modes are implemented end to end. Flip this one constant and the
  * API, the client and the payload all follow.
  *
- * THE PRICE OF 'open', STATED PLAINLY: the demo captures no leads at all. No
- * address is collected, no result email goes to the visitor, and the studio
- * notification becomes a run notice with no one to reply to. Everything the
- * page earns has to come from the call and teardown CTAs under the result. The
- * reveal route is left working so this constant is the only thing to change to
- * put the gate back.
+ * LIVE: 'rewrite-only' since the GEO re-aim (October 2026). The checks are the
+ * proof the agent read the page properly; the rewrite and the Product block
+ * are what a store owner would actually paste, so those are what the address
+ * pays for. Under 'open' the demo captures no leads at all.
  *
- * Under 'full' or 'rewrite-only', review it against the run-to-reveal ratio
- * (GET /api/agent-demo/metrics) after ~50 runs: below roughly 40%, try
- * 'rewrite-only' and compare. Under 'open' that ratio does not exist, and the
- * metrics endpoint reports it as null rather than as zero.
+ * Review it against the run-to-reveal ratio (GET /api/agent-demo/metrics)
+ * after ~50 runs. Under 'open' that ratio does not exist, and the metrics
+ * endpoint reports it as null rather than as zero.
  */
-export const GATE_MODE: 'full' | 'rewrite-only' | 'open' = 'open';
+export const GATE_MODE: 'full' | 'rewrite-only' | 'open' = 'rewrite-only';
 
 /** Held result lifetime. After this the token is gone and the run must be redone. */
 export const TOKEN_TTL_MS = 30 * 60 * 1000;

@@ -7,8 +7,8 @@
 //    Apps Script searches Gmail for "New teardown request" and would otherwise
 //    try to draft a teardown reply for a demo lead.
 // 2. Result email to the visitor, in the detected product-page language. It
-//    proves the address is real and puts the rewrite somewhere they can find
-//    it a week later. Sending it is performance of the service they asked for,
+//    proves the address is real and puts the new description, the checks and
+//    the Product block somewhere they can find them a week later. Sending it is performance of the service they asked for,
 //    so it does not depend on the marketing consent box.
 // 3. Run notice, sent instead of 1 and 2 while GATE_MODE is 'open'. With no
 //    address collected there is no lead and nobody to write to: this says which
@@ -17,8 +17,9 @@
 //    outside the Apps Script's search.
 
 import { escapeHtml, sendResendEmail } from '@/lib/email';
-import type { Dictionary } from '@/lib/i18n';
-import type { AgentResult, StoredRun } from './types';
+import { getDictionary, type Dictionary } from '@/lib/i18n';
+import { checkSummary } from './checkText';
+import type { AgentResult, Checks, ProductBlock, StoredRun } from './types';
 
 const BONE = '#F5F1E8';
 const INK = '#14140F';
@@ -30,6 +31,42 @@ function paragraphs(text: string): string {
     .map((block) => `<p style="margin:0 0 12px;color:${INK};font-size:15px;line-height:1.6;">${escapeHtml(block).replace(/\n/g, '<br>')}</p>`)
     .join('');
 }
+
+/** The three checks as short titled lists. */
+function checksHtml(checks: Checks, copy: Dictionary['agentDemo']['checks']): string {
+  return checkSummary(checks, copy)
+    .map(
+      (block) =>
+        `<p style="margin:14px 0 4px;color:${INK};font-size:14px;font-weight:600;">${escapeHtml(
+          block.title,
+        )}</p><ul style="margin:0;padding-left:18px;">${block.lines
+          .map(
+            (line) =>
+              `<li style="margin:0 0 4px;color:${INK};font-size:13.5px;line-height:1.5;">${escapeHtml(line)}</li>`,
+          )
+          .join('')}</ul>`,
+    )
+    .join('');
+}
+
+/** The Product block as monospace text, and what was left for the owner to fill. */
+function blockHtml(
+  block: ProductBlock,
+  fields: Dictionary['agentDemo']['productBlock']['fields'],
+  toCompleteLabel: string,
+): string {
+  const code = `<pre style="margin:0;background:${BONE};border-radius:10px;padding:12px 14px;font:12px/1.5 Menlo,Consolas,monospace;color:${INK};white-space:pre-wrap;word-break:break-word;">${escapeHtml(
+    block.snippet,
+  )}</pre>`;
+  if (!block.toComplete.length) return code;
+  return `${code}<p style="margin:12px 0 4px;color:${MUTED};font-size:13px;">${escapeHtml(
+    toCompleteLabel,
+  )}</p><ul style="margin:0;padding-left:18px;">${block.toComplete
+    .map((g) => `<li style="color:${MUTED};font-size:13px;line-height:1.5;">${escapeHtml(fields[g])}</li>`)
+    .join('')}</ul>`;
+}
+
+const STUDIO = getDictionary('en').agentDemo;
 
 function gapList(result: AgentResult): string {
   return result.gaps
@@ -67,8 +104,9 @@ export async function sendDemoNotification(input: {
     ['Page language', run.detectedLanguage],
     ['Extraction confidence', run.confidence],
     ['Rebuilt page', run.renderedHtml ? 'yes' : 'no - substitution not certain'],
+    ['Block to complete', run.productBlock.toComplete.join(', ') || 'nothing'],
     ['Site locale', run.locale],
-    ['Marketing consent', consent ? 'yes' : 'no'],
+    ['Marketing consent (GEO emails)', consent ? 'yes' : 'no'],
     ['Result email', visitorEmailSent ? 'sent' : 'NOT SENT - check Resend'],
     ['Submitted', new Date().toISOString()],
   ];
@@ -77,7 +115,7 @@ export async function sendDemoNotification(input: {
   <div style="background:${BONE};padding:24px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
     <div style="max-width:600px;margin:0 auto;background:#fff;border:1px solid #e3dbc8;border-radius:14px;overflow:hidden;">
       <div style="background:${INK};padding:18px 24px;">
-        <span style="color:${BONE};font-size:16px;font-weight:600;">Agent demo lead</span>
+        <span style="color:${BONE};font-size:16px;font-weight:600;">Agent demo lead (GEO)</span>
       </div>
       <div style="padding:20px 24px;">
         <table style="border-collapse:collapse;width:100%;">
@@ -96,11 +134,14 @@ export async function sendDemoNotification(input: {
         <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Verdict</h3>
         ${paragraphs(r.verdict)}
 
-        <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Rewrite</h3>
+        <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">New description</h3>
         ${paragraphs(r.rewrite)}
 
         <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Gaps</h3>
         <ul style="margin:0;padding-left:18px;">${gapList(r)}</ul>
+
+        <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Checks</h3>
+        ${checksHtml(run.checks, STUDIO.checks)}
 
         <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Their current copy (first 200 characters)</h3>
         ${paragraphs(r.before_excerpt)}
@@ -116,7 +157,7 @@ export async function sendDemoNotification(input: {
 
   await sendResendEmail({
     to,
-    subject: `Agent demo — ${run.productName} — ${name}`,
+    subject: `Agent demo (GEO) - ${run.productName} - ${name}`,
     html,
     replyTo: email,
     context: `agent-demo lead (${run.platform})`,
@@ -148,6 +189,7 @@ export async function sendDemoRunNotice(input: {
     ['Page language', run.detectedLanguage],
     ['Extraction confidence', run.confidence],
     ['Rebuilt page', run.renderedHtml ? 'yes' : 'no - substitution not certain'],
+    ['Block to complete', run.productBlock.toComplete.join(', ') || 'nothing'],
     ['Site locale', run.locale],
     ['Run at', new Date().toISOString()],
   ];
@@ -176,11 +218,14 @@ export async function sendDemoRunNotice(input: {
         <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Verdict</h3>
         ${paragraphs(r.verdict)}
 
-        <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Rewrite</h3>
+        <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">New description</h3>
         ${paragraphs(r.rewrite)}
 
         <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Gaps</h3>
         <ul style="margin:0;padding-left:18px;">${gapList(r)}</ul>
+
+        <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Checks</h3>
+        ${checksHtml(run.checks, STUDIO.checks)}
 
         <h3 style="margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">Their current copy (first 200 characters)</h3>
         ${paragraphs(r.before_excerpt)}
@@ -190,7 +235,7 @@ export async function sendDemoRunNotice(input: {
 
   await sendResendEmail({
     to,
-    subject: `Agent demo run - ${run.productName}`,
+    subject: `Agent demo run (GEO) - ${run.productName}`,
     html,
     context: `agent-demo run (${run.platform})`,
   });
@@ -201,13 +246,15 @@ export async function sendDemoRunNotice(input: {
 /* ------------------------------------------------------------------ */
 
 export async function sendDemoResult(input: {
-  copy: Dictionary['agentDemo']['resultEmail'];
+  /** The agentDemo block in the product page's language. */
+  demo: Dictionary['agentDemo'];
   run: StoredRun;
   name: string;
   email: string;
   callUrl: string;
 }): Promise<boolean> {
-  const { copy, run, name, email, callUrl } = input;
+  const { demo, run, name, email, callUrl } = input;
+  const copy = demo.resultEmail;
   const r = run.result;
 
   const html = `
@@ -227,6 +274,16 @@ export async function sendDemoResult(input: {
         ${paragraphs(r.verdict)}
 
         <h3 style="margin:24px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">${escapeHtml(
+          copy.gapsLabel,
+        )}</h3>
+        <ul style="margin:0;padding-left:18px;">${gapList(r)}</ul>
+
+        <h3 style="margin:24px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">${escapeHtml(
+          copy.checksLabel,
+        )}</h3>
+        ${checksHtml(run.checks, demo.checks)}
+
+        <h3 style="margin:24px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">${escapeHtml(
           copy.afterLabel,
         )}</h3>
         <div style="background:${BONE};border-radius:12px;padding:14px 16px;">${paragraphs(r.rewrite)}</div>
@@ -240,16 +297,17 @@ export async function sendDemoResult(input: {
         }
 
         <h3 style="margin:24px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">${escapeHtml(
+          copy.blockLabel,
+        )}</h3>
+        <p style="margin:0 0 10px;color:${MUTED};font-size:13px;line-height:1.6;">${escapeHtml(copy.blockNote)}</p>
+        ${blockHtml(run.productBlock, demo.productBlock.fields, copy.toCompleteLabel)}
+
+        <h3 style="margin:24px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">${escapeHtml(
           copy.beforeLabel,
         )}</h3>
         <p style="margin:0;color:#77776a;font-size:14px;line-height:1.6;font-style:italic;">${escapeHtml(
           r.before_excerpt,
         )}</p>
-
-        <h3 style="margin:24px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#77776a;">${escapeHtml(
-          copy.gapsLabel,
-        )}</h3>
-        <ul style="margin:0;padding-left:18px;">${gapList(r)}</ul>
 
         <p style="margin:26px 0 14px;color:${INK};font-size:15px;line-height:1.6;">${escapeHtml(
           copy.frame,

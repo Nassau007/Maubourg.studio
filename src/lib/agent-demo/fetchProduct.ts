@@ -125,10 +125,16 @@ export async function assertPublicUrl(raw: string): Promise<URL> {
  * GET with a byte cap and a manual redirect loop, so every hop goes back
  * through assertPublicUrl. Returns the body text and the final URL.
  */
-async function safeGet(
+export async function safeGet(
   startUrl: string,
   accept: string,
   deadline: number,
+  /**
+   * Hand back an error status instead of throwing. robots.txt needs it: a 404
+   * there is an answer (everything allowed), not a failure, and a 5xx has to be
+   * reported as unread rather than collapsed into a generic fetch error.
+   */
+  options: { anyStatus?: boolean } = {},
 ): Promise<{ body: string; finalUrl: URL; status: number }> {
   let target = await assertPublicUrl(startUrl);
 
@@ -165,7 +171,11 @@ async function safeGet(
       continue;
     }
 
-    if (!res.ok) throw new DemoError('FETCH_FAILED', `status ${res.status}`);
+    if (!res.ok) {
+      if (!options.anyStatus) throw new DemoError('FETCH_FAILED', `status ${res.status}`);
+      await res.body?.cancel().catch(() => {});
+      return { body: '', finalUrl: target, status: res.status };
+    }
 
     const body = await readCapped(res);
     return { body, finalUrl: target, status: res.status };
@@ -463,7 +473,9 @@ export async function fetchProduct(rawUrl: string): Promise<ProductPage> {
   const description = extracted.description.slice(0, MAX_DESCRIPTION_CHARS);
 
   return {
-    name: extracted.name.slice(0, 200),
+    // Some stores put markup in the product title ("Routine <i>Rentrée</i>").
+    // The visitor and the model both read it as text.
+    name: toPlainText(extracted.name).replace(/\s+/g, ' ').trim().slice(0, 200),
     description,
     platform,
     confidence,

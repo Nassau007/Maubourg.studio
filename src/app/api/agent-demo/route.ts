@@ -2,10 +2,15 @@
 //
 // WHAT GOES BACK DEPENDS ON GATE_MODE, and on nothing else.
 //
-// Under 'full' and 'rewrite-only' this route enforces the gate: the full
-// result never leaves the server here, only a product name, a ~60-character
-// teaser and a token. Adding the verdict or the rewrite to that response, even
-// to render it hidden, would defeat the whole thing.
+// Under 'full' and 'rewrite-only' this route enforces the gate: the
+// deliverables never leave the server here. Under 'rewrite-only' (live since
+// the GEO re-aim) the free half goes back now: the verdict, the gaps and the
+// three checks. The rewrite, the rebuilt page and the Product block wait for
+// the reveal. Adding any of those three to this response, even to render it
+// hidden, would defeat the whole thing.
+//
+// robots.txt is fetched in parallel with the page, under its own copy of the
+// page timeout, so it never adds more than that to the run.
 //
 // Under 'open' there is no gate to defeat. The whole result and the rebuilt
 // page go back in this one response, nothing is held for a second step, and no
@@ -18,7 +23,10 @@
 import { NextResponse } from 'next/server';
 import { GATE_MODE, BEFORE_EXCERPT_CHARS, TEASER_CHARS } from '@/lib/agent-demo/config';
 import { sendDemoRunNotice } from '@/lib/agent-demo/email';
+import { buildProductBlock, crawlerCheck, structuredCheck } from '@/lib/agent-demo/checks';
 import { fetchProduct } from '@/lib/agent-demo/fetchProduct';
+import { productJsonLd } from '@/lib/agent-demo/htmlText';
+import { fetchRobots, robotsCheck } from '@/lib/agent-demo/robots';
 import { detectLanguage, runAgent } from '@/lib/agent-demo/prompt';
 import { canRun, recordRun, visitorKey } from '@/lib/agent-demo/rateLimit';
 import { countRun } from '@/lib/agent-demo/metrics';
@@ -26,7 +34,7 @@ import { publishPage } from '@/lib/agent-demo/publish';
 import { buildRenderedPage } from '@/lib/agent-demo/renderPage';
 import { fail, failFrom } from '@/lib/agent-demo/respond';
 import { putRun } from '@/lib/agent-demo/store';
-import type { RunResponse, StoredRun } from '@/lib/agent-demo/types';
+import type { Checks, RunResponse, StoredRun } from '@/lib/agent-demo/types';
 
 export const maxDuration = 60;
 export const runtime = 'nodejs';
@@ -69,10 +77,29 @@ export async function POST(request: Request) {
 
   const started = Date.now();
 
+  // Started before the page and never throws: an unreadable file is a result
+  // ('unreadable'), not an error, and it must not fail the run.
+  const robotsPending = fetchRobots(url);
+
   try {
     const page = await fetchProduct(url);
     const detectedLanguage = detectLanguage(page);
-    const model = await runAgent(page, detectedLanguage);
+
+    // The three checks, all in code. The model is shown them and may comment
+    // on them; it never produces one.
+    const finalUrl = new URL(page.finalUrl);
+    const checks: Checks = {
+      crawler: crawlerCheck({
+        html: page.html,
+        name: page.name,
+        description: page.description,
+        jsonld: productJsonLd(page.html),
+      }),
+      robots: robotsCheck(await robotsPending, `${finalUrl.pathname}${finalUrl.search}`),
+      structured: structuredCheck(page.html),
+    };
+
+    const model = await runAgent(page, detectedLanguage, checks);
 
     // The deliverable: their own page, cleaned of everything active, with the
     // new copy sitting in the element the old copy came from. Null whenever we
@@ -92,6 +119,15 @@ export async function POST(request: Request) {
         gaps: model.gaps,
         before_excerpt: page.description.slice(0, BEFORE_EXCERPT_CHARS).trim(),
       },
+      checks,
+      // Built from the page's own facts plus the new description, so it sits
+      // behind the gate with the rewrite.
+      productBlock: buildProductBlock({
+        html: page.html,
+        name: page.name,
+        finalUrl: page.finalUrl,
+        rewrite: model.rewrite,
+      }),
       renderedHtml,
       productName: page.name,
       url,
@@ -131,15 +167,17 @@ export async function POST(request: Request) {
       detected_language: detectedLanguage,
       confidence: page.confidence,
       render_available: renderedHtml !== null,
-      // Under 'rewrite-only' the diagnosis is shown before the ask and only the
-      // rewrite is held back. Under 'full' neither field is sent at all.
-      ...(GATE_MODE === 'rewrite-only' ? { verdict: model.verdict, gaps: model.gaps } : {}),
+      // Under 'rewrite-only' the diagnosis and the checks are shown before the
+      // ask. Under 'full' none of it is sent.
+      ...(GATE_MODE === 'rewrite-only' ? { verdict: model.verdict, gaps: model.gaps, checks } : {}),
       // Under 'open' the visitor gets the lot, here, now.
       ...(open
         ? {
             verdict: model.verdict,
             gaps: model.gaps,
+            checks,
             rewrite: model.rewrite,
+            product_block: run.productBlock,
             before_excerpt: run.result.before_excerpt,
             preview_url: published ? published.preview : null,
             download_url: published ? published.download : null,

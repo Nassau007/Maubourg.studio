@@ -54,6 +54,116 @@ export type PageSignals = {
   url: string;
 };
 
+/* ------------------------------------------------------------------ */
+/* The three checks                                                    */
+/* ------------------------------------------------------------------ */
+//
+// Measured by code, never by the model. The model is shown a summary of them
+// and may comment on it; it can never produce, change or contradict one. The
+// visitor reads these as facts about their own page, so each one is something
+// that was literally read, and "could not read" is always a separate state from
+// "absent".
+
+/**
+ * Where a fact was found in the HTML one plain request returns, with no
+ * JavaScript run, which is what an AI crawler gets.
+ *
+ * - 'text'  in the text of the page itself
+ * - 'meta'  only in structured data or meta tags, not in the readable text
+ * - 'absent' in neither
+ */
+export type FactPlace = 'text' | 'meta' | 'absent';
+
+export type CrawlerCheck = {
+  name: FactPlace;
+  price: FactPlace;
+  availability: FactPlace;
+  description: FactPlace;
+  /** Words of the product description found in the place above. 0 when absent. */
+  descriptionWords: number;
+};
+
+export type BotKind = 'training' | 'answer';
+
+export type BotVerdict = {
+  /** Product token, as the bot announces itself: GPTBot, PerplexityBot, ... */
+  bot: string;
+  /** Training crawlers feed a model; answer-time bots read a page to answer. */
+  kind: BotKind;
+  allowed: boolean;
+  /** 'own' when the file has a group naming this bot, 'any' for the * group. */
+  group: 'own' | 'any' | 'none';
+  /** The rule that decided it, as written in the file, e.g. "Disallow: /". */
+  rule: string | null;
+};
+
+export type RobotsCheck = {
+  /**
+   * - 'read'       a robots.txt was read and applied
+   * - 'missing'    the site answered 404 or 410: no file, so every bot is allowed
+   * - 'unreadable' timeout, network error, 5xx, or a refusal (403, 429...):
+   *                nothing is claimed either way
+   */
+  status: 'read' | 'missing' | 'unreadable';
+  /** Host whose robots.txt this is. One file per site, not per page. */
+  host: string;
+  httpStatus: number | null;
+  /** Empty when status is 'unreadable'. */
+  bots: BotVerdict[];
+};
+
+export type StructuredField =
+  | 'name'
+  | 'price'
+  | 'availability'
+  | 'brand'
+  | 'identifier'
+  | 'rating'
+  | 'shipping'
+  | 'returns';
+
+export type StructuredCheck = {
+  /**
+   * - 'found'     a JSON-LD Product node was read
+   * - 'none'      no Product node in any JSON-LD block, and no microdata either
+   * - 'invalid'   a JSON-LD block mentions Product but is not valid JSON
+   * - 'microdata' no JSON-LD Product, but the page marks the product up as
+   *               microdata, which this check does not read field by field
+   */
+  status: 'found' | 'none' | 'invalid' | 'microdata';
+  /** Empty unless status is 'found'. */
+  fields: { field: StructuredField; present: boolean }[];
+};
+
+export type Checks = {
+  crawler: CrawlerCheck;
+  robots: RobotsCheck;
+  structured: StructuredCheck;
+};
+
+/** Fields a Product block can carry that the page did not give us. */
+export type BlockGap =
+  | 'price'
+  | 'availability'
+  | 'brand'
+  | 'image'
+  | 'sku'
+  | 'gtin'
+  | 'rating'
+  | 'shipping'
+  | 'returns';
+
+/**
+ * The ready-to-paste JSON-LD Product block, built in code from facts read on
+ * the page plus the rewritten description. Nothing in it is invented: a field
+ * the page does not give is left out and listed in toComplete.
+ */
+export type ProductBlock = {
+  /** The whole <script type="application/ld+json"> element, ready to paste. */
+  snippet: string;
+  toComplete: BlockGap[];
+};
+
 /** What one HTTP GET of the submitted URL yielded. */
 export type ProductPage = {
   name: string;
@@ -84,6 +194,9 @@ export type ProductPage = {
  */
 export type StoredRun = {
   result: AgentResult;
+  checks: Checks;
+  /** Gated with the rewrite: it carries the new description. */
+  productBlock: ProductBlock;
   /**
    * The visitor's own page with the rewrite substituted into it, sanitized and
    * ready to load. Null when we could not be certain which element the
@@ -125,11 +238,13 @@ export type RunResponse = {
    * substitution did not succeed.
    */
   render_available: boolean;
-  /** Present under GATE_MODE 'rewrite-only' and 'open'. */
+  /** Present under GATE_MODE 'rewrite-only' and 'open': the free half. */
   verdict?: string;
   gaps?: Gap[];
+  checks?: Checks;
   /** Present only under GATE_MODE 'open' - the whole result, in one response. */
   rewrite?: string;
+  product_block?: ProductBlock;
   before_excerpt?: string;
   preview_url?: string | null;
   download_url?: string | null;
@@ -142,6 +257,8 @@ export type RevealResponse = {
   before_excerpt: string;
   rewrite: string;
   gaps: Gap[];
+  checks: Checks;
+  product_block: ProductBlock;
   /** Same-origin URL of the rendered page, or null when there is none. */
   preview_url: string | null;
   /** The same document as a download, without the preview marker. */

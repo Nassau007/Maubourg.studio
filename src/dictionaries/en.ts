@@ -495,90 +495,176 @@ export const en = {
   },
 
   agentDemo: {
-    metaTitle: 'Try an agent on your own product page - Maubourg Studio',
+    metaTitle: 'See your product page as an AI assistant reads it - Maubourg Studio',
     metaDescription:
-      'Paste one product page URL from your store. In about 30 seconds an agent reads it, names what is costing you sales, and writes a new description you can paste straight in. Free.',
+      'Paste one product page from your store. In about 30 seconds an agent shows what AI assistants like ChatGPT and Perplexity can read on it, and rewrites the description so an AI can quote it. Free.',
     back: '← Back to home',
-    eyebrow: 'Live agent demo',
-    title: 'Watch an agent rewrite',
-    titleAccent: 'one of your product pages.',
+    eyebrow: 'Live GEO agent demo',
+    title: 'See your product page',
+    titleAccent: 'the way an AI assistant reads it.',
     subtitle:
-      'Paste a product page from your own store. An agent reads it, names the single thing costing you the most sales, and writes a new description ready to paste. About 30 seconds, and the result opens on this page.',
+      'Paste a product page from your own store. An agent checks what ChatGPT, Perplexity or Claude can actually read on it and names what keeps them from quoting it. Then it rewrites the description so an AI can quote it and a buyer still wants the product. About 30 seconds.',
     form: {
       label: 'Product page URL',
       placeholder: 'brand.com/products/your-product',
       submit: 'Run the agent →',
       running: 'Running…',
-      note: 'Free. About 30 seconds. No email, no signup: the result opens right here.',
+      note: 'Free. About 30 seconds. The diagnosis opens here, no email needed.',
       privacy:
-        'The URL is used only to produce this result. Nothing is written to a database, and the rebuilt page is dropped an hour later.',
+        'The URL is used only to produce this result and is never written to a database. The result is held in memory for 30 minutes.',
     },
     loading: {
-      steps: ['Reading your product page…', 'Analysing the copy…', 'Writing the rewrite…'],
+      steps: [
+        'Reading your product page and your robots.txt…',
+        'Checking what an AI crawler gets from it…',
+        'Writing the new description…',
+      ],
     },
     what: {
       heading: 'What you are looking at',
       items: [
         {
           title: 'One agent, one task',
-          body: 'It reads a live page, diagnoses the copy and rewrites it. Nothing is written back to your store, ever.',
+          body: 'It reads one live page and rewrites one description. Nothing is ever written to your store.',
         },
         {
           title: 'It answers in your language',
           body: 'The output follows the language of the page you submit, not the language of this site.',
         },
-        {
-          title: 'We built it',
-          body: 'Same hand that builds the agents we sell. This one is small on purpose, so you can check its work in a minute.',
-        },
       ],
     },
+    checks: {
+      heading: 'What an AI tool gets from this page',
+      intro: 'Measured by code on your page as it is online. The agent does not guess these.',
+      crawler: {
+        title: 'What an AI crawler sees',
+        intro:
+          'Most AI crawlers read the HTML of a page without running JavaScript. We fetched your page the same way.',
+        facts: {
+          name: 'Product name',
+          price: 'Price',
+          availability: 'Availability',
+          description: 'Description',
+        },
+        places: {
+          text: 'In the page text',
+          meta: 'Only in structured data or meta tags',
+          absent: 'Not in the HTML',
+        },
+        words: '{n} words',
+        short: '{n} words, little to quote',
+        absentNote:
+          'A fact that is not in the HTML is most likely added by JavaScript. An AI crawler that does not run it never sees that fact.',
+      },
+      robots: {
+        title: 'AI bots your robots.txt lets in',
+        intro: 'robots.txt is one file for your whole site. It tells each bot which pages it may read.',
+        fileRead: 'File read: {host}/robots.txt, applied to this page address.',
+        answerGroup: 'Bots that read a page to answer a question',
+        answerNote: 'Blocking one of these stops that assistant from reading your page when it answers.',
+        trainingGroup: 'Bots that collect pages to train a model',
+        trainingNote: 'Blocking these does not stop your page being cited in answers.',
+        allowed: 'Allowed',
+        blocked: 'Blocked',
+        byRule: 'by the rule',
+        missing: 'Your site has no robots.txt (the server answered {status}), so every AI bot is allowed.',
+        unreadable: 'We could not read your robots.txt ({reason}). We report nothing we could not read.',
+        reasonStatus: 'the server answered {status}',
+        reasonNoAnswer: 'no answer in time',
+        firewall:
+          'This reads robots.txt only. A firewall or a CDN setting can still turn a bot away, and that does not show here.',
+      },
+      structured: {
+        title: 'Product structured data',
+        intro: 'A JSON-LD Product block states the product facts in a form a machine reads without guessing.',
+        fields: {
+          name: 'Name',
+          price: 'Price and currency',
+          availability: 'Availability',
+          brand: 'Brand',
+          identifier: 'SKU or GTIN',
+          rating: 'Rating',
+          shipping: 'Shipping details',
+          returns: 'Return policy',
+        },
+        present: 'Present',
+        missing: 'Missing',
+        none: 'No Product structured data found on this page.',
+        invalid: 'This page has a Product block, but it is not valid JSON, so a machine cannot read it.',
+        microdata:
+          'No JSON-LD Product block. The page marks the product up as microdata instead, which this check does not read field by field.',
+      },
+    },
     gate: {
-      ready: 'Your rewrite is ready.',
+      ready: 'Your new description is ready.',
       productLabel: 'Product',
       verdictLabel: 'The verdict starts',
       gapsFound: '{n} issues found on this page',
       gapsFoundOne: '1 issue found on this page',
+      whatOpens: [
+        'The description rewritten so an AI can quote it, ready to paste.',
+        'A Product block built from the facts on your page, ready to paste.',
+      ],
       // The reward, named at the point of the ask. Withheld when the
       // substitution did not work, because promising a page we cannot show is
       // the one thing worse than not promising it.
       previewPromise:
-        'Your own product page has been rebuilt with the new description in place of the old one. It opens here, and you can download it.',
-      intro: 'Tell us where to send it. The full result opens here as soon as you do.',
+        'Your own product page has also been rebuilt with the new description in place of the old one. It opens here, and you can download it.',
+      intro: 'Tell us where to send it. It opens here as soon as you do.',
       name: 'Your name',
       namePlaceholder: 'Jane Doe',
       email: 'Email',
       emailPlaceholder: 'jane@brand.com',
-      consent: 'Send me occasional emails about ecommerce conversion. Unsubscribe anytime.',
-      submit: 'Show me the full result →',
+      consent: 'Send me occasional emails about visibility in AI answers. Unsubscribe anytime.',
+      submit: 'Show me the new description →',
       submitting: 'Opening…',
-      use: 'We use your email to send you a copy of this result and to reply if you write back.',
+      use: 'We use your name and email to send you a copy of this result and to reply if you write back.',
       privacyLink: 'How we handle it',
     },
     result: {
       verdictLabel: 'The verdict',
-      beforeLabel: 'Your current copy',
-      afterLabel: 'The rewrite',
-      gapsLabel: 'What is missing',
-      copy: 'Copy the rewrite',
+      beforeLabel: 'Your current description',
+      afterLabel: 'The new description',
+      gapsLabel: 'What keeps AI assistants from quoting it',
+      copy: 'Copy the new description',
       copied: 'Copied',
-      previewLabel: 'Your page, with the new copy in it',
+      previewLabel: 'Your page, with the new description in it',
       previewNote:
         'This is your own product page, your design and your images, with the new description where the old one was. It runs with all scripts removed, so parts that need JavaScript may look different. Nothing was written to your store.',
-      previewMarker: 'New copy',
+      previewMarker: 'New description',
       previewOpen: 'Open in a new tab',
       previewDownload: 'Download the HTML',
       previewExpires: 'This page stays available for an hour, then the copy on our side is dropped.',
       previewUnavailable:
-        'We could not place the new copy back into this page with certainty, so we did not rebuild it. Rather than risk showing you a broken version of your own store, here is the rewrite on its own.',
+        'We could not place the new description back into this page with certainty, so we did not rebuild it. Rather than risk showing you a broken version of your own store, here is the new description on its own.',
       emailed: 'A copy is on its way to your inbox.',
       lowConfidence:
-        'This page was hard to read automatically, so the rewrite may be based on partial content.',
+        'This page was hard to read automatically, so the new description may be based on partial content.',
       again: 'Try another product page',
+    },
+    productBlock: {
+      label: 'Product block, ready to paste',
+      intro:
+        'Built from the facts on your page and the new description. It goes in the HTML of this product page. If your theme already prints a Product block, replace that one rather than adding a second.',
+      copy: 'Copy the block',
+      copied: 'Copied',
+      toComplete: 'Left out because your page does not state it. Add a field only if it is true.',
+      complete: 'Every field we check is filled from your page.',
+      fields: {
+        price: 'Price and currency',
+        availability: 'Availability',
+        brand: 'Brand',
+        image: 'Image',
+        sku: 'SKU',
+        gtin: 'GTIN (the barcode number)',
+        rating: 'Rating, from real reviews only',
+        shipping: 'Shipping details',
+        returns: 'Return policy',
+      },
     },
     frame: {
       title: 'That was one agent doing one task, in about 30 seconds.',
-      body: 'The ones we build run continuously across a full catalog: writing and refreshing copy, filling metadata gaps, and flagging the listings that quietly lose sales.',
+      body: 'On a full catalogue, the agent we set up does this on every product page and keeps watch as new ones are added. It also flags wrong information about your brand.',
       ctaPrimary: 'Book a 15-min call →',
       teardownPrefix: 'Rather start with a document?',
       teardownLink: 'Get a free GEO audit →',
@@ -598,20 +684,25 @@ export const en = {
       MODEL_ERROR: 'The agent could not finish that one. Please try again in a moment.',
     },
     resultEmail: {
-      subject: 'Your rewrite: {product}',
+      subject: 'What AI assistants read on {product}',
       intro:
-        '{name}, here is what our agent found on your page for {product}, exactly as it appeared on the site.',
+        '{name}, here is what our agent found on your page for {product}, as it was online when you ran it.',
       verdictLabel: 'The verdict',
-      beforeLabel: 'Your current copy',
-      afterLabel: 'The rewrite',
-      gapsLabel: 'What is missing',
+      gapsLabel: 'What keeps AI assistants from quoting it',
+      checksLabel: 'What an AI tool gets from this page',
+      beforeLabel: 'Your current description',
+      afterLabel: 'The new description',
+      blockLabel: 'Product block, ready to paste',
+      blockNote:
+        'It goes in the HTML of this product page. If your theme already prints a Product block, replace that one rather than adding a second.',
+      toCompleteLabel: 'Left out because your page does not state it',
       previewNote:
-        'Your page with the new copy already in it is open in the browser tab you ran this from, for the next hour. It is a rebuilt copy for you to look at, nothing was changed on your store.',
+        'Your page with the new description already in it is open in the browser tab you ran this from, for the next hour. It is a rebuilt copy for you to look at. Nothing was changed on your store.',
       frame:
-        'That was one agent doing one task. The ones we build run continuously across a full catalog. If you want to see what that would look like on yours, book 15 minutes.',
+        'That was one agent doing one task. On a full catalogue, the agent we set up does this on every product page and keeps watch as new ones are added. If you want to see what that would look like on yours, book 15 minutes.',
       cta: 'Book a 15-minute call',
       footer:
-        'Sent by Maubourg Studio because you asked for this rewrite on maubourg.studio. Reply to this email and a human reads it.',
+        'Sent by Maubourg Studio because you asked for this result on maubourg.studio. Reply to this email and a human reads it.',
     },
   },
 
@@ -622,7 +713,7 @@ export const en = {
     back: '← Back to home',
     eyebrow: 'Privacy',
     title: 'What we collect, and why.',
-    updated: 'Last updated: July 2026',
+    updated: 'Last updated: October 2026',
     intro:
       'Maubourg Studio is a one-person studio based in Paris. This page says plainly what happens to what you type into this site. If something here is unclear, email us and ask.',
     sections: [
@@ -632,15 +723,19 @@ export const en = {
       },
       {
         title: 'When you run the agent demo',
-        body: 'You give us a product page URL and nothing else. We ask for no name and no email, and the whole result opens on the page. The URL, the page content and the rebuilt copy of your page are held in memory and dropped within the hour, never written to a database. We do send ourselves a copy of what the agent said, so we can see how it performs on real stores.',
+        body: 'You give us the URL of a product page. The diagnosis and the checks open on the page without asking you for anything else. To open the new description and the Product block, you give us your name and your email. We use them to send you a copy of the result and to reply if you write back. If you tick the box under the form, we also send you occasional emails about visibility in AI answers.',
+      },
+      {
+        title: 'How long the demo keeps it',
+        body: "The URL, the content of the page and the result are held in our server's memory and never written to a database. A result you do not open is dropped after 30 minutes. The rebuilt copy of your page is dropped one hour after you open it. Both also disappear whenever the site restarts. When you give your name and email, two emails go out. One carries the result to you. The other tells us who ran the demo, with your name, your email, the URL and the result. That one is kept in our mailbox for 12 months, then deleted, or sooner if you ask us to.",
+      },
+      {
+        title: 'Who receives it',
+        body: 'Only Maubourg Studio reads what you send, and nothing is sold or shared. A few providers handle it on our behalf. Railway runs the server the site lives on. Resend sends the emails. Google hosts our mailbox. Anthropic provides the model that writes the new description and receives the text of the page you submitted, never your name or email, because the model has finished before you are asked for them.',
       },
       {
         title: 'Mailing lists',
-        body: 'The demo puts you on no list, because it asks for no address. The only emails we send are replies about a teardown or a call you requested yourself, and you can tell us to stop in one line.',
-      },
-      {
-        title: 'The agent and the model',
-        body: 'The text of the page you submit is sent to Anthropic, the provider of the model that writes the rewrite, to produce the answer. Nothing about you goes with it, because the demo never asked for anything about you.',
+        body: 'The demo adds you to a list only if you tick the box under the form. Without it, the only emails you get are the copy of your result and replies to what you write. Either way, one line from you is enough to make them stop.',
       },
       {
         title: 'What we do not do',
@@ -972,7 +1067,7 @@ export const en = {
       demoIntro: {
         eyebrow: 'A demonstration, not a promise',
         title: 'Give it one of your product pages.',
-        body: 'It reads the page, identifies what is costing you the sale, and rewrites the description. About thirty seconds, no email and no signup: the result opens here. It is an agent deliberately limited to one task. The ones we build run continuously across a whole catalogue.',
+        body: 'It reads the page the way an AI crawler does and rewrites the description so an AI can quote it. About thirty seconds. The diagnosis opens here with no email. The new description asks for one. It is an agent deliberately limited to one task. The one we set up for clients works across a whole catalogue.',
       },
       families: {
         eyebrow: 'What we build',

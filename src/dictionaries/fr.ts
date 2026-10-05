@@ -498,29 +498,29 @@ export const fr: Dictionary = {
   },
 
   agentDemo: {
-    metaTitle: 'Testez un agent sur votre fiche produit - Maubourg Studio',
+    metaTitle: 'Votre fiche produit vue par une IA - Maubourg Studio',
     metaDescription:
-      'Collez l’URL d’une fiche produit de votre boutique. En 30 secondes environ, un agent la lit, nomme ce qui vous coûte des ventes et réécrit la description, prête à coller. Gratuit.',
+      'Collez l’URL d’une fiche produit de votre boutique. En 30 secondes environ, un agent montre ce que ChatGPT ou Perplexity peuvent y lire, et réécrit la description pour qu’une IA puisse la citer. Gratuit.',
     back: '← Retour à l’accueil',
-    eyebrow: 'Démo d’agent en direct',
-    title: 'Regardez un agent réécrire',
-    titleAccent: 'une de vos fiches produit.',
+    eyebrow: 'Démo d’agent GEO en direct',
+    title: 'Voyez votre fiche produit',
+    titleAccent: 'comme une IA la lit.',
     subtitle:
-      'Collez l’adresse d’une fiche produit de votre boutique. Un agent la lit, nomme ce qui vous coûte le plus de ventes et rédige une nouvelle description prête à coller. 30 secondes environ, et le résultat s’affiche sur cette page.',
+      'Collez l’adresse d’une fiche produit de votre boutique. Un agent vérifie ce que ChatGPT, Perplexity ou Claude peuvent vraiment y lire et nomme ce qui les empêche de la citer. Puis il réécrit la description pour qu’une IA puisse la reprendre, sans qu’elle perde l’envie d’acheter. 30 secondes environ.',
     form: {
       label: 'URL de la fiche produit',
       placeholder: 'marque.fr/products/votre-produit',
       submit: 'Lancer l’agent →',
       running: 'En cours…',
-      note: 'Gratuit. 30 secondes environ. Sans e-mail ni inscription : le résultat s’affiche ici.',
+      note: 'Gratuit. 30 secondes environ. Le diagnostic s’affiche ici, sans e-mail.',
       privacy:
-        'L’URL sert uniquement à produire ce résultat. Rien n’est écrit en base, et la page reconstruite est supprimée une heure après.',
+        'L’URL sert uniquement à produire ce résultat et n’est jamais écrite en base. Le résultat reste en mémoire 30 minutes.',
     },
     loading: {
       steps: [
-        'Lecture de votre fiche produit…',
-        'Analyse du texte…',
-        'Rédaction de la nouvelle version…',
+        'Lecture de votre fiche produit et de votre robots.txt…',
+        'Vérification de ce qu’un robot d’IA en récupère…',
+        'Rédaction de la nouvelle description…',
       ],
     },
     what: {
@@ -528,63 +528,144 @@ export const fr: Dictionary = {
       items: [
         {
           title: 'Un agent, une tâche',
-          body: 'Il lit une page en ligne, diagnostique le texte et le réécrit. Rien n’est jamais écrit dans votre boutique.',
+          body: 'Il lit une page en ligne et réécrit une description. Rien n’est jamais écrit dans votre boutique.',
         },
         {
           title: 'Il répond dans votre langue',
           body: 'Le résultat suit la langue de la page envoyée, pas celle de ce site.',
         },
-        {
-          title: 'C’est nous qui l’avons construit',
-          body: 'La même main que les agents que nous livrons à nos clients. Celui-ci est volontairement petit, pour que vous puissiez vérifier son travail en une minute.',
-        },
       ],
     },
+    checks: {
+      heading: 'Ce qu’un outil d’IA récupère de cette page',
+      intro: 'Mesuré par du code sur votre page telle qu’elle est en ligne. L’agent ne devine rien ici.',
+      crawler: {
+        title: 'Ce que voit un robot d’IA',
+        intro:
+          'La plupart des robots d’IA lisent le HTML d’une page sans exécuter le JavaScript. Nous avons récupéré votre page de la même façon.',
+        facts: {
+          name: 'Nom du produit',
+          price: 'Prix',
+          availability: 'Disponibilité',
+          description: 'Description',
+        },
+        places: {
+          text: 'Dans le texte de la page',
+          meta: 'Seulement dans les données structurées ou les balises meta',
+          absent: 'Absent du HTML',
+        },
+        words: '{n} mots',
+        short: '{n} mots, peu à citer',
+        absentNote:
+          'Une information absente du HTML est très probablement ajoutée par JavaScript. Un robot d’IA qui ne l’exécute pas ne la voit jamais.',
+      },
+      robots: {
+        title: 'Les robots d’IA que votre robots.txt laisse entrer',
+        intro: 'Le robots.txt est un seul fichier pour tout votre site. Il dit à chaque robot quelles pages il peut lire.',
+        fileRead: 'Fichier lu : {host}/robots.txt, appliqué à l’adresse de cette page.',
+        answerGroup: 'Les robots qui lisent une page pour répondre à une question',
+        answerNote: 'En bloquer un empêche cet assistant de lire votre page quand il répond.',
+        trainingGroup: 'Les robots qui collectent des pages pour entraîner un modèle',
+        trainingNote: 'Les bloquer n’empêche pas votre page d’être citée dans les réponses.',
+        allowed: 'Autorisé',
+        blocked: 'Bloqué',
+        byRule: 'par la règle',
+        missing: 'Votre site n’a pas de robots.txt (le serveur a répondu {status}), donc tous les robots d’IA sont autorisés.',
+        unreadable: 'Nous n’avons pas pu lire votre robots.txt ({reason}). Nous ne rapportons rien de ce que nous n’avons pas lu.',
+        reasonStatus: 'le serveur a répondu {status}',
+        reasonNoAnswer: 'pas de réponse à temps',
+        firewall:
+          'Ce test lit uniquement le robots.txt. Un pare-feu ou un réglage du CDN peut encore refouler un robot, et cela n’apparaît pas ici.',
+      },
+      structured: {
+        title: 'Données structurées Product',
+        intro: 'Un bloc JSON-LD Product donne les informations du produit sous une forme qu’une machine lit sans deviner.',
+        fields: {
+          name: 'Nom',
+          price: 'Prix et devise',
+          availability: 'Disponibilité',
+          brand: 'Marque',
+          identifier: 'SKU ou GTIN',
+          rating: 'Note',
+          shipping: 'Livraison',
+          returns: 'Politique de retour',
+        },
+        present: 'Présent',
+        missing: 'Absent',
+        none: 'Aucune donnée structurée Product sur cette page.',
+        invalid: 'Cette page a un bloc Product, mais son JSON n’est pas valide, donc une machine ne peut pas le lire.',
+        microdata:
+          'Pas de bloc JSON-LD Product. La page balise le produit en microdonnées, que ce test ne lit pas champ par champ.',
+      },
+    },
     gate: {
-      ready: 'Votre nouvelle fiche est prête.',
+      ready: 'Votre nouvelle description est prête.',
       productLabel: 'Produit',
       verdictLabel: 'Le verdict commence par',
       gapsFound: '{n} problèmes trouvés sur cette page',
       gapsFoundOne: '1 problème trouvé sur cette page',
+      whatOpens: [
+        'La description réécrite pour qu’une IA puisse la citer, prête à coller.',
+        'Un bloc Product construit avec les informations de votre page, prêt à coller.',
+      ],
       previewPromise:
-        'Votre fiche produit a été reconstruite avec la nouvelle description à la place de l’ancienne. Elle s’ouvre ici, et vous pouvez la télécharger.',
-      intro: 'Dites-nous où l’envoyer. Le résultat complet s’ouvre ici dans la foulée.',
+        'Votre fiche produit a aussi été reconstruite avec la nouvelle description à la place de l’ancienne. Elle s’ouvre ici, et vous pouvez la télécharger.',
+      intro: 'Dites-nous où l’envoyer. Elle s’ouvre ici dans la foulée.',
       name: 'Votre nom',
       namePlaceholder: 'Camille Martin',
       email: 'E-mail',
       emailPlaceholder: 'camille@marque.fr',
       consent:
-        'Recevoir occasionnellement des e-mails sur la conversion e-commerce. Désinscription à tout moment.',
-      submit: 'Voir le résultat complet →',
+        'Recevoir de temps en temps des e-mails sur la visibilité dans les réponses des IA. Désinscription à tout moment.',
+      submit: 'Voir la nouvelle description →',
       submitting: 'Ouverture…',
-      use: 'Votre e-mail sert à vous envoyer une copie de ce résultat et à vous répondre si vous écrivez.',
+      use: 'Votre nom et votre e-mail servent à vous envoyer une copie de ce résultat et à vous répondre si vous écrivez.',
       privacyLink: 'Ce que nous en faisons',
     },
     result: {
       verdictLabel: 'Le verdict',
-      beforeLabel: 'Votre texte actuel',
-      afterLabel: 'La nouvelle version',
-      gapsLabel: 'Ce qui manque',
-      copy: 'Copier la nouvelle version',
+      beforeLabel: 'Votre description actuelle',
+      afterLabel: 'La nouvelle description',
+      gapsLabel: 'Ce qui empêche les IA de la citer',
+      copy: 'Copier la nouvelle description',
       copied: 'Copié',
-      previewLabel: 'Votre page, avec le nouveau texte dedans',
+      previewLabel: 'Votre page, avec la nouvelle description dedans',
       previewNote:
         'C’est votre fiche produit, votre design et vos images, avec la nouvelle description à la place de l’ancienne. Elle tourne sans aucun script : les éléments qui dépendent du JavaScript peuvent s’afficher autrement. Rien n’a été écrit dans votre boutique.',
-      previewMarker: 'Nouveau texte',
+      previewMarker: 'Nouvelle description',
       previewOpen: 'Ouvrir dans un nouvel onglet',
       previewDownload: 'Télécharger le HTML',
-      previewExpires:
-        'Cette page reste disponible une heure, puis notre copie est supprimée.',
+      previewExpires: 'Cette page reste disponible une heure, puis notre copie est supprimée.',
       previewUnavailable:
-        'Nous n’avons pas pu replacer le nouveau texte dans cette page avec certitude, donc nous ne l’avons pas reconstruite. Plutôt que de vous montrer une version cassée de votre propre boutique, voici la réécriture seule.',
+        'Nous n’avons pas pu replacer la nouvelle description dans cette page avec certitude, donc nous ne l’avons pas reconstruite. Plutôt que de vous montrer une version cassée de votre propre boutique, voici la nouvelle description seule.',
       emailed: 'Une copie part vers votre boîte mail.',
       lowConfidence:
-        'Cette page a été difficile à lire automatiquement : la réécriture peut reposer sur un contenu partiel.',
+        'Cette page a été difficile à lire automatiquement : la nouvelle description peut reposer sur un contenu partiel.',
       again: 'Tester une autre fiche produit',
+    },
+    productBlock: {
+      label: 'Bloc Product, prêt à coller',
+      intro:
+        'Construit avec les informations de votre page et la nouvelle description. Il se place dans le HTML de cette fiche produit. Si votre thème affiche déjà un bloc Product, remplacez-le plutôt que d’en ajouter un second.',
+      copy: 'Copier le bloc',
+      copied: 'Copié',
+      toComplete: 'Laissé de côté parce que votre page ne le dit pas. N’ajoutez un champ que s’il est vrai.',
+      complete: 'Tous les champs que nous vérifions sont remplis avec votre page.',
+      fields: {
+        price: 'Prix et devise',
+        availability: 'Disponibilité',
+        brand: 'Marque',
+        image: 'Image',
+        sku: 'SKU',
+        gtin: 'GTIN (le numéro du code-barres)',
+        rating: 'Note, issue de vrais avis uniquement',
+        shipping: 'Livraison',
+        returns: 'Politique de retour',
+      },
     },
     frame: {
       title: 'C’était un agent, une tâche, en 30 secondes environ.',
-      body: 'Ceux que nous construisons tournent en continu sur un catalogue entier : rédaction et mise à jour des textes, métadonnées manquantes, et repérage des fiches qui perdent des ventes sans bruit.',
+      body: 'Sur un catalogue entier, l’agent que nous installons fait ce travail sur chaque fiche produit et surveille les nouvelles à mesure qu’elles arrivent. Il signale aussi les informations fausses sur votre marque.',
       ctaPrimary: 'Réserver un appel de 15 min →',
       teardownPrefix: 'Vous préférez commencer par un document ?',
       teardownLink: 'Demander un audit GEO gratuit →',
@@ -606,20 +687,25 @@ export const fr: Dictionary = {
       MODEL_ERROR: 'L’agent n’a pas pu terminer celle-ci. Réessayez dans un instant.',
     },
     resultEmail: {
-      subject: 'Votre nouvelle fiche : {product}',
+      subject: 'Ce que les IA lisent sur {product}',
       intro:
-        '{name}, voici ce que notre agent a trouvé sur votre page {product}, telle qu’elle est en ligne.',
+        '{name}, voici ce que notre agent a trouvé sur votre page {product}, telle qu’elle était en ligne quand vous l’avez lancé.',
       verdictLabel: 'Le verdict',
-      beforeLabel: 'Votre texte actuel',
-      afterLabel: 'La nouvelle version',
-      gapsLabel: 'Ce qui manque',
+      gapsLabel: 'Ce qui empêche les IA de la citer',
+      checksLabel: 'Ce qu’un outil d’IA récupère de cette page',
+      beforeLabel: 'Votre description actuelle',
+      afterLabel: 'La nouvelle description',
+      blockLabel: 'Bloc Product, prêt à coller',
+      blockNote:
+        'Il se place dans le HTML de cette fiche produit. Si votre thème affiche déjà un bloc Product, remplacez-le plutôt que d’en ajouter un second.',
+      toCompleteLabel: 'Laissé de côté parce que votre page ne le dit pas',
       previewNote:
-        'Votre page avec le nouveau texte déjà dedans reste ouverte pendant une heure dans l’onglet où vous avez lancé la démo. C’est une copie reconstruite, à regarder : rien n’a été modifié dans votre boutique.',
+        'Votre page avec la nouvelle description déjà dedans reste ouverte pendant une heure dans l’onglet où vous avez lancé la démo. C’est une copie reconstruite, à regarder. Rien n’a été modifié dans votre boutique.',
       frame:
-        'C’était un agent, une tâche. Ceux que nous construisons tournent en continu sur un catalogue entier. Pour voir ce que cela donnerait sur le vôtre, réservez 15 minutes.',
+        'C’était un agent, une tâche. Sur un catalogue entier, l’agent que nous installons fait ce travail sur chaque fiche produit et surveille les nouvelles à mesure qu’elles arrivent. Pour voir ce que cela donnerait chez vous, réservez 15 minutes.',
       cta: 'Réserver un appel de 15 minutes',
       footer:
-        'Envoyé par Maubourg Studio parce que vous avez demandé cette réécriture sur maubourg.studio. Répondez à cet e-mail, un humain le lit.',
+        'Envoyé par Maubourg Studio parce que vous avez demandé ce résultat sur maubourg.studio. Répondez à cet e-mail, un humain le lit.',
     },
   },
 
@@ -630,7 +716,7 @@ export const fr: Dictionary = {
     back: '← Retour à l’accueil',
     eyebrow: 'Confidentialité',
     title: 'Ce que nous collectons, et pourquoi.',
-    updated: 'Dernière mise à jour : juillet 2026',
+    updated: 'Dernière mise à jour : octobre 2026',
     intro:
       'Maubourg Studio est un studio d’une personne, basé à Paris. Cette page dit simplement ce que deviennent les informations que vous saisissez ici. Si un point reste flou, écrivez-nous.',
     sections: [
@@ -640,15 +726,19 @@ export const fr: Dictionary = {
       },
       {
         title: 'Quand vous lancez la démo d’agent',
-        body: 'Vous nous donnez l’URL d’une fiche produit, et rien d’autre. Nous ne demandons ni nom ni e-mail, et le résultat complet s’affiche sur la page. L’URL, le contenu de la page et la copie reconstruite restent en mémoire et disparaissent dans l’heure, sans jamais être écrits en base. Nous nous envoyons en revanche une copie de ce que l’agent a répondu, pour voir ce qu’il vaut sur de vraies boutiques.',
+        body: 'Vous nous donnez l’URL d’une fiche produit. Le diagnostic et les vérifications s’affichent sur la page sans rien vous demander d’autre. Pour ouvrir la nouvelle description et le bloc Product, vous nous donnez votre nom et votre e-mail. Ils servent à vous envoyer une copie du résultat et à vous répondre si vous écrivez. Si vous cochez la case sous le formulaire, nous vous envoyons aussi de temps en temps des e-mails sur la visibilité dans les réponses des IA.',
+      },
+      {
+        title: 'Combien de temps la démo les garde',
+        body: 'L’URL, le contenu de la page et le résultat restent dans la mémoire de notre serveur, sans jamais être écrits en base. Un résultat que vous n’ouvrez pas disparaît au bout de 30 minutes. La copie reconstruite de votre page disparaît une heure après son ouverture. Les deux disparaissent aussi à chaque redémarrage du site. Quand vous donnez votre nom et votre e-mail, deux e-mails partent. L’un vous apporte le résultat. L’autre nous dit qui a lancé la démo, avec votre nom, votre e-mail, l’URL et le résultat. Celui-là est conservé 12 mois dans notre boîte mail, puis supprimé, ou plus tôt si vous nous le demandez.',
+      },
+      {
+        title: 'Qui les reçoit',
+        body: 'Seul Maubourg Studio lit ce que vous envoyez, et rien n’est vendu ni partagé. Quelques prestataires s’en occupent pour notre compte. Railway fait tourner le serveur du site. Resend envoie les e-mails. Google héberge notre boîte mail. Anthropic fournit le modèle qui rédige la nouvelle description et reçoit le texte de la page soumise, jamais votre nom ni votre e-mail, puisque le modèle a terminé avant qu’on vous les demande.',
       },
       {
         title: 'Listes de diffusion',
-        body: 'La démo ne vous inscrit sur aucune liste, puisqu’elle ne demande aucune adresse. Les seuls e-mails que nous envoyons répondent à un diagnostic ou à un appel que vous avez demandé vous-même, et une ligne suffit pour que cela s’arrête.',
-      },
-      {
-        title: 'L’agent et le modèle',
-        body: 'Le texte de la page soumise est transmis à Anthropic, fournisseur du modèle qui rédige la nouvelle version, le temps de produire la réponse. Rien qui vous concerne ne part avec : la démo ne vous a rien demandé.',
+        body: 'La démo ne vous inscrit sur une liste que si vous cochez la case sous le formulaire. Sans elle, vous ne recevez que la copie de votre résultat et nos réponses à ce que vous écrivez. Dans tous les cas, une ligne de votre part suffit pour que cela s’arrête.',
       },
       {
         title: 'Ce que nous ne faisons pas',
@@ -981,7 +1071,7 @@ export const fr: Dictionary = {
       demoIntro: {
         eyebrow: 'Une démonstration, pas une promesse',
         title: 'Donnez-lui une de vos fiches produit.',
-        body: 'Il lit la page, identifie ce qui vous coûte la vente, et réécrit la description. Environ trente secondes, sans e-mail ni inscription : le résultat s’affiche ici. C’est un agent volontairement limité à une tâche. Ceux que nous construisons tournent en continu sur tout un catalogue.',
+        body: 'Il lit la page comme un robot d’IA et réécrit la description pour qu’une IA puisse la citer. Environ trente secondes. Le diagnostic s’affiche ici sans e-mail. La nouvelle description en demande un. C’est un agent volontairement limité à une tâche. Celui que nous installons chez nos clients travaille sur tout un catalogue.',
       },
       families: {
         eyebrow: 'Ce que nous construisons',
