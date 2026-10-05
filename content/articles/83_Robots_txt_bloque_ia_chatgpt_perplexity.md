@@ -4,14 +4,15 @@ slug: "mon-robots-txt-bloque-t-il-les-ia-comme-chatgpt-ou-perplexity-sans-que-je
 description: "C'est possible, et seule la lecture du fichier réellement servi à l'adresse boutique.fr/robots.txt permet de le savoir, en y cherchant deux familles de robots."
 question: "Mon robots.txt bloque-t-il les IA comme ChatGPT ou Perplexity sans que je le sache ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-10-03
+date: 2026-10-05
 lang: fr
 readingTime: 4
 draft: false
+template: "narrative"
 ---
 # Mon robots.txt bloque-t-il les IA comme ChatGPT ou Perplexity sans que je le sache
 
-_Maubourg Studio, mis à jour le 3 octobre 2026_
+_Maubourg Studio, mis à jour le 5 octobre 2026_
 
 C'est possible, et seule la lecture du fichier réellement servi à l'adresse boutique.fr/robots.txt permet de le savoir, en y cherchant deux familles de robots. Les robots d'entraînement (GPTBot, ClaudeBot) et ceux qui lisent une page pour répondre (OAI-SearchBot, Claude-SearchBot, PerplexityBot) diffèrent : interdire les premiers n'empêche pas d'être cité, interdire les seconds retire la boutique des réponses de recherche.
 
