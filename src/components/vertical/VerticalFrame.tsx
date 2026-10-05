@@ -15,8 +15,7 @@ type Related = readonly { page: string; text: string }[];
 /**
  * The closing block. By default every page closes on the free GEO audit, which
  * is the one hook on the site. A page passes its own when that ask is wrong for
- * it: the agents page closes on a call, the conversion page on its own
- * diagnostic.
+ * it: the agents page closes on a call.
  */
 export type FrameCta = {
   title: string;
@@ -69,8 +68,8 @@ export default function VerticalFrame({
 
         {children}
 
-        {/* Cross-links. Each page names the two verticals that genuinely follow
-            from it, with a sentence saying why, rather than a grid of all three. */}
+        {/* Cross-links. Each page names the other service page, with a
+            sentence saying why it follows. */}
         <section className="mx-auto max-w-content px-5 pb-4 md:px-8">
           <div className="hairline pt-12">
             <h2 className="font-display text-xl font-semibold text-ink">{s.relatedHeading}</h2>

@@ -4,11 +4,10 @@ import type { Dictionary, Locale } from '@/lib/i18n';
 import { localizedHref, type VerticalPage } from '@/lib/routes';
 
 /**
- * What we do. The six cards are grouped by their tag rather than laid out as
- * one flat grid: GEO runs across the top at full size because it is the
- * headline offer, and the agents and conversion cards sit under it, smaller.
- * A flat grid of six gave all three services the same weight, which
- * contradicted the hero.
+ * What we do. The cards are grouped by their tag rather than laid out as one
+ * flat grid: the three GEO steps run across the top at full size because GEO
+ * is the offer, and the two agent cards sit under it, smaller, because the
+ * agent is how that offer is delivered, not a second one.
  */
 export default function Services({
   dict,
@@ -63,10 +62,10 @@ export default function Services({
           </div>
         </div>
 
-        {/* The two secondary services, smaller. */}
-        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* The agent that delivers it, smaller. */}
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
           {restItems.map((s, i) => (
-            <Reveal key={s.title} delay={(i % 3) * 80}>
+            <Reveal key={s.title} delay={(i % 2) * 80}>
               <Link
                 href={localizedHref(s.page as VerticalPage, lang)}
                 className="card card-hover group flex h-full flex-col p-5"

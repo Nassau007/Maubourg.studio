@@ -26,7 +26,7 @@ import {
  */
 const sharedPaths = ['', '/call'] as const;
 
-// The five service pages, then privacy. agentDemo is deliberately absent: that
+// The service pages, then privacy. agentDemo is deliberately absent: that
 // path is now a permanent redirect onto the agents page, and listing a redirect
 // in a sitemap asks a crawler to index a URL we are telling it to leave.
 const localizedPages: LocalizedPage[] = [...verticalPages, 'privacy'];
@@ -38,7 +38,6 @@ const priorities: Record<string, number> = {
   // GEO leads, because it is what the studio now sells first.
   geo: 0.9,
   agents: 0.9,
-  conversion: 0.8,
   privacy: 0.3,
 };
 

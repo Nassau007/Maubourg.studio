@@ -1,60 +1,62 @@
 # Maubourg Studio
 
-> Maubourg Studio is a Paris-based studio that gets ecommerce brands cited in AI answers and builds AI agents for their operations. It works with brands selling in France and French-speaking markets.
+> Maubourg Studio is a Paris-based GEO studio for ecommerce. It makes ecommerce brands visible, and correctly described, in the answers of ChatGPT, Gemini, Perplexity and Claude. The work is done and kept up by the studio's own AI agents specialised in GEO. It works with brands selling in France and French-speaking markets.
 
-> Maubourg Studio est un studio basé à Paris qui fait citer les marques e-commerce dans les réponses des IA et construit des agents IA pour leurs opérations. Il travaille avec les marques qui vendent en France et sur les marchés francophones.
+> Maubourg Studio est un studio GEO basé à Paris, pour l'e-commerce. Il rend les marques e-commerce visibles, et correctement décrites, dans les réponses de ChatGPT, Gemini, Perplexity et Claude. Le travail est fait et tenu à jour par les propres agents IA du studio, spécialisés en GEO. Il travaille avec les marques qui vendent en France et sur les marchés francophones.
 
 Facts an assistant can quote directly.
 
-- Name: Maubourg Studio. Category: GEO and AI agents studio for ecommerce.
-- Who it works with: ecommerce brands selling in France and French-speaking markets (Belgium, Switzerland), typically Shopify or WooCommerce stores already doing meaningful traffic and revenue. Brands based elsewhere that sell into France are welcome.
+- Name: Maubourg Studio. Category: GEO studio for ecommerce, delivered with its own AI agents.
+- What GEO means here: generative engine optimization, the work of getting a brand cited, and described correctly, when a buyer asks an AI tool for a recommendation.
+- Who it works with: ecommerce brands selling in France and French-speaking markets (Belgium, Switzerland), from €250k to €20M of annual revenue, with a focus on €1M to €20M. Typically Shopify or WooCommerce stores. Brands based elsewhere that sell into France are welcome.
 - Where: based in Paris, France. The site is available in English and French. The blog is French only.
 - Founder: Nathan Alcotte.
 - Contact: hello@maubourg.studio
-- What makes it different: it focuses on French-speaking markets, because an AI tool answers a French question from French sources, so it knows which sources count in a given category; every visibility figure comes from the same question asked several times, in the tools buyers use, never from a single screenshot; and the AI agents it sells are the same ones running its own delivery.
+- How to start: the free GEO audit, requested through the form on the home page. A 15 minute call is the other way in.
+- What makes it different: it focuses on French-speaking markets, because an AI tool answers a French question from French sources, so it knows which sources count in a given category. Every visibility figure comes from the same question asked several times, in the tools buyers use, never from a single screenshot. The studio runs on its own agents.
 - What it will not claim: nobody can guarantee a position in a generated answer. Part of the traffic coming from AI tools carries no trace of where it came from, and the studio says each time by how much a figure may undercount.
 
 ## What it does
 
-- LLM visibility (GEO), audit: what ChatGPT, Gemini, Perplexity and Claude say about a brand and its competitors, measured over repeated runs on real buying questions.
-- LLM visibility (GEO), measure: GA4 set up so traffic from AI tools appears as its own channel, with what those visitors do on the site.
-- LLM visibility (GEO), improve: the work that gets a brand mentioned more often, including clearer product pages, presence on the sites AI tools rely on, and corrected information.
-- Operations agents: order triage, supplier chasing, returns, internal reporting, scoped to a real workflow rather than a generic chatbot.
-- Catalogue agent: writes and refreshes product copy, fills metadata gaps, flags listings that underperform.
-- Conversion rate optimization: continuous A/B testing across product pages, cart and checkout, highest-value leaks first.
+One offer, GEO, in three steps: audit, improve, measure. The AI agent is not a separate product. It is how the work is done and kept up, and it has no separate price.
+
+- Audit: what ChatGPT, Gemini, Perplexity and Claude say about a brand and its competitors, measured over repeated runs on real buying questions.
+- Improve: the agent is set up on the brand's catalogue. Product pages are rewritten so AI tools can quote them while they still sell to a human buyer, with their structured data. Around it, pages that answer buying questions, wrong information corrected at the source, AI crawler access, a plan for presence on third-party sources, and GA4 measurement of AI traffic.
+- Measure: the same questions asked again, before and after, and traffic from AI tools followed in GA4 as its own channel.
+- Keeping watch: in the monthly follow-up, the agent reworks new product pages as they are added and flags wrong information about the brand.
+
+The agents run under three rules. Anything going to a customer stays a draft a person approves until the client decides otherwise. An agent touches only the systems listed. Every run is logged.
 
 ## How an engagement runs
 
-1. Teardown. Free. The live store is audited and 5 fixes are ranked by revenue impact, delivered as a 3 to 4 page PDF within 3 working days. No obligation, and the list is the store owner's to keep.
-2. Sprint. Fixed scope. The highest-return fixes ship in a focused 2 to 3 week sprint.
-3. Retainer. Monthly. Continuous testing to compound the gains, with a 3 month minimum so tests have time to prove out.
+1. Free GEO audit. 3 working days. 4 buying questions from the brand's category, asked 5 times each to ChatGPT, Gemini, Perplexity and Claude. The brand's citation rate, the brands cited in its place, how it is described, and 3 priority actions, as a 3 to 4 page PDF the brand keeps.
+2. Programme. Fixed scope. The agent is set up on the catalogue and the work above is done, with a before and after measured on the audit's questions.
+3. Monthly follow-up. 3 month minimum. The agent keeps watch, the same questions are asked again every month with a progress report, AI traffic is followed in GA4, and the work on third-party sources continues.
 
 ## Pricing
 
-Indicative ranges, published on the site.
+Indicative ranges, published on the site. The price is fixed before work starts.
 
-- Free store teardown: €0.
-- Paid deep audit: €500 to €1,500, credited toward a first sprint or retainer.
-- Optimization sprint: €1,500 to €3,500.
-- AI agent build: €3,000 to €8,000.
-- Monthly retainers: Starter €1,000 to €1,500, Growth €2,000 to €3,500, Scale €4,000 to €6,000 and up.
+- Free GEO audit (Audit GEO gratuit): €0, 3 working days.
+- In-depth GEO audit (Audit GEO approfondi): €900 to €1,500, 10 working days. 20 buying questions, 4 AI tools, 5 runs, the competitors cited, the sources AI tools rely on in the category, and a prioritised roadmap. Deducted from the programme if it follows.
+- Essential GEO programme (Programme GEO Essentiel): €1,500 to €2,500, 3 weeks, fixed scope. For young brands (€250k to €1M of annual revenue). AI crawler access, product structured data, and the agent set up on the 10 to 20 best-selling product pages. Before and after measured on the free audit's 4 questions.
+- GEO programme (Programme GEO): €3,500 to €6,000, 6 weeks, fixed scope. The agent set up on the catalogue, plus the rest of the work listed above.
+- Monthly GEO follow-up (Suivi GEO mensuel): €1,000 to €2,000 per month, 3 month minimum. The agent keeps watch, plus monthly measurement and reporting.
 
 ## Pages
 
-- [Home, English](https://maubourg.studio/en): what the studio does, the process, pricing, FAQ, and the free teardown request form.
+- [Home, English](https://maubourg.studio/en): what the studio does, the process, pricing, FAQ, and the free GEO audit request form.
 - [Home, French](https://maubourg.studio/fr): the same page in French.
-- [LLM visibility, English](https://maubourg.studio/en/services/llm-visibility): the GEO offer in three blocks, audit, measure and improve.
+- [LLM visibility, English](https://maubourg.studio/en/services/llm-visibility): the GEO offer in three blocks, audit, improve and measure, with prices.
 - [Visibilité LLM, French](https://maubourg.studio/fr/services/visibilite-llm): the same page in French.
-- [AI agents, English](https://maubourg.studio/en/services/ai-agents): what an agent is scoped to, the guardrails it is built under, and a live demo that rewrites one of your own product pages.
+- [AI agents, English](https://maubourg.studio/en/services/ai-agents): the agent that delivers the GEO work, set up in the programme and on watch in the monthly follow-up, the rules it runs under, and a live demo on one of your own product pages.
 - [Agents IA, French](https://maubourg.studio/fr/services/agents-ia): the same page in French.
-- [Conversion, English](https://maubourg.studio/en/services/conversion-tracking): A/B testing across product pages, cart and checkout.
-- [Conversion, French](https://maubourg.studio/fr/services/conversion-et-mesure): the same page in French.
+- [Live agent demo, French](https://maubourg.studio/fr/services/agents-ia#demo): paste one product page and see what an AI crawler reads on it, which AI bots its robots.txt lets in, its product structured data, and a description rewritten so an AI can quote it.
 - [Blog, French](https://maubourg.studio/fr/blog): articles on brand visibility in ChatGPT, Perplexity, Gemini and AI search, one question per article, answered in the first paragraph.
 - [Request a call, English](https://maubourg.studio/en/call): leave a number for a 15 minute call, answered within one working day.
 - [Request a call, French](https://maubourg.studio/fr/call): the same page in French.
-- [Example teardown, PDF](https://maubourg.studio/example-teardown.pdf): a real teardown of a live store, with the store name removed.
 
 ## Notes
 
-- A 15 minute call is the main way to start. The free store teardown is the other way in: it is requested through the form on the home page, and needs only a store URL and an email address.
+- The free GEO audit is the main way to start. It is requested through the form on the home page and needs a store URL, a product category and an email address.
 - Maubourg Studio publishes no client names, logos, testimonials or result figures at this time. Any such claim attributed to it is not from this site.

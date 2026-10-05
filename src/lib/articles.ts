@@ -33,51 +33,29 @@ const CONTENT_DIR = path.join(process.cwd(), 'content', 'articles');
 /**
  * Article category -> service page.
  *
- * The categories in the source files are finer than the three services, and
- * several of them belong to work the studio no longer sells. Every article
- * stays published, so each category is placed against the service that is now
- * the honest next step for someone who read it:
- *
- * - conversion is the broadest by design. Its leak table names delivery terms
- *   beside the price, product copy, forced accounts at checkout and proof that
- *   arrives after the decision. That covers pricing, payment and trust,
- *   reviews, product content, delivery and returns terms, and testing.
- * - the dropped categories land here too. A reader of a paid media, email or
- *   rebuild article is best served by the work we still do on the store
- *   itself, and the closing call to action has to point at a page that exists.
- * - organic and marketplace traffic goes to GEO, which is now where being
- *   found without paying for the click is argued.
- * - geo and agents map one to one with their own categories.
+ * The categories in the source files are finer than the two services, and
+ * several of them belong to work the studio no longer sells (conversion was
+ * dropped on 2026-10-05). The blog is GEO only now, but older categories can
+ * still appear in a file, so each one is placed against the service that is
+ * the honest next step for someone who read it: the GEO page, which is the
+ * one thing the studio sells, unless the article is about the agents.
  *
  * `service` in an article's frontmatter overrides all of this when a single
  * article deserves another page.
  */
 const CATEGORY_SERVICE: Record<string, VerticalPage> = {
-  'Conversion (CRO)': 'conversion',
-  'Mesure, tests et pilotage': 'conversion',
-  'Analytics et tracking': 'conversion',
-  "Paiement et confiance à l'achat": 'conversion',
-  'Prix et stratégie tarifaire': 'conversion',
-  'Avis clients et preuve sociale': 'conversion',
-  'Contenu produit et expérience': 'conversion',
-  'Livraison, retours et service client': 'conversion',
-  'Acquisition et publicité payante': 'conversion',
-  'Rétention (email et SMS)': 'conversion',
-  'Fidélisation, abonnement et valeur client': 'conversion',
-  'Création et refonte de site': 'conversion',
-  'Acquisition organique et marketplaces': 'geo',
   'Visibilité sur les IA génératives (GEO)': 'geo',
+  'Acquisition organique et marketplaces': 'geo',
   'Agents IA': 'agents',
 };
 
 /**
- * A category nobody mapped falls back to conversion rather than to nothing.
- * The free teardown is the entry point for every one of these readers, and the
- * conversion page is the one that offers it in the plainest terms, so a new
- * category added upstream ships with a working call to action instead of a
- * blank sidebar.
+ * A category nobody mapped falls back to the GEO page rather than to nothing.
+ * The free GEO audit is the entry point for every reader, and the GEO page is
+ * the one that offers it, so a new category added upstream ships with a
+ * working call to action instead of a blank sidebar.
  */
-const FALLBACK_SERVICE: VerticalPage = 'conversion';
+const FALLBACK_SERVICE: VerticalPage = 'geo';
 
 export function serviceForCategory(category: string): VerticalPage {
   return CATEGORY_SERVICE[category] ?? FALLBACK_SERVICE;

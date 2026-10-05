@@ -24,15 +24,23 @@ const NON_PAGE = /^\/(api|_next)(\/|$)|\.[^/]+$/;
 // header once it is cached, which leaves the visitor on a blank 308.
 //
 // Acquisition (paid media, email and SMS) is gone with nothing equivalent
-// behind it, so it goes home. Store builds fold into conversion work, which is
-// the page a visitor looking for a rebuild is now best served by. Same
-// language on both sides: sending a French reader to an English page is a
-// worse answer than the 404 it replaces.
+// behind it, so it goes home. Conversion was dropped on 2026-10-05, when the
+// studio became GEO only: its page goes to the GEO page, which is what the
+// studio sells now. Store builds used to fold into conversion, so they go
+// straight to the GEO page too, in one hop rather than two. Same language on
+// both sides: sending a French reader to an English page is a worse answer
+// than the 404 it replaces.
 const RETIRED_PAGES: Record<string, string> = {
   '/en/services/acquisition': '/en',
   '/fr/services/acquisition': '/fr',
-  '/en/services/store-build': '/en/services/conversion-tracking',
-  '/fr/services/creation-boutique': '/fr/services/conversion-et-mesure',
+  '/en/services/store-build': '/en/services/llm-visibility',
+  '/fr/services/creation-boutique': '/fr/services/visibilite-llm',
+  '/en/services/conversion-tracking': '/en/services/llm-visibility',
+  '/fr/services/conversion-et-mesure': '/fr/services/visibilite-llm',
+  // The old demo addresses. Their page components redirected with
+  // permanentRedirect(), which ships a blank 308 once cached (see above).
+  '/en/try-an-agent': '/en/services/ai-agents',
+  '/fr/essayer-un-agent': '/fr/services/agents-ia',
   ...retiredArticles(),
 };
 

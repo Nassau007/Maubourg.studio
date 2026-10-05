@@ -110,7 +110,7 @@ export default function GeoScreen({ lang }: { lang: Locale }) {
 
                 {/* What the free audit actually contains, under the step it
                     belongs to. No example PDF linked yet: the GEO one does not
-                    exist, and the conversion teardown is a different document. */}
+                    exist yet. */}
                 {i === 0 && (
                   <div className="mt-5 rounded-card border border-emerald/25 bg-emerald-50/50 p-5">
                     <p className="text-[13px] font-semibold uppercase tracking-wide text-emerald">
@@ -141,8 +141,8 @@ export default function GeoScreen({ lang }: { lang: Locale }) {
 
       </section>
 
-      {/* What we change on a real store. The GEO equivalent of the conversion
-          page's findings table, and the block that makes the offer tangible. */}
+      {/* What we change on a real store: the block that makes the offer
+          tangible. */}
       <section className="mx-auto max-w-content px-5 pb-16 md:px-8 md:pb-24">
         <SectionHead
           eyebrow={v.changes.eyebrow}

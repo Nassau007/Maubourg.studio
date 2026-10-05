@@ -1,7 +1,8 @@
-// AI agents. Layout: proof first. The working demo sits directly under the
-// hero, before any description of what we build, because a visitor who can run
-// one in thirty seconds does not need the paragraph that explains it. The three
-// agent families, the build workflow and the guardrails come after.
+// AI agents, as the way GEO is delivered. Layout: proof first. The working demo
+// sits directly under the hero, before any description of what the agent does,
+// because a visitor who can run one in thirty seconds does not need the
+// paragraph that explains it. Its two phases (set up in the programme, on
+// watch in the monthly follow-up), the build workflow and the rules come after.
 //
 // This is the only vertical carrying a client component, and it is the same
 // AgentDemo the standalone demo page used.
@@ -16,7 +17,6 @@ import { localizedHref } from '@/lib/routes';
 export default function AgentsScreen({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang);
   const v = dict.verticals.agents;
-  const s = dict.verticals.shared;
 
   return (
     <VerticalFrame
@@ -91,8 +91,10 @@ export default function AgentsScreen({ lang }: { lang: Locale }) {
       </section>
 
       {/* How one gets built, and the rules it is built under: one block, since
-          the rules are half the answer to "how". The price sits beside them,
-          because that is the other question a buyer has at this point. */}
+          the rules are half the answer to "how". How it is paid for sits beside
+          them, because that is the other question a buyer has at this point.
+          There is no agent price: it comes with the programme and the
+          follow-up, so the card says so and links to the prices. */}
       <section className="mx-auto max-w-content px-5 pb-10 md:px-8 md:pb-14">
         <SectionHead eyebrow={v.workflow.eyebrow} title={v.workflow.title} />
         <div className="mt-10">
@@ -121,13 +123,16 @@ export default function AgentsScreen({ lang }: { lang: Locale }) {
               <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-500">
                 {v.price.label}
               </p>
-              <p className="mt-2 font-display text-3xl font-semibold text-emerald">
+              <p className="mt-2 font-display text-2xl font-semibold text-emerald">
                 {v.price.value}
               </p>
               <p className="mt-2 text-[13.5px] leading-snug text-ink-600">{v.price.note}</p>
-              <p className="mt-4 border-t border-ink/10 pt-4 text-[12px] italic text-ink-500">
-                {s.priceNote}
-              </p>
+              <Link
+                href={`/${lang}#pricing`}
+                className="mt-4 inline-block border-t border-ink/10 pt-4 text-sm font-semibold text-emerald underline-offset-4 hover:underline"
+              >
+                {v.price.link}
+              </Link>
             </div>
             <div className="card border-emerald/30 bg-emerald-50/50">
               <h3 className="font-display text-lg font-semibold text-ink">{v.included.title}</h3>

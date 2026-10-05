@@ -8,9 +8,10 @@ import type { Dictionary, Locale } from '@/lib/i18n';
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 /**
- * The lead form, used twice on the site with the same fields and two different
- * asks: the free GEO audit on the homepage (#audit), and the free conversion
- * diagnostic on the conversion page (#diagnostic).
+ * The lead form. Today it carries one ask, the free GEO audit on the homepage
+ * (#audit). The 'diagnostic' variant served the free conversion diagnostic,
+ * whose page was removed on 2026-10-05; it is left in place because the lead
+ * route and the notification email still branch on it.
  *
  * Both post to /api/teardown, which is also the shape the sales machine parses
  * out of the notification email. `variant` decides the product category field,

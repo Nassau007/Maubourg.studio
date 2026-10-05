@@ -18,25 +18,25 @@ export const en = {
     title: 'When buyers ask ChatGPT what to buy,',
     titleAccent: 'is your brand in the answer?',
     subtitle:
-      'We get your brand into the answers ChatGPT, Gemini and Perplexity give, and we measure what that traffic is worth. For your operations, we build AI agents that absorb the repetitive work your team carries.',
+      'We get your brand cited, and described correctly, in the answers ChatGPT, Gemini, Perplexity and Claude give. Our own AI agent does the work on your product pages, then keeps it up to date.',
     ctaPrimary: 'Get a free GEO audit →',
     talkPrefix: 'Prefer to talk first?',
     ctaSecondary: 'Book a 15-min call →',
-    skillsHeading: 'Our three areas',
-    // The first card is the headline offer and renders wide. The other two sit
-    // under it, smaller, so the page does not contradict the hero.
+    skillsHeading: 'One offer, done with our own agent',
+    // The first card is the offer itself and renders wide. The other two sit
+    // under it, smaller: they are how the offer is done, not other services.
     skills: [
       {
         name: 'LLM visibility (GEO)',
         body: 'Getting your brand cited, and described correctly, when a buyer asks ChatGPT, Gemini, Perplexity or Claude. Then measuring what that channel is worth.',
       },
       {
-        name: 'AI agents',
-        body: 'Agents built on your real processes, for the repetitive tasks that occupy your team without creating value.',
+        name: 'Our GEO agent',
+        body: 'Set up on your catalogue, it rewrites your product pages so AI tools can quote them. Then it keeps watch as new pages are added.',
       },
       {
-        name: 'Conversion',
-        body: 'When it is the store losing the sale: A/B testing on product pages, cart and checkout.',
+        name: 'Measured, before and after',
+        body: 'The same buying questions asked several times to each AI tool, before the work and after it. Traffic from AI tools followed in GA4.',
       },
     ],
   },
@@ -87,10 +87,10 @@ export const en = {
 
   services: {
     eyebrow: 'What we do',
-    title: 'First be in the answer. Then free up your team.',
+    title: 'Be in the answer. Then stay there.',
     intro:
-      'Our work starts with your brand’s visibility in AI answers: being cited, and described correctly. It continues with agents that take over your team’s repetitive tasks. And when it is the store itself losing the sale, we fix conversion.',
-    tags: { geo: 'GEO', ai: 'AI agents', conversion: 'Conversion' },
+      'The work is your brand’s visibility in AI answers. Being cited, and described correctly. Our own agent does much of it. It is set up on your catalogue during the programme, then keeps watch in the monthly follow-up.',
+    tags: { geo: 'GEO', ai: 'AI agent' },
     items: [
       {
         tag: 'GEO',
@@ -100,33 +100,27 @@ export const en = {
       },
       {
         tag: 'GEO',
+        title: 'Improve',
+        page: 'geo',
+        body: 'Product pages an AI can quote while they still sell to a buyer, and wrong information corrected at the source. Much of it done by our own agent.',
+      },
+      {
+        tag: 'GEO',
         title: 'Measure',
         page: 'geo',
         body: 'GA4 set up to show the traffic that comes from AI tools and what those visitors do on your site.',
       },
       {
-        tag: 'GEO',
-        title: 'Improve',
-        page: 'geo',
-        body: 'The work that gets you cited more often: product pages that read clearly, presence on the sites AI tools consult, wrong information corrected at the source. Much of it run by our own agents.',
-      },
-      {
-        tag: 'AI agents',
-        title: 'Operations agents',
+        tag: 'AI agent',
+        title: 'Set up on your catalogue',
         page: 'agents',
-        body: 'Agents that take the repetitive work off your team: order triage, supplier chasing, returns, internal reporting. Scoped to your real workflow, not a generic chatbot.',
+        body: 'In the programme, our agent rewrites your product pages so AI tools can quote them while they still sell to a human buyer, with their structured data.',
       },
       {
-        tag: 'AI agents',
-        title: 'Catalogue agent',
+        tag: 'AI agent',
+        title: 'On watch every month',
         page: 'agents',
-        body: 'An agent that writes and refreshes product copy, fills metadata gaps, and flags listings that underperform, across a catalog too big to edit by hand.',
-      },
-      {
-        tag: 'Conversion',
-        title: 'Conversion rate optimization',
-        page: 'conversion',
-        body: 'Continuous A/B testing across product pages, cart and checkout, starting with the leaks that cost the most. You see the revenue impact, not flattering metrics.',
+        body: 'In the monthly follow-up, it reworks new product pages as they are added and flags wrong information about your brand.',
       },
     ],
   },
@@ -141,26 +135,26 @@ export const en = {
 
   process: {
     eyebrow: 'How it works',
-    title: 'A free audit, a fixed-scope programme, then monitoring over time.',
+    title: 'A free audit, a fixed-scope programme, then a follow-up over time.',
     claim: 'Request my audit →',
     steps: [
       {
         step: '01',
         name: 'GEO audit',
         price: 'Free',
-        body: 'We ask ChatGPT, Gemini, Perplexity and Claude 4 buying questions from your category, 5 times each, and measure whether your brand is cited, which brands replace it, and how it is described. Three priority actions, as a 3–4 page PDF, within 3 working days. The document is yours.',
+        body: 'We ask ChatGPT, Gemini, Perplexity and Claude 4 buying questions from your category, 5 times each, and measure whether your brand is cited, which brands replace it, and how it is described. Three priority actions, as a 3 to 4 page PDF, within 3 working days. The document is yours.',
       },
       {
         step: '02',
         name: 'Programme',
         price: 'Fixed scope',
-        body: 'We make your store readable and corroborated: structured data, pages that answer buying questions, wrong information corrected, presence on the sources AI tools consult. Six weeks, scope and price agreed up front.',
+        body: 'Our agent is set up on your catalogue and rewrites your product pages so AI tools can quote them. Around it we add structured data, pages that answer buying questions, corrected information and presence on the sources AI tools consult. Six weeks, or three for young brands, scope and price agreed up front.',
       },
       {
         step: '03',
         name: 'Monitoring',
         price: 'Monthly',
-        body: 'The same questions are asked again every month, traffic from AI tools is followed in GA4, and we iterate on what moved. Corroboration is won slowly, which is where the results compound.',
+        body: 'The agent keeps watch. It reworks new product pages as they are added and flags wrong information about your brand. The same questions are asked again every month and traffic from AI tools is followed in GA4. Corroboration is won slowly, which is where the results compound.',
       },
     ],
   },
@@ -179,7 +173,7 @@ export const en = {
       },
       {
         title: 'Our own agents run the studio',
-        body: 'Audits, reporting, test QA: our own delivery runs on agents we built. You get faster turnaround, and proof that what we sell works.',
+        body: 'Our audits and our reporting run on agents we built, the same kind we set up for you. You get faster turnaround, and proof that what we sell works.',
       },
     ],
   },
@@ -196,15 +190,15 @@ export const en = {
     eyebrow: 'Pricing',
     title: 'Clear ranges, a short commitment.',
     intro:
-      'Start with a free audit or a fixed-scope project, then continue with monthly monitoring. Every monthly engagement runs a 3-month minimum: that is how long a change takes to become measurable.',
+      'Start with a free audit. Then a fixed-scope programme sets our agent up on your catalogue, and the monthly follow-up keeps it running. The follow-up runs a 3-month minimum, which is how long a change takes to become measurable.',
     mostRequested: 'Most requested',
-    perMonth: '/mo',
-    // GEO first, because it is what the studio now sells first. `action` is
-    // resolved to a URL in the component: 'audit' is the form on this page,
-    // 'diagnostic' the one on the conversion page, 'call' the call page.
+    // One offer, GEO, in two groups: the audits, then the work done with the
+    // agent. `action` is resolved to a URL in the component: 'audit' is the
+    // form on this page, 'call' the call page. The free audit stays first:
+    // the structured data reads it as groups[0].items[0].
     groups: [
       {
-        heading: 'Visibility in AI answers',
+        heading: 'Audit',
         items: [
           {
             name: 'Free GEO audit',
@@ -218,9 +212,24 @@ export const en = {
           },
           {
             name: 'In-depth GEO audit',
-            price: '€900–1,500',
+            price: '€900 to €1,500',
             meta: '10 working days',
-            desc: '20 buying questions, 4 AI tools. Competitors cited, the sources AI tools use in your category, a prioritised roadmap. Credited toward your programme.',
+            desc: '20 buying questions, 4 AI tools, 5 runs. Competitors cited, the sources AI tools rely on in your category, a prioritised roadmap. Deducted from the programme if it follows.',
+            cta: 'Book a call',
+            action: 'call',
+            featured: false,
+            badge: false,
+          },
+        ],
+      },
+      {
+        heading: 'Programme and follow-up, with our agent',
+        items: [
+          {
+            name: 'Essential GEO programme',
+            price: '€1,500 to €2,500',
+            meta: '3 weeks, fixed scope',
+            desc: 'For young brands, €250k to €1M of annual revenue. AI crawlers let in and product structured data in place. Our agent set up on your 10 to 20 best-selling product pages. Before and after measured on the free audit’s 4 questions.',
             cta: 'Book a call',
             action: 'call',
             featured: false,
@@ -228,114 +237,40 @@ export const en = {
           },
           {
             name: 'GEO programme',
-            price: '€3,500–6,000',
-            meta: 'Six weeks, fixed scope',
-            desc: 'Your store made readable and corroborated, with a before and after measured on the same questions.',
+            price: '€3,500 to €6,000',
+            meta: '6 weeks, fixed scope',
+            desc: 'Our agent set up on your catalogue, product pages rewritten so AI tools can quote them while they still sell to a buyer. Plus pages that answer buying questions, wrong information corrected and AI traffic measured in GA4. Before and after measured on the audit’s questions.',
             cta: 'Book a call',
             action: 'call',
             featured: false,
-            badge: true,
+            badge: false,
           },
           {
-            name: 'Monthly GEO monitoring',
-            price: '€900–1,800',
+            name: 'Monthly GEO follow-up',
+            price: '€1,000 to €2,000',
             meta: 'Per month, 3-month minimum',
-            desc: 'The same questions asked again every month, AI traffic followed in GA4, iterations on what moved.',
+            desc: 'Our agent keeps watch. New product pages reworked as they are added, wrong information about your brand flagged. The same questions asked again every month, with a progress report.',
             cta: 'Book a call',
             action: 'call',
             featured: false,
             badge: false,
           },
-        ],
-      },
-      {
-        heading: 'AI agents',
-        items: [
-          {
-            name: 'AI agent build',
-            price: '€3,000–8,000',
-            meta: 'One workflow',
-            desc: 'One agent, scoped to a real process, built, tested and handed over with its documentation.',
-            cta: 'Book a call',
-            action: 'call',
-            featured: false,
-            badge: false,
-          },
-        ],
-      },
-      {
-        heading: 'Conversion',
-        items: [
-          {
-            name: 'Free conversion diagnostic',
-            price: '€0',
-            meta: '3 working days',
-            desc: '5 fixes ranked by revenue impact.',
-            cta: 'Request the diagnostic',
-            action: 'diagnostic',
-            featured: false,
-            badge: false,
-          },
-          {
-            name: 'In-depth conversion audit',
-            price: '€500–1,500',
-            meta: 'Full report',
-            desc: 'Full report and prioritised roadmap. Credited toward your first sprint or retainer.',
-            cta: 'Book a call',
-            action: 'call',
-            featured: false,
-            badge: false,
-          },
-          {
-            name: 'Optimization sprint',
-            price: '€1,500–3,500',
-            meta: '2 to 3 weeks',
-            desc: 'The main findings of the audit fixed in 2 to 3 weeks, at a fixed scope.',
-            cta: 'Book a call',
-            action: 'call',
-            featured: false,
-            badge: false,
-          },
-        ],
-      },
-    ],
-    retainersHeading: 'Monthly conversion retainer',
-    retainerCta: 'Start with a diagnostic',
-    retainers: [
-      {
-        tier: 'Starter',
-        price: '€1,000–1,500',
-        features: ['1–2 tests / month', 'Monthly reporting', 'Small fixes included'],
-      },
-      {
-        tier: 'Growth',
-        price: '€2,000–3,500',
-        features: ['Ongoing A/B testing', 'Product page and checkout optimization'],
-      },
-      {
-        tier: 'Scale',
-        price: '€4,000–6,000+',
-        features: [
-          'Full conversion programme',
-          'Multiple concurrent tests',
-          'Priority handling and a monthly strategy call',
         ],
       },
     ],
     footnote: 'Indicative ranges, price agreed before we start.',
   },
 
-  // The free GEO audit: the one hook on the site. The conversion diagnostic
-  // has the same shape and lives on the conversion page.
+  // The free GEO audit: the one hook on the site.
   audit: {
     eyebrow: 'Free GEO audit',
     title: 'Find out whether your brand is in the answer.',
     intro:
-      'Give us your store’s address and your category. Within 3 working days you get a 3–4 page PDF: the 4 buying questions we asked ChatGPT, Gemini, Perplexity and Claude (5 times each), how often each one cites your brand, the brands cited instead of you, how you are described, and the three actions to start with. Free, and the document is yours.',
+      'Give us your store’s address and your category. Within 3 working days you get a 3 to 4 page PDF: the 4 buying questions we asked ChatGPT, Gemini, Perplexity and Claude (5 times each), how often each one cites your brand, the brands cited instead of you, how you are described, and the three actions to start with. Free, and the document is yours.',
     points: [
       '4 real buying questions from your category, asked 5 times to 4 AI tools: a frequency, not a screenshot',
       'The brands cited instead of you, and why',
-      'A 3–4 page PDF within 3 working days',
+      'A 3 to 4 page PDF within 3 working days',
       'No obligation: run the actions yourself, or we talk',
     ],
     talkPrefix: 'Prefer to talk first?',
@@ -401,23 +336,23 @@ export const en = {
       },
       {
         q: 'Is the GEO audit really free?',
-        a: 'Yes. We ask ChatGPT, Gemini, Perplexity and Claude 4 buying questions from your category, 5 times each, and send you a 3–4 page PDF within 3 working days: your presence, the brands cited instead of you, and three priority actions. No charge and no obligation. If the actions are worth it, we can talk about them; the document is yours either way.',
+        a: 'Yes. We ask ChatGPT, Gemini, Perplexity and Claude 4 buying questions from your category, 5 times each, and send you a 3 to 4 page PDF within 3 working days: your presence, the brands cited instead of you, and three priority actions. No charge and no obligation. If the actions are worth it, we can talk about them; the document is yours either way.',
       },
       {
         q: 'Who do you work with?',
-        a: 'Ecommerce brands selling in France and French-speaking markets (Belgium, Switzerland), typically on Shopify or WooCommerce. We focus on French-speaking markets because an AI answers a question asked in French from sources in French, and that’s the ground we know. Brands based elsewhere that sell into France are welcome.',
+        a: 'Ecommerce brands selling in France and French-speaking markets (Belgium, Switzerland), from €250k to €20M of annual revenue with a focus on €1M to €20M, typically on Shopify or WooCommerce. We focus on French-speaking markets because an AI answers a question asked in French from sources in French, and that’s the ground we know. Brands based elsewhere that sell into France are welcome.',
       },
       {
-        q: 'Do you actually build the AI agents, or just resell a tool?',
-        a: 'We build them. Each agent is scoped to one real workflow in your business, built against your systems, tested, and handed over with documentation. You own it. We use the same agents to run our own delivery, so we only ship what we trust ourselves.',
+        q: 'Do you actually build the AI agent, or just resell a tool?',
+        a: 'We build it. In the GEO programme, our agent is set up on your catalogue, tested and documented. In the monthly follow-up, we keep it running. The rewritten pages and the data it produces are yours, and the agent stays our tool. It touches only the systems you list, and anything going to a customer stays a draft a person approves until you decide otherwise. We run the studio on the same agents, so we only ship what we trust ourselves.',
       },
       {
         q: 'How fast will I see results?',
-        a: 'On visibility in AI answers: what depends on your own site (structured data, pages that answer buying questions, corrected information) is in place within weeks, and the programme runs six weeks. Corroboration by other sources is won over several months, which is why monitoring runs a 3-month minimum. On conversion: the fixes from a sprint are live within weeks, and the compounding gains come from the retainer.',
+        a: 'What depends on your own site (structured data, product pages an AI can quote, corrected information) is in place within weeks. The Essential programme runs three weeks, the full programme six. Corroboration by other sources is won over several months, which is why the follow-up runs a 3-month minimum.',
       },
       {
         q: 'How do you measure success?',
-        a: 'With figures you can check: the share of AI answers where your brand appears, the traffic coming from AI tools and what it buys, conversion rate and revenue added at the same ad spend. If we can’t measure it, we don’t claim it.',
+        a: 'With figures you can check. The share of AI answers where your brand appears, on the same questions before and after, and the traffic coming from AI tools and what it buys. If we can’t measure it, we don’t claim it.',
       },
     ],
   },
@@ -438,13 +373,13 @@ export const en = {
   call: {
     metaTitle: 'Request a call - Maubourg Studio',
     metaDescription:
-      'Leave your number and we’ll call you back: 15 minutes on your presence in AI answers, your operations or your store. No obligation.',
+      'Leave your number and we’ll call you back: 15 minutes on how AI tools talk about your brand and what to do about it. No obligation.',
     back: '← Back to home',
     eyebrow: 'Request a call',
     title: 'Leave us your number.',
     titleAccent: 'We’ll call you.',
     subtitle:
-      'Tell us the best time to reach you. We’ll call within one working day for a direct conversation: your presence in AI answers, a process worth automating, or what is holding your sales back.',
+      'Tell us the best time to reach you. We’ll call within one working day for a direct conversation about your presence in AI answers and where to start.',
     points: [
       {
         title: 'A real conversation, not a demo',
@@ -467,7 +402,7 @@ export const en = {
       phone: 'Phone number',
       phonePlaceholder: '+33 6 12 34 56 78',
       topic: 'What is it about?',
-      topics: ['Visibility in AI answers (GEO)', 'AI agents', 'Conversion', 'Not sure yet'],
+      topics: ['Visibility in AI answers (GEO)', 'The GEO agent', 'Not sure yet'],
       preferredTime: 'Best time to reach you',
       email: 'Email',
       emailPlaceholder: 'jane@brand.com',
@@ -749,14 +684,14 @@ export const en = {
     contactPrefix: 'Questions, or want your details deleted? Email',
   },
 
-  // The three service pages. Each has its own shape rather than a shared
-  // template, because each argument is made differently: GEO with a retrieval
-  // chain and three blocks of work, agents with a live demo, conversion with a
-  // funnel. fr.ts mirrors this key for key.
+  // The service pages. Each has its own shape rather than a shared template,
+  // because each argument is made differently: GEO with a retrieval chain and
+  // three blocks of work, the agent with a live demo. fr.ts mirrors this key
+  // for key.
   verticals: {
     shared: {
       navHeading: 'Services',
-      navBlurb: 'Three things we do, and how each one earns its keep.',
+      navBlurb: 'GEO, and the agent we deliver it with.',
       breadcrumb: 'Services',
       backHome: '← Back to home',
       relatedHeading: 'Where this leads next',
@@ -769,143 +704,12 @@ export const en = {
       priceNote: 'Indicative ranges. The price follows what is at stake, not the hours spent.',
     },
 
-    conversion: {
-      nav: {
-        label: 'Conversion',
-        blurb: 'Fix what loses the sale on the store you already have.',
-      },
-      meta: {
-        title: 'Conversion rate optimization - Maubourg Studio',
-        description:
-          'A/B testing across product pages, cart and checkout, highest-value leaks first, for ecommerce brands selling in France and French-speaking markets.',
-      },
-      hero: {
-        eyebrow: 'Conversion',
-        title: 'You already paid for the traffic.',
-        titleAccent: 'Make more of it buy.',
-        subtitle:
-          'Being recommended, by an AI tool or by anyone else, is worth nothing if the page it lands on loses the sale. Here the work is on the store itself: find where buyers drop off, fix that first, then test the fix rather than assume its effect.',
-        ctaPrimary: 'Get a free conversion diagnostic →',
-        ctaSecondary: 'Book 15 minutes',
-        stat: '+1 point',
-        statNote:
-          'of conversion on 20,000 sessions at 60€ is roughly 12,000€ a month, at the same ad spend.',
-      },
-      funnel: {
-        eyebrow: 'Where the sale is lost',
-        title: 'Five steps, four places to lose people.',
-        intro:
-          'Every store loses visitors in the same places. The point of an audit is finding which one costs you the most: fixing the third problem before the first is how six months disappear.',
-        steps: [
-          { label: 'Sessions', note: 'Traffic you already pay for' },
-          { label: 'Product page', note: 'Most leave here. Copy, proof, delivery terms' },
-          { label: 'Cart', note: 'Shipping cost revealed too late' },
-          { label: 'Checkout', note: 'Forced accounts, too many fields' },
-          { label: 'Purchase', note: 'What everything above is judged on' },
-        ],
-        caption: 'Illustrative. Your real numbers come out of the diagnostic.',
-      },
-      leaks: {
-        eyebrow: 'What we find most often',
-        title: 'The same leaks, store after store.',
-        intro:
-          'These are not hypotheticals: they are the findings that come up most often in our diagnostics, each one checked against a screenshot of the real page before it goes in a report.',
-        columns: { leak: 'What we find', cost: 'Why it costs', fix: 'What we do' },
-        rows: [
-          {
-            leak: 'Delivery terms nowhere near the price',
-            cost: 'The most common question at the moment of decision goes unanswered; the buyer leaves to look for it elsewhere.',
-            fix: 'Put the terms beside the price, then test the wording and not just the placement.',
-          },
-          {
-            leak: 'Product copy that opens on specifications',
-            cost: 'The first line spends the only attention you get on details that do not matter to the buyer yet.',
-            fix: 'Rewrite benefit first, keep the specification underneath as proof.',
-          },
-          {
-            leak: 'An account required to check out',
-            cost: 'No guest checkout is often the single largest recoverable loss on a store.',
-            fix: 'Open guest checkout, then measure the change rather than assuming it.',
-          },
-          {
-            leak: 'No size, fit or usage guidance',
-            cost: 'Uncertainty becomes an abandoned cart or a return, and both cost you.',
-            fix: 'Put the guidance where the doubt happens, on the page, not in an FAQ.',
-          },
-          {
-            leak: 'Proof that arrives after the decision',
-            cost: 'Reviews placed below the fold only persuade people who already scrolled past the buy button.',
-            fix: 'Move the strongest proof up, and test how much of it earns the space.',
-          },
-        ],
-      },
-      how: {
-        eyebrow: 'How it runs',
-        title: 'Diagnostic, sprint, then compounding.',
-        steps: [
-          {
-            name: 'Diagnostic',
-            price: 'Free',
-            body: 'Five fixes ranked by impact. The document is yours, whether or not we work together.',
-          },
-          {
-            name: 'Sprint',
-            price: '1,500€ to 3,500€',
-            body: 'Two to three weeks, fixed scope, the top findings shipped and measured.',
-          },
-          {
-            name: 'Retainer',
-            price: 'from 1,000€ / month',
-            body: 'Continuous testing, three-month minimum, the time it takes for a test to be significant.',
-          },
-        ],
-      },
-      // The free conversion diagnostic. Same form as the GEO audit on the
-      // homepage, different ask, its own anchor (#diagnostic).
-      diagnostic: {
-        eyebrow: 'Free conversion diagnostic',
-        title: 'Get 5 fixes ranked by revenue impact.',
-        intro:
-          'Tell us where your store lives. Within 3 working days you get a 3–4 page PDF: the leaks that cost you the most first, plus the two or three you could ship this week. Free, and the document is yours.',
-        points: [
-          'A real audit of your live store, not a generic checklist',
-          'Findings ranked by impact and effort, so you know where to start',
-          'A 3–4 page PDF within 3 working days',
-          'No obligation: apply the fixes yourself, or we talk',
-        ],
-        sampleTitle: 'See a real diagnostic before you ask for yours.',
-        sampleBody: 'A full diagnostic run for a real brand, anonymised.',
-        sampleLink: 'Read the example diagnostic (PDF) →',
-        submit: 'Send me my free diagnostic →',
-        success: {
-          title: 'Request received.',
-          body: 'We’ll go through your store and send your diagnostic PDF within 3 working days. Keep an eye on your inbox.',
-          again: 'Submit another store',
-        },
-      },
-      cta: {
-        title: 'Start with a free conversion diagnostic.',
-        body: 'We go through your store and send you the five fixes worth the most. No call first, nothing owed.',
-        primary: 'Request the diagnostic →',
-      },
-      related: [
-        {
-          page: 'geo',
-          text: 'Being named in an AI answer brings buyers to the page this work fixes.',
-        },
-        {
-          page: 'agents',
-          text: 'An agent can rewrite a catalogue faster than a team can test one page.',
-        },
-      ],
-    },
-
     geo: {
       nav: { label: 'LLM visibility (GEO)', blurb: 'Be the brand AI tools cite.' },
       meta: {
         title: 'LLM visibility (GEO) - Maubourg Studio',
         description:
-          'Audit, measure and improve how ChatGPT, Gemini, Perplexity and Claude name your brand. For ecommerce brands selling in France and French-speaking markets.',
+          'Audit, improve and measure how ChatGPT, Gemini, Perplexity and Claude cite your brand, with our own agent on your catalogue. For ecommerce brands selling in France and French-speaking markets.',
       },
       hero: {
         eyebrow: 'Generative engine optimization',
@@ -955,7 +759,7 @@ export const en = {
       },
       blocks: {
         eyebrow: 'What the work is',
-        title: 'Audit, measure, improve.',
+        title: 'Audit, improve, measure.',
         priceLabel: 'Price',
         auditBox: {
           title: 'What the free audit contains',
@@ -970,26 +774,25 @@ export const en = {
         items: [
           {
             title: 'Audit',
-            price: 'Free, or €900–1,500 for the in-depth audit',
+            price: 'Free, or €900 to €1,500 for the in-depth audit',
             lead: 'What ChatGPT, Gemini, Perplexity and Claude say about your brand and your competitors, measured over repeated runs on real buying questions.',
-            body: 'You get the questions we ran, how often each tool named you, which brands were named instead, and how your brand was described when it came up. The same questions are asked again later, so the second report is comparable to the first.',
-          },
-          {
-            title: 'Measure',
-            price: 'Included in the programme and in monthly monitoring, €900–1,800 / month',
-            lead: 'GA4 set up to show the traffic that comes from AI tools and what those visitors do on your site.',
-            body: 'Traffic from AI tools appears as its own channel in GA4, with how those visitors behave once on the site. Part of this traffic carries no trace of where it came from, so we say each time how much the figure may undercount.',
+            body: 'You get the questions we ran, how often each tool named you, which brands were named instead, and how your brand was described when it came up. The same questions are asked again later, so the second report is comparable to the first. The in-depth audit runs 20 questions over 10 working days. It adds the sources AI tools rely on in your category and a prioritised roadmap, and its price is deducted from the programme if one follows.',
           },
           {
             title: 'Improve',
-            price: 'GEO programme, €3,500–6,000',
-            lead: 'The work that gets your brand mentioned more often: clearer product pages, presence on the sites AI tools rely on, corrected information. Much of it run by our own agents.',
-            body: 'You get a prioritised list of what to change, then the work itself: pages that answer buying questions clearly, structured data consistent with the content, wrong information corrected where an AI repeats it, and presence on the sites your category is read from. We report what moved, and what did not.',
+            price: 'GEO programme, €3,500 to €6,000 over 6 weeks. Essential programme, €1,500 to €2,500 over 3 weeks.',
+            lead: 'Our agent set up on your catalogue. Your product pages rewritten so AI tools can quote them while they still sell to a human buyer, with their structured data.',
+            body: 'Around the agent, the programme adds pages that answer buying questions and corrects wrong information at the source. It opens your site to AI crawlers, plans your presence on third-party sources and sets up GA4 to measure AI traffic. The before and after is measured on the audit’s questions. For young brands (€250k to €1M of annual revenue), the Essential programme covers AI crawler access and product structured data, with the agent on your 10 to 20 best-selling product pages, measured on the free audit’s 4 questions.',
+          },
+          {
+            title: 'Measure',
+            price: 'Included in the programme. Monthly follow-up, €1,000 to €2,000 / month, 3-month minimum.',
+            lead: 'GA4 set up to show the traffic that comes from AI tools, and the same questions asked again every month.',
+            body: 'In the monthly follow-up, our agent keeps watch. It reworks new product pages as they are added and flags wrong information about your brand. Each month you get a progress report, the work on third-party sources continues, and we iterate on what moved. Part of AI traffic carries no trace of where it came from, so we say each time how much the figure may undercount.',
           },
         ],
       },
-      // The GEO equivalent of the conversion page's findings table: what we
-      // actually change on a store, so the offer stops being abstract.
+      // What we actually change on a store, so the offer stops being abstract.
       changes: {
         eyebrow: 'What we change, concretely',
         title: 'What this looks like on a real store.',
@@ -1038,29 +841,25 @@ export const en = {
       },
       related: [
         {
-          page: 'conversion',
-          text: 'Being recommended is worth less if the page it lands on does not sell.',
-        },
-        {
           page: 'agents',
-          text: 'A catalogue an AI can read is a catalogue kept up to date. That is an agent’s job.',
+          text: 'The agent that does much of this work. You can run it on one of your own product pages.',
         },
       ],
     },
 
     agents: {
-      nav: { label: 'AI agents', blurb: 'Software that does the repetitive work. Try one now.' },
+      nav: { label: 'AI agents', blurb: 'How we do the GEO work. Try it now.' },
       meta: {
-        title: 'AI agents for ecommerce - Maubourg Studio',
+        title: 'AI agents for GEO - Maubourg Studio',
         description:
-          'AI agents scoped to your real processes: order triage, supplier chasing, catalogue upkeep. Try one on your own product page.',
+          'Our AI agent does the GEO work on your catalogue. It rewrites product pages so AI tools can quote them, then keeps watch every month. Try it on your own product page.',
       },
       hero: {
         eyebrow: 'AI agents',
-        title: 'What your team redoes every week,',
-        titleAccent: 'an agent can do in their place.',
+        title: 'Your product pages, rewritten for AI answers,',
+        titleAccent: 'and kept that way.',
         subtitle:
-          'Not a chatbot parked in the corner of a site. An agent built for one precise process, with the tools it needs, boundaries it will not cross, and a handover to a person when it should stop. Easier to show than to describe, so one is running further down this page.',
+          'The agent is how we deliver GEO, not a product sold on its own. In the programme it is set up on your catalogue. In the monthly follow-up it keeps watch. It is easier to show than to describe, so one is running further down this page.',
         ctaPrimary: 'Try one on your product page ↓',
         ctaSecondary: 'Book a 15-minute call',
       },
@@ -1070,27 +869,26 @@ export const en = {
         body: 'It reads the page the way an AI crawler does and rewrites the description so an AI can quote it. About thirty seconds. The diagnosis opens here with no email. The new description asks for one. It is an agent deliberately limited to one task. The one we set up for clients works across a whole catalogue.',
       },
       families: {
-        eyebrow: 'What we build',
-        title: 'Two kinds of agent, scoped to your processes.',
+        eyebrow: 'What it does',
+        title: 'Set up in the programme, then on watch every month.',
         items: [
           {
-            title: 'Operations agents',
-            body: 'What occupies your team without creating value: order triage, chasing suppliers, processing returns, the internal report someone rebuilds by hand every Monday.',
+            title: 'Set up on your catalogue',
+            body: 'Part of the GEO programme. The agent rewrites your product pages so AI tools can quote them while they still sell to a human buyer, and gives each page its structured data. It is delivered once, tested and documented.',
             examples: [
-              'Order triage and exceptions',
-              'Supplier follow-up',
-              'Returns processing',
-              'Internal reporting',
+              'Product pages rewritten for AI answers',
+              'Structured data that matches the page',
+              'Your 10 to 20 best-selling pages in the Essential programme',
+              'Tested and documented',
             ],
           },
           {
-            title: 'Catalogue & merchandising',
-            body: 'Writes and refreshes product pages, completes the metadata nobody had time for, and flags the pages and listings that underperform before you notice.',
+            title: 'On watch every month',
+            body: 'Part of the monthly follow-up. As you add product pages, the agent reworks them the same way. When it finds wrong information about your brand, it flags it so it can be corrected at the source.',
             examples: [
-              'Description writing and refresh',
-              'Missing metadata',
-              'Underperforming listings',
-              'Feed and catalogue quality',
+              'New product pages reworked as they are added',
+              'Wrong information about your brand flagged',
+              'Reported to you every month',
             ],
           },
         ],
@@ -1099,7 +897,7 @@ export const en = {
         eyebrow: 'How one is built',
         title: 'How we build an agent.',
         nodes: [
-          { label: 'Trigger', note: 'An order lands, a page changes, a customer asks' },
+          { label: 'Trigger', note: 'A product page is added or changed' },
           { label: 'Context', note: 'Only the data the task needs, nothing else' },
           { label: 'Tools', note: 'The systems it may touch, named one by one' },
           { label: 'Guardrail', note: 'What it may never do without a person' },
@@ -1118,28 +916,26 @@ export const en = {
       },
       included: {
         title: 'We use them ourselves.',
-        body: 'The agents we build for clients also run the studio: standardised reporting and onboarding, faster delivery, nothing slipping between the steps. It is what lets a studio our size carry this workload.',
+        body: 'The studio runs on its own agents, from the audits to the reporting. It is part of the proof that what we sell works, and what lets a studio our size carry this workload.',
       },
+      // No agent price: it comes with the programme and the follow-up.
       price: {
-        label: 'Agent build',
-        value: '3,000€ to 8,000€',
-        note: 'One agent, scoped to a real process, built, tested and handed over with its documentation.',
+        label: 'Price',
+        value: 'No separate price',
+        note: 'The agent comes with the GEO programme, which sets it up, and with the monthly follow-up, which keeps it running.',
+        link: 'See the prices →',
       },
       // This page keeps its own closing block: after a working demo the right
       // ask is a call, not the GEO audit.
       cta: {
-        title: 'Have a process in mind?',
+        title: 'Want to see it on your catalogue?',
         primary: 'Book 15 minutes →',
         secondary: 'Or try the agent on one of your product pages ↑',
       },
       related: [
         {
-          page: 'conversion',
-          text: 'An agent that rewrites pages is worth more when you can measure which rewrite won.',
-        },
-        {
           page: 'geo',
-          text: 'Catalogue upkeep at scale is also what makes you legible to an AI.',
+          text: 'The rest of the GEO work, starting with the free audit.',
         },
       ],
     },
@@ -1232,7 +1028,7 @@ export const en = {
       },
       conversational: {
         title: 'What if your case is different?',
-        body: 'Every diagnostic starts from your store, not a standard template.',
+        body: 'Every audit starts from your store, not a standard template.',
         button: '{service} →',
       },
     },
@@ -1256,7 +1052,7 @@ export const en = {
   meta: {
     homeTitle: 'Maubourg Studio - GEO and AI agents studio for ecommerce',
     homeDescription:
-      'Maubourg Studio, in Paris, makes ecommerce brands visible in the answers ChatGPT, Gemini and Perplexity give, and builds AI agents for their operations. For brands selling in France and French-speaking markets.',
+      'Maubourg Studio, in Paris, makes ecommerce brands visible and correctly described in the answers of ChatGPT, Gemini, Perplexity and Claude, with its own AI agents doing the work. For brands selling in France and French-speaking markets.',
   },
 };
 

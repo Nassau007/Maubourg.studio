@@ -65,10 +65,9 @@ export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: L
           </p>
         </div>
 
-        {/* The three things we do. The first card is the headline offer and
-            runs the full width; the other two sit under it at half size, so the
-            section does not contradict the hero by giving all three equal
-            weight. */}
+        {/* The offer in three cards. The first is GEO itself and runs the
+            full width; the agent and the measurement sit under it at half
+            size, because they are how GEO is done, not separate services. */}
         <div className="animate-fade-up mx-auto mt-16 max-w-6xl" style={{ animationDelay: '400ms' }}>
           <p className="eyebrow text-center">{dict.skillsHeading}</p>
           <div className="mt-5 grid grid-cols-1 gap-px overflow-hidden rounded-card border border-ink/10 bg-ink/10 sm:grid-cols-2">

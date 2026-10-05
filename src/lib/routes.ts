@@ -25,24 +25,21 @@ export const localizedPaths = {
     en: `${OBSERVATORY_BASE.en}/${OBSERVATORY_SEGMENTS.methodology.en}`,
     fr: `${OBSERVATORY_BASE.fr}/${OBSERVATORY_SEGMENTS.methodology.fr}`,
   },
-  conversion: { en: '/services/conversion-tracking', fr: '/services/conversion-et-mesure' },
   geo: { en: '/services/llm-visibility', fr: '/services/visibilite-llm' },
   agents: { en: '/services/ai-agents', fr: '/services/agents-ia' },
 } as const;
 
 /**
- * The three service pages, in the order the studio offers them: be in the
- * answer, automate the repetitive work, and fix the store when the store is
- * what loses the sale. Nav, footer and homepage cards all read this, so the
- * order is defined once.
+ * The service pages, in the order the studio offers them: GEO, then the agent
+ * that delivers it. Nav, footer and homepage cards all read this, so the order
+ * is defined once.
  *
- * Acquisition and store builds were dropped in the refocus. Their URLs are
+ * Acquisition, store builds and conversion were dropped. Their URLs are
  * redirected in src/middleware.ts rather than kept as empty pages.
  */
 export const verticalPages = [
   'geo',
   'agents',
-  'conversion',
 ] as const satisfies readonly LocalizedPage[];
 
 export type VerticalPage = (typeof verticalPages)[number];

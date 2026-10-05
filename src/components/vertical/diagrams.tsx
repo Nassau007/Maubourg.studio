@@ -1,54 +1,15 @@
-// Diagrams for the three service pages.
+// Diagrams for the service pages.
 //
 // Inline SVG rather than images: no asset to license, nothing that looks like
 // stock photography, and the text inside them comes from the dictionary so a
 // French page gets French labels. Each page gets a different form on purpose -
-// a funnel, a chain, a workflow - so they argue in visibly different shapes
-// while sharing one palette.
+// a chain, a workflow - so they argue in visibly different shapes while
+// sharing one palette.
 //
 // Colour comes from the Tailwind tokens via currentColor where possible, so
 // these stay correct if the palette moves.
 
 type Step = { label: string; note: string };
-
-/* ------------------------------------------------------------------ */
-/* Conversion: a funnel that narrows, because that is the argument     */
-/* ------------------------------------------------------------------ */
-
-export function FunnelDiagram({ steps }: { steps: readonly Step[] }) {
-  // Widths shrink down the funnel. Deliberately not labelled with percentages:
-  // inventing a drop-off rate for a store we have not audited would be a
-  // number the reader could take as ours.
-  const widths = [100, 78, 52, 38, 26];
-
-  return (
-    <div className="space-y-2.5">
-      {steps.map((step, i) => {
-        const isLast = i === steps.length - 1;
-        return (
-          <div key={step.label} className="flex items-center gap-4">
-            <div className="w-full max-w-[62%] sm:max-w-[58%]">
-              <div
-                className={[
-                  'flex h-14 items-center rounded-lg px-4 text-sm font-semibold transition-colors',
-                  isLast
-                    ? 'bg-emerald text-bone'
-                    : i === 0
-                      ? 'bg-ink text-bone'
-                      : 'bg-bone-300/80 text-ink',
-                ].join(' ')}
-                style={{ width: `${widths[i] ?? 24}%`, minWidth: '7.5rem' }}
-              >
-                {step.label}
-              </div>
-            </div>
-            <p className="flex-1 text-[13px] leading-snug text-ink-500">{step.note}</p>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /* GEO: a retrieval chain, with the two steps you can move marked      */
