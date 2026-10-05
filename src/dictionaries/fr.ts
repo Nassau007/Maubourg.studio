@@ -679,7 +679,7 @@ export const fr: Dictionary = {
       },
       {
         title: 'Mesure d’audience, seulement avec votre accord',
-        body: 'Si vous cliquez sur Accepter dans le bandeau, le site charge Google Analytics 4, un outil de Google qui compte les visites. Nous nous en servons pour voir quelles pages aident les visiteurs et lesquelles améliorer. Il enregistre les pages vues, la page d’où vous venez, votre type d’appareil et de navigateur, et votre pays approximatif. Nous comptons aussi les clics sur le bouton d’audit gratuit et sur le bouton d’appel. Il dépose des cookies dont le nom commence par _ga, pour reconnaître le même navigateur d’une visite à l’autre. Ils expirent au bout de 13 mois au plus. Google Ireland fournit l’outil, et les données peuvent être traitées hors de l’Union européenne, notamment aux États-Unis. Rien ne sert à la publicité. Si vous refusez, ou si vous ne répondez pas, Google Analytics n’est jamais chargé. Votre choix est gardé dans votre navigateur pendant 13 mois. Vous pouvez le changer à tout moment avec le lien Gérer les cookies en bas de chaque page. Retirer votre accord arrête la mesure et supprime ces cookies.',
+        body: 'Si vous cliquez sur Accepter dans le bandeau, le site charge Google Analytics 4, un outil de Google qui compte les visites. Nous nous en servons pour voir quelles pages aident les visiteurs et lesquelles améliorer. Il enregistre les pages vues, la page d’où vous venez, votre type d’appareil et de navigateur, et votre pays approximatif. Nous comptons aussi les clics sur le bouton d’audit gratuit et sur le bouton d’appel. Il dépose des cookies dont le nom commence par _ga, pour reconnaître le même navigateur d’une visite à l’autre. Ils expirent au bout de 13 mois au plus. Google conserve les données de visite 14 mois, puis les supprime. Google Ireland fournit l’outil, et les données peuvent être traitées hors de l’Union européenne, notamment aux États-Unis. Rien ne sert à la publicité. Si vous refusez, ou si vous ne répondez pas, Google Analytics n’est jamais chargé. Votre choix est gardé dans votre navigateur pendant 13 mois. Vous pouvez le changer à tout moment avec le lien Gérer les cookies en bas de chaque page. Retirer votre accord arrête la mesure et supprime ces cookies.',
       },
       {
         title: 'Ce que nous ne faisons pas',
@@ -1055,8 +1055,8 @@ export const fr: Dictionary = {
   },
 
   consent: {
-    label: 'Mesure d’audience',
-    text: 'Nous aimerions compter les visites avec Google Analytics pour améliorer le site. Rien n’est chargé sans votre accord.',
+    label: 'Cookies',
+    text: 'Nous utilisons des cookies pour mesurer l’audience du site et l’améliorer. Vous pouvez les accepter ou les refuser.',
     privacyLink: 'En savoir plus',
     accept: 'Accepter',
     decline: 'Refuser',

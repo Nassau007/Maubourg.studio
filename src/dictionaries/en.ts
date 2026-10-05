@@ -684,7 +684,7 @@ export const en = {
       },
       {
         title: 'Audience measurement, only with your consent',
-        body: 'If you click Accept in the banner, the site loads Google Analytics 4, a Google tool that counts visits. We use it to see which pages help visitors and which ones to improve. It records the pages you view, the page you came from, your type of device and browser, and your approximate country. We also count clicks on the free audit button and on the call button. It sets cookies whose names start with _ga, so that the same browser is recognised from one visit to the next. They expire after 13 months at most. Google Ireland provides the tool, and the data may be processed outside the EU, including in the United States. Nothing is used for advertising. If you decline, or do not answer, Google Analytics never loads. Your choice is kept in your browser for 13 months. You can change it at any time with the Cookie settings link at the bottom of every page. Withdrawing your consent stops the measurement and deletes these cookies.',
+        body: 'If you click Accept in the banner, the site loads Google Analytics 4, a Google tool that counts visits. We use it to see which pages help visitors and which ones to improve. It records the pages you view, the page you came from, your type of device and browser, and your approximate country. We also count clicks on the free audit button and on the call button. It sets cookies whose names start with _ga, so that the same browser is recognised from one visit to the next. They expire after 13 months at most. Google keeps the visit data for 14 months, then deletes it. Google Ireland provides the tool, and the data may be processed outside the EU, including in the United States. Nothing is used for advertising. If you decline, or do not answer, Google Analytics never loads. Your choice is kept in your browser for 13 months. You can change it at any time with the Cookie settings link at the bottom of every page. Withdrawing your consent stops the measurement and deletes these cookies.',
       },
       {
         title: 'What we do not do',
@@ -1075,8 +1075,8 @@ export const en = {
 
   // The audience measurement banner. GA4 loads only after Accept.
   consent: {
-    label: 'Audience measurement',
-    text: 'We would like to count visits with Google Analytics to improve the site. Nothing loads without your consent.',
+    label: 'Cookies',
+    text: 'We use cookies to measure site traffic and improve the site. You can accept or decline them.',
     privacyLink: 'Read more',
     accept: 'Accept',
     decline: 'Decline',
