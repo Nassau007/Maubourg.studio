@@ -12,6 +12,7 @@ import type { Metadata } from 'next';
 import { getDictionary, type Locale } from '@/lib/i18n';
 import { site, siteUrl } from '@/lib/site';
 import { OBSERVATORY_BASE, OBSERVATORY_SEGMENTS, swapObservatoryLocale } from '@/lib/observatory';
+import { ogImage, twitterImage } from '@/lib/share';
 
 export const localizedPaths = {
   agentDemo: { en: '/try-an-agent', fr: '/essayer-un-agent' },
@@ -162,13 +163,13 @@ export function localizedMetadata({
       locale: lang === 'fr' ? 'fr_FR' : 'en_GB',
       alternateLocale: lang === 'fr' ? 'en_GB' : 'fr_FR',
       type: 'website',
-      images: [{ url: '/opengraph-image.png', width: 1200, height: 630 }],
+      images: [ogImage(lang)],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: ['/twitter-image.png'],
+      images: [twitterImage(lang)],
     },
   };
 }

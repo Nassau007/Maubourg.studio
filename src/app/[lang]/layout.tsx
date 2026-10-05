@@ -3,6 +3,8 @@ import { Fraunces, Inter } from 'next/font/google';
 import '../globals.css';
 import { getDictionary, locales, isLocale, type Locale } from '@/lib/i18n';
 import { siteUrl, site } from '@/lib/site';
+import { localizedHref } from '@/lib/routes';
+import ConsentManager from '@/components/ConsentManager';
 
 const display = Fraunces({
   subsets: ['latin'],
@@ -86,6 +88,12 @@ export default function LangLayout({
           <style>{'[data-reveal]{opacity:1!important;transform:none!important}'}</style>
         </noscript>
         {children}
+        {/* Renders nothing until the browser has read the stored choice, and
+            loads Google Analytics only after Accept. */}
+        <ConsentManager
+          dict={getDictionary(lang).consent}
+          privacyHref={localizedHref('privacy', lang)}
+        />
       </body>
     </html>
   );

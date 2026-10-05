@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { site } from '@/lib/site';
 import { localizedHref } from '@/lib/routes';
+import CookieSettingsLink from '@/components/CookieSettingsLink';
 import { OBSERVATORY_LIVE, observatoryHref } from '@/lib/observatory';
 import { getDictionary, type Dictionary, type Locale } from '@/lib/i18n';
 
@@ -70,7 +71,7 @@ export default function Footer({
             <p className="mt-1 text-xs text-bone/40">{dict.market}</p>
           </div>
 
-          <div className="flex items-center gap-6 text-sm">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
             {/* The observatory appears here the day it has an edition to read.
                 Whether it also earns a place in the main nav is Nass's call. */}
             {OBSERVATORY_LIVE && (
@@ -93,6 +94,7 @@ export default function Footer({
             >
               {dict.privacy}
             </Link>
+            <CookieSettingsLink label={dict.cookieSettings} />
           </div>
         </div>
         <div className="mx-auto max-w-content px-5 pb-8 md:px-8">

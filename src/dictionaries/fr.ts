@@ -364,6 +364,7 @@ export const fr: Dictionary = {
     market: 'France et marchés francophones',
     rights: 'Tous droits réservés.',
     privacy: 'Confidentialité',
+    cookieSettings: 'Gérer les cookies',
   },
 
   call: {
@@ -669,8 +670,12 @@ export const fr: Dictionary = {
         body: 'La démo ne vous inscrit sur une liste que si vous cochez la case sous le formulaire. Sans elle, vous ne recevez que la copie de votre résultat et nos réponses à ce que vous écrivez. Dans tous les cas, une ligne de votre part suffit pour que cela s’arrête.',
       },
       {
+        title: 'Mesure d’audience, seulement avec votre accord',
+        body: 'Si vous cliquez sur Accepter dans le bandeau, le site charge Google Analytics 4, un outil de Google qui compte les visites. Nous nous en servons pour voir quelles pages aident les visiteurs et lesquelles améliorer. Il enregistre les pages vues, la page d’où vous venez, votre type d’appareil et de navigateur, et votre pays approximatif. Nous comptons aussi les clics sur le bouton d’audit gratuit et sur le bouton d’appel. Il dépose des cookies dont le nom commence par _ga, pour reconnaître le même navigateur d’une visite à l’autre. Ils expirent au bout de 13 mois au plus. Google Ireland fournit l’outil, et les données peuvent être traitées hors de l’Union européenne, notamment aux États-Unis. Rien ne sert à la publicité. Si vous refusez, ou si vous ne répondez pas, Google Analytics n’est jamais chargé. Votre choix est gardé dans votre navigateur pendant 13 mois. Vous pouvez le changer à tout moment avec le lien Gérer les cookies en bas de chaque page. Retirer votre accord arrête la mesure et supprime ces cookies.',
+      },
+      {
         title: 'Ce que nous ne faisons pas',
-        body: 'Aucun cookie publicitaire, aucune balise de mesure, aucune bannière de consentement, parce qu’il n’y a rien à consentir. Nous comptons les lancements et les résultats côté serveur sans identifier personne : les adresses IP sont hachées pour la limitation d’usage et jamais conservées en clair.',
+        body: 'Aucun cookie publicitaire, et aucune mesure sans votre accord. Nous comptons les lancements et les résultats côté serveur sans identifier personne : les adresses IP sont hachées pour la limitation d’usage et jamais conservées en clair.',
       },
       {
         title: 'Vos droits',
@@ -1036,5 +1041,16 @@ export const fr: Dictionary = {
     homeTitle: 'Maubourg Studio - Studio GEO et agents IA pour l’e-commerce',
     homeDescription:
       'Maubourg Studio, à Paris, rend les marques e-commerce visibles et correctement décrites dans les réponses de ChatGPT, Gemini, Perplexity et Claude, avec ses propres agents IA pour faire le travail. Pour les marques qui vendent en France et sur les marchés francophones.',
+    shareTitle: 'Studio GEO et agents IA pour l’e-commerce',
+    shareLine: 'Votre marque citée, et bien décrite, dans les réponses de ChatGPT, Gemini, Perplexity et Claude.',
+    shareAlt: 'Maubourg Studio, studio GEO et agents IA pour l’e-commerce',
+  },
+
+  consent: {
+    label: 'Mesure d’audience',
+    text: 'Nous aimerions compter les visites avec Google Analytics pour améliorer le site. Rien n’est chargé sans votre accord.',
+    privacyLink: 'En savoir plus',
+    accept: 'Accepter',
+    decline: 'Refuser',
   },
 };

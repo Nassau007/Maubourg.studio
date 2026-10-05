@@ -368,6 +368,7 @@ export const en = {
     market: 'France and French-speaking markets',
     rights: 'All rights reserved.',
     privacy: 'Privacy',
+    cookieSettings: 'Cookie settings',
   },
 
   call: {
@@ -673,8 +674,12 @@ export const en = {
         body: 'The demo adds you to a list only if you tick the box under the form. Without it, the only emails you get are the copy of your result and replies to what you write. Either way, one line from you is enough to make them stop.',
       },
       {
+        title: 'Audience measurement, only with your consent',
+        body: 'If you click Accept in the banner, the site loads Google Analytics 4, a Google tool that counts visits. We use it to see which pages help visitors and which ones to improve. It records the pages you view, the page you came from, your type of device and browser, and your approximate country. We also count clicks on the free audit button and on the call button. It sets cookies whose names start with _ga, so that the same browser is recognised from one visit to the next. They expire after 13 months at most. Google Ireland provides the tool, and the data may be processed outside the EU, including in the United States. Nothing is used for advertising. If you decline, or do not answer, Google Analytics never loads. Your choice is kept in your browser for 13 months. You can change it at any time with the Cookie settings link at the bottom of every page. Withdrawing your consent stops the measurement and deletes these cookies.',
+      },
+      {
         title: 'What we do not do',
-        body: 'No advertising cookies, no analytics tags, no consent banner, because there is nothing to consent to. We count runs and results server-side without identifying anyone: IP addresses are hashed for rate limiting and never stored in the clear.',
+        body: 'No advertising cookies, and no measurement without your consent. We count runs and results server-side without identifying anyone: IP addresses are hashed for rate limiting and never stored in the clear.',
       },
       {
         title: 'Your rights',
@@ -1053,6 +1058,19 @@ export const en = {
     homeTitle: 'Maubourg Studio - GEO and AI agents studio for ecommerce',
     homeDescription:
       'Maubourg Studio, in Paris, makes ecommerce brands visible and correctly described in the answers of ChatGPT, Gemini, Perplexity and Claude, with its own AI agents doing the work. For brands selling in France and French-speaking markets.',
+    // The link preview image, drawn by src/lib/share-image.tsx.
+    shareTitle: 'GEO and AI agents studio for ecommerce',
+    shareLine: 'Your brand cited, and described correctly, in the answers of ChatGPT, Gemini, Perplexity and Claude.',
+    shareAlt: 'Maubourg Studio, GEO and AI agents studio for ecommerce',
+  },
+
+  // The audience measurement banner. GA4 loads only after Accept.
+  consent: {
+    label: 'Audience measurement',
+    text: 'We would like to count visits with Google Analytics to improve the site. Nothing loads without your consent.',
+    privacyLink: 'Read more',
+    accept: 'Accept',
+    decline: 'Decline',
   },
 };
 
