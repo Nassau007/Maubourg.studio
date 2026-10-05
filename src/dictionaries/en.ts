@@ -545,6 +545,9 @@ export const en = {
       // the one thing worse than not promising it.
       previewPromise:
         'Your own product page has also been rebuilt with the new description in place of the old one. It opens here, and you can download it.',
+      // When the page HTML has no description to replace. Never "in place of".
+      previewPromiseInserted:
+        'Your page has no description in its HTML text, so an AI crawler reads none. We rebuilt your page with the new description added under the product title. It opens here, and you can download it.',
       intro: 'Tell us where to send it. It opens here as soon as you do.',
       name: 'Your name',
       namePlaceholder: 'Jane Doe',
@@ -567,11 +570,17 @@ export const en = {
       previewNote:
         'This is your own product page, your design and your images, with the new description where the old one was. It runs with all scripts removed, so parts that need JavaScript may look different. Nothing was written to your store.',
       previewMarker: 'New description',
+      previewLabelInserted: 'Your page, with the new description added',
+      previewNoteInserted:
+        'This is your own product page, your design and your images. Its HTML had no description in the text to replace. If your page shows one, a script adds it, and an AI crawler runs no scripts. So the new description is added under the product title, where a crawler reads it. The page runs with all scripts removed, so parts that need JavaScript may look different. Nothing was written to your store.',
+      previewMarkerInserted: 'Added by the agent',
       previewOpen: 'Open in a new tab',
       previewDownload: 'Download the HTML',
       previewExpires: 'This page stays available for an hour, then the copy on our side is dropped.',
       previewUnavailable:
         'We could not place the new description back into this page with certainty, so we did not rebuild it. Rather than risk showing you a broken version of your own store, here is the new description on its own.',
+      previewUnavailableNoHtml:
+        'Your page HTML has no description in its text and no product title to put one under. The product area is most likely drawn by JavaScript, so there is no page to rebuild. An AI crawler gets the same empty page. Here is the new description on its own.',
       emailed: 'A copy is on its way to your inbox.',
       lowConfidence:
         'This page was hard to read automatically, so the new description may be based on partial content.',

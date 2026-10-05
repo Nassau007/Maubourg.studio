@@ -68,6 +68,13 @@ function blockHtml(
 
 const STUDIO = getDictionary('en').agentDemo;
 
+/** The notification's "Rebuilt page" row: whether there is one, and how the copy got in. */
+function rebuiltLine(run: Pick<StoredRun, 'renderedHtml' | 'renderMode'>): string {
+  if (run.renderMode === 'inserted') return 'yes - added under the title, the page HTML has no description in its text';
+  if (run.renderedHtml) return 'yes - new description in place of the old one';
+  return 'no - no certain place for it';
+}
+
 function gapList(result: AgentResult): string {
   return result.gaps
     .map(
@@ -103,7 +110,7 @@ export async function sendDemoNotification(input: {
     ['Platform', run.platform],
     ['Page language', run.detectedLanguage],
     ['Extraction confidence', run.confidence],
-    ['Rebuilt page', run.renderedHtml ? 'yes' : 'no - substitution not certain'],
+    ['Rebuilt page', rebuiltLine(run)],
     ['Block to complete', run.productBlock.toComplete.join(', ') || 'nothing'],
     ['Site locale', run.locale],
     ['Marketing consent (GEO emails)', consent ? 'yes' : 'no'],
@@ -188,7 +195,7 @@ export async function sendDemoRunNotice(input: {
     ['Platform', run.platform],
     ['Page language', run.detectedLanguage],
     ['Extraction confidence', run.confidence],
-    ['Rebuilt page', run.renderedHtml ? 'yes' : 'no - substitution not certain'],
+    ['Rebuilt page', rebuiltLine(run)],
     ['Block to complete', run.productBlock.toComplete.join(', ') || 'nothing'],
     ['Site locale', run.locale],
     ['Run at', new Date().toISOString()],

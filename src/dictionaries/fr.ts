@@ -538,6 +538,8 @@ export const fr: Dictionary = {
       ],
       previewPromise:
         'Votre fiche produit a aussi été reconstruite avec la nouvelle description à la place de l’ancienne. Elle s’ouvre ici, et vous pouvez la télécharger.',
+      previewPromiseInserted:
+        'Le texte HTML de votre page ne contient aucune description : un robot d’IA n’en lit donc aucune. Nous avons reconstruit votre page avec la nouvelle description ajoutée sous le titre du produit. Elle s’ouvre ici, et vous pouvez la télécharger.',
       intro: 'Dites-nous où l’envoyer. Elle s’ouvre ici dans la foulée.',
       name: 'Votre nom',
       namePlaceholder: 'Camille Martin',
@@ -561,11 +563,17 @@ export const fr: Dictionary = {
       previewNote:
         'C’est votre fiche produit, votre design et vos images, avec la nouvelle description à la place de l’ancienne. Elle tourne sans aucun script : les éléments qui dépendent du JavaScript peuvent s’afficher autrement. Rien n’a été écrit dans votre boutique.',
       previewMarker: 'Nouvelle description',
+      previewLabelInserted: 'Votre page, avec la nouvelle description ajoutée',
+      previewNoteInserted:
+        'C’est votre fiche produit, votre design et vos images. Son HTML ne contenait aucune description à remplacer dans le texte. Si votre page en affiche une, c’est un script qui l’ajoute, et un robot d’IA n’exécute aucun script. La nouvelle description est donc ajoutée sous le titre du produit, là où un robot la lit. La page tourne sans aucun script : les éléments qui dépendent du JavaScript peuvent s’afficher autrement. Rien n’a été écrit dans votre boutique.',
+      previewMarkerInserted: 'Ajoutée par l’agent',
       previewOpen: 'Ouvrir dans un nouvel onglet',
       previewDownload: 'Télécharger le HTML',
       previewExpires: 'Cette page reste disponible une heure, puis notre copie est supprimée.',
       previewUnavailable:
         'Nous n’avons pas pu replacer la nouvelle description dans cette page avec certitude, donc nous ne l’avons pas reconstruite. Plutôt que de vous montrer une version cassée de votre propre boutique, voici la nouvelle description seule.',
+      previewUnavailableNoHtml:
+        'Le HTML de votre page ne contient ni description dans le texte, ni titre de produit sous lequel en placer une. La zone produit est très probablement dessinée par JavaScript : il n’y a donc pas de page à reconstruire. Un robot d’IA récupère la même page vide. Voici la nouvelle description seule.',
       emailed: 'Une copie part vers votre boîte mail.',
       lowConfidence:
         'Cette page a été difficile à lire automatiquement : la nouvelle description peut reposer sur un contenu partiel.',

@@ -29,6 +29,10 @@ type RunPayload = {
   // Whether the rebuilt page exists. Sent before the email so the ask can name
   // the reward, and false whenever the substitution was not certain.
   render_available: boolean;
+  // 'inserted' when the page HTML had no description to replace and the new
+  // one was added under the title. The labels follow it: never "in place of"
+  // for a block that replaced nothing.
+  render_mode?: 'substituted' | 'inserted' | null;
   // Present when the server runs GATE_MODE 'rewrite-only' or 'open'. The client
   // reads the response rather than importing the constant, so the switch stays
   // a server decision and the bundle carries no copy of it.
@@ -259,6 +263,9 @@ export default function AgentDemo({
     run && run.gaps_count === 1
       ? dict.gate.gapsFoundOne
       : dict.gate.gapsFound.replace('{n}', String(run?.gaps_count ?? 0));
+
+  // The rebuilt page added the new description rather than replacing one.
+  const inserted = run?.render_mode === 'inserted';
 
   /* ---------------------------------------------------------------- */
   /* The free half: verdict, gaps, the three checks                   */
@@ -538,7 +545,7 @@ export default function AgentDemo({
                 cannot keep costs more than the extra line earns. */}
             {run.render_available && (
               <p className="mt-5 rounded-xl border border-emerald/25 bg-emerald-50/60 px-4 py-3 text-sm leading-relaxed text-ink">
-                {dict.gate.previewPromise}
+                {run.render_mode === 'inserted' ? dict.gate.previewPromiseInserted : dict.gate.previewPromise}
               </p>
             )}
 
@@ -640,7 +647,9 @@ export default function AgentDemo({
             {result.preview_url ? (
               <div>
                 <div className="flex flex-wrap items-end justify-between gap-3">
-                  <span className="eyebrow">{dict.result.previewLabel}</span>
+                  <span className="eyebrow">
+                    {inserted ? dict.result.previewLabelInserted : dict.result.previewLabel}
+                  </span>
                   <div className="flex flex-wrap gap-2">
                     <a
                       href={result.preview_url}
@@ -664,16 +673,22 @@ export default function AgentDemo({
                   <iframe
                     src={`${result.preview_url}#maubourg-rewrite`}
                     sandbox=""
-                    title={dict.result.previewLabel}
+                    title={inserted ? dict.result.previewLabelInserted : dict.result.previewLabel}
                     className="h-[520px] w-full border-0 bg-white md:h-[640px]"
                   />
                 </div>
-                <p className="mt-3 text-xs leading-relaxed text-ink-500">{dict.result.previewNote}</p>
+                <p className="mt-3 text-xs leading-relaxed text-ink-500">
+                  {inserted ? dict.result.previewNoteInserted : dict.result.previewNote}
+                </p>
                 <p className="mt-1 text-xs text-ink-500">{dict.result.previewExpires}</p>
               </div>
             ) : (
               <p className="rounded-xl border border-ink/10 bg-bone-200 px-4 py-3 text-sm leading-relaxed text-ink-600">
-                {dict.result.previewUnavailable}
+                {/* Same answer as the crawler check: no description in the
+                    page text means nothing was there to put back. */}
+                {result.checks && result.checks.crawler.description !== 'text'
+                  ? dict.result.previewUnavailableNoHtml
+                  : dict.result.previewUnavailable}
               </p>
             )}
 

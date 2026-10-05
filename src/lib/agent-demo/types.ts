@@ -5,6 +5,15 @@
 // second pattern for something the lead routes already solve by hand.
 
 export type Platform = 'shopify' | 'woocommerce' | 'other';
+
+/**
+ * How the new description got into the rebuilt page. 'substituted': the old
+ * one was in the page's HTML and the new one sits in its place. 'inserted':
+ * the old one is not in the HTML at all (a script adds it), so the new one is
+ * placed under the product title and labelled as added, never as a
+ * replacement.
+ */
+export type RenderMode = 'substituted' | 'inserted';
 export type Confidence = 'high' | 'low';
 
 export type Gap = {
@@ -204,6 +213,8 @@ export type StoredRun = {
    * result on its own.
    */
   renderedHtml: string | null;
+  /** Null exactly when renderedHtml is. */
+  renderMode: RenderMode | null;
   productName: string;
   url: string;
   platform: Platform;
@@ -238,6 +249,11 @@ export type RunResponse = {
    * substitution did not succeed.
    */
   render_available: boolean;
+  /**
+   * How the rebuilt page carries the new description, so every label can say
+   * "in place of" or "added" truthfully. Null when there is no page.
+   */
+  render_mode: RenderMode | null;
   /** Present under GATE_MODE 'rewrite-only' and 'open': the free half. */
   verdict?: string;
   gaps?: Gap[];

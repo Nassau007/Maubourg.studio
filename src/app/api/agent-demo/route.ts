@@ -105,12 +105,21 @@ export async function POST(request: Request) {
     // new copy sitting in the element the old copy came from. Null whenever we
     // could not be certain which element that was, and the visitor is told so
     // rather than shown a mangled version of their store.
-    const renderedHtml = buildRenderedPage({
+    //
+    // Whether the old description is in the page text at all comes from the
+    // crawler check, so the page and "What an AI crawler sees" cannot
+    // disagree. When it is not there, the new copy is added under the title
+    // and labelled as added: there was nothing to replace.
+    const rendered = buildRenderedPage({
       html: page.html,
       pageUrl: page.finalUrl,
       description: page.description,
       rewrite: model.rewrite,
+      productName: page.name,
+      descriptionInPage: checks.crawler.description === 'text',
     });
+    const renderedHtml = rendered ? rendered.html : null;
+    const renderMode = rendered ? rendered.mode : null;
 
     const run: Omit<StoredRun, 'createdAt' | 'expiresAt'> = {
       result: {
@@ -129,6 +138,7 @@ export async function POST(request: Request) {
         rewrite: model.rewrite,
       }),
       renderedHtml,
+      renderMode,
       productName: page.name,
       url,
       platform: page.platform,
@@ -167,6 +177,7 @@ export async function POST(request: Request) {
       detected_language: detectedLanguage,
       confidence: page.confidence,
       render_available: renderedHtml !== null,
+      render_mode: renderMode,
       // Under 'rewrite-only' the diagnosis and the checks are shown before the
       // ask. Under 'full' none of it is sent.
       ...(GATE_MODE === 'rewrite-only' ? { verdict: model.verdict, gaps: model.gaps, checks } : {}),

@@ -34,6 +34,7 @@ export type PublishedPage = { preview: string; download: string };
  */
 export function publishPage(run: {
   renderedHtml: StoredRun['renderedHtml'];
+  renderMode: StoredRun['renderMode'];
   detectedLanguage: string;
   productName: string;
 }): PublishedPage | null {
@@ -41,7 +42,12 @@ export function publishPage(run: {
   const pageLocale = run.detectedLanguage.startsWith('fr') ? 'fr' : 'en';
   const token = putPage({
     html: run.renderedHtml,
-    label: getDictionary(pageLocale).agentDemo.result.previewMarker,
+    // An added block is labelled as added: the page had no description in its
+    // HTML, and the ring must not call it a replacement.
+    label:
+      run.renderMode === 'inserted'
+        ? getDictionary(pageLocale).agentDemo.result.previewMarkerInserted
+        : getDictionary(pageLocale).agentDemo.result.previewMarker,
     filename: slug(run.productName),
   });
   return {
