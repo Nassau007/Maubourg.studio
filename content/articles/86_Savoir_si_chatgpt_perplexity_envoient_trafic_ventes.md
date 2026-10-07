@@ -4,14 +4,15 @@ slug: "comment-savoir-si-chatgpt-ou-perplexity-m-envoient-vraiment-du-trafic-et-
 description: "Dans Google Analytics 4, le canal AI Assistant, ajouté au groupe de canaux par défaut le 13 mai 2026, isole les visites venues de ChatGPT, mais pas celles de…"
 question: "Comment savoir si ChatGPT ou Perplexity m'envoient vraiment du trafic et des ventes ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-10-05
+date: 2026-10-07
 lang: fr
 readingTime: 4
 draft: false
+template: "sidebar"
 ---
 # Comment savoir si ChatGPT ou Perplexity m'envoient vraiment du trafic et des ventes
 
-_Maubourg Studio, mis à jour le 5 octobre 2026_
+_Maubourg Studio, mis à jour le 7 octobre 2026_
 
 Dans Google Analytics 4, le canal AI Assistant, ajouté au groupe de canaux par défaut le 13 mai 2026, isole les visites venues de ChatGPT, mais pas celles de Perplexity, qu'il faut rattraper avec un groupe de canaux personnalisé. Côté ventes, le rapport Shopify des performances par canal marketing relie ces visites aux commandes, et le total reste un plancher.
 
