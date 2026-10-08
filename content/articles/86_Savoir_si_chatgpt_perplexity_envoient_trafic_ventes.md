@@ -14,11 +14,11 @@ template: "sidebar"
 
 _Maubourg Studio, mis à jour le 7 octobre 2026_
 
-Dans Google Analytics 4, le canal AI Assistant, ajouté au groupe de canaux par défaut le 13 mai 2026, isole les visites venues de ChatGPT, mais pas celles de Perplexity, qu'il faut rattraper avec un groupe de canaux personnalisé. Côté ventes, le rapport Shopify des performances par canal marketing relie ces visites aux commandes, et le total reste un plancher.
+Dans Google Analytics 4, le canal AI Assistant, ajouté au groupe de canaux par défaut le 13 mai 2026, isole les visites venues de ChatGPT, mais pas celles de Perplexity, qu'il faut rattraper avec un groupe de canaux personnalisé. Côté ventes, le rapport Shopify des performances par canal marketing relie ces visites aux commandes, mais ce total est un minimum : par exemple, un lien copié depuis une réponse d'IA puis collé dans un nouvel onglet arrive sans source et se range en Direct. Le nombre réel de ventes venues d'une IA est donc probablement plus élevé.
 
 ## En bref
 
-- GA4 range une visite sous le support "ai-assistant" quand son référent correspond à un assistant reconnu, mais ce canal exclut les AI Overviews et le mode IA de Google (source : documentation Google Analytics, octobre 2026).
+- GA4 range une visite sous le support "ai-assistant" quand son URL de provenance correspond à un assistant reconnu, mais ce canal exclut les AI Overviews et le mode IA de Google (source : documentation Google Analytics, octobre 2026).
 - Une visite venue de perplexity.ai tombe dans le canal Referral, Perplexity n'étant cité ni dans la note de lancement ni dans la définition du canal (sources : GA4 Auditor ; aide Google Analytics).
 - Un groupe de canaux personnalisé s'applique aussi aux données passées, alors que le canal AI Assistant ne compte qu'à partir du 13 mai 2026 (sources : aide Google Analytics ; GA4 Auditor).
 - Depuis le 11 juin 2026, la dimension GA4 Source group regroupe ChatGPT (OpenAI) et Perplexity sans réglage, y compris sur les données passées (source : aide Google Analytics, page "Nouveautés").
@@ -50,7 +50,7 @@ GA4 n'attribue un chiffre d'affaires à un canal que si l'événement "purchase"
 
 Dans Shopify, le rapport des performances par canal marketing affiche sessions, ventes, commandes et taux de conversion par canal, avec un menu d'attribution (dernier clic, premier clic, tous les clics, linéaire) (source : centre d'aide Shopify, rapports marketing, consulté le 5 octobre 2026). Comparer premier et dernier clic montre si l'assistant ouvre le parcours ou le conclut.
 
-Les commandes venues des canaux IA de Shopify (ChatGPT, Google AI Mode et Gemini, Microsoft Copilot, Meta) s'affichent dans l'admin avec leur canal ou leur référent d'origine ; depuis ChatGPT, l'achat se termine sur le paiement de la boutique (source : centre d'aide Shopify, agentic storefronts, consulté le 5 octobre 2026). La page ne précise pas quelles boutiques sont éligibles.
+Les commandes venues des canaux IA de Shopify (ChatGPT, Google AI Mode et Gemini, Microsoft Copilot, Meta) s'affichent dans l'admin avec leur canal ou leur site d'origine ; depuis ChatGPT, l'achat se termine sur le paiement de la boutique (source : centre d'aide Shopify, agentic storefronts, consulté le 5 octobre 2026). La page ne précise pas quelles boutiques sont éligibles.
 
 ## Pourquoi le chiffre reste un plancher
 
