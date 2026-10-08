@@ -54,7 +54,7 @@ Les commandes venues des canaux IA de Shopify (ChatGPT, Google AI Mode et Gemini
 
 ## Pourquoi le chiffre reste un plancher
 
-Une visite venue d'une IA peut arriver sans référent, quand l'acheteur copie le lien de la réponse dans un nouvel onglet. GA4 range en Direct toute visite dont la source est "(direct)" et le support "(none)" ou "(not set)" (source : aide Google Analytics, groupe de canaux par défaut), mêlée aux favoris et aux adresses saisies. Rien ne la distingue ensuite : GA4 et Shopify montrent la part traçable, un minimum à suivre en tendance mensuelle.
+Une visite venue d'une IA peut arriver sans URL de provenance, quand l'acheteur copie le lien de la réponse dans un nouvel onglet. GA4 range en Direct toute visite dont la source est "(direct)" et le support "(none)" ou "(not set)" (source : aide Google Analytics, groupe de canaux par défaut), mêlée aux favoris et aux adresses saisies. Rien ne la distingue ensuite : GA4 et Shopify montrent la part traçable, un minimum à suivre en tendance mensuelle.
 
 ## Exemple illustratif
 
