@@ -14,7 +14,7 @@ template: "sidebar"
 
 _Maubourg Studio, mis à jour le 7 octobre 2026_
 
-Dans Google Analytics 4, le canal AI Assistant, ajouté au groupe de canaux par défaut le 13 mai 2026, isole les visites venues de ChatGPT, mais pas celles de Perplexity, qu'il faut rattraper avec un groupe de canaux personnalisé. Côté ventes, le rapport Shopify des performances par canal marketing relie ces visites aux commandes, mais ce total est un minimum : par exemple, un lien copié depuis une réponse d'IA puis collé dans un nouvel onglet arrive sans source et se range en Direct. Le nombre réel de ventes venues d'une IA est donc probablement plus élevé.
+Dans Google Analytics 4, le canal AI Assistant, ajouté au groupe de canaux par défaut le 13 mai 2026, isole les visites venues de ChatGPT, mais pas celles de Perplexity, qu'il faut rattraper avec un groupe de canaux personnalisé. Côté ventes, le rapport Shopify des performances par canal marketing relie ces visites aux commandes, mais ce total est un minimum : par exemple, un lien copié depuis une réponse d'IA puis collé dans un nouvel onglet arrive sans source et se range en Direct. Le nombre réel de ventes venues d'une IA est donc probablement plus élevé que celui affiché mais reste un bon indicateur.
 
 ## En bref
 
