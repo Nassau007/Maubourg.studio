@@ -4,14 +4,15 @@ slug: "comment-savoir-si-une-ia-invente-ou-se-trompe-sur-des-informations-concer
 description: "Construire une fiche de faits vérifiables sur la marque, poser des questions fermées à chaque assistant, puis classer chaque réponse en faux, non vérifié…"
 question: "Comment savoir si une IA invente ou se trompe sur des informations concernant ma marque ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-09-27
+date: 2026-10-09
 lang: fr
 readingTime: 4
 draft: false
+template: "sidebar"
 ---
 # Comment savoir si une IA invente ou se trompe sur des informations concernant ma marque
 
-_Maubourg Studio, mis à jour le 27 septembre 2026_
+_Maubourg Studio, mis à jour le 9 octobre 2026_
 
 Construire une fiche de faits vérifiables (SIREN, adresse du siège, année de création, politique de retour), poser des questions fermées sur chaque point à chaque assistant en session déconnectée, puis classer la réponse dans un tableau à trois colonnes, faux, non vérifié, affirmé sans source : une méthode qui repère une erreur avant qu'elle n'atteigne un acheteur.
 
