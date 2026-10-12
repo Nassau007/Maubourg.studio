@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 // Kept in sync with src/lib/i18n.ts. Inlined here so the edge middleware
 // bundle doesn't pull in the full dictionaries.
 const locales = ['en', 'fr'] as const;
-const defaultLocale = 'en';
+const defaultLocale = 'fr';
 
 // The one address of the site. Both hosts stay attached in Railway, but www
 // only exists to hand its visitors (and their link equity) to the apex domain.

@@ -33,7 +33,7 @@ export async function generateMetadata({
       languages: {
         en: '/en/call',
         fr: '/fr/call',
-        'x-default': '/en/call',
+        'x-default': '/fr/call',
       },
     },
     openGraph: {

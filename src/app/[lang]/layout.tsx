@@ -47,7 +47,7 @@ export async function generateMetadata({
         en: '/en',
         fr: '/fr',
         // Tells a crawler which version to serve when it matches no language.
-        'x-default': '/en',
+        'x-default': '/fr',
       },
     },
     openGraph: {

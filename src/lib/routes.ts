@@ -88,7 +88,7 @@ export function languageAlternates(page: LocalizedPage): Record<string, string> 
   return {
     en: `/en${localizedPaths[page].en}`,
     fr: `/fr${localizedPaths[page].fr}`,
-    'x-default': `/en${localizedPaths[page].en}`,
+    'x-default': `/fr${localizedPaths[page].fr}`,
   };
 }
 

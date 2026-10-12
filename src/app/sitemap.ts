@@ -54,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: Object.fromEntries([
           ...locales.map((l) => [l, `${siteUrl}/${l}${path}`]),
-          ['x-default', `${siteUrl}/en${path}`],
+          ['x-default', `${siteUrl}/fr${path}`],
         ]),
       },
     })),
@@ -69,7 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: Object.fromEntries([
           ...locales.map((l) => [l, `${siteUrl}/${l}${localizedPaths[page][l]}`]),
-          ['x-default', `${siteUrl}/en${localizedPaths[page].en}`],
+          ['x-default', `${siteUrl}/fr${localizedPaths[page].fr}`],
         ]),
       },
     })),
