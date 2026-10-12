@@ -1,24 +1,61 @@
+import Link from 'next/link';
 import Reveal from './Reveal';
-import type { Dictionary } from '@/lib/i18n';
+import { observatoryHref } from '@/lib/observatory';
+import type { Dictionary, Locale } from '@/lib/i18n';
 
-export default function Problem({ dict }: { dict: Dictionary['problem'] }) {
+/**
+ * Exploration B. A four-cell grid: the Atlas figure in forest green, and the
+ * three reasons around it. Four contents, four cells, no empty slot.
+ */
+export default function Problem({
+  dict,
+  lead,
+  link,
+  lang,
+}: {
+  dict: Dictionary['problem'];
+  lead: Dictionary['atlasProof']['lead'];
+  link: string;
+  lang: Locale;
+}) {
+  const [first, ...others] = dict.pains;
   return (
-    <section id="problem" className="hairline py-20 md:py-28">
+    <section id="problem" className="scroll-mt-20 bg-bone py-20 md:py-28">
       <div className="mx-auto max-w-content px-5 md:px-8">
         <Reveal>
-          <span className="eyebrow">{dict.eyebrow}</span>
-          <h2 className="mt-4 max-w-2xl font-display text-3xl font-semibold leading-tight tracking-tight text-ink md:text-5xl">
+          <h2 className="font-display max-w-3xl text-4xl font-bold leading-[1.05] text-ink md:text-[3.25rem] [text-wrap:balance]">
             {dict.title}
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {dict.pains.map((p, i) => (
-            <Reveal key={p.title} delay={i * 90}>
-              <div className="card card-hover h-full">
-                <div className="mb-4 font-display text-4xl font-semibold text-ink/15">0{i + 1}</div>
-                <h3 className="text-lg font-semibold text-ink">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-600">{p.body}</p>
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
+          <Reveal className="md:row-span-2">
+            <div className="flex h-full flex-col justify-between rounded-card bg-ink p-8 text-bone">
+              <div>
+                <p className="font-display figure whitespace-nowrap text-[3.25rem] font-bold leading-none lg:text-[3.6rem]">{lead.value}</p>
+                <p className="mt-5 text-[15.5px] leading-relaxed text-bone/85">{lead.label}</p>
+              </div>
+              <p className="mt-10 text-sm text-bone/75">
+                {lead.source}.{' '}
+                <Link href={observatoryHref(lang)} className="text-link-light">
+                  {link}
+                </Link>
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal className="md:col-span-2" delay={60}>
+            <div className="h-full rounded-card bg-signal-50 p-8">
+              <h3 className="font-display text-2xl font-bold text-ink">{first.title}</h3>
+              <p className="mt-3 max-w-[60ch] text-[15.5px] leading-relaxed text-ink-700">{first.body}</p>
+            </div>
+          </Reveal>
+
+          {others.map((p, i) => (
+            <Reveal key={p.title} delay={120 + i * 60}>
+              <div className="h-full rounded-card border border-ink/10 bg-bone-100 p-7">
+                <h3 className="font-display text-xl font-bold text-ink">{p.title}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink-600">{p.body}</p>
               </div>
             </Reveal>
           ))}

@@ -1,22 +1,22 @@
 import type { Metadata } from 'next';
-import { Fraunces, Inter } from 'next/font/google';
+import { Bricolage_Grotesque, Hanken_Grotesk } from 'next/font/google';
 import '../globals.css';
 import { getDictionary, locales, isLocale, type Locale } from '@/lib/i18n';
 import { siteUrl, site } from '@/lib/site';
 import { localizedHref } from '@/lib/routes';
 import ConsentManager from '@/components/ConsentManager';
 
-const display = Fraunces({
+const display = Bricolage_Grotesque({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-display',
   display: 'swap',
 });
 
-const sans = Inter({
+const sans = Hanken_Grotesk({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
   variable: '--font-sans',
   display: 'swap',
 });

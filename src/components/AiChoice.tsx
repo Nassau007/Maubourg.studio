@@ -1,16 +1,12 @@
 import Link from 'next/link';
 import Reveal from './Reveal';
-import { RetrievalChain } from './vertical/diagrams';
 import type { Dictionary, Locale } from '@/lib/i18n';
 import { localizedHref } from '@/lib/routes';
 
 /**
- * How an AI picks a brand: the four-step chain from the GEO page, condensed
- * onto the homepage. It is the block that has to earn the visitor's trust in
- * the expertise, so it sits before the offer rather than after it.
- *
- * It renders the same `verticals.geo.chain` data the GEO page uses. One source,
- * so the two can never describe the mechanism differently.
+ * Exploration B. The question as a chat bubble, then the four steps down a
+ * line. The two steps a brand can move get the coral marker: the colour says
+ * "your lever", not decoration. Same `verticals.geo.chain` data as the GEO page.
  */
 export default function AiChoice({
   dict,
@@ -22,36 +18,50 @@ export default function AiChoice({
   lang: Locale;
 }) {
   return (
-    <section className="hairline py-20 md:py-28">
-      <div className="mx-auto max-w-content px-5 md:px-8">
-        <Reveal>
-          <span className="eyebrow">{dict.eyebrow}</span>
-          <h2 className="mt-4 max-w-2xl font-display text-3xl font-semibold leading-tight tracking-tight text-ink md:text-5xl">
+    <section className="bg-bone py-20 md:py-28">
+      <div className="mx-auto grid max-w-content gap-12 px-5 md:px-8 lg:grid-cols-12">
+        <Reveal className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
+          <h2 className="font-display text-4xl font-bold leading-[1.05] text-ink md:text-[3.25rem]">
             {dict.title}
           </h2>
-          <p className="mt-4 max-w-xl text-ink-600">{dict.subtitle}</p>
-        </Reveal>
-
-        <Reveal delay={80}>
-          <div className="mt-10">
-            <RetrievalChain
-              query={chain.query}
-              steps={chain.steps}
-              influenceLabel={chain.influenceLabel}
-            />
-          </div>
-        </Reveal>
-
-        <Reveal delay={140}>
-          <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-ink-700">
+          <p className="mt-5 text-lg text-ink-600">{dict.subtitle}</p>
+          <p className="mt-8 max-w-md text-[15.5px] leading-relaxed text-ink-700">
             {dict.conclusion}{' '}
-            <Link
-              href={localizedHref('geo', lang)}
-              className="font-semibold text-emerald underline-offset-4 hover:underline"
-            >
+            <Link href={localizedHref('geo', lang)} className="text-link">
               {dict.link}
             </Link>
           </p>
+        </Reveal>
+
+        <Reveal className="lg:col-span-7" delay={60}>
+          <p className="ml-auto max-w-md rounded-3xl rounded-br-md bg-ink px-6 py-4 text-[15.5px] font-medium text-bone">
+            {chain.query}
+          </p>
+          <ol className="mt-10">
+            {chain.steps.map((step, i) => {
+              const movable = i === 1 || i === 2;
+              const last = i === chain.steps.length - 1;
+              return (
+                <li key={step.step} className="relative pb-9 pl-14 last:pb-0">
+                  {!last && <span aria-hidden className="absolute bottom-0 left-[17px] top-10 w-px bg-ink/20" />}
+                  <span
+                    className={`figure absolute left-0 top-0 flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold ${
+                      movable ? 'bg-signal text-ink' : 'border border-ink/25 bg-bone-100 text-ink-600'
+                    }`}
+                  >
+                    {i + 1}
+                  </span>
+                  <p className="font-display text-xl font-bold text-ink">{step.step}</p>
+                  <p className="mt-1 text-[15px] leading-relaxed text-ink-600">{step.note}</p>
+                  <p className="mt-2 text-sm text-ink-600">
+                    {chain.influenceLabel}
+                    {lang === 'fr' ? ' : ' : ': '}
+                    <span className={`font-semibold ${movable ? 'text-ink' : 'text-ink-600'}`}>{step.influence}</span>
+                  </p>
+                </li>
+              );
+            })}
+          </ol>
         </Reveal>
       </div>
     </section>

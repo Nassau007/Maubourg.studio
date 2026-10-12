@@ -28,7 +28,7 @@ export default function Founder({
   hasPhoto?: boolean;
 }) {
   return (
-    <div className="mt-4 rounded-card border border-ink/10 bg-bone-100 p-5">
+    <div className="mt-4 rounded-card border border-bone/15 bg-ink-soft p-5 text-bone">
       <div className="flex items-center gap-3.5">
         {hasPhoto ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -48,18 +48,18 @@ export default function Founder({
           </span>
         )}
         <div>
-          <p className="font-display text-base font-semibold leading-tight text-ink">
+          <p className="font-display text-base font-bold leading-tight text-bone">
             {dict.name}
           </p>
-          <p className="text-sm text-ink-500">{dict.role}</p>
+          <p className="text-sm text-bone/75">{dict.role}</p>
         </div>
       </div>
 
-      <p className="mt-4 text-sm leading-relaxed text-ink-700">{dict.blurb}</p>
+      <p className="mt-4 text-sm leading-relaxed text-bone/85">{dict.blurb}</p>
 
       <a
         href={`mailto:${site.email}`}
-        className="mt-3 inline-block text-sm font-medium text-emerald underline-offset-4 hover:underline"
+        className="text-link-light mt-3 inline-block text-sm"
       >
         {site.email}
       </a>

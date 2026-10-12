@@ -2,62 +2,48 @@ import Link from 'next/link';
 import Reveal from './Reveal';
 import type { Dictionary, Locale } from '@/lib/i18n';
 
+/**
+ * Exploration B. The three steps on one line, in the order they happen. The
+ * first, the free audit, carries the coral marker and the one button.
+ */
 export default function Process({ dict, lang }: { dict: Dictionary['process']; lang: Locale }) {
   return (
-    <section id="process" className="hairline py-20 md:py-28">
+    <section id="process" className="scroll-mt-20 bg-bone-100 py-20 md:py-28">
       <div className="mx-auto max-w-content px-5 md:px-8">
         <Reveal>
-          <span className="eyebrow">{dict.eyebrow}</span>
-          <h2 className="mt-4 max-w-2xl font-display text-3xl font-semibold leading-tight tracking-tight text-ink md:text-5xl">
+          <h2 className="font-display max-w-4xl text-4xl font-bold leading-[1.05] text-ink md:text-[3.25rem] [text-wrap:balance]">
             {dict.title}
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {dict.steps.map((s, i) => {
-            const highlight = i === 0;
-            return (
-              <Reveal key={s.name} delay={i * 100}>
-                <div
-                  className={`relative flex h-full flex-col rounded-card p-7 transition-all duration-200 ${
-                    highlight ? 'bg-ink text-bone' : 'card card-hover'
+        <ol className="relative mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
+          <span aria-hidden className="absolute left-5 right-5 top-5 hidden h-px bg-ink/20 md:block" />
+          {dict.steps.map((s, i) => (
+            <li key={s.name} className="relative">
+              <Reveal delay={i * 60}>
+                <span
+                  className={`figure relative flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold ${
+                    i === 0 ? 'bg-signal text-ink' : 'border border-ink/25 bg-bone-100 text-ink-600'
                   }`}
                 >
-                  <div className="flex items-baseline justify-between">
-                    <span
-                      className={`font-display text-4xl font-semibold ${
-                        highlight ? 'text-signal' : 'text-ink/15'
-                      }`}
-                    >
-                      {s.step}
-                    </span>
-                    <span
-                      className={`text-xs font-semibold uppercase tracking-wider ${
-                        highlight ? 'text-bone/60' : 'text-ink-500'
-                      }`}
-                    >
-                      {s.price}
-                    </span>
-                  </div>
-                  <h3 className={`mt-5 text-xl font-semibold ${highlight ? 'text-bone' : 'text-ink'}`}>
-                    {s.name}
-                  </h3>
-                  <p
-                    className={`mt-2 text-sm leading-relaxed ${
-                      highlight ? 'text-bone/75' : 'text-ink-600'
-                    }`}
-                  >
-                    {s.body}
-                  </p>
-                  {highlight && (
-                    <Link href={`/${lang}#audit`} className="btn-signal mt-6 w-full">
-                      {dict.claim}
-                    </Link>
-                  )}
+                  {i + 1}
+                </span>
+                <div className="mt-6 flex items-baseline gap-3">
+                  <h3 className="font-display text-2xl font-bold text-ink">{s.name}</h3>
+                  <span className="rounded-full bg-bone-200 px-3 py-0.5 text-sm font-medium text-ink-700">
+                    {s.price}
+                  </span>
                 </div>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink-600">{s.body}</p>
               </Reveal>
-            );
-          })}
+            </li>
+          ))}
+        </ol>
+
+        <div className="mt-12">
+          <Link href={`/${lang}#audit`} className="btn-primary">
+            {dict.claim}
+          </Link>
         </div>
       </div>
     </section>

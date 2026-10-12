@@ -16,63 +16,70 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Editorial display headings */
+/* Headings: Bricolage Grotesque, tight. */
 .font-display {
-  font-feature-settings: 'ss01', 'liga', 'kern';
+  font-feature-settings: 'kern', 'liga';
+  letter-spacing: -0.03em;
 }
 
-/* Section eyebrow label */
+.figure {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Section label, sentence case. Three on the home page. */
 .eyebrow {
-  @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald;
+  @apply inline-flex items-center gap-2 text-sm font-semibold text-emerald;
 }
 
-.eyebrow::before {
-  content: '';
-  @apply inline-block h-px w-6 bg-emerald/60;
-}
-
-/* Thin top hairline for sections */
 .hairline {
   @apply border-t border-ink/10;
 }
 
-/* Reusable pill button */
+/* Shape rule for this direction: pills for anything you press, 20px cards,
+   12px fields. */
 .btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald;
+  @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-[15px] font-semibold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-signal active:translate-y-px;
 }
 
+/* The one accent: coral fill, forest text. Same button on light and dark. */
 .btn-primary {
-  @apply btn bg-ink text-bone hover:bg-emerald hover:-translate-y-0.5 shadow-[0_1px_0_rgba(0,0,0,0.04)];
+  @apply btn bg-signal text-ink hover:bg-signal-dark;
 }
 
 .btn-signal {
-  @apply btn bg-signal text-ink hover:brightness-105 hover:-translate-y-0.5;
+  @apply btn-primary;
 }
 
 .btn-ghost {
-  @apply btn border border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-bone;
+  @apply btn border border-ink/25 text-ink hover:border-ink hover:bg-ink hover:text-bone;
 }
 
 .btn-ghost-light {
-  @apply btn border border-bone/25 text-bone hover:bg-bone hover:text-ink;
+  @apply btn border border-bone/35 text-bone hover:bg-bone hover:text-ink;
 }
 
-/* Card */
 .card {
-  @apply rounded-card border border-ink/10 bg-bone-100 p-7 transition-all duration-200;
+  @apply rounded-card border border-ink/10 bg-bone-100 p-7;
 }
 
 .card-hover:hover {
-  @apply -translate-y-1 border-ink/20 shadow-[0_18px_40px_-24px_rgba(20,20,15,0.4)];
+  @apply border-ink/25;
 }
 
-/* Form fields */
 .field {
-  @apply w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-500 transition-colors focus:border-emerald focus:outline-none focus:ring-2 focus:ring-emerald/20;
+  @apply w-full rounded-xl border border-ink/20 bg-white px-4 py-3 text-[15px] text-ink placeholder:text-ink-500 transition-colors focus:border-ink focus:outline-none focus:ring-2 focus:ring-signal/60;
 }
 
 .field-label {
-  @apply mb-1.5 block text-xs font-semibold uppercase tracking-wider text-ink-600;
+  @apply mb-1.5 block text-sm font-semibold text-ink;
+}
+
+.text-link {
+  @apply font-semibold text-emerald underline decoration-signal decoration-2 underline-offset-4 transition-colors hover:text-ink;
+}
+
+.text-link-light {
+  @apply font-semibold text-bone underline decoration-signal decoration-2 underline-offset-4 transition-colors hover:text-signal;
 }
 
 /* Fade-up on scroll */

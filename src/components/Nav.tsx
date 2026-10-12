@@ -60,9 +60,7 @@ export default function Nav({
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'border-b border-ink/10 bg-bone/85 backdrop-blur-md'
-          : 'border-b border-transparent'
+        scrolled ? 'border-b border-bone/10 bg-ink' : 'border-b border-transparent bg-ink'
       }`}
     >
       <a
@@ -73,11 +71,11 @@ export default function Nav({
       </a>
       <nav className="mx-auto flex h-16 max-w-content items-center justify-between px-5 md:px-8">
         <Link href={home} className="group flex items-center gap-2.5" aria-label="Maubourg Studio">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-ink text-bone">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-bone text-ink">
             <span className="font-display text-lg font-semibold leading-none">M</span>
           </span>
-          <span className="font-display text-lg font-semibold tracking-tight text-ink">
-            Maubourg<span className="text-emerald">.</span>
+          <span className="font-display hidden text-lg font-bold text-bone sm:inline">
+            Maubourg<span className="text-signal">.</span>
           </span>
         </Link>
 
@@ -86,7 +84,7 @@ export default function Nav({
             <Link
               key={item.hash}
               href={`${home}${item.hash}`}
-              className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
+              className="text-sm font-medium text-bone/80 transition-colors hover:text-bone"
             >
               {item.label}
             </Link>
@@ -97,7 +95,7 @@ export default function Nav({
           <div ref={menuRef} className="relative">
             <button
               onClick={() => setMenuOpen((v) => !v)}
-              className="flex items-center gap-1.5 text-sm font-medium text-ink-600 transition-colors hover:text-ink"
+              className="flex items-center gap-1.5 text-sm font-medium text-bone/80 transition-colors hover:text-bone"
               aria-expanded={menuOpen}
               aria-haspopup="true"
             >
@@ -133,7 +131,7 @@ export default function Nav({
             <Link
               key={item.hash}
               href={`${home}${item.hash}`}
-              className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
+              className="text-sm font-medium text-bone/80 transition-colors hover:text-bone"
             >
               {item.label}
             </Link>
@@ -144,7 +142,7 @@ export default function Nav({
           {OBSERVATORY_LIVE && (
             <Link
               href={observatoryHref(lang)}
-              className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
+              className="text-sm font-medium text-bone/80 transition-colors hover:text-bone"
             >
               {dict.observatory}
             </Link>
@@ -152,14 +150,14 @@ export default function Nav({
 
           <Link
             href={BLOG_HREF}
-            className="text-sm font-medium text-ink-600 transition-colors hover:text-ink"
+            className="text-sm font-medium text-bone/80 transition-colors hover:text-bone"
           >
             {dict.blog}
           </Link>
         </div>
 
         <div className="hidden items-center gap-4 md:flex">
-          <LanguageSwitcher current={lang} />
+          <LanguageSwitcher current={lang} variant="dark" />
           <Link href={`${home}#audit`} className="btn-primary">
             {dict.cta}
           </Link>
@@ -168,12 +166,12 @@ export default function Nav({
         {/* On a phone the bar is the only CTA a visitor sees for most of the page,
             so the button lives here and the language toggle moves into the menu. */}
         <div className="flex items-center gap-2 md:hidden">
-          <Link href={`${home}#audit`} className="btn-primary px-4 py-2.5 text-xs">
+          <Link href={`${home}#audit`} className="btn-primary px-4 py-2 text-[13px]">
             {dict.ctaShort}
           </Link>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 flex-none items-center justify-center rounded-lg border border-ink/15"
+            className="flex h-10 w-10 flex-none items-center justify-center rounded-full border border-bone/25 text-bone"
             aria-label="Menu"
             aria-expanded={open}
           >
@@ -183,13 +181,13 @@ export default function Nav({
       </nav>
 
       {open && (
-        <div className="border-t border-ink/10 bg-bone px-5 pb-5 pt-2 md:hidden">
+        <div className="border-t border-bone/10 bg-ink px-5 pb-5 pt-2 text-bone md:hidden">
           {dict.links.slice(0, 1).map((item) => (
             <Link
               key={item.hash}
               href={`${home}${item.hash}`}
               onClick={() => setOpen(false)}
-              className="block py-2.5 text-base font-medium text-ink-700"
+              className="block py-2.5 text-base font-medium text-bone/90"
             >
               {item.label}
             </Link>
@@ -199,7 +197,7 @@ export default function Nav({
               hover and no room for a floating panel. */}
           <button
             onClick={() => setMobileServices((v) => !v)}
-            className="flex w-full items-center justify-between py-2.5 text-left text-base font-medium text-ink-700"
+            className="flex w-full items-center justify-between py-2.5 text-left text-base font-medium text-bone/90"
             aria-expanded={mobileServices}
           >
             {servicesLabel}
@@ -208,13 +206,13 @@ export default function Nav({
             </span>
           </button>
           {mobileServices && (
-            <div className="mb-1 ml-3 border-l border-ink/10 pl-4">
+            <div className="mb-1 ml-3 border-l border-bone/15 pl-4">
               {services.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block py-2 text-[15px] font-medium text-ink-600"
+                  className="block py-2 text-[15px] font-medium text-bone/80"
                 >
                   {item.label}
                 </Link>
@@ -227,7 +225,7 @@ export default function Nav({
               key={item.hash}
               href={`${home}${item.hash}`}
               onClick={() => setOpen(false)}
-              className="block py-2.5 text-base font-medium text-ink-700"
+              className="block py-2.5 text-base font-medium text-bone/90"
             >
               {item.label}
             </Link>
@@ -237,7 +235,7 @@ export default function Nav({
             <Link
               href={observatoryHref(lang)}
               onClick={() => setOpen(false)}
-              className="block py-2.5 text-base font-medium text-ink-700"
+              className="block py-2.5 text-base font-medium text-bone/90"
             >
               {dict.observatory}
             </Link>
@@ -246,13 +244,13 @@ export default function Nav({
           <Link
             href={BLOG_HREF}
             onClick={() => setOpen(false)}
-            className="block py-2.5 text-base font-medium text-ink-700"
+            className="block py-2.5 text-base font-medium text-bone/90"
           >
             {dict.blog}
           </Link>
-          <div className="mt-3 flex items-center justify-between border-t border-ink/10 pt-4">
-            <span className="text-sm font-medium text-ink-500">{dict.languageLabel}</span>
-            <LanguageSwitcher current={lang} />
+          <div className="mt-3 flex items-center justify-between border-t border-bone/10 pt-4">
+            <span className="text-sm font-medium text-bone/75">{dict.languageLabel}</span>
+            <LanguageSwitcher current={lang} variant="dark" />
           </div>
         </div>
       )}

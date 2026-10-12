@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
-import Marquee from '@/components/Marquee';
 import Problem from '@/components/Problem';
 import AiChoice from '@/components/AiChoice';
 import Services from '@/components/Services';
@@ -31,33 +30,32 @@ export default function Home({ params }: { params: { lang: string } }) {
         servicesLabel={dict.verticals.shared.navHeading}
       />
       <main id="main">
+        {/* Exploration B "Foret": forest green opens and closes the page (hero,
+            then the audit form and the footer); the middle stays light. The
+            form is the closing ask, so the footer drops its own CTA block. */}
         <Hero dict={dict.hero} lang={lang} />
-        <Marquee dict={dict.marquee} />
-        <Problem dict={dict.problem} />
-        {/* The mechanism, before the offer: it is what makes the rest credible. */}
+        <Problem dict={dict.problem} lead={dict.atlasProof.lead} link={dict.atlasProof.link} lang={lang} />
+        <Services dict={dict.services} tools={dict.marquee} lang={lang} />
         <AiChoice dict={dict.aiChoice} chain={dict.verticals.geo.chain} lang={lang} />
-        <Services dict={dict.services} lang={lang} />
-        <Proof dict={dict.proof} lang={lang} />
-        <Process dict={dict.process} lang={lang} />
+        <Proof dict={dict.proof} atlas={dict.atlasProof} lang={lang} />
         <WhyMe dict={dict.whyMe} />
+        <Process dict={dict.process} lang={lang} />
         <Pricing dict={dict.pricing} lang={lang} />
-        {/* The free GEO audit: the one hook on the site. The founder card
-            renders inside this section, beside the form. */}
+        <Faq dict={dict.faq} />
         <LeadForm
           anchor="audit"
           variant="audit"
           section={dict.audit}
           form={dict.audit.form}
           submitLabel={dict.audit.form.submit}
-          talk={{ prefix: dict.audit.talkPrefix, link: dict.audit.talkLink }}
+          talk={{ prefix: dict.audit.talkPrefix, link: dict.audit.talkLink, note: dict.footer.ctaNote }}
           sample={null}
           founder={dict.founder}
           errors={dict.errors}
           lang={lang}
         />
-        <Faq dict={dict.faq} />
       </main>
-      <Footer dict={dict.footer} lang={lang} />
+      <Footer dict={dict.footer} lang={lang} hideCta />
     </>
   );
 }

@@ -45,7 +45,7 @@ export default function LeadForm({
   section: LeadFormSection;
   form: Dictionary['audit']['form'];
   submitLabel: string;
-  talk: { prefix: string; link: string } | null;
+  talk: { prefix: string; link: string; note?: string } | null;
   sample: { title: string; body: string; link: string; href: string } | null;
   founder: Dictionary['founder'] | null;
   errors: Dictionary['errors'];
@@ -124,29 +124,29 @@ export default function LeadForm({
   }
 
   return (
-    <section id={anchor} className="hairline scroll-mt-24 bg-bone-200/50 py-20 md:py-28">
+    <section id={anchor} className="scroll-mt-16 bg-ink py-20 text-bone md:py-28">
       <div className="mx-auto max-w-content px-5 md:px-8">
         {/* On a phone this reads heading -> form -> proof: the nav CTA jumps to
             this section, so the ask has to be one screen away, not two. The
             order utilities only bite in the single-column stack; on lg the
             explicit row/column placement puts the pitch back on the left with
             the form beside it. */}
-        <div className="grid gap-x-12 gap-y-10 lg:grid-cols-[1fr_1.05fr] lg:items-start">
+        <div className="grid gap-x-12 gap-y-10 lg:grid-cols-[1fr_1.05fr] lg:grid-rows-[auto_1fr] lg:items-start">
           {/* Heading */}
           <div className="lg:col-start-1 lg:row-start-1">
-            <span className="eyebrow">{section.eyebrow}</span>
-            <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-ink md:text-5xl">
+            <span className="text-sm font-semibold text-signal">{section.eyebrow}</span>
+            <h2 className="font-display mt-4 text-4xl font-bold leading-[1.05] text-bone md:text-[3.25rem] [text-wrap:balance]">
               {section.title}
             </h2>
-            <p className="mt-4 max-w-md text-ink-600">{section.intro}</p>
+            <p className="mt-5 max-w-md text-[16px] leading-relaxed text-bone/85">{section.intro}</p>
           </div>
 
           {/* Proof: under the heading on desktop, under the form on a phone */}
           <div className="order-1 lg:order-none lg:col-start-1 lg:row-start-2">
             <ul className="space-y-3">
               {section.points.map((point) => (
-                <li key={point} className="flex items-start gap-3 text-sm text-ink-700">
-                  <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-emerald text-xs text-bone">
+                <li key={point} className="flex items-start gap-3 text-[15px] text-bone/90">
+                  <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-signal text-xs text-ink">
                     ✓
                   </span>
                   {point}
@@ -173,24 +173,22 @@ export default function LeadForm({
             )}
 
             {talk && (
-              <p className="mt-8 text-sm text-ink-500">
+              <p className="mt-8 text-[15px] text-bone/80">
                 {talk.prefix}{' '}
-                <Link
-                  href={`/${lang}/call`}
-                  className="font-semibold text-emerald underline-offset-4 hover:underline"
-                >
+                <Link href={`/${lang}/call`} className="text-link-light">
                   {talk.link}
                 </Link>
+                {talk.note && <span className="mt-2 block text-sm text-bone/75">{talk.note}</span>}
               </p>
             )}
           </div>
 
           {/* Form / success, with the founder card directly under the ask */}
           <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2">
-            <div className="rounded-card border border-ink/10 bg-bone-100 p-6 shadow-[0_20px_50px_-30px_rgba(20,20,15,0.5)] md:p-8">
+            <div className="rounded-card bg-bone-100 p-6 text-ink md:p-8">
             {status === 'success' ? (
               <div className="flex min-h-[340px] flex-col items-center justify-center text-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald text-2xl text-bone">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-signal text-2xl text-ink">
                   ✓
                 </div>
                 <h3 className="mt-5 font-display text-2xl font-semibold text-ink">
@@ -214,13 +212,13 @@ export default function LeadForm({
                 />
 
                 <div className="flex items-center justify-between gap-4">
-                  <p className="text-xs font-medium uppercase tracking-wide text-ink-500">
+                  <p className="text-sm font-medium text-ink-600">
                     {step === 1 ? f.step1Of2 : f.step2Of2}
                   </p>
                   <div className="flex flex-none gap-1.5" aria-hidden>
-                    <span className="h-1 w-8 rounded-full bg-emerald" />
+                    <span className="h-1 w-8 rounded-full bg-ink" />
                     <span
-                      className={`h-1 w-8 rounded-full ${step === 2 ? 'bg-emerald' : 'bg-ink/15'}`}
+                      className={`h-1 w-8 rounded-full ${step === 2 ? 'bg-ink' : 'bg-ink/15'}`}
                     />
                   </div>
                 </div>

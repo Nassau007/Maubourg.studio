@@ -1,41 +1,73 @@
 import Link from 'next/link';
 import Reveal from './Reveal';
-import { OBSERVATORY_LIVE, observatoryHref } from '@/lib/observatory';
-import { getDictionary, type Dictionary, type Locale } from '@/lib/i18n';
+import { observatoryHref } from '@/lib/observatory';
+import type { Dictionary, Locale } from '@/lib/i18n';
+
+const CAPTURES = '/atlas/2026-10/captures';
 
 /**
- * Proof. A studio selling measurement has to show one, and there is no client
- * name, logo, figure or testimonial to show: none of that exists yet, and
- * inventing it is the one thing this site cannot do.
- *
- * So the proof is the site itself, which is checkable in a browser right now.
- * A second column, the anonymised example GEO audit, belongs here the day that
- * PDF exists. Until then this block stays one column rather than linking to
- * the conversion teardown, which is a different document.
+ * Exploration B. The evidence, editorial: one large Atlas figure, a second
+ * one under it, and the two real answers it comes from. The site itself as
+ * proof closes the section. Figures are copied from the edition, never rounded.
  */
-export default function Proof({ dict, lang }: { dict: Dictionary['proof']; lang: Locale }) {
+export default function Proof({
+  dict,
+  atlas,
+  lang,
+}: {
+  dict: Dictionary['proof'];
+  atlas: Dictionary['atlasProof'];
+  lang: Locale;
+}) {
   return (
-    <section className="hairline bg-bone-200/40 py-16 md:py-20">
+    <section className="bg-bone-200 py-20 md:py-28">
       <div className="mx-auto max-w-content px-5 md:px-8">
-        <Reveal>
-          <div className="max-w-3xl">
-            <span className="eyebrow">{dict.eyebrow}</span>
-            <h2 className="mt-4 font-display text-2xl font-semibold leading-tight tracking-tight text-ink md:text-3xl">
-              {dict.title}
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+          <Reveal className="lg:col-span-5">
+            <h2 className="font-display text-4xl font-bold leading-[1.05] text-ink md:text-[2.6rem] [text-wrap:balance]">
+              {atlas.title}
             </h2>
-            <p className="mt-4 text-[15.5px] leading-relaxed text-ink-600">{dict.body}</p>
-            {/* Technical hygiene is proof of care, not proof of results. The
-                observatory is the figure a reader can weigh, so it is linked
-                from here the day it has one. */}
-            {OBSERVATORY_LIVE && (
-              <Link
-                href={observatoryHref(lang)}
-                className="mt-5 inline-block font-semibold text-emerald underline-offset-4 hover:underline"
-              >
-                {getDictionary(lang).observatory.nav} →
-              </Link>
-            )}
-          </div>
+            <p className="font-display figure mt-10 text-7xl font-bold leading-none text-ink md:text-8xl">
+              {atlas.figure.value}
+            </p>
+            <p className="mt-4 max-w-md text-[15.5px] leading-relaxed text-ink-700">{atlas.figure.label}</p>
+            <div className="mt-8 border-t border-ink/15 pt-6">
+              <p className="font-display figure text-4xl font-bold text-ink">{atlas.second.value}</p>
+              <p className="mt-2 max-w-md text-[15px] leading-relaxed text-ink-700">{atlas.second.label}</p>
+            </div>
+            <Link href={observatoryHref(lang)} className="text-link mt-8 inline-block">
+              {atlas.link}
+            </Link>
+          </Reveal>
+
+          <Reveal className="lg:col-span-7" delay={60}>
+            <figure>
+              <div className="grid grid-cols-2 gap-4">
+                {atlas.pair.items.map((shot, i) => (
+                  <div
+                    key={shot.file}
+                    className={`overflow-hidden rounded-2xl bg-white ring-1 ring-ink/10 ${i === 1 ? 'mt-10' : ''}`}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`${CAPTURES}/${shot.file}`}
+                      alt={shot.alt}
+                      width={700}
+                      height={1000}
+                      className="aspect-[3/4] w-full object-cover object-top"
+                    />
+                  </div>
+                ))}
+              </div>
+              <figcaption className="mt-4 text-sm leading-relaxed text-ink-600">{atlas.pair.caption}</figcaption>
+            </figure>
+          </Reveal>
+        </div>
+
+        <Reveal>
+          <p className="mt-16 max-w-3xl border-t border-ink/15 pt-6 text-[15.5px] leading-relaxed text-ink-700">
+            <strong className="font-semibold text-ink">{dict.title}</strong> {dict.body}
+          </p>
         </Reveal>
       </div>
     </section>

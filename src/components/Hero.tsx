@@ -1,102 +1,64 @@
 import Link from 'next/link';
 import type { Dictionary, Locale } from '@/lib/i18n';
 
+const CAPTURES = '/atlas/2026-10/captures';
+
+/**
+ * Exploration B. A forest-green opening: a short question as the headline,
+ * one line of offer, one button, and under it the four real answers that
+ * ChatGPT, Claude, Gemini and Perplexity gave to the same question on the
+ * same day. On a phone the four answers scroll sideways.
+ */
 export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: Locale }) {
   const home = `/${lang}`;
   return (
-    <section id="top" className="relative overflow-hidden pt-28 md:pt-36">
-      {/* subtle grid + glow backdrop */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.5]"
-        style={{
-          backgroundImage:
-            'linear-gradient(to right, rgba(20,20,15,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,20,15,0.05) 1px, transparent 1px)',
-          backgroundSize: '46px 46px',
-          maskImage: 'radial-gradient(ellipse 70% 60% at 50% 0%, black, transparent)',
-          WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 0%, black, transparent)',
-        }}
-      />
-
-      <div className="mx-auto max-w-content px-5 pb-16 md:px-8 md:pb-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="animate-fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-ink/12 bg-bone-100 px-4 py-1.5 text-xs font-medium text-ink-600">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald" />
-            {dict.badge}
-          </div>
-
-          <h1
-            className="animate-fade-up font-display text-[2.6rem] font-semibold leading-[1.02] tracking-tightest text-ink sm:text-6xl md:text-7xl"
-            style={{ animationDelay: '80ms' }}
-          >
-            {dict.title} <span className="italic text-emerald">{dict.titleAccent}</span>
-          </h1>
-
-          <p
-            className="animate-fade-up mx-auto mt-6 max-w-xl text-lg text-ink-600"
-            style={{ animationDelay: '160ms' }}
-          >
-            {dict.subtitle}
-          </p>
-
-          {/* One primary action for cold traffic: the free GEO audit, which is
-              the hook the whole page is built on. The call is a text link
-              below, not a competing button. */}
-          <div
-            className="animate-fade-up mt-9 flex justify-center"
-            style={{ animationDelay: '240ms' }}
-          >
-            <Link href={`${home}#audit`} className="btn-primary w-full sm:w-auto">
+    <section id="top" className="overflow-hidden bg-ink pt-28 text-bone md:pt-32">
+      <div className="mx-auto max-w-content px-5 md:px-8">
+        <p className="text-sm font-medium text-bone/75">{dict.badge}</p>
+        <h1 className="font-display mt-5 max-w-4xl text-[2.7rem] font-bold leading-[1.02] text-bone sm:text-6xl lg:text-[4.75rem] [text-wrap:balance]">
+          {/* A hyphenated word ("est-elle") never splits across two lines. */}
+          {dict.forestTitle.split(' ').map((word, i) => (
+            <span key={i}>
+              {i > 0 && ' '}
+              {word.includes('-') ? <span className="whitespace-nowrap">{word}</span> : word}
+            </span>
+          ))}
+        </h1>
+        <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end">
+          <p className="max-w-xl text-lg leading-relaxed text-bone/85 lg:col-span-7">{dict.forestSubtitle}</p>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6 lg:col-span-5 lg:justify-end">
+            <Link href={`${home}#audit`} className="btn-primary">
               {dict.ctaPrimary}
             </Link>
-          </div>
-
-          <p
-            className="animate-fade-up mt-5 text-sm text-ink-500"
-            style={{ animationDelay: '320ms' }}
-          >
-            {dict.talkPrefix}{' '}
-            <Link
-              href={`${home}/call`}
-              className="font-medium text-ink-700 underline underline-offset-4 decoration-ink/25 transition-colors hover:text-emerald"
-            >
+            <Link href={`${home}/call`} className="text-link-light text-center text-[15px]">
               {dict.ctaSecondary}
             </Link>
-          </p>
-        </div>
-
-        {/* The offer in three cards. The first is GEO itself and runs the
-            full width; the agent and the measurement sit under it at half
-            size, because they are how GEO is done, not separate services. */}
-        <div className="animate-fade-up mx-auto mt-16 max-w-6xl" style={{ animationDelay: '400ms' }}>
-          <p className="eyebrow text-center">{dict.skillsHeading}</p>
-          <div className="mt-5 grid grid-cols-1 gap-px overflow-hidden rounded-card border border-ink/10 bg-ink/10 sm:grid-cols-2">
-            {dict.skills.map((s, i) => (
-              <div
-                key={s.name}
-                className={`bg-bone-100 px-6 py-6 text-left ${
-                  i === 0 ? 'sm:col-span-2 sm:px-8 sm:py-8' : ''
-                }`}
-              >
-                <div
-                  className={`font-display font-semibold text-ink ${
-                    i === 0 ? 'text-2xl md:text-3xl' : 'text-lg'
-                  }`}
-                >
-                  {s.name}
-                </div>
-                <div
-                  className={`mt-1.5 leading-snug text-ink-600 ${
-                    i === 0 ? 'max-w-2xl text-[15px]' : 'text-sm'
-                  }`}
-                >
-                  {s.body}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
+
+      <figure className="mx-auto mt-14 max-w-content pb-14 md:pb-20">
+        <ul className="flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-2 md:grid md:grid-cols-4 md:overflow-visible md:px-8">
+          {dict.tiles.items.map((tile) => (
+            <li key={tile.file} className="w-[68%] flex-none snap-start md:w-auto">
+              <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-bone/10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${CAPTURES}/${tile.file}`}
+                  alt={tile.alt}
+                  width={600}
+                  height={951}
+                  className="aspect-[4/5] w-full object-cover object-top"
+                />
+              </div>
+              <p className="mt-3 text-sm font-medium text-bone/80">{tile.tool}</p>
+            </li>
+          ))}
+        </ul>
+        <figcaption className="mt-5 max-w-3xl px-5 text-sm leading-relaxed text-bone/75 md:px-8">
+          {dict.tiles.caption}
+        </figcaption>
+      </figure>
     </section>
   );
 }

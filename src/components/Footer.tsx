@@ -20,7 +20,7 @@ export default function Footer({
   const home = `/${lang}`;
 
   return (
-    <footer className="bg-ink text-bone">
+    <footer className="border-t border-bone/10 bg-ink text-bone">
       {/* Final CTA. Not rendered at all when hidden, rather than hidden with a
           class: a second H2 asking for the same thing is still in the page for
           a crawler even when nobody can see it. */}
@@ -67,8 +67,8 @@ export default function Footer({
 
           {/* Tagline, then the one place on the page that names the market. */}
           <div className="text-center md:text-left">
-            <p className="text-sm text-bone/50">{dict.tagline}</p>
-            <p className="mt-1 text-xs text-bone/40">{dict.market}</p>
+            <p className="text-sm text-bone/75">{dict.tagline}</p>
+            <p className="mt-1 text-xs text-bone/70">{dict.market}</p>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
@@ -77,20 +77,20 @@ export default function Footer({
             {OBSERVATORY_LIVE && (
               <Link
                 href={observatoryHref(lang)}
-                className="text-bone/70 transition-colors hover:text-bone"
+                className="text-bone/85 transition-colors hover:text-bone"
               >
                 {getDictionary(lang).observatory.nav}
               </Link>
             )}
             <a
               href={`mailto:${site.email}`}
-              className="text-bone/70 transition-colors hover:text-bone"
+              className="text-bone/85 transition-colors hover:text-bone"
             >
               {site.email}
             </a>
             <Link
               href={localizedHref('privacy', lang)}
-              className="text-bone/70 transition-colors hover:text-bone"
+              className="text-bone/85 transition-colors hover:text-bone"
             >
               {dict.privacy}
             </Link>
@@ -98,7 +98,7 @@ export default function Footer({
           </div>
         </div>
         <div className="mx-auto max-w-content px-5 pb-8 md:px-8">
-          <p className="text-xs text-bone/40">
+          <p className="text-xs text-bone/70">
             © {year} Maubourg Studio. {dict.rights}
           </p>
         </div>

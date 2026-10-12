@@ -40,6 +40,37 @@ export const fr: Dictionary = {
         body: 'Les mêmes questions d’achat posées plusieurs fois à chaque IA, avant le travail et après. Le trafic venu des IA suivi dans GA4.',
       },
     ],
+    // Exploration B : titre court, sous-titre sous 20 mots, et quatre vraies
+    // réponses du même jour sous le titre.
+    forestTitle: 'Votre marque est-elle dans la réponse ?',
+    forestSubtitle:
+      'Nous faisons citer et décrire correctement votre marque par ChatGPT, Gemini, Perplexity et Claude. Avec notre propre agent.',
+    tiles: {
+      caption:
+        '« chaussure de confort fabriquée en France », 7 octobre 2026 : posées le même jour, les quatre réponses partagent peu de marques, et aucune n’est recommandée par les quatre.',
+      items: [
+        {
+          tool: 'ChatGPT (Luna 5.6)',
+          file: 'confort-france-chatgpt-vague4-tuile.webp',
+          alt: 'Capture d’écran de ChatGPT (Luna 5.6), vague 4, 7 octobre 2026, question « chaussure de confort fabriquée en France ». La réponse recommande Mephisto, FLD (Adour, Bruman, Pulman), Le Formier, Paraboot, Sessile et Ector.',
+        },
+        {
+          tool: 'Claude (Sonnet 5.5)',
+          file: 'confort-france-claude-vague4-tuile.webp',
+          alt: 'Capture d’écran de Claude (Sonnet 5.5), vague 4, 7 octobre 2026, question « chaussure de confort fabriquée en France ». La réponse recommande Paraboot, Heschung, Rondinaud, Manufacture 49, Chaussures de Gâtine, Bocage, Airplum et Rivecour.',
+        },
+        {
+          tool: 'Gemini (Flash)',
+          file: 'confort-france-gemini-vague4-tuile.webp',
+          alt: 'Capture d’écran de Gemini (Flash), vague 4, 7 octobre 2026, question « chaussure de confort fabriquée en France ». La réponse recommande Mephisto, Arche, Rautureau, Pataugas et Clergerie.',
+        },
+        {
+          tool: 'Perplexity',
+          file: 'confort-france-perplexity-vague4-tuile.webp',
+          alt: 'Capture d’écran de Perplexity, vague 4, 7 octobre 2026, question « chaussure de confort fabriquée en France ». La réponse recommande Eram, FLD (Adour, Bruman, Pulman), 1083 et Bocage.',
+        },
+      ],
+    },
   },
 
   marquee: {
@@ -129,6 +160,39 @@ export const fr: Dictionary = {
     eyebrow: 'Preuve',
     title: 'Nous l’avons d’abord fait sur notre propre site.',
     body: 'Chaque page de ce site embarque des données structurées, un sitemap lisible par machine, une politique explicite pour les robots d’IA et un résumé en texte brut de ce que fait le studio. Vous lisez ce que nous mettrions en place pour vous.',
+  },
+
+  // Exploration B : constats de l’Atlas, recopiés au chiffre près.
+  atlasProof: {
+    lead: {
+      value: '190 sur 192',
+      label: 'réponses d’achat citent au moins une marque. Une marque absente n’est pas mise de côté : sa place revient à une autre.',
+      source: 'Atlas des réponses IA, octobre 2026',
+    },
+    title: 'Dans chaque catégorie, quelques marques prennent la place.',
+    figure: {
+      value: '61 sur 64',
+      label: 'réponses en literie citent Tediber. Dans chaque catégorie, une à trois marques sont citées dans plus d’une réponse sur deux, et aucune autre n’y parvient.',
+    },
+    second: {
+      value: '19\u202f%',
+      label: 'des marques citées reviennent aux quatre essais d’une même question. Une capture d’écran isolée ne dit pas si une marque y est vraiment.',
+    },
+    pair: {
+      caption:
+        'Claude (Sonnet 5.5) et Perplexity, « quelle marque de literie choisir en 2026 », 8 octobre 2026. Tediber, Emma et Hypnia sont dans les deux réponses ; Perplexity cite Hypnia sous son nouveau nom, Slome.',
+      items: [
+        {
+          file: 'literie-claude-vague5.webp',
+          alt: 'Capture d’écran de Claude (Sonnet 5.5), vague 5, 8 octobre 2026, question « quelle marque de literie choisir en 2026 ». La réponse recommande Emma, Hypnia, Tediber, Mello, Kipli et Tempur.',
+        },
+        {
+          file: 'literie-perplexity-vague5.webp',
+          alt: 'Capture d’écran de Perplexity, vague 5, 8 octobre 2026, même question « quelle marque de literie choisir en 2026 ». La réponse recommande, pour les matelas, Emma, Tediber, Slome (le nouveau nom d’Hypnia) et IKEA ; pour le linge de lit, Bonsoirs, A Demain, Wopilo et Garnier-Thiebaut.',
+        },
+      ],
+    },
+    link: 'Lire l’Atlas des réponses IA',
   },
 
   process: {

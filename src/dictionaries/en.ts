@@ -40,6 +40,37 @@ export const en = {
         body: 'The same buying questions asked several times to each AI tool, before the work and after it. Traffic from AI tools followed in GA4.',
       },
     ],
+    // Exploration B: short headline, a subtitle under 20 words, and four real
+    // answers from the same day under it.
+    forestTitle: 'Is your brand in the answer?',
+    forestSubtitle:
+      'We get your brand cited, and described correctly, by ChatGPT, Gemini, Perplexity and Claude. With our own agent.',
+    tiles: {
+      caption:
+        '"chaussure de confort fabriquée en France" (comfort shoe made in France), 7 October 2026: asked the same day, the four answers share few brands, and none is recommended by all four.',
+      items: [
+        {
+          tool: 'ChatGPT (Luna 5.6)',
+          file: 'confort-france-chatgpt-vague4-tuile.webp',
+          alt: 'Screenshot of ChatGPT (Luna 5.6), run 4, 7 October 2026, asked in French for a comfort shoe made in France. The answer recommends Mephisto, FLD (Adour, Bruman, Pulman), Le Formier, Paraboot, Sessile and Ector.',
+        },
+        {
+          tool: 'Claude (Sonnet 5.5)',
+          file: 'confort-france-claude-vague4-tuile.webp',
+          alt: 'Screenshot of Claude (Sonnet 5.5), run 4, 7 October 2026, asked in French for a comfort shoe made in France. The answer recommends Paraboot, Heschung, Rondinaud, Manufacture 49, Chaussures de Gâtine, Bocage, Airplum and Rivecour.',
+        },
+        {
+          tool: 'Gemini (Flash)',
+          file: 'confort-france-gemini-vague4-tuile.webp',
+          alt: 'Screenshot of Gemini (Flash), run 4, 7 October 2026, asked in French for a comfort shoe made in France. The answer recommends Mephisto, Arche, Rautureau, Pataugas and Clergerie.',
+        },
+        {
+          tool: 'Perplexity',
+          file: 'confort-france-perplexity-vague4-tuile.webp',
+          alt: 'Screenshot of Perplexity, run 4, 7 October 2026, asked in French for a comfort shoe made in France. The answer recommends Eram, FLD (Adour, Bruman, Pulman), 1083 and Bocage.',
+        },
+      ],
+    },
   },
 
   marquee: {
@@ -132,6 +163,39 @@ export const en = {
     eyebrow: 'Proof',
     title: 'We did it on our own site first.',
     body: 'Every page here ships structured data, a machine-readable sitemap, an explicit policy for AI crawlers and a plain-text summary of what the studio does. You are reading what we would put in place for you.',
+  },
+
+  // Exploration B: Atlas findings, figures copied exactly.
+  atlasProof: {
+    lead: {
+      value: '190 of 192',
+      label: 'buying answers name at least one brand. A brand that is not in the answer is not left out of a neutral reply: its place goes to someone else.',
+      source: 'AI Answers Atlas, October 2026',
+    },
+    title: 'In each category, a few brands take the place.',
+    figure: {
+      value: '61 of 64',
+      label: 'mattress answers cite Tediber. In each category, one to three brands appear in more than half of the answers, and no other brand gets there.',
+    },
+    second: {
+      value: '128 of 690',
+      label: 'cited brands came back on all four tries of the same question. One screenshot does not tell you whether a brand is really there.',
+    },
+    pair: {
+      caption:
+        'Claude (Sonnet 5.5) and Perplexity, "quelle marque de literie choisir en 2026" (which bedding brand to choose in 2026), 8 October 2026. Tediber, Emma and Hypnia are in both answers; Perplexity names Hypnia by its new name, Slome.',
+      items: [
+        {
+          file: 'literie-claude-vague5.webp',
+          alt: 'Screenshot of Claude (Sonnet 5.5), run 5, 8 October 2026, asked in French which bedding brand to choose in 2026. The answer recommends Emma, Hypnia, Tediber, Mello, Kipli and Tempur.',
+        },
+        {
+          file: 'literie-perplexity-vague5.webp',
+          alt: 'Screenshot of Perplexity, run 5, 8 October 2026, the same question. For mattresses the answer recommends Emma, Tediber, Slome (Hypnia\'s new name) and IKEA; for bed linen, Bonsoirs, A Demain, Wopilo and Garnier-Thiebaut.',
+        },
+      ],
+    },
+    link: 'Read the AI Answers Atlas',
   },
 
   process: {
