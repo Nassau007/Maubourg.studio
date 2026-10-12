@@ -1,108 +1,126 @@
-// The observatory's four page bodies: index, method, one vertical, one
-// edition. Both languages render the same components, the way the service
-// pages do.
+// The observatory's page bodies: index, method, one vertical, one edition.
 //
-// None of them holds a figure. A figure belongs to an edition, is written when
-// a campaign has produced it, and carries the query ID it came from. Until then
-// every page renders its heading and the empty state.
+// The words and the figures come from the edition's texts in
+// content/atlas/<edition>/, rendered as written; the charts come from
+// the CSVs published beside them. These components only lay them out. Edition
+// 1 is French; the English side is the index alone, a summary.
 
 import Link from 'next/link';
-import ObservatoryFrame, {
-  ObservatoryEmpty,
-  ObservatoryHead,
-} from '@/components/observatory/ObservatoryFrame';
+import ObservatoryFrame, { ObservatoryHead } from '@/components/observatory/ObservatoryFrame';
+import { ObservatoryLead, ObservatorySections } from '@/components/observatory/ObservatoryDoc';
 import { getDictionary, type Locale } from '@/lib/i18n';
 import {
   OBSERVATORY_EDITIONS,
   OBSERVATORY_VERTICALS,
   editionHref,
-  methodologyHref,
   verticalHref,
   type ObservatoryEdition,
   type ObservatoryVertical,
 } from '@/lib/observatory';
+import { loadObservatoryDoc } from '@/lib/observatory-content';
 
-export function ObservatoryIndexScreen({ lang }: { lang: Locale }) {
-  const dict = getDictionary(lang);
-  const o = dict.observatory;
+function fill(template: string, vars: Record<string, string | number>): string {
+  return template.replace(/\{(\w+)\}/g, (_, key: string) => String(vars[key] ?? ''));
+}
+
+function formatDate(iso: string, lang: Locale): string {
+  return new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(`${iso}T00:00:00Z`));
+}
+
+/**
+ * One line that says what an edition covers. Built from the edition entry, so
+ * it cannot say "5 runs per question" when only 12 of the 60 had five.
+ */
+export function editionFacts(edition: ObservatoryEdition, lang: Locale): string {
+  const f = getDictionary(lang).observatory.facts;
+  return [
+    edition.engines.join(', '),
+    fill(f.questions, {
+      queries: edition.queries,
+      repeated: edition.repeated.queries,
+      runs: edition.repeated.runs,
+    }),
+    fill(f.answers, { answers: edition.answers }),
+    fill(f.published, { date: formatDate(edition.published, lang) }),
+  ].join(' · ');
+}
+
+export function ObservatoryIndexScreen({ lang, edition }: { lang: Locale; edition: ObservatoryEdition }) {
+  const o = getDictionary(lang).observatory;
+  const doc = loadObservatoryDoc(edition, 'index', lang);
 
   return (
     <ObservatoryFrame lang={lang}>
-      <ObservatoryHead eyebrow={o.eyebrow} title={o.title} intro={o.intro} />
+      <ObservatoryHead eyebrow={o.eyebrow} title={doc.title}>
+        <ObservatoryLead parts={doc.lead} edition={edition} lang={lang} />
+      </ObservatoryHead>
 
-      <section className="mx-auto max-w-content px-5 pb-10 md:px-8">
-        <Link
-          href={methodologyHref(lang)}
-          className="font-semibold text-emerald underline-offset-4 hover:underline"
-        >
-          {o.methodLink}
-        </Link>
-      </section>
+      <ObservatorySections sections={doc.sections} edition={edition} lang={lang} />
 
-      {OBSERVATORY_EDITIONS.length === 0 ? (
-        <ObservatoryEmpty title={o.empty.title} body={o.empty.body} />
-      ) : (
-        <section className="mx-auto max-w-content px-5 pb-16 md:px-8 md:pb-24">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-ink-500">
-            {o.editionsHeading}
-          </h2>
-          <ul className="mt-5 space-y-3">
-            {OBSERVATORY_EDITIONS.map((edition) => (
-              <li key={edition.slug}>
-                <Link
-                  href={editionHref(edition, lang)}
-                  className="card card-hover block"
-                >
-                  <p className="font-display text-lg font-semibold text-ink">{edition.slug}</p>
-                  <p className="mt-1 text-sm text-ink-600">
-                    {o.facts.engines}: {edition.engines.join(', ')} · {o.facts.queries}:{' '}
-                    {edition.queries} · {o.facts.runsPerQuery}: {edition.runsPerQuery}
+      {/* The French side lists what the section holds: the editions, then
+          the page about the reader's own category. The English summary links
+          to the French pages from its own text instead. */}
+      {lang === 'fr' && (
+        <section className="mx-auto max-w-content space-y-12 px-5 pb-16 md:px-8 md:pb-24">
+          <div>
+            <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-ink-500">
+              {o.editionsHeading}
+            </h2>
+            <ul className="mt-5 grid gap-4 md:grid-cols-2">
+              {OBSERVATORY_EDITIONS.map((e) => (
+                <li key={e.slug}>
+                  <Link href={editionHref(e, lang)} className="card card-hover block">
+                    <p className="font-display text-lg font-semibold text-ink">
+                      {fill(o.edition, { n: e.number })}
+                    </p>
+                    <p className="mt-1 text-sm text-ink-600">{editionFacts(e, lang)}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-ink-500">
+              {o.verticalsHeading}
+            </h2>
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              {OBSERVATORY_VERTICALS.map((vertical) => (
+                <Link key={vertical.id} href={verticalHref(vertical, lang)} className="card card-hover group">
+                  <p className="font-display text-lg font-semibold text-ink">
+                    {o.verticals[vertical.id]}{' '}
+                    <span
+                      aria-hidden
+                      className="inline-block text-emerald transition-transform group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
                   </p>
                 </Link>
-              </li>
-            ))}
-          </ul>
+              ))}
+            </div>
+          </div>
         </section>
       )}
-
-      {/* The verticals. Listed from the index whether or not they have data:
-          the page a reader wants is the one about their own category. */}
-      <section className="mx-auto max-w-content px-5 pb-16 md:px-8 md:pb-24">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-ink-500">
-          {o.verticalsHeading}
-        </h2>
-        <div className="mt-5 grid gap-4 md:grid-cols-3">
-          {OBSERVATORY_VERTICALS.map((vertical) => (
-            <Link
-              key={vertical.id}
-              href={verticalHref(vertical, lang)}
-              className="card card-hover group"
-            >
-              <p className="font-display text-lg font-semibold text-ink">
-                {o.verticals[vertical.id]}{' '}
-                <span
-                  aria-hidden
-                  className="inline-block text-emerald transition-transform group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </p>
-            </Link>
-          ))}
-        </div>
-      </section>
     </ObservatoryFrame>
   );
 }
 
-export function ObservatoryMethodScreen({ lang }: { lang: Locale }) {
-  const dict = getDictionary(lang);
-  const o = dict.observatory;
+export function ObservatoryMethodScreen({ lang, edition }: { lang: Locale; edition: ObservatoryEdition }) {
+  const o = getDictionary(lang).observatory;
+  const doc = loadObservatoryDoc(edition, 'methodologie', lang);
 
   return (
     <ObservatoryFrame lang={lang} showBreadcrumb>
-      <ObservatoryHead eyebrow={o.eyebrow} title={o.methodHeading} />
-      <ObservatoryEmpty title={o.empty.title} body={o.empty.body} />
+      <ObservatoryHead eyebrow={o.eyebrow} title={doc.title}>
+        <ObservatoryLead parts={doc.lead} edition={edition} lang={lang} />
+      </ObservatoryHead>
+      <ObservatorySections sections={doc.sections} edition={edition} lang={lang} />
     </ObservatoryFrame>
   );
 }
@@ -110,62 +128,44 @@ export function ObservatoryMethodScreen({ lang }: { lang: Locale }) {
 export function ObservatoryVerticalScreen({
   lang,
   vertical,
+  edition,
 }: {
   lang: Locale;
   vertical: ObservatoryVertical;
+  edition: ObservatoryEdition;
 }) {
-  const dict = getDictionary(lang);
-  const o = dict.observatory;
+  const o = getDictionary(lang).observatory;
+  const doc = loadObservatoryDoc(edition, vertical.slug.fr, lang);
 
   return (
     <ObservatoryFrame lang={lang} showBreadcrumb>
-      <ObservatoryHead eyebrow={o.eyebrow} title={o.verticals[vertical.id]} />
-      <ObservatoryEmpty title={o.empty.title} body={o.empty.body} />
+      <ObservatoryHead eyebrow={o.eyebrow} title={doc.title}>
+        <ObservatoryLead parts={doc.lead} edition={edition} lang={lang} />
+      </ObservatoryHead>
+      <ObservatorySections sections={doc.sections} edition={edition} lang={lang} />
     </ObservatoryFrame>
   );
 }
 
-export function ObservatoryEditionScreen({
-  lang,
-  edition,
-}: {
-  lang: Locale;
-  edition: ObservatoryEdition;
-}) {
-  const dict = getDictionary(lang);
-  const o = dict.observatory;
+export function ObservatoryEditionScreen({ lang, edition }: { lang: Locale; edition: ObservatoryEdition }) {
+  const o = getDictionary(lang).observatory;
+  const doc = loadObservatoryDoc(edition, 'edition', lang);
 
   return (
     <ObservatoryFrame lang={lang} showBreadcrumb>
-      <ObservatoryHead eyebrow={o.eyebrow} title={`${o.facts.campaign} ${edition.slug}`} />
-
-      {/* What the campaign was, in facts that come from the data file rather
-          than from copy. The findings themselves are added per edition. */}
-      <section className="mx-auto max-w-content px-5 pb-16 md:px-8 md:pb-24">
-        <dl className="max-w-2xl divide-y divide-ink/10 border-y border-ink/10">
-          {[
-            [o.facts.engines, edition.engines.join(', ')],
-            [o.facts.queries, String(edition.queries)],
-            [o.facts.runsPerQuery, String(edition.runsPerQuery)],
-          ].map(([label, value]) => (
-            <div key={label} className="flex justify-between gap-6 py-3.5">
-              <dt className="text-sm text-ink-500">{label}</dt>
-              <dd className="text-sm font-medium text-ink">{value}</dd>
-            </div>
-          ))}
-        </dl>
-
-        {edition.aggregate && (
-          <a
-            href={edition.aggregate}
-            className="mt-6 inline-block font-semibold text-emerald underline-offset-4 hover:underline"
-          >
-            {o.facts.download}
-          </a>
-        )}
-
-        <p className="mt-6 text-[13px] italic text-ink-500">{o.licence}</p>
-      </section>
+      <ObservatoryHead
+        eyebrow={`${o.eyebrow} · ${fill(o.edition, { n: edition.number })}`}
+        title={doc.title}
+        facts={editionFacts(edition, lang)}
+      >
+        <ObservatoryLead parts={doc.lead} edition={edition} lang={lang} />
+      </ObservatoryHead>
+      <ObservatorySections
+        sections={doc.sections}
+        edition={edition}
+        lang={lang}
+        highlight={['en-bref']}
+      />
     </ObservatoryFrame>
   );
 }

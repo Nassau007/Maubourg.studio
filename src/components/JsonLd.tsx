@@ -3,13 +3,7 @@ import { siteUrl, site } from '@/lib/site';
 // imported by the homepage, which has no business pulling that in.
 import type { Article } from '@/lib/articles';
 import { getDictionary, type Dictionary, type Locale } from '@/lib/i18n';
-import {
-  OBSERVATORY_LIVE,
-  latestEdition,
-  observatoryHref,
-  verticalHref,
-  type ObservatoryVertical,
-} from '@/lib/observatory';
+import { OBSERVATORY_LIVE, latestEdition } from '@/lib/observatory';
 import { ogImage } from '@/lib/share';
 
 /**
@@ -49,48 +43,73 @@ const SITE_ID = `${siteUrl}/#website`;
  * declares no measurement period, no engines and no distribution is a claim to
  * be a source with nothing behind it, which is exactly what this site must not
  * do.
+ *
+ * `path` is the page's own path; `name` and `description` are the page's, so
+ * the index, each vertical and the edition each describe what they show. The
+ * measurement period, the method, the licence and the files are the edition's
+ * and are the same on every page.
  */
 export function ObservatoryJsonLd({
   lang,
-  vertical,
+  path,
+  name,
+  description,
 }: {
   lang: Locale;
-  vertical?: ObservatoryVertical;
+  path: string;
+  name: string;
+  description: string;
 }) {
   const edition = latestEdition();
   if (!OBSERVATORY_LIVE || !edition) return null;
 
-  const dict = getDictionary(lang);
-  const o = dict.observatory;
-  const url = vertical
-    ? `${siteUrl}${verticalHref(vertical, lang)}`
-    : `${siteUrl}${observatoryHref(lang)}`;
-  const name = vertical ? `${o.verticals[vertical.id]} - ${o.meta.title}` : o.meta.title;
+  const o = getDictionary(lang).observatory;
+  const url = `${siteUrl}${path}`;
+  const fill = (template: string, vars: Record<string, string | number>) =>
+    template.replace(/\{(\w+)\}/g, (_, key: string) => String(vars[key] ?? ''));
+  const files = edition.aggregate;
 
   const dataset = {
     '@type': 'Dataset',
     '@id': `${url}#dataset`,
     name,
-    description: o.meta.description,
+    // The edition's citable name, when the page has its own.
+    ...(name !== fill(o.dataset.name, { n: edition.number })
+      ? { alternateName: fill(o.dataset.name, { n: edition.number }) }
+      : {}),
+    description,
     url,
     inLanguage: lang === 'fr' ? 'fr-FR' : 'en-GB',
     creator: { '@id': ORG_ID },
     publisher: { '@id': ORG_ID },
-    // The measurement period is the campaign, and the campaign is what a
-    // reader retypes the query against.
-    temporalCoverage: edition.date,
-    dateModified: edition.date,
-    measurementTechnique: `${edition.queries} buying questions, each asked ${edition.runsPerQuery} times per engine`,
-    variableMeasured: edition.engines,
+    // When the answers were collected, which is what a reader retypes the
+    // question against; the publication date is a separate fact.
+    temporalCoverage: `${edition.period.start}/${edition.period.end}`,
+    datePublished: edition.published,
+    dateModified: edition.published,
+    measurementTechnique: fill(o.dataset.technique, {
+      queries: edition.queries,
+      engines: edition.engines.join(', '),
+      repeated: edition.repeated.queries,
+      runs: edition.repeated.runs,
+    }),
+    variableMeasured: o.dataset.variables,
+    keywords: o.dataset.keywords,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     isAccessibleForFree: true,
-    ...(edition.aggregate
+    ...(files
       ? {
-          distribution: {
+          distribution: [
+            { name: o.data.questions, path: files.questions },
+            { name: o.data.citations, path: files.citations },
+            { name: o.data.sources, path: files.sources },
+          ].map((file) => ({
             '@type': 'DataDownload',
-            contentUrl: `${siteUrl}${edition.aggregate}`,
+            name: file.name,
+            contentUrl: `${siteUrl}${file.path}`,
             encodingFormat: 'text/csv',
-          },
+            license: 'https://creativecommons.org/licenses/by/4.0/',
+          })),
         }
       : {}),
   };

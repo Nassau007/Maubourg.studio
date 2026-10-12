@@ -26,7 +26,7 @@
  *
  * The checklist for that commit, so nothing is forgotten:
  *   1. add the campaign to OBSERVATORY_EDITIONS below, with its real date;
- *   2. drop the aggregate table in public/observatory/ and point `aggregate`
+ *   2. drop the aggregate table in public/atlas/ and point `aggregate`
  *      at it;
  *   3. write the findings and the method copy (the dictionaries hold the
  *      labels, the figures belong to the edition and carry their query IDs);
@@ -36,19 +36,22 @@
  *   5. set this to true. The main nav link comes with it: Nass confirmed the
  *      section belongs there once campaign 1 is published.
  */
-export const OBSERVATORY_LIVE = false;
+export const OBSERVATORY_LIVE = true;
 
 /**
  * Where the section lives, per language. The rest of the paths are built from
  * these two, so a slug is decided once.
  *
- * Descriptive rather than short (`/observatoire` alone) on purpose: a URL that
+ * The section is published as the "Atlas des réponses IA" (English: "AI
+ * Answers Atlas"); the code keeps calling it the observatory.
+ *
+ * Descriptive rather than short (`/atlas` alone) on purpose: a URL that
  * says what it contains is easier for an assistant to quote, and quotability is
  * the whole point of the section.
  */
 export const OBSERVATORY_BASE = {
-  en: '/ai-visibility-observatory',
-  fr: '/observatoire-visibilite-ia',
+  en: '/ai-answers-atlas',
+  fr: '/atlas-reponses-ia',
 } as const;
 
 /** Sub-pages that are not a vertical and not an edition. */
@@ -83,29 +86,70 @@ export const OBSERVATORY_VERTICALS: readonly ObservatoryVertical[] = [
  * an entry, it does not edit the previous one. That is the whole value of the
  * dataset, the same queries tracked across model generations.
  *
- * `slug` is the campaign folder name in the study repo (YYYY-MM), which keeps
- * the URL and the source data on the same key.
+ * `slug` is the edition's month (YYYY-MM), which is also its URL segment and
+ * the folder of its texts (content/atlas/<slug>/) and of its files
+ * (public/atlas/<slug>/).
  *
- * `aggregate` is the plain table published beside the edition, served from
- * public/observatory/. A clean table is what other sites link to, and inbound
+ * A campaign does not ask every question the same number of times. Edition 1
+ * asked all 60 questions once (series 1), then 12 of them four more times
+ * (series 2, five runs in all). A single "runs per query" number would be
+ * false for 48 of the 60, so the repeated subset is described on its own.
+ *
+ * `aggregate` is the plain data published beside the edition, served from
+ * public/atlas/. A clean table is what other sites link to, and inbound
  * links are what feed the models.
  */
 export type ObservatoryEdition = {
   slug: string;
-  /** Campaign date, ISO. Used as lastModified rather than the deploy date. */
-  date: string;
+  /** Edition number, as the texts name it ("édition 1"). */
+  number: number;
+  /** Publication date, ISO. Used as lastModified and datePublished, never the deploy date. */
+  published: string;
+  /** When the answers were collected, ISO dates. The Dataset's temporal coverage. */
+  period: { start: string; end: string };
   /** Engines the campaign actually ran against. */
   engines: readonly string[];
   /** Number of queries in the panel for this campaign. */
   queries: number;
-  /** Runs per query. The published claim is a frequency, never one screenshot. */
-  runsPerQuery: number;
-  /** Path of the downloadable aggregate, or null until it is published. */
-  aggregate: string | null;
+  /** The subset asked more than once, and how many runs it got in all. */
+  repeated: { queries: number; runs: number };
+  /** Answers analysed. */
+  answers: number;
+  /** Downloadable files, or null until they are published. */
+  aggregate: {
+    /** The questions asked, with their ID, type and series. */
+    questions: string;
+    /** Brands cited, per question, series and engine. */
+    citations: string;
+    /** Sites cited as sources, with their type. */
+    sources: string;
+    /** How to read the two files. */
+    readme: string;
+    /** Folder holding the data behind each chart of the edition page. */
+    charts: string;
+  } | null;
 };
 
-/** No campaign has been run yet. See Observatory/llm-visibility/campaigns/. */
-export const OBSERVATORY_EDITIONS: readonly ObservatoryEdition[] = [];
+/** Newest first. See Observatory/datasets/01_llm-visibility/campaigns/ in the studio repo. */
+export const OBSERVATORY_EDITIONS: readonly ObservatoryEdition[] = [
+  {
+    slug: '2026-10',
+    number: 1,
+    published: '2026-10-12',
+    period: { start: '2026-09-25', end: '2026-10-08' },
+    engines: ['ChatGPT', 'Claude', 'Gemini', 'Perplexity'],
+    queries: 60,
+    repeated: { queries: 12, runs: 5 },
+    answers: 432,
+    aggregate: {
+      questions: '/atlas/2026-10/atlas-reponses-ia-edition-1-questions.csv',
+      citations: '/atlas/2026-10/atlas-reponses-ia-edition-1-citations.csv',
+      sources: '/atlas/2026-10/atlas-reponses-ia-edition-1-sources.csv',
+      readme: '/atlas/2026-10/LISEZMOI.md',
+      charts: '/atlas/2026-10/graphiques',
+    },
+  },
+];
 
 export function latestEdition(): ObservatoryEdition | null {
   return OBSERVATORY_EDITIONS.length > 0 ? OBSERVATORY_EDITIONS[0] : null;
@@ -140,9 +184,25 @@ export function editionHref(edition: ObservatoryEdition, lang: 'en' | 'fr'): str
 }
 
 /**
+ * Sub-pages that exist in English. Edition 1 is written in French, and the
+ * English side is one page: a summary at the section root, not a translation.
+ * The method, the verticals and the edition have no English twin, so they are
+ * not built in English, carry no hreflang alternate, and switching to English
+ * from one of them lands on the English summary. The day English sub-pages
+ * are written, set this to true and add their routes back under
+ * src/app/[lang]/ai-answers-atlas/.
+ */
+export const OBSERVATORY_EN_SUBPAGES = false;
+
+/** Whether a given page of the section exists in a given language. */
+export function observatoryPageExists(lang: 'en' | 'fr', page: 'index' | 'sub'): boolean {
+  return lang === 'fr' || page === 'index' || OBSERVATORY_EN_SUBPAGES;
+}
+
+/**
  * Same observatory page, other language. The language switcher needs this
- * because the vertical slugs differ per language: /observatoire-visibilite-ia/
- * literie must become /ai-visibility-observatory/bedding, not a path that 404s.
+ * because the vertical slugs differ per language: /atlas-reponses-ia/
+ * literie must become /ai-answers-atlas/bedding, not a path that 404s.
  *
  * Returns null when the path is not in this section, so the caller can fall
  * back to its own rules.
@@ -154,6 +214,8 @@ export function swapObservatoryLocale(pathname: string, target: 'en' | 'fr'): st
 
   const rest = pathname.slice(prefix.length).replace(/^\//, '').replace(/\/$/, '');
   if (!rest) return observatoryHref(target);
+  // No twin in the target language: the section root is the honest landing.
+  if (!observatoryPageExists(target, 'sub')) return observatoryHref(target);
 
   const [first, ...tail] = rest.split('/');
   if (first === OBSERVATORY_SEGMENTS.methodology[source]) return methodologyHref(target);

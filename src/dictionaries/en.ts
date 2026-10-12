@@ -6,7 +6,7 @@ export const en = {
       { label: 'Pricing', hash: '#pricing' },
     ],
     blog: 'Blog (FR)',
-    observatory: 'Observatory',
+    observatory: 'AI Atlas',
     // One label on desktop and on a phone: the hook has one name everywhere.
     cta: 'Free GEO audit',
     ctaShort: 'Free GEO audit',
@@ -957,48 +957,89 @@ export const en = {
   },
 
   // The AI visibility observatory. Structural labels only: the section's own
-  // name, what it measures, and the words around a figure. The findings
-  // themselves are written per edition once a campaign has produced them, and
-  // nothing here claims a result.
+  // name and the words around a figure. The texts of an edition, and every
+  // figure in them, live in content/atlas/<edition>/ and are rendered as
+  // written. Edition 1 is French, with one English summary page, so most of
+  // these labels are only read on the French side; the English values exist
+  // because this file is the schema.
   observatory: {
-    nav: 'AI visibility observatory',
-    eyebrow: 'Observatory',
-    title: 'How AI tools answer about French ecommerce brands.',
-    intro:
-      'The studio runs the same panel of buying questions across ChatGPT, Gemini, Perplexity and Claude, several times per question, and publishes what comes back. Every figure carries the query it came from and the campaign that produced it.',
+    nav: 'AI Answers Atlas',
+    eyebrow: 'AI Answers Atlas',
     meta: {
-      title: 'AI visibility observatory - Maubourg Studio',
+      title: 'AI Answers Atlas - Maubourg Studio',
       description:
-        'The studio’s own research on how French ecommerce brands appear in answers from ChatGPT, Gemini, Perplexity and Claude: method, figures by vertical, and archived editions.',
-      methodTitle: 'Method - AI visibility observatory - Maubourg Studio',
-      methodDescription:
-        'How the observatory’s figures are produced: the query panel, the four engines, the number of runs per question, and what the numbers do not say.',
+        'The studio’s own research on which brands ChatGPT, Claude, Gemini and Perplexity name when a buyer asks them what to buy, measured over repeated answers in three French ecommerce categories.',
     },
-    // Shown while a campaign has not produced data yet. It is a status, not a
-    // placeholder: the page says plainly that there is nothing to read.
-    empty: {
-      title: 'No edition published yet.',
-      body: 'The first campaign is being run. Editions are published here once the full panel has been passed, and are never edited afterwards.',
-    },
-    methodHeading: 'Method',
-    verticalsHeading: 'By vertical',
+    verticalsHeading: 'By category',
     editionsHeading: 'Editions',
-    methodLink: 'How these figures are produced →',
-    backToIndex: '← Observatory',
-    // The labels around an edition's own facts.
+    backToIndex: '← AI Answers Atlas',
+    // Under each finding on the index, pointing at the same finding in the
+    // full study, where its chart and table are.
+    detailLink: 'The detail, with the chart and the table, in the full study →',
+    // Under each chat screenshot: the link to the file at full size, and the
+    // one used when the picture is a crop and the link opens the whole answer.
+    captureOpen: 'Open full size',
+    captureWhole: 'Open the whole answer',
+    edition: 'Edition {n}',
+    // An edition's facts, built from src/lib/observatory.ts rather than typed.
     facts: {
-      campaign: 'Campaign',
-      engines: 'Engines',
-      queries: 'Queries',
-      runsPerQuery: 'Runs per question',
-      download: 'Download the aggregate table →',
+      questions: '{queries} questions, {repeated} of them asked {runs} times',
+      answers: '{answers} answers analysed',
+      published: 'Published {date}',
+    },
+    data: {
+      questions: 'questions asked (CSV)',
+      citations: 'brands cited (CSV)',
+      sources: 'sources cited (CSV)',
+      readme: 'how to read the files',
+      licence: 'Licence CC BY 4.0: free reuse, with credit to the source.',
+    },
+    // Dataset structured data.
+    dataset: {
+      name: 'AI Answers Atlas, edition {n}',
+      technique:
+        '{queries} buying questions asked in French to {engines}, by hand in the consumer apps, each in a new conversation, on dedicated logged-in accounts with memory and personalisation turned off; {repeated} of the questions asked {runs} times in all. Brands cited and sites cited as sources counted per answer.',
+      variables: [
+        'Brands cited in the answer, per question, series and AI tool',
+        'Sites cited as sources, with their type',
+      ],
+      keywords: ['GEO', 'AI visibility', 'ChatGPT', 'Claude', 'Gemini', 'Perplexity', 'ecommerce', 'France'],
+    },
+    // The words inside the charts of an edition page.
+    charts: {
+      shapes: ['Brand list', 'One brand', 'No brand', 'Refusal or other'],
+      perTool: '{n} answers per tool',
+      outOf4: '{k} of 4',
+      cases: '{n} cases',
+      tools: ['1 tool', '2 tools', '3 tools', '4 tools'],
+      legendStable: 'stable (3 or 4 of 4)',
+      legendIntermittent: 'intermittent (1 or 2 of 4)',
+      legendAbsent: 'absent (0 of 4)',
+      pill: '{tool}: {n} of 4',
+      pillOrder: 'In each cell, left to right: {tools}.',
+      category: 'Category',
+      brand: 'Brand',
+      question: 'Question',
+      fullGrid: 'The full grid as a table',
+      sourceTypes: [
+        'Press',
+        'Specialist sites',
+        'Brand sites',
+        'Shops and retailers',
+        'Health and institutions',
+        'Customer reviews',
+        'Forums',
+      ],
+      unclassified: 'Not classified: {n}',
+      classified: '{n} classified citations',
+      fraction: '{a} of {b}',
+      half: '{n}, half the answers',
     },
     verticals: {
-      LIT: 'Bedding',
-      COS: 'Clean cosmetics',
+      LIT: 'Mattresses',
+      COS: 'Clean beauty',
       CHA: 'Comfort shoes',
     },
-    licence: 'Figures may be quoted with a link to this page.',
   },
 
   // The blog. Only the French pages are built today, so this block exists

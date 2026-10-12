@@ -8,7 +8,7 @@ export const fr: Dictionary = {
       { label: 'Tarifs', hash: '#pricing' },
     ],
     blog: 'Blog',
-    observatory: 'Observatoire',
+    observatory: 'Atlas IA',
     // Un seul libellé sur ordinateur et sur mobile.
     cta: 'Audit GEO gratuit',
     ctaShort: 'Audit GEO gratuit',
@@ -948,42 +948,78 @@ export const fr: Dictionary = {
   },
 
   observatory: {
-    // REVIEW-FR: libellés de structure écrits ici, aucun chiffre ni promesse.
-    nav: 'Observatoire de visibilité IA',
-    eyebrow: 'Observatoire',
-    title: 'Ce que les IA répondent sur les marques e-commerce françaises.',
-    intro:
-      'Le studio pose le même panel de questions d’achat à ChatGPT, Gemini, Perplexity et Claude, plusieurs fois par question, et publie ce qui revient. Chaque chiffre porte la question dont il vient et la campagne qui l’a produit.',
+    // REVIEW-FR: libellés de structure. Les textes et les chiffres de chaque
+    // édition sont dans content/atlas/<édition>/, rendus tels quels.
+    nav: 'Atlas des réponses IA',
+    eyebrow: 'Atlas des réponses IA',
     meta: {
-      title: 'Observatoire de visibilité IA - Maubourg Studio',
+      title: 'Atlas des réponses IA - Maubourg Studio',
       description:
-        'La recherche du studio sur la façon dont les marques e-commerce françaises apparaissent dans les réponses de ChatGPT, Gemini, Perplexity et Claude : méthode, chiffres par secteur, éditions archivées.',
-      methodTitle: 'Méthode - Observatoire de visibilité IA - Maubourg Studio',
-      methodDescription:
-        'Comment les chiffres de l’observatoire sont produits : le panel de questions, les quatre moteurs, le nombre de passages par question, et ce que les chiffres ne disent pas.',
+        'La recherche du studio sur les marques que ChatGPT, Claude, Gemini et Perplexity citent quand un acheteur leur demande quoi acheter, mesurées sur des réponses répétées dans trois catégories de l’e-commerce français.',
     },
-    empty: {
-      title: 'Aucune édition publiée pour l’instant.',
-      body: 'La première campagne est en cours. Une édition est publiée ici une fois le panel complet passé, et n’est jamais modifiée ensuite.',
-    },
-    methodHeading: 'Méthode',
-    verticalsHeading: 'Par secteur',
+    verticalsHeading: 'Par catégorie',
     editionsHeading: 'Éditions',
-    methodLink: 'Comment ces chiffres sont produits →',
-    backToIndex: '← Observatoire',
+    backToIndex: '← Atlas des réponses IA',
+    detailLink: 'Le détail, avec le graphique et le tableau, dans l’étude complète →',
+    captureOpen: 'Voir en grand',
+    captureWhole: 'Voir la réponse entière',
+    edition: 'Édition {n}',
     facts: {
-      campaign: 'Campagne',
-      engines: 'Moteurs',
-      queries: 'Questions',
-      runsPerQuery: 'Passages par question',
-      download: 'Télécharger le tableau agrégé →',
+      questions: '{queries} questions, dont {repeated} posées {runs} fois',
+      answers: '{answers} réponses analysées',
+      published: 'Publiée le {date}',
+    },
+    data: {
+      questions: 'questions posées (CSV)',
+      citations: 'marques citées (CSV)',
+      sources: 'sources citées (CSV)',
+      readme: 'mode d’emploi',
+      licence: 'Licence CC BY 4.0\u00a0: réutilisation libre avec citation de la source.',
+    },
+    dataset: {
+      name: 'Atlas des réponses IA, édition {n}',
+      technique:
+        '{queries} questions d’achat en français posées à la main à {engines} dans les applications grand public, chacune dans une nouvelle conversation, sur des comptes dédiés connectés, mémoire et personnalisation désactivées\u00a0; {repeated} de ces questions posées {runs} fois en tout. Marques citées et sites cités comme sources comptés réponse par réponse.',
+      variables: [
+        'Marques citées dans la réponse, par question, série et outil',
+        'Sites cités comme sources, avec leur type',
+      ],
+      keywords: ['GEO', 'visibilité IA', 'ChatGPT', 'Claude', 'Gemini', 'Perplexity', 'e-commerce', 'France'],
+    },
+    charts: {
+      shapes: ['Liste de marques', 'Une seule marque', 'Aucune marque', 'Refus ou autre'],
+      perTool: '{n} réponses par outil',
+      outOf4: '{k} sur 4',
+      cases: '{n} cas',
+      tools: ['1 outil', '2 outils', '3 outils', '4 outils'],
+      legendStable: 'stable (3 ou 4 sur 4)',
+      legendIntermittent: 'intermittente (1 ou 2 sur 4)',
+      legendAbsent: 'absente (0 sur 4)',
+      pill: '{tool}\u00a0: {n} sur 4',
+      pillOrder: 'Dans chaque case, de gauche à droite\u00a0: {tools}.',
+      category: 'Catégorie',
+      brand: 'Marque',
+      question: 'Question',
+      fullGrid: 'La grille complète en tableau',
+      sourceTypes: [
+        'Presse',
+        'Sites spécialisés',
+        'Sites de marques',
+        'Boutiques et distributeurs',
+        'Santé et institutions',
+        'Avis clients',
+        'Forums',
+      ],
+      unclassified: 'Non classé\u00a0: {n}',
+      classified: '{n} citations classées',
+      fraction: '{a} sur {b}',
+      half: '{n}, la moitié des réponses',
     },
     verticals: {
       LIT: 'Literie',
       COS: 'Cosmétique clean',
-      CHA: 'Chaussures confort',
+      CHA: 'Chaussures de confort',
     },
-    licence: 'Les chiffres peuvent être cités avec un lien vers cette page.',
   },
 
   // Le blog. Seules les pages françaises sont construites aujourd’hui :

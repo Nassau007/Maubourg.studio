@@ -24,6 +24,7 @@ One offer, GEO, in three steps: audit, improve, measure. The AI agent is not a s
 - Improve: the agent is set up on the brand's catalogue. Product pages are rewritten so AI tools can quote them while they still sell to a human buyer, with their structured data. Around it, pages that answer buying questions, wrong information corrected at the source, AI crawler access, a plan for presence on third-party sources, and GA4 measurement of AI traffic.
 - Measure: the same questions asked again, before and after, and traffic from AI tools followed in GA4 as its own channel.
 - Keeping watch: in the monthly follow-up, the agent reworks new product pages as they are added and flags wrong information about the brand.
+- Research: the AI Answers Atlas (Atlas des réponses IA), the studio's own measurement of which brands ChatGPT, Claude, Gemini and Perplexity name when asked what to buy. Edition 1, published 12 October 2026: 60 buying questions in French across mattresses, clean beauty and comfort shoes, 12 of them asked 5 times in all, 432 answers analysed. The aggregated data is published under CC BY 4.0.
 
 The agents run under three rules. Anything going to a customer stays a draft a person approves until the client decides otherwise. An agent touches only the systems listed. Every run is logged.
 
@@ -53,6 +54,8 @@ Indicative ranges, published on the site. The price is fixed before work starts.
 - [Agents IA, French](https://maubourg.studio/fr/services/agents-ia): the same page in French.
 - [Live agent demo, French](https://maubourg.studio/fr/services/agents-ia#demo): paste one product page and see what an AI crawler reads on it, which AI bots its robots.txt lets in, its product structured data, and a description rewritten so an AI can quote it.
 - [Blog, French](https://maubourg.studio/fr/blog): articles on brand visibility in ChatGPT, Perplexity, Gemini and AI search, one question per article, answered in the first paragraph.
+- [AI Answers Atlas, English](https://maubourg.studio/en/ai-answers-atlas): edition 1 (October 2026) in summary, five findings on which brands ChatGPT, Claude, Gemini and Perplexity name on buying questions in three French ecommerce categories, with links to the full study in French.
+- [Atlas des réponses IA, French](https://maubourg.studio/fr/atlas-reponses-ia): edition 1 in full: the findings, the method and the 60 questions asked, one page per category (literie, cosmétique clean, chaussures de confort), the complete study with its charts and tables, and the aggregated data as CSV under CC BY 4.0.
 - [Request a call, English](https://maubourg.studio/en/call): leave a number for a 15 minute call, answered within one working day.
 - [Request a call, French](https://maubourg.studio/fr/call): the same page in French.
 

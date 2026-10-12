@@ -1,0 +1,81 @@
+verticale,marque,question_id,question,ChatGPT_sur_4,Claude_sur_4,Gemini_sur_4,Perplexity_sur_4
+Literie,Emma,LIT-C04,matelas pour lit 160x200 avec essai longue durée,4,4,3,4
+Literie,Emma,LIT-O02,meilleure marque de matelas français,1,0,0,3
+Literie,Emma,LIT-O04,quelle marque de literie choisir en 2026,4,4,4,4
+Literie,Emma,LIT-X05,comparatif matelas en ligne français,4,4,4,4
+Literie,Hypnia,LIT-C04,matelas pour lit 160x200 avec essai longue durée,4,4,3,3
+Literie,Hypnia,LIT-O02,meilleure marque de matelas français,1,0,0,4
+Literie,Hypnia,LIT-O04,quelle marque de literie choisir en 2026,3,4,4,4
+Literie,Hypnia,LIT-X05,comparatif matelas en ligne français,4,4,4,3
+Literie,Kipli,LIT-C04,matelas pour lit 160x200 avec essai longue durée,3,0,3,0
+Literie,Kipli,LIT-O02,meilleure marque de matelas français,2,0,2,0
+Literie,Kipli,LIT-O04,quelle marque de literie choisir en 2026,1,2,4,1
+Literie,Kipli,LIT-X05,comparatif matelas en ligne français,1,1,3,0
+Literie,Le Matelas Vert,LIT-C04,matelas pour lit 160x200 avec essai longue durée,0,0,0,0
+Literie,Le Matelas Vert,LIT-O02,meilleure marque de matelas français,1,0,2,0
+Literie,Le Matelas Vert,LIT-O04,quelle marque de literie choisir en 2026,0,0,0,0
+Literie,Le Matelas Vert,LIT-X05,comparatif matelas en ligne français,0,0,1,0
+Literie,Mello,LIT-C04,matelas pour lit 160x200 avec essai longue durée,2,0,3,2
+Literie,Mello,LIT-O02,meilleure marque de matelas français,0,0,3,0
+Literie,Mello,LIT-O04,quelle marque de literie choisir en 2026,0,3,3,0
+Literie,Mello,LIT-X05,comparatif matelas en ligne français,2,1,2,4
+Literie,Simba,LIT-C04,matelas pour lit 160x200 avec essai longue durée,1,4,0,2
+Literie,Simba,LIT-O02,meilleure marque de matelas français,0,0,0,0
+Literie,Simba,LIT-O04,quelle marque de literie choisir en 2026,0,1,0,1
+Literie,Simba,LIT-X05,comparatif matelas en ligne français,1,3,0,4
+Literie,Tediber,LIT-C04,matelas pour lit 160x200 avec essai longue durée,4,4,3,4
+Literie,Tediber,LIT-O02,meilleure marque de matelas français,3,4,4,4
+Literie,Tediber,LIT-O04,quelle marque de literie choisir en 2026,4,4,4,3
+Literie,Tediber,LIT-X05,comparatif matelas en ligne français,4,4,4,4
+Cosmétique clean,Absolution,COS-O01,quelle marque de cosmétique clean choisir,1,0,0,2
+Cosmétique clean,Absolution,COS-O02,meilleure marque de soin visage naturel française,2,3,3,1
+Cosmétique clean,Absolution,COS-O04,marque de cosmétique bio à privilégier,2,1,1,0
+Cosmétique clean,Absolution,COS-X05,comparatif marques cosmétique clean françaises,2,2,1,3
+Cosmétique clean,Aime,COS-O01,quelle marque de cosmétique clean choisir,0,0,0,0
+Cosmétique clean,Aime,COS-O02,meilleure marque de soin visage naturel française,0,0,0,0
+Cosmétique clean,Aime,COS-O04,marque de cosmétique bio à privilégier,0,0,0,0
+Cosmétique clean,Aime,COS-X05,comparatif marques cosmétique clean françaises,1,1,0,0
+Cosmétique clean,Caudalie,COS-O01,quelle marque de cosmétique clean choisir,0,0,0,0
+Cosmétique clean,Caudalie,COS-O02,meilleure marque de soin visage naturel française,0,4,0,0
+Cosmétique clean,Caudalie,COS-O04,marque de cosmétique bio à privilégier,0,0,0,0
+Cosmétique clean,Caudalie,COS-X05,comparatif marques cosmétique clean françaises,0,1,0,2
+Cosmétique clean,Les Huilettes,COS-O01,quelle marque de cosmétique clean choisir,0,0,0,0
+Cosmétique clean,Les Huilettes,COS-O02,meilleure marque de soin visage naturel française,1,0,1,1
+Cosmétique clean,Les Huilettes,COS-O04,marque de cosmétique bio à privilégier,0,0,0,0
+Cosmétique clean,Les Huilettes,COS-X05,comparatif marques cosmétique clean françaises,2,0,0,0
+Cosmétique clean,Oden,COS-O01,quelle marque de cosmétique clean choisir,0,0,1,0
+Cosmétique clean,Oden,COS-O02,meilleure marque de soin visage naturel française,2,0,3,1
+Cosmétique clean,Oden,COS-O04,marque de cosmétique bio à privilégier,0,1,4,0
+Cosmétique clean,Oden,COS-X05,comparatif marques cosmétique clean françaises,0,3,0,0
+Cosmétique clean,Respire,COS-O01,quelle marque de cosmétique clean choisir,0,4,1,0
+Cosmétique clean,Respire,COS-O02,meilleure marque de soin visage naturel française,0,0,0,0
+Cosmétique clean,Respire,COS-O04,marque de cosmétique bio à privilégier,0,2,0,0
+Cosmétique clean,Respire,COS-X05,comparatif marques cosmétique clean françaises,1,2,0,3
+Cosmétique clean,The Ordinary,COS-O01,quelle marque de cosmétique clean choisir,1,0,0,0
+Cosmétique clean,The Ordinary,COS-O02,meilleure marque de soin visage naturel française,0,0,0,0
+Cosmétique clean,The Ordinary,COS-O04,marque de cosmétique bio à privilégier,0,0,0,0
+Cosmétique clean,The Ordinary,COS-X05,comparatif marques cosmétique clean françaises,0,0,0,0
+Cosmétique clean,Typology,COS-O01,quelle marque de cosmétique clean choisir,4,4,2,3
+Cosmétique clean,Typology,COS-O02,meilleure marque de soin visage naturel française,4,4,0,0
+Cosmétique clean,Typology,COS-O04,marque de cosmétique bio à privilégier,0,2,0,0
+Cosmétique clean,Typology,COS-X05,comparatif marques cosmétique clean françaises,4,4,4,4
+Chaussures de confort,Finn Comfort,CHA-C03,chaussure de confort fabriquée en France,0,0,0,0
+Chaussures de confort,Finn Comfort,CHA-C04,chaussure large pour hallux valgus,0,3,0,1
+Chaussures de confort,Finn Comfort,CHA-O04,marque de chausson orthopédique à recommander,0,0,0,0
+Chaussures de confort,Finn Comfort,CHA-O05,quelle chaussure large pour pieds gonflés,0,2,0,0
+Chaussures de confort,Mephisto,CHA-C03,chaussure de confort fabriquée en France,2,0,4,0
+Chaussures de confort,Mephisto,CHA-C04,chaussure large pour hallux valgus,0,4,2,0
+Chaussures de confort,Mephisto,CHA-O04,marque de chausson orthopédique à recommander,0,1,0,0
+Chaussures de confort,Mephisto,CHA-O05,quelle chaussure large pour pieds gonflés,0,3,1,0
+Chaussures de confort,Podowell,CHA-C03,chaussure de confort fabriquée en France,0,0,1,0
+Chaussures de confort,Podowell,CHA-C04,chaussure large pour hallux valgus,3,0,4,3
+Chaussures de confort,Podowell,CHA-O04,marque de chausson orthopédique à recommander,4,4,4,4
+Chaussures de confort,Podowell,CHA-O05,quelle chaussure large pour pieds gonflés,4,0,4,0
+Chaussures de confort,Pédiconfort,CHA-C03,chaussure de confort fabriquée en France,0,0,0,0
+Chaussures de confort,Pédiconfort,CHA-C04,chaussure large pour hallux valgus,1,0,1,2
+Chaussures de confort,Pédiconfort,CHA-O04,marque de chausson orthopédique à recommander,0,0,0,0
+Chaussures de confort,Pédiconfort,CHA-O05,quelle chaussure large pour pieds gonflés,1,0,0,1
+Chaussures de confort,Skechers,CHA-C03,chaussure de confort fabriquée en France,0,0,0,0
+Chaussures de confort,Skechers,CHA-C04,chaussure large pour hallux valgus,0,1,1,0
+Chaussures de confort,Skechers,CHA-O04,marque de chausson orthopédique à recommander,0,0,0,0
+Chaussures de confort,Skechers,CHA-O05,quelle chaussure large pour pieds gonflés,0,4,2,0

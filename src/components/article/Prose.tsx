@@ -8,7 +8,11 @@
 import Link from 'next/link';
 import type { Block, Inline } from '@/lib/markdown';
 
-function Spans({ content }: { content: Inline[] }) {
+// A downloadable file (a CSV, the data notes) is not a page: next/link would
+// try to fetch it as one. Those get a plain anchor.
+const isFile = (href: string) => /\.[a-z0-9]+(#.*)?$/i.test(href.split('?')[0]);
+
+export function Spans({ content }: { content: Inline[] }) {
   return (
     <>
       {content.map((span, i) => {
@@ -24,6 +28,17 @@ function Spans({ content }: { content: Inline[] }) {
             <em key={i} className="italic">
               {span.text}
             </em>
+          );
+        }
+        if (span.kind === 'link' && isFile(span.href)) {
+          return (
+            <a
+              key={i}
+              href={span.href}
+              className="font-medium text-emerald underline underline-offset-4 decoration-emerald/30 transition-colors hover:decoration-emerald"
+            >
+              {span.text}
+            </a>
           );
         }
         if (span.kind === 'link') {

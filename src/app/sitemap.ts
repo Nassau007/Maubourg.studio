@@ -8,6 +8,7 @@ import {
   OBSERVATORY_LIVE,
   OBSERVATORY_VERTICALS,
   editionHref,
+  latestEdition,
   methodologyHref,
   observatoryHref,
   verticalHref,
@@ -97,58 +98,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // we want found and quoted. It stays out of the sitemap entirely until a
   // campaign has produced data, because asking a crawler to index an empty
   // section spends the one visit it will give us.
-  const observatory = !OBSERVATORY_LIVE
-    ? []
-    : [
-        ...locales.map((lang) => ({
-          url: `${siteUrl}${observatoryHref(lang)}`,
-          lastModified,
-          changeFrequency: 'monthly' as const,
-          priority: 0.9,
-          alternates: {
-            languages: Object.fromEntries([
-              ...locales.map((l) => [l, `${siteUrl}${observatoryHref(l)}`]),
-              ['x-default', `${siteUrl}${observatoryHref('fr')}`],
-            ]),
-          },
-        })),
-        ...locales.map((lang) => ({
-          url: `${siteUrl}${methodologyHref(lang)}`,
-          lastModified,
-          changeFrequency: 'monthly' as const,
-          priority: 0.7,
-          alternates: {
-            languages: Object.fromEntries([
-              ...locales.map((l) => [l, `${siteUrl}${methodologyHref(l)}`]),
-              ['x-default', `${siteUrl}${methodologyHref('fr')}`],
-            ]),
-          },
-        })),
-        ...OBSERVATORY_VERTICALS.flatMap((vertical) =>
-          locales.map((lang) => ({
-            url: `${siteUrl}${verticalHref(vertical, lang)}`,
-            lastModified,
+  //
+  // Every entry carries the latest edition's publication date, not the deploy
+  // date. Only the index exists in both languages (the English page is a
+  // summary of the French edition); the method, the verticals and the editions
+  // are French only and declare no alternate, the rule the blog follows.
+  const edition = latestEdition();
+  const observatory =
+    !OBSERVATORY_LIVE || !edition
+      ? []
+      : [
+          ...locales.map((lang) => ({
+            url: `${siteUrl}${observatoryHref(lang)}`,
+            lastModified: new Date(`${edition.published}T00:00:00Z`),
             changeFrequency: 'monthly' as const,
             priority: 0.9,
             alternates: {
               languages: Object.fromEntries([
-                ...locales.map((l) => [l, `${siteUrl}${verticalHref(vertical, l)}`]),
-                ['x-default', `${siteUrl}${verticalHref(vertical, 'fr')}`],
+                ...locales.map((l) => [l, `${siteUrl}${observatoryHref(l)}`]),
+                ['x-default', `${siteUrl}${observatoryHref('fr')}`],
               ]),
             },
           })),
-        ),
-        // An edition carries its campaign date, not the deploy date: a crawler
-        // is not told every edition changed because the site shipped.
-        ...OBSERVATORY_EDITIONS.flatMap((edition) =>
-          locales.map((lang) => ({
-            url: `${siteUrl}${editionHref(edition, lang)}`,
-            lastModified: new Date(`${edition.date}T00:00:00Z`),
-            changeFrequency: 'yearly' as const,
-            priority: 0.6,
+          {
+            url: `${siteUrl}${methodologyHref('fr')}`,
+            lastModified: new Date(`${edition.published}T00:00:00Z`),
+            changeFrequency: 'monthly' as const,
+            priority: 0.7,
+          },
+          ...OBSERVATORY_VERTICALS.map((vertical) => ({
+            url: `${siteUrl}${verticalHref(vertical, 'fr')}`,
+            lastModified: new Date(`${edition.published}T00:00:00Z`),
+            changeFrequency: 'monthly' as const,
+            priority: 0.9,
           })),
-        ),
-      ];
+          // An edition is never edited after it ships: its own date, always.
+          ...OBSERVATORY_EDITIONS.map((e) => ({
+            url: `${siteUrl}${editionHref(e, 'fr')}`,
+            lastModified: new Date(`${e.published}T00:00:00Z`),
+            changeFrequency: 'yearly' as const,
+            priority: 0.8,
+          })),
+        ];
 
   return [...shared, ...localized, ...answers, ...observatory];
 }

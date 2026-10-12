@@ -1,0 +1,61 @@
+question_id,verticale,type_de_question,question,serie_2
+LIT-O01,Literie,ouverte,quel matelas choisir pour mal de dos,non
+LIT-O02,Literie,ouverte,meilleure marque de matelas français,oui
+LIT-O03,Literie,ouverte,quel matelas pour dormir sur le côté,non
+LIT-O04,Literie,ouverte,quelle marque de literie choisir en 2026,oui
+LIT-O05,Literie,ouverte,quel matelas acheter quand on transpire la nuit,non
+LIT-C01,Literie,avec critère,matelas naturel sans mousse pétrochimique,non
+LIT-C02,Literie,avec critère,matelas ferme pour personne de forte corpulence,non
+LIT-C03,Literie,avec critère,matelas fabriqué en France livré sous une semaine,non
+LIT-C04,Literie,avec critère,matelas pour lit 160x200 avec essai longue durée,oui
+LIT-C05,Literie,avec critère,matelas hypoallergénique pour personne allergique aux acariens,non
+LIT-X01,Literie,comparative,Tediber ou Emma,non
+LIT-X02,Literie,comparative,alternative française à Emma matelas,non
+LIT-X03,Literie,comparative,Hypnia/Slome vs Tediber lequel choisir,non
+LIT-X04,Literie,comparative,quelle marque de matelas remplace Simba,non
+LIT-X05,Literie,comparative,comparatif matelas en ligne français,oui
+LIT-B01,Literie,sur une marque,que vaut Hypnia/Slome,non
+LIT-B02,Literie,sur une marque,avis Kipli matelas,non
+LIT-B03,Literie,sur une marque,Tediber est-ce une bonne marque,non
+LIT-B04,Literie,sur une marque,Mello matelas retours clients,non
+LIT-B05,Literie,sur une marque,Le Matelas Vert qualité,non
+COS-O01,Cosmétique clean,ouverte,quelle marque de cosmétique clean choisir,oui
+COS-O02,Cosmétique clean,ouverte,meilleure marque de soin visage naturel française,oui
+COS-O03,Cosmétique clean,ouverte,quelle crème hydratante sans perturbateur endocrinien,non
+COS-O04,Cosmétique clean,ouverte,marque de cosmétique bio à privilégier,oui
+COS-O05,Cosmétique clean,ouverte,quelle routine visage pour peau sensible,non
+COS-C01,Cosmétique clean,avec critère,sérum vitamine C sans alcool pour peau réactive,non
+COS-C02,Cosmétique clean,avec critère,crème solaire minérale sans filtre chimique,non
+COS-C03,Cosmétique clean,avec critère,soin anti-âge vegan fabriqué en France,non
+COS-C04,Cosmétique clean,avec critère,nettoyant visage sans sulfate pour peau grasse,non
+COS-C05,Cosmétique clean,avec critère,cosmétique clean avec packaging rechargeable,non
+COS-X01,Cosmétique clean,comparative,Typology ou Aime,non
+COS-X02,Cosmétique clean,comparative,alternative française à The Ordinary,non
+COS-X03,Cosmétique clean,comparative,Respire vs Les Huilettes déodorant,non
+COS-X04,Cosmétique clean,comparative,quelle marque remplace Caudalie en clean beauty,non
+COS-X05,Cosmétique clean,comparative,comparatif marques cosmétique clean françaises,oui
+COS-B01,Cosmétique clean,sur une marque,que vaut Typology,non
+COS-B02,Cosmétique clean,sur une marque,avis Aime compléments et soins,non
+COS-B03,Cosmétique clean,sur une marque,Oden est-ce une bonne marque,non
+COS-B04,Cosmétique clean,sur une marque,Nidéco retours clients,non
+COS-B05,Cosmétique clean,sur une marque,Absolution qualité des ingrédients,non
+CHA-O01,Chaussures de confort,ouverte,quelle marque de chaussures confort choisir,non
+CHA-O02,Chaussures de confort,ouverte,meilleure chaussure pour pieds sensibles,non
+CHA-O03,Chaussures de confort,ouverte,quelle chaussure pour personne diabétique,non
+CHA-O04,Chaussures de confort,ouverte,marque de chausson orthopédique à recommander,oui
+CHA-O05,Chaussures de confort,ouverte,quelle chaussure large pour pieds gonflés,oui
+CHA-C01,Chaussures de confort,avec critère,chaussure avec semelle amovible pour orthèse,non
+CHA-C02,Chaussures de confort,avec critère,chausson fermeture velcro pour personne âgée,non
+CHA-C03,Chaussures de confort,avec critère,chaussure de confort fabriquée en France,oui
+CHA-C04,Chaussures de confort,avec critère,chaussure large pour hallux valgus,oui
+CHA-C05,Chaussures de confort,avec critère,chaussure confort femme élégante pour le travail,non
+CHA-X01,Chaussures de confort,comparative,Podowell ou Mephisto,non
+CHA-X02,Chaussures de confort,comparative,alternative française à Skechers confort,non
+CHA-X03,Chaussures de confort,comparative,Chausse Mouton vs Damart chaussons,non
+CHA-X04,Chaussures de confort,comparative,quelle marque remplace Finn Comfort,non
+CHA-X05,Chaussures de confort,comparative,comparatif marques chaussures confort,non
+CHA-B01,Chaussures de confort,sur une marque,que vaut Podowell,non
+CHA-B02,Chaussures de confort,sur une marque,avis Chausse Mouton,non
+CHA-B03,Chaussures de confort,sur une marque,Mephisto est-ce une bonne marque,non
+CHA-B04,Chaussures de confort,sur une marque,Pédiconfort retours clients,non
+CHA-B05,Chaussures de confort,sur une marque,Xsensible qualité,non

@@ -11,7 +11,7 @@
 import type { Metadata } from 'next';
 import { getDictionary, type Locale } from '@/lib/i18n';
 import { site, siteUrl } from '@/lib/site';
-import { OBSERVATORY_BASE, OBSERVATORY_SEGMENTS, swapObservatoryLocale } from '@/lib/observatory';
+import { OBSERVATORY_BASE, swapObservatoryLocale } from '@/lib/observatory';
 import { ogImage, twitterImage } from '@/lib/share';
 
 export const localizedPaths = {
@@ -21,11 +21,9 @@ export const localizedPaths = {
   // sitemap and metadata alternates all read it) but not in verticalPages.
   // Its slugs are defined in src/lib/observatory.ts, which also owns the
   // vertical and edition paths underneath them.
+  // Only the section root is listed: below it, edition 1 exists in French
+  // only (see OBSERVATORY_EN_SUBPAGES).
   observatory: { en: OBSERVATORY_BASE.en, fr: OBSERVATORY_BASE.fr },
-  observatoryMethod: {
-    en: `${OBSERVATORY_BASE.en}/${OBSERVATORY_SEGMENTS.methodology.en}`,
-    fr: `${OBSERVATORY_BASE.fr}/${OBSERVATORY_SEGMENTS.methodology.fr}`,
-  },
   geo: { en: '/services/llm-visibility', fr: '/services/visibilite-llm' },
   agents: { en: '/services/ai-agents', fr: '/services/agents-ia' },
 } as const;

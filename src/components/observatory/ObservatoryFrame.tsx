@@ -66,42 +66,28 @@ export default function ObservatoryFrame({
   );
 }
 
-/** Heading block, shared by the index, the verticals and the editions. */
+/** Heading block, shared by every observatory page. The lead goes in `children`. */
 export function ObservatoryHead({
   eyebrow,
   title,
-  intro,
+  facts,
+  children,
 }: {
   eyebrow: string;
   title: string;
-  intro?: string;
+  /** One short line of facts under the title, e.g. the edition's scope. */
+  facts?: string;
+  children?: React.ReactNode;
 }) {
   return (
     <section className="mx-auto max-w-content px-5 pb-10 pt-8 md:px-8 md:pb-14">
       <div className="max-w-3xl">
         <span className="eyebrow">{eyebrow}</span>
-        <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.03] tracking-tightest text-ink md:text-6xl">
+        <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tightest text-ink md:text-6xl">
           {title}
         </h1>
-        {intro && (
-          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-ink-600">{intro}</p>
-        )}
-      </div>
-    </section>
-  );
-}
-
-/**
- * What a page says while its campaign has not produced data. It is a status,
- * not a placeholder: the section is unlinked and not indexed until an edition
- * exists, so the only person reading this is someone who typed the URL.
- */
-export function ObservatoryEmpty({ title, body }: { title: string; body: string }) {
-  return (
-    <section className="mx-auto max-w-content px-5 pb-16 md:px-8 md:pb-24">
-      <div className="max-w-2xl rounded-card border-2 border-dashed border-ink/20 p-7 md:p-9">
-        <h2 className="font-display text-2xl font-semibold text-ink">{title}</h2>
-        <p className="mt-3 text-[15px] leading-relaxed text-ink-600">{body}</p>
+        {facts && <p className="mt-5 text-sm font-medium text-ink-500">{facts}</p>}
+        {children && <div className="mt-6">{children}</div>}
       </div>
     </section>
   );

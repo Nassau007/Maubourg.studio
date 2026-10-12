@@ -1,12 +1,12 @@
 // French methodology page. Anything quoting a figure from this section needs
 // somewhere to point for how the figure was produced, which is what makes a
-// number reusable.
+// number reusable. French only: no English twin is declared.
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ObservatoryMethodScreen } from '@/components/observatory/ObservatoryScreens';
-import { getDictionary } from '@/lib/i18n';
-import { localizedPaths } from '@/lib/routes';
+import { latestEdition, methodologyHref } from '@/lib/observatory';
+import { loadObservatoryDoc } from '@/lib/observatory-content';
 import { observatoryMetadata } from '@/lib/observatory-metadata';
 
 export function generateStaticParams() {
@@ -14,21 +14,20 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const o = getDictionary('fr').observatory;
+  const edition = latestEdition();
+  if (!edition) return {};
+  const doc = loadObservatoryDoc(edition, 'methodologie', 'fr');
   return observatoryMetadata({
     lang: 'fr',
-    path: `/fr${localizedPaths.observatoryMethod.fr}`,
-    title: o.meta.methodTitle,
-    description: o.meta.methodDescription,
-    alternates: {
-      en: `/en${localizedPaths.observatoryMethod.en}`,
-      fr: `/fr${localizedPaths.observatoryMethod.fr}`,
-      'x-default': `/fr${localizedPaths.observatoryMethod.fr}`,
-    },
+    path: methodologyHref('fr'),
+    title: doc.metaTitle,
+    description: doc.description,
   });
 }
 
 export default function Page({ params }: { params: { lang: string } }) {
   if (params.lang !== 'fr') notFound();
-  return <ObservatoryMethodScreen lang="fr" />;
+  const edition = latestEdition();
+  if (!edition) notFound();
+  return <ObservatoryMethodScreen lang="fr" edition={edition} />;
 }

@@ -1,0 +1,9 @@
+serie,outil,liste de marques,une seule marque,aucune marque,refus ou autre,reponses
+série 1,ChatGPT,40,15,2,3,60
+série 1,Claude,37,9,5,9,60
+série 1,Gemini,41,15,4,0,60
+série 1,Perplexity,39,15,6,0,60
+série 2,ChatGPT,46,2,0,0,48
+série 2,Claude,48,0,0,0,48
+série 2,Gemini,47,0,0,1,48
+série 2,Perplexity,47,0,1,0,48
