@@ -10,8 +10,9 @@ export const fr: Dictionary = {
     blog: 'Blog',
     observatory: 'Atlas IA',
     // Un seul libellé sur ordinateur et sur mobile.
-    cta: 'Audit GEO gratuit',
-    ctaShort: 'Audit GEO gratuit',
+    cta: 'Demander l’audit gratuit',
+    ctaShort: 'Demander l’audit gratuit',
+    skip: 'Aller au contenu',
     languageLabel: 'Langue',
   },
 
@@ -21,9 +22,9 @@ export const fr: Dictionary = {
     titleAccent: 'votre marque est-elle dans la réponse ?',
     subtitle:
       'Nous faisons citer votre marque, et décrire correctement, dans les réponses de ChatGPT, Gemini, Perplexity et Claude. Notre propre agent IA fait le travail sur vos fiches produit, puis le tient à jour.',
-    ctaPrimary: 'Demander un audit GEO gratuit →',
+    ctaPrimary: 'Demander l’audit gratuit',
     talkPrefix: 'Vous préférez en parler d’abord ?',
-    ctaSecondary: 'Réserver un appel de 15 min →',
+    ctaSecondary: 'Réserver un appel de 15 min',
     skillsHeading: 'Une offre, menée avec notre propre agent',
     skills: [
       {
@@ -133,7 +134,7 @@ export const fr: Dictionary = {
   process: {
     eyebrow: 'Comment ça marche',
     title: 'Un audit gratuit, un programme à périmètre fixe, puis un suivi dans la durée.',
-    claim: 'Demander mon audit →',
+    claim: 'Demander l’audit gratuit',
     steps: [
       {
         step: '01',
@@ -199,7 +200,7 @@ export const fr: Dictionary = {
             price: '0 €',
             meta: 'Sous 3 jours ouvrés',
             desc: '4 questions d’achat, 4 IA, 5 passages chacune. Votre taux de citation, les marques citées à votre place, trois actions prioritaires.',
-            cta: 'Demander mon audit',
+            cta: 'Demander l’audit gratuit',
             action: 'audit',
             featured: true,
             badge: false,
@@ -209,7 +210,7 @@ export const fr: Dictionary = {
             price: '900 à 1 500 €',
             meta: 'Sous 10 jours ouvrés',
             desc: '20 questions d’achat, 4 IA, 5 passages. Concurrents cités, sources sur lesquelles les IA s’appuient dans votre catégorie, feuille de route priorisée. Déduit du programme s’il suit.',
-            cta: 'Réserver un appel',
+            cta: 'Réserver un appel de 15 min',
             action: 'call',
             featured: false,
             badge: false,
@@ -224,7 +225,7 @@ export const fr: Dictionary = {
             price: '1 500 à 2 500 €',
             meta: '3 semaines, périmètre fixe',
             desc: 'Pour les jeunes marques, de 250 k€ à 1 M€ de chiffre d’affaires annuel. Les robots d’IA autorisés et les données structurées produit en place. Notre agent installé sur vos 10 à 20 fiches les plus vendues. Avant / après mesuré sur les 4 questions de l’audit gratuit.',
-            cta: 'Réserver un appel',
+            cta: 'Réserver un appel de 15 min',
             action: 'call',
             featured: false,
             badge: false,
@@ -234,7 +235,7 @@ export const fr: Dictionary = {
             price: '3 500 à 6 000 €',
             meta: '6 semaines, périmètre fixe',
             desc: 'Notre agent installé sur votre catalogue, vos fiches réécrites pour que les IA puissent les citer tout en donnant envie à un acheteur. En plus, des pages qui répondent aux questions d’achat, les informations erronées corrigées et le trafic IA mesuré dans GA4. Avant / après mesuré sur les questions de l’audit.',
-            cta: 'Réserver un appel',
+            cta: 'Réserver un appel de 15 min',
             action: 'call',
             featured: false,
             badge: false,
@@ -244,7 +245,7 @@ export const fr: Dictionary = {
             price: '1 000 à 2 000 €',
             meta: 'Par mois, 3 mois minimum',
             desc: 'Notre agent veille. Les nouvelles fiches retravaillées à mesure qu’elles arrivent, les informations fausses sur votre marque signalées. Les mêmes questions reposées chaque mois, avec un rapport de progression.',
-            cta: 'Réserver un appel',
+            cta: 'Réserver un appel de 15 min',
             action: 'call',
             featured: false,
             badge: false,
@@ -267,7 +268,7 @@ export const fr: Dictionary = {
       'Sans engagement : appliquez les actions vous-même, ou parlons-en',
     ],
     talkPrefix: 'Vous préférez en parler d’abord ?',
-    talkLink: 'Réserver un appel de 15 minutes →',
+    talkLink: 'Réserver un appel de 15 min',
     form: {
       step1Of2: 'Étape 1 sur 2',
       step2Of2: 'Étape 2 sur 2',
@@ -292,7 +293,7 @@ export const fr: Dictionary = {
       message: 'Un concurrent ou une question en particulier ?',
       optional: '(facultatif)',
       messagePlaceholder: 'Ce que vous aimeriez que nous regardions.',
-      submit: 'Recevoir mon audit GEO gratuit →',
+      submit: 'Demander l’audit gratuit',
       submitting: 'Envoi…',
       privacy:
         'Pas de spam. Votre e-mail sert uniquement à vous envoyer l’audit, et à vous relancer une fois.',
@@ -356,9 +357,9 @@ export const fr: Dictionary = {
     // REVIEW-FR: bloc de clôture inversé, l’appel devient l’action principale.
     ctaTitle: 'Commencez par un',
     ctaAccent: 'audit GEO gratuit.',
-    ctaPrimary: 'Demander mon audit →',
+    ctaPrimary: 'Demander l’audit gratuit',
     talkPrefix: 'Vous préférez en parler d’abord ?',
-    ctaSecondary: 'Réserver un appel de 15 min →',
+    ctaSecondary: 'Réserver un appel de 15 min',
     ctaNote: 'Quinze minutes, sans présentation commerciale, sans engagement.',
     tagline: 'Studio GEO et agents IA pour l’e-commerce',
     market: 'France et marchés francophones',

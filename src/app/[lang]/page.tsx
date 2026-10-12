@@ -30,7 +30,7 @@ export default function Home({ params }: { params: { lang: string } }) {
         services={serviceMenu(lang)}
         servicesLabel={dict.verticals.shared.navHeading}
       />
-      <main>
+      <main id="main">
         <Hero dict={dict.hero} lang={lang} />
         <Marquee dict={dict.marquee} />
         <Problem dict={dict.problem} />

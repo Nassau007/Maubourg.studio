@@ -336,9 +336,11 @@ export default function LeadForm({
                         <option value="" disabled>
                           {f.select}
                         </option>
+                        {/* The value stays exactly as stored on the lead; only
+                            the visible label swaps the en dash for a hyphen. */}
                         {f.revenueBands.map((r) => (
                           <option key={r} value={r}>
-                            {r}
+                            {r.replace(/\u2013/g, '-')}
                           </option>
                         ))}
                       </select>

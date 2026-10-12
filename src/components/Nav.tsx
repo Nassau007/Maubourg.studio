@@ -65,6 +65,12 @@ export default function Nav({
           : 'border-b border-transparent'
       }`}
     >
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:text-bone"
+      >
+        {dict.skip}
+      </a>
       <nav className="mx-auto flex h-16 max-w-content items-center justify-between px-5 md:px-8">
         <Link href={home} className="group flex items-center gap-2.5" aria-label="Maubourg Studio">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-ink text-bone">

@@ -8,8 +8,9 @@ export const en = {
     blog: 'Blog (FR)',
     observatory: 'AI Atlas',
     // One label on desktop and on a phone: the hook has one name everywhere.
-    cta: 'Free GEO audit',
-    ctaShort: 'Free GEO audit',
+    cta: 'Get the free audit',
+    ctaShort: 'Get the free audit',
+    skip: 'Skip to content',
     languageLabel: 'Language',
   },
 
@@ -19,9 +20,9 @@ export const en = {
     titleAccent: 'is your brand in the answer?',
     subtitle:
       'We get your brand cited, and described correctly, in the answers ChatGPT, Gemini, Perplexity and Claude give. Our own AI agent does the work on your product pages, then keeps it up to date.',
-    ctaPrimary: 'Get a free GEO audit →',
+    ctaPrimary: 'Get the free audit',
     talkPrefix: 'Prefer to talk first?',
-    ctaSecondary: 'Book a 15-min call →',
+    ctaSecondary: 'Book a 15-min call',
     skillsHeading: 'One offer, done with our own agent',
     // The first card is the offer itself and renders wide. The other two sit
     // under it, smaller: they are how the offer is done, not other services.
@@ -136,7 +137,7 @@ export const en = {
   process: {
     eyebrow: 'How it works',
     title: 'A free audit, a fixed-scope programme, then a follow-up over time.',
-    claim: 'Request my audit →',
+    claim: 'Get the free audit',
     steps: [
       {
         step: '01',
@@ -205,7 +206,7 @@ export const en = {
             price: '€0',
             meta: '3 working days',
             desc: '4 buying questions, 4 AI tools, 5 runs each. Your citation rate, the brands cited instead of you, three priority actions.',
-            cta: 'Request my audit',
+            cta: 'Get the free audit',
             action: 'audit',
             featured: true,
             badge: false,
@@ -215,7 +216,7 @@ export const en = {
             price: '€900 to €1,500',
             meta: '10 working days',
             desc: '20 buying questions, 4 AI tools, 5 runs. Competitors cited, the sources AI tools rely on in your category, a prioritised roadmap. Deducted from the programme if it follows.',
-            cta: 'Book a call',
+            cta: 'Book a 15-min call',
             action: 'call',
             featured: false,
             badge: false,
@@ -230,7 +231,7 @@ export const en = {
             price: '€1,500 to €2,500',
             meta: '3 weeks, fixed scope',
             desc: 'For young brands, €250k to €1M of annual revenue. AI crawlers let in and product structured data in place. Our agent set up on your 10 to 20 best-selling product pages. Before and after measured on the free audit’s 4 questions.',
-            cta: 'Book a call',
+            cta: 'Book a 15-min call',
             action: 'call',
             featured: false,
             badge: false,
@@ -240,7 +241,7 @@ export const en = {
             price: '€3,500 to €6,000',
             meta: '6 weeks, fixed scope',
             desc: 'Our agent set up on your catalogue, product pages rewritten so AI tools can quote them while they still sell to a buyer. Plus pages that answer buying questions, wrong information corrected and AI traffic measured in GA4. Before and after measured on the audit’s questions.',
-            cta: 'Book a call',
+            cta: 'Book a 15-min call',
             action: 'call',
             featured: false,
             badge: false,
@@ -250,7 +251,7 @@ export const en = {
             price: '€1,000 to €2,000',
             meta: 'Per month, 3-month minimum',
             desc: 'Our agent keeps watch. New product pages reworked as they are added, wrong information about your brand flagged. The same questions asked again every month, with a progress report.',
-            cta: 'Book a call',
+            cta: 'Book a 15-min call',
             action: 'call',
             featured: false,
             badge: false,
@@ -274,7 +275,7 @@ export const en = {
       'No obligation: run the actions yourself, or we talk',
     ],
     talkPrefix: 'Prefer to talk first?',
-    talkLink: 'Book a 15-minute call →',
+    talkLink: 'Book a 15-min call',
     form: {
       step1Of2: 'Step 1 of 2',
       step2Of2: 'Step 2 of 2',
@@ -299,7 +300,7 @@ export const en = {
       message: 'A competitor or a question in particular?',
       optional: '(optional)',
       messagePlaceholder: 'Anything you would like us to look at.',
-      submit: 'Send me my free GEO audit →',
+      submit: 'Get the free audit',
       submitting: 'Sending…',
       privacy: 'No spam. Your email is only used to send the audit, and to follow up once.',
       revenueBands: [
@@ -360,9 +361,9 @@ export const en = {
   footer: {
     ctaTitle: 'Start with a',
     ctaAccent: 'free GEO audit.',
-    ctaPrimary: 'Request my audit →',
+    ctaPrimary: 'Get the free audit',
     talkPrefix: 'Prefer to talk first?',
-    ctaSecondary: 'Book a 15-min call →',
+    ctaSecondary: 'Book a 15-min call',
     ctaNote: 'Fifteen minutes, no sales deck, no obligation.',
     tagline: 'GEO and AI agents studio for ecommerce',
     market: 'France and French-speaking markets',
