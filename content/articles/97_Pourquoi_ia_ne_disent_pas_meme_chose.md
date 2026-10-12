@@ -4,14 +4,15 @@ slug: "pourquoi-chatgpt-perplexity-et-gemini-ne-disent-pas-la-meme-chose-sur-ma-
 description: "Parce que chacun s'appuie sur un index de recherche et des sources différents, pas sur une même base d'informations interrogée par trois interfaces distinctes."
 question: "Pourquoi ChatGPT, Perplexity et Gemini ne disent pas la même chose sur ma marque ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-09-27
+date: 2026-10-12
 lang: fr
 readingTime: 4
 draft: false
+template: "sidebar"
 ---
 # Pourquoi ChatGPT, Perplexity et Gemini ne disent pas la même chose sur ma marque
 
-_Maubourg Studio, mis à jour le 27 septembre 2026_
+_Maubourg Studio, mis à jour le 12 octobre 2026_
 
 Parce que chacun s'appuie sur un index de recherche et des sources différents, pas sur une même base d'informations interrogée par trois interfaces distinctes. Une marque bien référencée dans l'index que consulte Gemini peut rester absente de celui que consulte ChatGPT, ce qui explique pourquoi une même question, posée le même jour, donne trois réponses différentes sans qu'aucune des trois ne soit techniquement en panne.
 
