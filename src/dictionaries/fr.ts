@@ -9,6 +9,17 @@ export const fr: Dictionary = {
     ],
     blog: 'Blog',
     observatory: 'Atlas IA',
+    // Le menu de l’Atlas : une entrée par page publiée.
+    observatoryMenu: {
+      overview: { label: 'Vue d’ensemble', blurb: 'Les constats de l’édition en une page' },
+      edition: { label: 'Étude complète', blurb: 'Édition 1, octobre 2026 : 60 questions, 432 réponses' },
+      verticals: {
+        LIT: { label: 'Literie', blurb: 'Les marques de matelas que les IA recommandent' },
+        COS: { label: 'Cosmétique clean', blurb: 'Les marques que les IA recommandent' },
+        CHA: { label: 'Chaussures de confort', blurb: 'Les marques que les IA recommandent' },
+      },
+      method: { label: 'Méthode', blurb: 'Comment les chiffres sont produits' },
+    },
     // Un seul libellé sur ordinateur et sur mobile.
     cta: 'Demander l’audit gratuit',
     ctaShort: 'Demander l’audit gratuit',

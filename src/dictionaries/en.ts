@@ -7,6 +7,19 @@ export const en = {
     ],
     blog: 'Blog (FR)',
     observatory: 'AI Atlas',
+    // The Atlas menu, one entry per published page. Shown only once the
+    // English sub-pages exist (OBSERVATORY_EN_SUBPAGES); until then the
+    // English nav links straight to the summary.
+    observatoryMenu: {
+      overview: { label: 'Overview', blurb: 'The edition’s findings on one page' },
+      edition: { label: 'Full study', blurb: 'Edition 1, October 2026: 60 questions, 432 answers' },
+      verticals: {
+        LIT: { label: 'Bedding', blurb: 'The mattress brands AI tools recommend' },
+        COS: { label: 'Clean cosmetics', blurb: 'The brands AI tools recommend' },
+        CHA: { label: 'Comfort shoes', blurb: 'The brands AI tools recommend' },
+      },
+      method: { label: 'Method', blurb: 'How the figures are produced' },
+    },
     // One label on desktop and on a phone: the hook has one name everywhere.
     cta: 'Get the free audit',
     ctaShort: 'Get the free audit',

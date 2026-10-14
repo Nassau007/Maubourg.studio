@@ -5,11 +5,21 @@ import { useEffect, useRef, useState } from 'react';
 /**
  * A chat bubble that types buying questions one after the other: type, hold,
  * clear, next. It starts when scrolled into view and stops when out of it.
- * The bubble is sized by the longest question, so the page never jumps.
+ * The bubble fits its text and changes colour with each question; the block
+ * keeps room for two lines, so the page never jumps.
  *
  * Screen readers and visitors who asked for less motion get the first
  * question, still.
  */
+// The site's own colours, one per question in turn: forest, coral, mid
+// green, white paper. Text colour picked for contrast on each.
+const TONES = [
+  'bg-ink text-bone',
+  'bg-signal text-ink',
+  'bg-emerald text-bone',
+  'bg-white text-ink ring-1 ring-ink/10',
+] as const;
+
 export default function TypingQuestion({
   questions,
   lang = 'fr',
@@ -26,7 +36,6 @@ export default function TypingQuestion({
   const [phase, setPhase] = useState<'idle' | 'typing' | 'hold' | 'clear'>('idle');
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const longest = questions.reduce((a, b) => (b.length > a.length ? b : a), '');
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -62,23 +71,22 @@ export default function TypingQuestion({
 
   const text = questions[q].slice(0, chars);
 
+  const tone = TONES[q % TONES.length];
+
   return (
-    <div ref={ref} className={className}>
+    // The block keeps room for two lines so the steps below never move; the
+    // bubble itself fits its text and grows as it types.
+    <div ref={ref} className={`flex min-h-[5.5rem] items-start justify-end ${className}`}>
       <span className="sr-only">{open}{questions[0]}{close}</span>
       <p
         aria-hidden="true"
-        className="ml-auto grid max-w-md rounded-3xl rounded-br-md bg-ink px-6 py-4 text-[15.5px] font-medium text-bone"
+        className={`w-fit max-w-md rounded-3xl rounded-br-md px-6 py-4 text-[15.5px] font-medium transition-colors duration-500 ${tone}`}
       >
-        {/* Invisible longest question: holds the bubble's size. */}
-        <span className="invisible col-start-1 row-start-1">{open}{longest}{close}</span>
-        <span
-          className={`col-start-1 row-start-1 transition-opacity duration-300 ${
-            phase === 'clear' ? 'opacity-0' : 'opacity-100'
-          }`}
-        >
-          {open}{text}
+        <span className={`transition-opacity duration-300 ${phase === 'clear' ? 'opacity-0' : 'opacity-100'}`}>
+          {open}
+          {text}
           {phase === 'typing' ? (
-            <span className="ml-px inline-block h-[1.05em] w-[2px] translate-y-[0.15em] animate-pulse bg-bone/80" />
+            <span className="ml-px inline-block h-[1.05em] w-[2px] translate-y-[0.15em] animate-pulse bg-current opacity-70" />
           ) : (
             close
           )}

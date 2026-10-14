@@ -5,7 +5,16 @@ import Link from 'next/link';
 import type { Dictionary } from '@/lib/i18n';
 import type { Locale } from '@/lib/i18n';
 import type { ServiceMenuItem } from '@/lib/routes';
-import { OBSERVATORY_LIVE, observatoryHref } from '@/lib/observatory';
+import {
+  OBSERVATORY_EN_SUBPAGES,
+  OBSERVATORY_LIVE,
+  OBSERVATORY_VERTICALS,
+  editionHref,
+  latestEdition,
+  methodologyHref,
+  observatoryHref,
+  verticalHref,
+} from '@/lib/observatory';
 import LanguageSwitcher from './LanguageSwitcher';
 
 // The blog is French, and every language links to it. The English label says
@@ -28,7 +37,10 @@ export default function Nav({
   const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileServices, setMobileServices] = useState(false);
+  const [atlasOpen, setAtlasOpen] = useState(false);
+  const [mobileAtlas, setMobileAtlas] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const atlasRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -55,7 +67,39 @@ export default function Nav({
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    if (!atlasOpen) return;
+    const onDown = (event: MouseEvent) => {
+      if (!atlasRef.current?.contains(event.target as Node)) setAtlasOpen(false);
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setAtlasOpen(false);
+    };
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [atlasOpen]);
+
   const home = `/${lang}`;
+
+  // The Atlas pages, in reading order. Only where they exist in this
+  // language: English has the summary alone, so it stays a plain link.
+  const edition = latestEdition();
+  const atlasMenu =
+    lang === 'fr' || OBSERVATORY_EN_SUBPAGES
+      ? [
+          { href: observatoryHref(lang), ...dict.observatoryMenu.overview },
+          ...(edition ? [{ href: editionHref(edition, lang), ...dict.observatoryMenu.edition }] : []),
+          ...OBSERVATORY_VERTICALS.map((v) => ({
+            href: verticalHref(v, lang),
+            ...dict.observatoryMenu.verticals[v.id],
+          })),
+          { href: methodologyHref(lang), ...dict.observatoryMenu.method },
+        ]
+      : null;
 
   return (
     <header
@@ -139,7 +183,38 @@ export default function Nav({
 
           {/* The observatory joins the main nav the day it has an edition to
               read. Until then the flag keeps it out. */}
-          {OBSERVATORY_LIVE && (
+          {OBSERVATORY_LIVE && atlasMenu && (
+            <div ref={atlasRef} className="relative">
+              <button
+                onClick={() => setAtlasOpen((v) => !v)}
+                className="flex items-center gap-1.5 text-sm font-medium text-bone/80 transition-colors hover:text-bone"
+                aria-expanded={atlasOpen}
+                aria-haspopup="true"
+              >
+                {dict.observatory}
+                <span aria-hidden className={`text-sm transition-transform ${atlasOpen ? 'rotate-180' : ''}`}>
+                  ▾
+                </span>
+              </button>
+
+              {atlasOpen && (
+                <div className="absolute left-1/2 top-full z-50 mt-3 w-[22rem] -translate-x-1/2 overflow-hidden rounded-card border border-ink/10 bg-bone-100 shadow-[0_28px_60px_-30px_rgba(20,20,15,0.45)]">
+                  {atlasMenu.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setAtlasOpen(false)}
+                      className="block border-b border-ink/8 px-5 py-3 transition-colors last:border-b-0 hover:bg-bone-200"
+                    >
+                      <span className="block text-[14px] font-semibold text-ink">{item.label}</span>
+                      <span className="mt-0.5 block text-[12.5px] leading-snug text-ink-500">{item.blurb}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+          {OBSERVATORY_LIVE && !atlasMenu && (
             <Link
               href={observatoryHref(lang)}
               className="text-sm font-medium text-bone/80 transition-colors hover:text-bone"
@@ -231,7 +306,35 @@ export default function Nav({
             </Link>
           ))}
 
-          {OBSERVATORY_LIVE && (
+          {OBSERVATORY_LIVE && atlasMenu && (
+            <>
+              <button
+                onClick={() => setMobileAtlas((v) => !v)}
+                className="flex w-full items-center justify-between py-2.5 text-left text-base font-medium text-bone/90"
+                aria-expanded={mobileAtlas}
+              >
+                {dict.observatory}
+                <span aria-hidden className={`text-xs transition-transform ${mobileAtlas ? 'rotate-180' : ''}`}>
+                  ▾
+                </span>
+              </button>
+              {mobileAtlas && (
+                <div className="mb-1 ml-3 border-l border-bone/15 pl-4">
+                  {atlasMenu.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="block py-2 text-[15px] font-medium text-bone/80"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+          {OBSERVATORY_LIVE && !atlasMenu && (
             <Link
               href={observatoryHref(lang)}
               onClick={() => setOpen(false)}
