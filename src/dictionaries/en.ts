@@ -405,8 +405,6 @@ export const en = {
       categoryPlaceholder: 'e.g. linen shirts, food supplements, outdoor furniture',
       categoryHelp: 'Used to write the 4 buying questions we put to the AI tools.',
       platform: 'Platform',
-      monthlyRevenue: 'Monthly revenue',
-      revenueHelp: 'Only used to size the figures in your audit.',
       select: 'Select…',
       message: 'A competitor or a question in particular?',
       optional: '(optional)',
@@ -414,13 +412,6 @@ export const en = {
       submit: 'Get the free audit',
       submitting: 'Sending…',
       privacy: 'No spam. Your email is only used to send the audit, and to follow up once.',
-      revenueBands: [
-        'Under €10k / month',
-        '€10k–50k / month',
-        '€50k–200k / month',
-        '€200k–500k / month',
-        '€500k+ / month',
-      ],
       platforms: ['Shopify', 'WooCommerce', 'Other'],
     },
     success: {

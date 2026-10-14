@@ -396,8 +396,6 @@ export const fr: Dictionary = {
       categoryPlaceholder: 'ex. chemises en lin, compléments alimentaires, mobilier d’extérieur',
       categoryHelp: 'Sert à formuler les 4 questions d’achat que nous poserons aux IA.',
       platform: 'Plateforme',
-      monthlyRevenue: 'Chiffre d’affaires mensuel',
-      revenueHelp: 'Sert uniquement à calibrer les estimations chiffrées de votre audit.',
       select: 'Choisir…',
       message: 'Un concurrent ou une question en particulier ?',
       optional: '(facultatif)',
@@ -406,13 +404,6 @@ export const fr: Dictionary = {
       submitting: 'Envoi…',
       privacy:
         'Pas de spam. Votre e-mail sert uniquement à vous envoyer l’audit, et à vous relancer une fois.',
-      revenueBands: [
-        'Moins de 10 k€ / mois',
-        '10–50 k€ / mois',
-        '50–200 k€ / mois',
-        '200–500 k€ / mois',
-        '500 k€+ / mois',
-      ],
       platforms: ['Shopify', 'WooCommerce', 'Autre'],
     },
     success: {

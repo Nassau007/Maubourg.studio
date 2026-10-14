@@ -58,8 +58,8 @@ export default function LeadForm({
   const needsCategory = variant === 'audit';
 
   // Step 1 asks for the things the deliverable genuinely cannot be produced
-  // without. Everything else waits for step 2 — revenue in particular reads as
-  // being screened and priced, and it was the field most likely to lose people.
+  // without. Everything else waits for step 2. There is no revenue field: the
+  // GEO audit does not use it, and it read as being screened and priced.
   function goToStep2(form: HTMLFormElement) {
     const data = new FormData(form);
     const storeUrl = String(data.get('storeUrl') ?? '').trim();
@@ -303,47 +303,21 @@ export default function LeadForm({
                     )}
                   </div>
 
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="platform" className="field-label">
-                        {f.platform}{' '}
-                        <span className="font-normal normal-case text-ink-500">{f.optional}</span>
-                      </label>
-                      <select id="platform" name="platform" className="field" defaultValue="">
-                        <option value="" disabled>
-                          {f.select}
+                  <div>
+                    <label htmlFor="platform" className="field-label">
+                      {f.platform}{' '}
+                      <span className="font-normal normal-case text-ink-500">{f.optional}</span>
+                    </label>
+                    <select id="platform" name="platform" className="field" defaultValue="">
+                      <option value="" disabled>
+                        {f.select}
+                      </option>
+                      {f.platforms.map((p) => (
+                        <option key={p} value={p}>
+                          {p}
                         </option>
-                        {f.platforms.map((p) => (
-                          <option key={p} value={p}>
-                            {p}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <label htmlFor="monthlyRevenue" className="field-label">
-                        {f.monthlyRevenue}{' '}
-                        <span className="font-normal normal-case text-ink-500">{f.optional}</span>
-                      </label>
-                      <select
-                        id="monthlyRevenue"
-                        name="monthlyRevenue"
-                        className="field"
-                        defaultValue=""
-                      >
-                        <option value="" disabled>
-                          {f.select}
-                        </option>
-                        {/* The value stays exactly as stored on the lead; only
-                            the visible label swaps the en dash for a hyphen. */}
-                        {f.revenueBands.map((r) => (
-                          <option key={r} value={r}>
-                            {r.replace(/\u2013/g, '-')}
-                          </option>
-                        ))}
-                      </select>
-                      <p className="mt-1 text-xs text-ink-500">{f.revenueHelp}</p>
-                    </div>
+                      ))}
+                    </select>
                   </div>
 
                   <div>
