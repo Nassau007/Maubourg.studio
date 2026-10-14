@@ -37,7 +37,7 @@ export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: L
         </div>
       </div>
 
-      <figure className="mx-auto mt-14 max-w-content pb-14 md:pb-20">
+      <figure className="mx-auto mt-14 max-w-content pb-12 md:pb-14">
         <ul className="flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-2 md:grid md:grid-cols-4 md:overflow-visible md:px-8">
           {dict.tiles.items.map((tile) => (
             <li key={tile.file} className="w-[68%] flex-none snap-start md:w-auto">

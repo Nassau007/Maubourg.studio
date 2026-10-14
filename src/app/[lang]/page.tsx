@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
+import LogoBar from '@/components/LogoBar';
 import Problem from '@/components/Problem';
 import AiChoice from '@/components/AiChoice';
 import Services from '@/components/Services';
@@ -34,6 +35,7 @@ export default function Home({ params }: { params: { lang: string } }) {
             then the audit form and the footer); the middle stays light. The
             form is the closing ask, so the footer drops its own CTA block. */}
         <Hero dict={dict.hero} lang={lang} />
+        <LogoBar dict={dict.aiTools} tone="dark" />
         <Problem dict={dict.problem} lead={dict.atlasProof.lead} link={dict.atlasProof.link} lang={lang} />
         <Services dict={dict.services} tools={dict.marquee} lang={lang} />
         <AiChoice dict={dict.aiChoice} chain={dict.verticals.geo.chain} lang={lang} />

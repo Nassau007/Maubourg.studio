@@ -93,11 +93,14 @@ const VisualFrame = ({ children }: { children: React.ReactNode }) => (
 /* ------------------------------------------------------------------ */
 
 const SHAPE_KEYS = ['liste de marques', 'une seule marque', 'aucune marque', 'refus ou autre'];
+// Chart colours follow the site palette (exploration B "Foret"): forest
+// greens for the data, bone for "nothing", ink for "refused", coral as the one
+// warm category. Hex rather than tokens because they are inline styles.
 const SHAPE_COLORS = [
-  { color: '#0E6B4A', dark: true },
+  { color: '#1E5E46', dark: true },
   { color: '#8CC5A6' },
-  { color: '#E3DBC8' },
-  { color: '#14140F', dark: true },
+  { color: '#D1D9CC' },
+  { color: '#0F2A20', dark: true },
 ];
 
 function ShapeChart({ rows, t }: { rows: CsvRow[]; t: Labels }) {
@@ -138,8 +141,8 @@ const RETURN_KEYS = ['1_sur_4', '2_sur_4', '3_sur_4', '4_sur_4'];
 const RETURN_COLORS = [
   { color: '#D7EBDF' },
   { color: '#8CC5A6' },
-  { color: '#12855C', dark: true },
-  { color: '#0A4E37', dark: true },
+  { color: '#26755A', dark: true },
+  { color: '#164735', dark: true },
 ];
 
 function ReturnChart({ rows, t }: { rows: CsvRow[]; t: Labels }) {
@@ -232,7 +235,7 @@ function GridChart({ rows, t }: { rows: CsvRow[]; t: Labels }) {
       <div className="space-y-2">
         <Legend
           items={[
-            { label: t.legendStable, color: '#0E6B4A' },
+            { label: t.legendStable, color: '#1E5E46' },
             { label: t.legendIntermittent, color: '#BFE0CD' },
             { label: t.legendAbsent, color: 'transparent', border: true },
           ]}
@@ -341,13 +344,13 @@ const SOURCE_KEYS = [
   'forum',
 ];
 const SOURCE_COLORS = [
-  { color: '#0A4E37', dark: true },
-  { color: '#3FA37A', dark: true },
-  { color: '#CBF74A' },
-  { color: '#77776A', dark: true },
-  { color: '#C9C1AA' },
-  { color: '#F5F1E8' },
-  { color: '#14140F', dark: true },
+  { color: '#164735', dark: true },
+  { color: '#5FAE8A' },
+  { color: '#EE9278' },
+  { color: '#4E6458', dark: true },
+  { color: '#AEBBA8' },
+  { color: '#E2E7DE' },
+  { color: '#0F2A20', dark: true },
 ];
 
 function SourceTypesChart({ rows, t }: { rows: CsvRow[]; t: Labels }) {

@@ -26,7 +26,7 @@ export function RetrievalChain({
 }) {
   return (
     <div>
-      <div className="rounded-2xl rounded-bl-sm border border-ink/12 bg-ink px-5 py-4 text-bone shadow-[0_18px_40px_-28px_rgba(20,20,15,0.55)]">
+      <div className="rounded-2xl rounded-bl-sm bg-ink px-5 py-4 text-bone">
         <p className="text-[15px] font-medium leading-snug">{query}</p>
       </div>
 
@@ -38,21 +38,21 @@ export function RetrievalChain({
               key={step.step}
               className={[
                 'flex flex-col gap-2 rounded-card border p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6',
-                movable ? 'border-emerald/35 bg-emerald-50/60' : 'border-ink/10 bg-bone-100',
+                movable ? 'border-signal bg-signal-50' : 'border-ink/10 bg-bone',
               ].join(' ')}
             >
               <div className="min-w-0">
                 <p className="text-sm font-semibold text-ink">{step.step}</p>
-                <p className="mt-1 text-[13px] leading-snug text-ink-500">{step.note}</p>
+                <p className="mt-1 text-[13.5px] leading-snug text-ink-600">{step.note}</p>
               </div>
               <div className="shrink-0 sm:text-right">
-                <p className="text-[10px] font-semibold uppercase tracking-wider text-ink-500">
+                <p className="text-[12px] font-medium text-ink-600">
                   {influenceLabel}
                 </p>
                 <p
                   className={[
                     'text-[13px] font-semibold',
-                    movable ? 'text-emerald' : 'text-ink-500',
+                    movable ? 'text-ink' : 'text-ink-600',
                   ].join(' ')}
                 >
                   {step.influence}
@@ -82,18 +82,18 @@ export function AgentWorkflow({ nodes }: { nodes: readonly Step[] }) {
                 className={[
                   'flex-1 rounded-card border p-4',
                   isGuard
-                    ? 'border-signal-dark/50 bg-signal/25'
-                    : 'border-ink/10 bg-bone-100',
+                    ? 'border-signal bg-signal-50'
+                    : 'border-ink/10 bg-bone',
                 ].join(' ')}
               >
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-500">
-                  {String(i + 1).padStart(2, '0')}
+                <p className="figure text-[13px] font-bold text-ink-600">
+                  {i + 1}
                 </p>
                 <p className="mt-1.5 text-sm font-semibold text-ink">{node.label}</p>
-                <p className="mt-1 text-[12px] leading-snug text-ink-600">{node.note}</p>
+                <p className="mt-1 text-[13px] leading-snug text-ink-600">{node.note}</p>
               </div>
               {i < nodes.length - 1 && (
-                <span aria-hidden className="flex items-center text-ink/30">
+                <span aria-hidden className="flex items-center text-ink-500">
                   →
                 </span>
               )}

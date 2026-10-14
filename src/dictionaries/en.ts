@@ -88,6 +88,13 @@ export const en = {
     note: 'EU / GDPR compliant.',
   },
 
+  // The strip under the hero: the four AI tools the studio measures, by
+  // name and mark. Never a partner list: no "trusted by" heading.
+  aiTools: {
+    label: 'Measured by hand in the answers of',
+    aria: 'The AI tools we measure',
+  },
+
   problem: {
     eyebrow: 'Why GEO',
     title: 'Buyers now ask an AI before they search.',
@@ -675,9 +682,9 @@ export const en = {
     frame: {
       title: 'That was one agent doing one task, in about 30 seconds.',
       body: 'On a full catalogue, the agent we set up does this on every product page and keeps watch as new ones are added. It also flags wrong information about your brand.',
-      ctaPrimary: 'Book a 15-min call →',
+      ctaPrimary: 'Book a 15-min call',
       teardownPrefix: 'Rather start with a document?',
-      teardownLink: 'Get a free GEO audit →',
+      teardownLink: 'Get the free audit',
     },
     errors: {
       BAD_REQUEST: 'Something in that request did not come through. Please try again.',
@@ -778,8 +785,8 @@ export const en = {
       ctaTitle: 'Start with a free GEO audit.',
       ctaBody:
         'We ask ChatGPT, Gemini, Perplexity and Claude 4 buying questions from your category, 5 times each, and send you your citation rate and three priority actions within 3 working days. No call first, nothing owed.',
-      ctaPrimary: 'Request my audit →',
-      ctaSecondary: 'Book a 15-minute call',
+      ctaPrimary: 'Get the free audit',
+      ctaSecondary: 'Book a 15-min call',
       priceNote: 'Indicative ranges. The price follows what is at stake, not the hours spent.',
     },
 
@@ -798,8 +805,11 @@ export const en = {
           'Ask for the best linen shirt under 120€: an AI answers from a handful of sources it kept and judged reliable. Being one of those sources has nothing to do with ranking on Google, and few stores have prepared for it.',
         stat: 'A new channel',
         statNote: 'that cannot be bought, and does not show up in your analytics.',
-        ctaPrimary: 'Get a free GEO audit →',
-        ctaSecondary: 'Book 15 minutes',
+        ctaPrimary: 'Get the free audit',
+        ctaSecondary: 'Book a 15-min call',
+        // Beside the hero: one real answer from the Atlas, edition 1.
+        captureCaption:
+          'ChatGPT (Luna 5.6) answering "chaussure de confort fabriquée en France" (comfort shoe made in France), 7 October 2026.',
       },
       what: {
         eyebrow: 'What it actually is',
@@ -848,7 +858,7 @@ export const en = {
             'Your citation rate, the brands cited instead of you, how you are described',
             '3 priority actions, as a PDF within 3 working days',
           ],
-          cta: 'Request my audit →',
+          cta: 'Get the free audit',
         },
         items: [
           {
@@ -939,8 +949,8 @@ export const en = {
         titleAccent: 'and kept that way.',
         subtitle:
           'The agent is how we deliver GEO, not a product sold on its own. In the programme it is set up on your catalogue. In the monthly follow-up it keeps watch. It is easier to show than to describe, so one is running further down this page.',
-        ctaPrimary: 'Try one on your product page ↓',
-        ctaSecondary: 'Book a 15-minute call',
+        ctaPrimary: 'Try it on your product page',
+        ctaSecondary: 'Book a 15-min call',
       },
       demoIntro: {
         eyebrow: 'A demonstration, not a promise',
@@ -1008,8 +1018,8 @@ export const en = {
       // ask is a call, not the GEO audit.
       cta: {
         title: 'Want to see it on your catalogue?',
-        primary: 'Book 15 minutes →',
-        secondary: 'Or try the agent on one of your product pages ↑',
+        primary: 'Book a 15-min call',
+        secondary: 'Try it on your product page',
       },
       related: [
         {

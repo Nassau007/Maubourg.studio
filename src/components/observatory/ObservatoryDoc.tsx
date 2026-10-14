@@ -134,7 +134,7 @@ function Parts({
               className="max-w-3xl rounded-l-none rounded-r-[4px] border-l-2 border-ink bg-[rgba(20,20,15,0.045)] px-5 py-4 md:px-6 md:py-5"
             >
               {part.label && (
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#6b6b5e]">{part.label}</p>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink-600">{part.label}</p>
               )}
               <div className="space-y-3 text-[17px] font-normal leading-[1.65] text-ink md:text-[18px] [&_strong]:font-[650] [&_strong]:text-ink">
                 {part.blocks.map((block, j) => {

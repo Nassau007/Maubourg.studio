@@ -87,6 +87,13 @@ export const fr: Dictionary = {
     note: 'Conforme UE / RGPD.',
   },
 
+  // La bande sous le hero : les quatre outils mesurés, par nom et logo.
+  // Jamais une liste de partenaires.
+  aiTools: {
+    label: 'Mesuré à la main dans les réponses de',
+    aria: 'Les outils d’IA que nous mesurons',
+  },
+
   problem: {
     eyebrow: 'Pourquoi le GEO',
     title: 'Les acheteurs interrogent une IA avant de chercher.',
@@ -668,9 +675,9 @@ export const fr: Dictionary = {
     frame: {
       title: 'C’était un agent, une tâche, en 30 secondes environ.',
       body: 'Sur un catalogue entier, l’agent que nous installons fait ce travail sur chaque fiche produit et surveille les nouvelles à mesure qu’elles arrivent. Il signale aussi les informations fausses sur votre marque.',
-      ctaPrimary: 'Réserver un appel de 15 min →',
+      ctaPrimary: 'Réserver un appel de 15 min',
       teardownPrefix: 'Vous préférez commencer par un document ?',
-      teardownLink: 'Demander un audit GEO gratuit →',
+      teardownLink: 'Demander l’audit gratuit',
     },
     errors: {
       BAD_REQUEST: 'Cette requête n’est pas passée. Merci de réessayer.',
@@ -769,8 +776,8 @@ export const fr: Dictionary = {
       ctaTitle: 'Commencez par un audit GEO gratuit.',
       ctaBody:
         'Nous posons 4 questions d’achat de votre catégorie à ChatGPT, Gemini, Perplexity et Claude, 5 fois chacune, et vous envoyons votre taux de citation et trois actions prioritaires sous 3 jours ouvrés. Sans appel préalable, sans contrepartie.',
-      ctaPrimary: 'Demander mon audit →',
-      ctaSecondary: 'Réserver 15 minutes',
+      ctaPrimary: 'Demander l’audit gratuit',
+      ctaSecondary: 'Réserver un appel de 15 min',
       priceNote: 'Fourchettes indicatives. Le prix dépend de l’enjeu, pas des heures passées.',
     },
 
@@ -789,8 +796,11 @@ export const fr: Dictionary = {
           'Demandez la meilleure chemise en lin à moins de 120 € : une IA répond à partir d’une poignée de sources qu’elle a retenues et jugées fiables. Être l’une de ces sources n’a rien à voir avec se classer sur Google, et rares sont les boutiques qui s’y sont préparées.',
         stat: 'Un nouveau canal',
         statNote: 'qui ne s’achète pas, et qui n’apparaît pas dans vos statistiques.',
-        ctaPrimary: 'Demander un audit GEO gratuit →',
-        ctaSecondary: 'Réserver 15 minutes',
+        ctaPrimary: 'Demander l’audit gratuit',
+        ctaSecondary: 'Réserver un appel de 15 min',
+        // À côté du hero : une vraie réponse tirée de l’Atlas, édition 1.
+        captureCaption:
+          'La réponse de ChatGPT (Luna 5.6) à « chaussure de confort fabriquée en France », 7 octobre 2026.',
       },
       what: {
         eyebrow: 'De quoi il s’agit vraiment',
@@ -839,7 +849,7 @@ export const fr: Dictionary = {
             'Votre taux de citation, les marques citées à votre place, la façon dont vous êtes décrit',
             '3 actions prioritaires, en PDF sous 3 jours ouvrés',
           ],
-          cta: 'Demander mon audit →',
+          cta: 'Demander l’audit gratuit',
         },
         items: [
           {
@@ -932,8 +942,8 @@ export const fr: Dictionary = {
         titleAccent: 'et tenues à jour.',
         subtitle:
           'L’agent est notre façon de mener le GEO, pas un produit vendu à part. Pendant le programme, il est installé sur votre catalogue. Pendant le suivi mensuel, il veille. Plus simple à montrer qu’à décrire : un agent tourne plus bas sur cette page.',
-        ctaPrimary: 'Essayer sur votre fiche produit ↓',
-        ctaSecondary: 'Réserver 15 minutes',
+        ctaPrimary: 'Essayer sur votre fiche produit',
+        ctaSecondary: 'Réserver un appel de 15 min',
       },
       demoIntro: {
         eyebrow: 'Une démonstration, pas une promesse',
@@ -999,8 +1009,8 @@ export const fr: Dictionary = {
       },
       cta: {
         title: 'Vous voulez le voir sur votre catalogue ?',
-        primary: 'Réserver 15 minutes →',
-        secondary: 'Ou essayez l’agent sur une de vos fiches produit ↑',
+        primary: 'Réserver un appel de 15 min',
+        secondary: 'Essayer sur votre fiche produit',
       },
       related: [
         {
