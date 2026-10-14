@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Dictionary, Locale } from '@/lib/i18n';
+import RotatingAI from './RotatingAI';
 
 const CAPTURES = '/atlas/2026-10/captures';
 
@@ -25,7 +26,15 @@ export default function Hero({ dict, lang }: { dict: Dictionary['hero']; lang: L
           ))}
         </h1>
         <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end">
-          <p className="max-w-xl text-lg leading-relaxed text-bone/85 lg:col-span-7">{dict.forestSubtitle}</p>
+          <p className="max-w-xl text-lg leading-relaxed text-bone/85 lg:col-span-7">
+            <RotatingAI
+              before={dict.forestSubtitleRotating.before}
+              after={dict.forestSubtitleRotating.after}
+              full={dict.forestSubtitle}
+              nameClass="font-semibold text-bone"
+              breakFromSm
+            />
+          </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6 lg:col-span-5 lg:justify-end">
             <Link href={`${home}#audit`} className="btn-primary">
               {dict.ctaPrimary}

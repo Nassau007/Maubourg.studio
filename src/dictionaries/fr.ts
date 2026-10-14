@@ -45,9 +45,13 @@ export const fr: Dictionary = {
     forestTitle: 'Votre marque est-elle dans la réponse ?',
     forestSubtitle:
       'Nous faisons citer et décrire correctement votre marque par ChatGPT, Gemini, Perplexity et Claude. Avec notre propre agent.',
+    forestSubtitleRotating: {
+      before: 'Nous faisons citer et décrire correctement votre marque par ',
+      after: '. Avec notre propre agent.',
+    },
     tiles: {
       caption:
-        '« chaussure de confort fabriquée en France », 7 octobre 2026 : posées le même jour, les quatre réponses partagent peu de marques, et aucune n’est recommandée par les quatre.',
+        '« Chaussure de confort fabriquée en France », 7 octobre 2026. Même question, même jour : aucune marque n’est recommandée par les quatre outils.',
       items: [
         {
           tool: 'ChatGPT (Luna 5.6)',
@@ -99,16 +103,16 @@ export const fr: Dictionary = {
     title: 'Les acheteurs interrogent une IA avant de chercher.',
     pains: [
       {
-        title: 'Votre marque n’est pas dans la réponse',
-        body: 'De plus en plus d’acheteurs demandent une recommandation à ChatGPT, Gemini ou Perplexity. La réponse cite quelques marques. Pour l’acheteur, les autres n’existent pas.',
+        title: 'La réponse ne cite que quelques marques',
+        body: 'Quand un acheteur demande une recommandation à ChatGPT, Gemini ou Perplexity, la réponse cite quelques marques. Les autres n’apparaissent pas.',
       },
       {
         title: 'Vos statistiques ne le montrent pas',
-        body: 'L’essentiel se joue sans clic. Les visites qui en découlent sont le plus souvent classées en trafic direct dans vos outils. Vous ne voyez donc ni ce que ce canal vous rapporte, ni ce qu’il vous fait perdre.',
+        body: 'La plupart des visites venues d’une IA sont classées en trafic direct. Vous ne voyez ni ce que ce canal rapporte, ni ce qu’il coûte.',
       },
       {
-        title: 'Votre SEO n’y répond pas',
-        body: 'Une IA ne classe pas des pages, elle lit des sources et vérifie qu’elles se recoupent. Être premier sur Google aide, mais ne garantit pas d’être cité. Le travail à faire est différent, et la plupart des boutiques ne l’ont pas commencé.',
+        title: 'Le SEO n’y répond pas',
+        body: 'Une IA ne classe pas des pages, elle lit des sources et vérifie qu’elles se recoupent. Être premier sur Google aide, mais ne garantit pas d’être cité, car l’approche à suivre est différente.',
       },
     ],
   },
@@ -126,7 +130,7 @@ export const fr: Dictionary = {
     eyebrow: 'Ce que nous faisons',
     title: 'Être dans la réponse. Puis y rester.',
     intro:
-      'Le travail porte sur la visibilité de votre marque dans les réponses des IA. Être cité, et correctement décrit. Notre propre agent en fait une grande partie. Il est installé sur votre catalogue pendant le programme, puis il veille pendant le suivi mensuel.',
+      'Deux objectifs, menés ensemble : que les IA citent votre marque, et qu’elles la décrivent correctement.',
     tags: { geo: 'GEO', ai: 'Agent IA' },
     items: [
       {
@@ -134,30 +138,35 @@ export const fr: Dictionary = {
         title: 'Audit',
         page: 'geo',
         body: 'Ce que ChatGPT, Gemini, Perplexity et Claude disent de votre marque et de vos concurrents, mesuré sur des séries de vraies questions d’achat.',
+        short: 'Ce que les IA disent de vous et de vos concurrents.',
       },
       {
         tag: 'GEO',
         title: 'Amélioration',
         page: 'geo',
-        body: 'Des fiches produit qu’une IA peut citer et qui donnent toujours envie d’acheter, et des informations erronées corrigées à la source. En grande partie mené par notre propre agent.',
+        body: 'Des fiches produit qui donnent envie d’acheter et qu’une IA peut citer efficacement. Les informations fausses corrigées à la source.',
+        short: 'Des fiches citables qui donnent envie d’acheter.',
       },
       {
         tag: 'GEO',
         title: 'Mesure',
         page: 'geo',
-        body: 'GA4 configuré pour montrer le trafic qui vient des IA et ce que ces visiteurs font sur votre site.',
+        body: 'GA4 réglé pour isoler le trafic venu des IA et ce qu’il fait sur votre site.',
+        short: 'Le trafic venu des IA, isolé dans GA4.',
       },
       {
         tag: 'Agent IA',
         title: 'Installé sur votre catalogue',
         page: 'agents',
         body: 'Pendant le programme, notre agent réécrit vos fiches produit pour que les IA puissent les citer tout en donnant envie à un acheteur, avec leurs données structurées.',
+        short: 'Notre agent réécrit vos fiches pendant le programme.',
       },
       {
         tag: 'Agent IA',
         title: 'En veille chaque mois',
         page: 'agents',
         body: 'Pendant le suivi mensuel, il retravaille les nouvelles fiches à mesure qu’elles sont ajoutées et signale les informations fausses sur votre marque.',
+        short: 'Chaque mois, il reprend les nouvelles fiches et signale les erreurs.',
       },
     ],
   },
@@ -173,7 +182,7 @@ export const fr: Dictionary = {
   atlasProof: {
     lead: {
       value: '190 sur 192',
-      label: 'réponses d’achat citent au moins une marque. Une marque absente n’est pas mise de côté : sa place revient à une autre.',
+      label: 'réponses d’achat citent au moins une marque. Si ce n’est pas la vôtre, c’est celle d’un concurrent.',
       source: 'Atlas des réponses IA, octobre 2026',
     },
     title: 'Dans chaque catégorie, quelques marques prennent la place.',

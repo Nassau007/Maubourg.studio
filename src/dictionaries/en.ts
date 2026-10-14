@@ -45,6 +45,10 @@ export const en = {
     forestTitle: 'Is your brand in the answer?',
     forestSubtitle:
       'We get your brand cited, and described correctly, by ChatGPT, Gemini, Perplexity and Claude. With our own agent.',
+    forestSubtitleRotating: {
+      before: 'We get your brand cited, and described correctly, by ',
+      after: '. With our own agent.',
+    },
     tiles: {
       caption:
         '"chaussure de confort fabriquée en France" (comfort shoe made in France), 7 October 2026: asked the same day, the four answers share few brands, and none is recommended by all four.',
@@ -136,30 +140,35 @@ export const en = {
         title: 'Audit',
         page: 'geo',
         body: 'What ChatGPT, Gemini, Perplexity and Claude say about your brand and your competitors, measured over repeated runs on real buying questions.',
+        short: 'What AI tools say about you and your competitors.',
       },
       {
         tag: 'GEO',
         title: 'Improve',
         page: 'geo',
         body: 'Product pages an AI can quote while they still sell to a buyer, and wrong information corrected at the source. Much of it done by our own agent.',
+        short: 'Product pages AI can quote, that still sell.',
       },
       {
         tag: 'GEO',
         title: 'Measure',
         page: 'geo',
         body: 'GA4 set up to show the traffic that comes from AI tools and what those visitors do on your site.',
+        short: 'AI traffic, isolated in GA4.',
       },
       {
         tag: 'AI agent',
         title: 'Set up on your catalogue',
         page: 'agents',
         body: 'In the programme, our agent rewrites your product pages so AI tools can quote them while they still sell to a human buyer, with their structured data.',
+        short: 'Our agent rewrites your product pages during the programme.',
       },
       {
         tag: 'AI agent',
         title: 'On watch every month',
         page: 'agents',
         body: 'In the monthly follow-up, it reworks new product pages as they are added and flags wrong information about your brand.',
+        short: 'Every month, it reworks new pages and flags errors.',
       },
     ],
   },
