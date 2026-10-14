@@ -124,6 +124,24 @@ export const fr: Dictionary = {
     subtitle: 'Quatre étapes. Vous n’en influencez que deux.',
     conclusion: 'Tout notre travail porte sur les deux étapes que vous pouvez influencer.',
     link: 'Comprendre notre approche →',
+    // Questions que la bulle tape tour à tour. Six sont celles de l’Atlas, mot pour mot.
+    queries: [
+      'Meilleure chemise en lin sous 120 € pour la chaleur ?',
+      'Chaussure de confort fabriquée en France',
+      'Quelle poussette légère pour prendre l’avion, moins de 400 € ?',
+      'Quel matelas choisir pour mal de dos ?',
+      'Un sérum anti-taches sans parfum pour peau sensible ?',
+      'Quelle marque de cosmétique clean choisir ?',
+      'Sac à dos de randonnée léger pour 3 jours, budget 150 € ?',
+      'Chaussure large pour hallux valgus',
+      'Quelles croquettes sans céréales pour un chien sensible ?',
+      'Matelas pour lit 160x200 avec essai longue durée',
+      'Un cadeau pour une amie qui adore cuisiner, autour de 50 € ?',
+      'Meilleure marque de soin visage naturel française ?',
+      'Quelle marque de jean éthique tient vraiment dans le temps ?',
+      'Un café en grains de qualité, livré chaque mois ?',
+      'Quel vélo électrique pour 10 km par jour en ville, moins de 2 000 € ?',
+    ],
   },
 
   services: {

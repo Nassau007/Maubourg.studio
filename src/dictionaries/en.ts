@@ -126,6 +126,24 @@ export const en = {
     subtitle: 'Four steps. You influence two.',
     conclusion: 'All of our work goes into the two steps you can influence.',
     link: 'Understand our approach →',
+    // Questions the bubble types in turn. Six are the Atlas questions, translated.
+    queries: [
+      'Best linen shirt under €120 for hot weather?',
+      'Comfort shoes made in France',
+      'Which lightweight stroller for flying, under €400?',
+      'Which mattress for back pain?',
+      'A fragrance-free dark spot serum for sensitive skin?',
+      'Which clean beauty brand should I choose?',
+      'Light hiking backpack for 3 days, €150 budget?',
+      'Wide shoes for bunions',
+      'Which grain-free kibble for a sensitive dog?',
+      'Mattress for a 160x200 bed with a long trial',
+      'A gift for a friend who loves cooking, around €50?',
+      'Best French natural skincare brand?',
+      'Which ethical jeans brand really lasts?',
+      'Quality coffee beans delivered every month?',
+      'Which e-bike for 10 km a day in town, under €2,000?',
+    ],
   },
 
   services: {

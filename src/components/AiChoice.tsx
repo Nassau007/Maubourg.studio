@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import Reveal from './Reveal';
+import TypingQuestion from './TypingQuestion';
 import type { Dictionary, Locale } from '@/lib/i18n';
 import { localizedHref } from '@/lib/routes';
 
 /**
- * Exploration B. The question as a chat bubble, then the four steps down a
+ * Exploration B. The question as a chat bubble that types fifteen buying
+ * questions in turn (TypingQuestion), then the four steps down a
  * line. The two steps a brand can move get the coral marker: the colour says
  * "your lever", not decoration. Same `verticals.geo.chain` data as the GEO page.
  */
@@ -34,9 +36,7 @@ export default function AiChoice({
         </Reveal>
 
         <Reveal className="lg:col-span-7" delay={60}>
-          <p className="ml-auto max-w-md rounded-3xl rounded-br-md bg-ink px-6 py-4 text-[15.5px] font-medium text-bone">
-            {chain.query}
-          </p>
+          <TypingQuestion questions={dict.queries} lang={lang} />
           <ol className="mt-10">
             {chain.steps.map((step, i) => {
               const movable = i === 1 || i === 2;
