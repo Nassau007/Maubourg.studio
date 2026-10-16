@@ -4,14 +4,15 @@ slug: "pourquoi-chatgpt-decrit-mal-ou-de-travers-ma-marque"
 description: "ChatGPT décrit mal une marque quand il en a lu trop peu, des pages périmées ou celles d'un homonyme, et qu'il comble le manque par la version la plus…"
 question: "Pourquoi ChatGPT décrit mal ou de travers ma marque quand on lui demande ce que c'est ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-10-14
+date: 2026-10-16
 lang: fr
 readingTime: 4
 draft: false
+template: "sidebar"
 ---
 # Pourquoi ChatGPT décrit mal ou de travers ma marque quand on lui demande ce que c'est
 
-_Maubourg Studio, mis à jour le 14 octobre 2026_
+_Maubourg Studio, mis à jour le 16 octobre 2026_
 
 ChatGPT décrit mal une marque quand il en a lu trop peu, des pages périmées ou celles d'un homonyme, et qu'il comble le manque par la version la plus plausible, sur un ton assuré. Corriger ces pages change ses réponses avec liens une fois qu'elles sont réindexées ; sa réponse de mémoire, sans lien, ne change qu'avec un modèle plus récent, des mois plus tard.
 
