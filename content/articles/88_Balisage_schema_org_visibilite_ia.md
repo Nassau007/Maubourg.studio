@@ -4,14 +4,15 @@ slug: "le-balisage-schema-org-product-organization-ameliore-t-il-vraiment-ma-vis
 description: "Pas à lui seul : aucun éditeur d'IA ne montre qu'un champ Schema.org fait choisir une boutique."
 question: "Le balisage Schema.org (Product, Organization) améliore-t-il vraiment ma visibilité sur les IA ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-10-15
+date: 2026-10-19
 lang: fr
 readingTime: 4
 draft: false
+template: "citation"
 ---
 # Le balisage Schema.org (Product, Organization) améliore-t-il vraiment ma visibilité sur les IA
 
-_Maubourg Studio, mis à jour le 15 octobre 2026_
+_Maubourg Studio, mis à jour le 19 octobre 2026_
 
 Pas à lui seul : aucun éditeur d'IA ne montre qu'un champ Schema.org fait choisir une boutique. Le balisage rend lisibles prix, stock, livraison et retours ; sur Shopify, les deux derniers manquent, et une partie se corrige depuis l'admin.
 
