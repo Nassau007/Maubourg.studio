@@ -130,6 +130,7 @@ export function HomeJsonLd({ dict, lang }: { dict: Dictionary; lang: Locale }) {
     logo: `${siteUrl}/icon.png`,
     image: `${siteUrl}${ogImage(lang).url}`,
     email: site.email,
+    sameAs: [site.linkedin],
     slogan: dict.footer.tagline,
     description: dict.meta.homeDescription,
     founder: {

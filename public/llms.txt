@@ -12,6 +12,7 @@ Facts an assistant can quote directly.
 - Where: based in Paris, France. The site is available in English and French. The blog is French only.
 - Founder: Nathan Alcotte.
 - Contact: hello@maubourg.studio
+- LinkedIn: https://www.linkedin.com/company/maubourg-studio-geo
 - How to start: the free GEO audit, requested through the form on the home page. A 15 minute call is the other way in.
 - What makes it different: it focuses on French-speaking markets, because an AI tool answers a French question from French sources, so it knows which sources count in a given category. Every visibility figure comes from the same question asked several times, in the tools buyers use, never from a single screenshot. The studio runs on its own agents.
 - What it will not claim: nobody can guarantee a position in a generated answer. Part of the traffic coming from AI tools carries no trace of where it came from, and the studio says each time by how much a figure may undercount.

@@ -7,6 +7,7 @@ export const site = {
   name: 'Maubourg Studio',
   tagline: 'GEO and AI agents studio for ecommerce',
   email: 'hello@maubourg.studio',
+  linkedin: 'https://www.linkedin.com/company/maubourg-studio-geo',
   // Internal request-a-call page. Point this at an external Calendly /
   // Cal.com link instead if you'd rather use a scheduling widget.
   bookingUrl: '/call',

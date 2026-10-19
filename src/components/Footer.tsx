@@ -88,6 +88,14 @@ export default function Footer({
             >
               {site.email}
             </a>
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-bone/85 transition-colors hover:text-bone"
+            >
+              LinkedIn
+            </a>
             <Link
               href={localizedHref('privacy', lang)}
               className="text-bone/85 transition-colors hover:text-bone"
