@@ -16,6 +16,11 @@ import { HomeJsonLd } from '@/components/JsonLd';
 import { getDictionary, isLocale } from '@/lib/i18n';
 import { serviceMenu } from '@/lib/routes';
 
+// The founder card (Nathan Alcotte, under the audit form) was hidden on Nass's
+// request on 20 Oct 2026. The component (Founder.tsx) and its copy
+// (dict.founder in en.ts and fr.ts) are kept: set this back to true to show it.
+const SHOW_FOUNDER_CARD = false;
+
 export default function Home({ params }: { params: { lang: string } }) {
   if (!isLocale(params.lang)) notFound();
   const lang = params.lang;
@@ -52,7 +57,7 @@ export default function Home({ params }: { params: { lang: string } }) {
           submitLabel={dict.audit.form.submit}
           talk={{ prefix: dict.audit.talkPrefix, link: dict.audit.talkLink, note: dict.footer.ctaNote }}
           sample={null}
-          founder={dict.founder}
+          founder={SHOW_FOUNDER_CARD ? dict.founder : null}
           errors={dict.errors}
           lang={lang}
         />

@@ -183,7 +183,7 @@ export default function LeadForm({
             )}
           </div>
 
-          {/* Form / success, with the founder card directly under the ask */}
+          {/* Form / success, with the founder card directly under the ask when one is passed */}
           <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2">
             <div className="rounded-card bg-bone-100 p-6 text-ink md:p-8">
             {status === 'success' ? (
