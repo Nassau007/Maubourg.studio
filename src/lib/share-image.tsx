@@ -2,8 +2,14 @@
 //
 // src/app/[lang]/opengraph-image.tsx and twitter-image.tsx both call this, so
 // the picture a shared link shows is in the language of the page shared. Both
-// are prerendered at build time, which is when the fonts and the mark are read
-// from src/assets/og/.
+// are prerendered at build time, which is when the fonts are read from
+// src/assets/og/ (the image renderer cannot use next/font, so it gets the same
+// two families as the site, Bricolage Grotesque and Hanken Grotesk, as files).
+//
+// The look is the site's "Foret" hero: forest green ground, paper text, coral
+// only as a fill. The logo is the one in Nav.tsx (rounded paper square with an
+// "M", then "Maubourg" and a coral full stop), redrawn here in inline styles
+// because the renderer does not read Tailwind classes.
 
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -15,23 +21,27 @@ export { shareImageSize };
 
 const ASSETS = join(process.cwd(), 'src/assets/og');
 
-// The site's tokens (tailwind.config.js). The background matches the mark's
-// own paper so the PNG sits on it without a visible edge.
-const PAPER = '#FCF9F5';
-const INK = '#14140F';
-const INK_600 = '#565646';
-const EMERALD = '#0E6B4A';
-const SIGNAL = '#CBF74A';
+// The site's tokens (tailwind.config.js).
+const INK = '#0F2A20';
+const BONE = '#EEF0EA';
+const BONE_85 = 'rgba(238, 240, 234, 0.85)';
+const BONE_75 = 'rgba(238, 240, 234, 0.75)';
+const BONE_DOT = 'rgba(238, 240, 234, 0.22)';
+const SIGNAL = '#EE9278';
+
+// The dot grid from the LinkedIn visuals: one coral dot among paper ones.
+const GRID_COLS = 6;
+const GRID_ROWS = 4;
+const GRID_LIT = { row: 1, col: 4 };
 
 export async function renderShareImage(lang: string) {
   const dict = getDictionary(lang);
-  const [mark, fraunces, inter, interBold] = await Promise.all([
-    readFile(join(ASSETS, 'mark.png')),
-    readFile(join(ASSETS, 'fraunces-latin-600-normal.woff')),
-    readFile(join(ASSETS, 'inter-latin-400-normal.woff')),
-    readFile(join(ASSETS, 'inter-latin-600-normal.woff')),
+  const [display600, display700, sans400, sans500] = await Promise.all([
+    readFile(join(ASSETS, 'bricolage-grotesque-latin-600-normal.woff')),
+    readFile(join(ASSETS, 'bricolage-grotesque-latin-700-normal.woff')),
+    readFile(join(ASSETS, 'hanken-grotesk-latin-400-normal.woff')),
+    readFile(join(ASSETS, 'hanken-grotesk-latin-500-normal.woff')),
   ]);
-  const markSrc = `data:image/png;base64,${mark.toString('base64')}`;
 
   return new ImageResponse(
     (
@@ -40,72 +50,117 @@ export async function renderShareImage(lang: string) {
           width: '100%',
           height: '100%',
           display: 'flex',
-          backgroundColor: PAPER,
-          fontFamily: 'Inter',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          backgroundColor: INK,
+          color: BONE,
+          fontFamily: 'Hanken Grotesk',
+          padding: '64px 80px 60px',
         }}
       >
-        <div style={{ width: 14, height: '100%', backgroundColor: EMERALD, display: 'flex' }} />
-        <div
-          style={{
-            flex: 1,
-            display: 'flex',
-            alignItems: 'center',
-            padding: '0 84px 0 56px',
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={markSrc} width={300} height={300} alt="" style={{ flexShrink: 0 }} />
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              marginLeft: 44,
-              flex: 1,
-            }}
-          >
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div
+              style={{
+                width: 68,
+                height: 68,
+                borderRadius: 16,
+                backgroundColor: BONE,
+                color: INK,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontFamily: 'Bricolage Grotesque',
+                fontWeight: 600,
+                fontSize: 38,
+                lineHeight: 1,
+              }}
+            >
+              M
+            </div>
             <div
               style={{
                 display: 'flex',
-                alignItems: 'center',
-                fontSize: 22,
-                fontWeight: 600,
-                letterSpacing: 4,
-                textTransform: 'uppercase',
-                color: EMERALD,
+                marginLeft: 20,
+                fontFamily: 'Bricolage Grotesque',
+                fontWeight: 700,
+                fontSize: 42,
+                lineHeight: 1,
+                color: BONE,
               }}
             >
-              <div style={{ width: 36, height: 2, backgroundColor: EMERALD, marginRight: 14, display: 'flex' }} />
-              Maubourg Studio
-            </div>
-            <div
-              style={{
-                marginTop: 22,
-                fontFamily: 'Fraunces',
-                fontSize: 60,
-                lineHeight: 1.08,
-                letterSpacing: -1.5,
-                color: INK,
-              }}
-            >
-              {dict.meta.shareTitle}
-            </div>
-            <div style={{ marginTop: 26, fontSize: 27, lineHeight: 1.4, color: INK_600 }}>
-              {dict.meta.shareLine}
-            </div>
-            <div style={{ marginTop: 34, display: 'flex', alignItems: 'center', fontSize: 22, color: INK }}>
-              <div style={{ width: 12, height: 12, borderRadius: 6, backgroundColor: SIGNAL, marginRight: 12, display: 'flex' }} />
-              maubourg.studio
+              Maubourg<span style={{ color: SIGNAL }}>.</span>
             </div>
           </div>
+          <div style={{ display: 'flex', flexDirection: 'column', marginTop: 8 }}>
+            {Array.from({ length: GRID_ROWS }).map((_, row) => (
+              <div key={row} style={{ display: 'flex', marginTop: row === 0 ? 0 : 18 }}>
+                {Array.from({ length: GRID_COLS }).map((__, col) => {
+                  const lit = row === GRID_LIT.row && col === GRID_LIT.col;
+                  const size = lit ? 14 : 6;
+                  return (
+                    <div
+                      key={col}
+                      style={{
+                        width: 14,
+                        height: 14,
+                        marginLeft: col === 0 ? 0 : 18,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: size,
+                          height: size,
+                          borderRadius: size / 2,
+                          backgroundColor: lit ? SIGNAL : BONE_DOT,
+                          display: 'flex',
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div
+            style={{
+              fontFamily: 'Bricolage Grotesque',
+              fontWeight: 700,
+              fontSize: 76,
+              lineHeight: 1.02,
+              letterSpacing: -1.5,
+              color: BONE,
+              maxWidth: 980,
+            }}
+          >
+            {dict.meta.shareTitle}
+          </div>
+          <div style={{ marginTop: 26, fontSize: 29, lineHeight: 1.4, color: BONE_85, maxWidth: 900 }}>
+            {dict.meta.shareLine}
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', fontSize: 24, fontWeight: 500, color: BONE_75 }}>
+          <div
+            style={{ width: 12, height: 12, borderRadius: 6, backgroundColor: SIGNAL, marginRight: 14, display: 'flex' }}
+          />
+          maubourg.studio
         </div>
       </div>
     ),
     {
       ...shareImageSize,
       fonts: [
-        { name: 'Fraunces', data: fraunces, weight: 600, style: 'normal' },
-        { name: 'Inter', data: inter, weight: 400, style: 'normal' },
-        { name: 'Inter', data: interBold, weight: 600, style: 'normal' },
+        { name: 'Bricolage Grotesque', data: display600, weight: 600, style: 'normal' },
+        { name: 'Bricolage Grotesque', data: display700, weight: 700, style: 'normal' },
+        { name: 'Hanken Grotesk', data: sans400, weight: 400, style: 'normal' },
+        { name: 'Hanken Grotesk', data: sans500, weight: 500, style: 'normal' },
       ],
     },
   );

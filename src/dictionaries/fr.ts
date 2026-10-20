@@ -28,7 +28,7 @@ export const fr: Dictionary = {
   },
 
   hero: {
-    badge: 'Studio GEO et agents IA pour l’e-commerce',
+    badge: 'Visibilité LLMs & Agents IA',
     title: 'Quand un acheteur demande à ChatGPT quoi acheter,',
     titleAccent: 'votre marque est-elle dans la réponse ?',
     subtitle:
@@ -461,7 +461,7 @@ export const fr: Dictionary = {
     talkPrefix: 'Vous préférez en parler d’abord ?',
     ctaSecondary: 'Réserver un appel de 15 min',
     ctaNote: 'Quinze minutes, sans présentation commerciale, sans engagement.',
-    tagline: 'Studio GEO et agents IA pour l’e-commerce',
+    tagline: 'Visibilité LLMs & Agents IA',
     market: 'France et marchés francophones',
     rights: 'Tous droits réservés.',
     privacy: 'Confidentialité',
@@ -1186,12 +1186,12 @@ export const fr: Dictionary = {
   },
 
   meta: {
-    homeTitle: 'Maubourg Studio - Studio GEO et agents IA pour l’e-commerce',
+    homeTitle: 'Maubourg Studio - Visibilité LLMs & Agents IA',
     homeDescription:
       'Maubourg Studio, à Paris, rend les marques e-commerce visibles et correctement décrites dans les réponses de ChatGPT, Gemini, Perplexity et Claude, avec ses propres agents IA pour faire le travail. Pour les marques qui vendent en France et sur les marchés francophones.',
-    shareTitle: 'Studio GEO et agents IA pour l’e-commerce',
+    shareTitle: 'Visibilité LLMs & Agents IA',
     shareLine: 'Votre marque citée, et bien décrite, dans les réponses de ChatGPT, Gemini, Perplexity et Claude.',
-    shareAlt: 'Maubourg Studio, studio GEO et agents IA pour l’e-commerce',
+    shareAlt: 'Maubourg Studio, visibilité LLMs et agents IA',
   },
 
   consent: {
