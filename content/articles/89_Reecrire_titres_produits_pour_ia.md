@@ -4,14 +4,15 @@ slug: "comment-reecrire-mes-titres-de-produits-pour-qu-une-ia-les-comprenne-et-l
 description: "Mettre en tête du titre ce que l'acheteur demande : le type de produit, puis la matière, la taille ou l'usage qui le départagent, et la marque dans son champ dédié."
 question: "Comment réécrire mes titres de produits pour qu'une IA les comprenne et les recommande ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-10-20
+date: 2026-10-21
 lang: fr
 readingTime: 4
 draft: false
+template: "citation"
 ---
 # Comment réécrire mes titres de produits pour qu'une IA les comprenne et les recommande
 
-_Maubourg Studio, mis à jour le 20 octobre 2026_
+_Maubourg Studio, mis à jour le 21 octobre 2026_
 
 Mettre en tête du titre ce que l'acheteur demande : le type de produit, puis la matière, la taille ou l'usage qui le départagent. Quand on vend ses propres produits, nous conseillons de placer la marque dans son champ dédié plutôt qu'en tête du titre, puisque Google ne la demande dans le titre que si elle différencie le produit. Un nom de gamme seul ne dit pas à une IA ce qu'est l'article.
 
