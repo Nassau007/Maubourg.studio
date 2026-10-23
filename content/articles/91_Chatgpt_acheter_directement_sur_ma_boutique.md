@@ -4,14 +4,15 @@ slug: "chatgpt-peut-il-acheter-directement-sur-ma-boutique-sans-que-le-client-vi
 description: "Non, pas en octobre 2026 : un client qui achète depuis ChatGPT paie sur le paiement de la boutique Shopify elle-même, pas dans la conversation."
 question: "ChatGPT peut-il acheter directement sur ma boutique sans que le client visite mon site ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-10-20
+date: 2026-10-23
 lang: fr
 readingTime: 4
 draft: false
+template: "sidebar"
 ---
 # ChatGPT peut-il acheter directement sur ma boutique sans que le client visite mon site ?
 
-_Maubourg Studio, mis à jour le 20 octobre 2026_
+_Maubourg Studio, mis à jour le 23 octobre 2026_
 
 Non, pas en octobre 2026 : un client qui achète depuis ChatGPT paie sur le paiement de la boutique Shopify elle-même, pas dans la conversation. L'achat sans quitter ChatGPT, appelé Instant Checkout, a été lancé en septembre 2025 pour les utilisateurs américains, puis OpenAI a rendu leur paiement aux marchands en mars 2026. Pour une boutique française, l'enjeu est donc ce que ChatGPT dit du produit et la page où il envoie l'acheteur.
 
