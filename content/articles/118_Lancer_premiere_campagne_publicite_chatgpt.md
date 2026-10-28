@@ -4,14 +4,15 @@ slug: "comment-lancer-une-premiere-campagne-de-publicite-chatgpt-pour-une-boutiq
 description: "Une boutique française peut lancer seule une campagne sur ads.openai.com depuis le 31 août 2026, en cinq étapes : éligibilité, accès du robot OAI-AdsBot,…"
 question: "Comment lancer une première campagne de publicité ChatGPT (ChatGPT Ads) pour une boutique e-commerce en France ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-10-21
+date: 2026-10-28
 lang: fr
 readingTime: 5
 draft: false
+template: "citation"
 ---
 # Comment lancer une première campagne de publicité ChatGPT pour une boutique e-commerce en France
 
-_Maubourg Studio, mis à jour le 21 octobre 2026_
+_Maubourg Studio, mis à jour le 28 octobre 2026_
 
 Une boutique française peut lancer seule une campagne sur ads.openai.com depuis le 31 août 2026, en cinq étapes : éligibilité, accès du robot OAI-AdsBot, annonces, budget et règle d'arrêt, suivi des ventes (source : Blog du Modérateur, septembre 2026). Les annonces s'affichent en France depuis le 24 août 2026, sous la réponse, aux seuls utilisateurs Free et Go, sans influencer la réponse (sources : Siècle Digital, août 2026 ; centre d'aide OpenAI, « Ads in ChatGPT », octobre 2026).
 
