@@ -4,14 +4,15 @@ slug: "combien-coute-la-publicite-sur-chatgpt-et-quels-resultats-une-boutique-e-
 description: "En France, une campagne de publicité ChatGPT coûte au minimum 15 euros par jour, et quatre boutiques suivies par l'agence Enablers ont payé en moyenne 0,85…"
 question: "Combien coûte la publicité sur ChatGPT et quels résultats une boutique e-commerce peut-elle en attendre ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-10-21
+date: 2026-11-04
 lang: fr
 readingTime: 4
 draft: false
+template: "citation"
 ---
 # Combien coûte la publicité sur ChatGPT et quels résultats une boutique e-commerce peut-elle en attendre
 
-_Maubourg Studio, mis à jour le 21 octobre 2026_
+_Maubourg Studio, mis à jour le 4 novembre 2026_
 
 En France, une campagne de publicité ChatGPT coûte au minimum 15 euros par jour, et quatre boutiques suivies par l'agence Enablers ont payé en moyenne 0,85 euro le clic et 12 euros les mille impressions (sources : centre d'aide OpenAI ; Enablers, septembre 2026). Côté ventes, le retour sur dépense publicitaire n'a jamais dépassé 1 chez les huit annonceurs testés en septembre par l'agence Webloom (source : Journal du Net, 14 octobre 2026).
 
