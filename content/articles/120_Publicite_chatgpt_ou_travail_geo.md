@@ -4,14 +4,15 @@ slug: "publicite-chatgpt-ou-travail-geo-faut-il-payer-pour-apparaitre-dans-chatg
 description: "Payer ne fait pas entrer une marque dans la réponse de ChatGPT : l'annonce s'affiche dessous, aux utilisateurs Free et Go, sans toucher la réponse…"
 question: "Publicité ChatGPT ou travail GEO : faut-il payer pour apparaître dans ChatGPT ou travailler sa visibilité dans les réponses ?"
 category: "Visibilité sur les IA génératives (GEO)"
-date: 2026-10-23
+date: 2026-11-06
 lang: fr
 readingTime: 4
 draft: false
+template: "narrative"
 ---
 # Publicité ChatGPT ou travail GEO : faut-il payer pour apparaître dans ChatGPT ou travailler sa visibilité dans les réponses
 
-_Maubourg Studio, mis à jour le 23 octobre 2026_
+_Maubourg Studio, mis à jour le 6 novembre 2026_
 
 Payer ne fait pas entrer une marque dans la réponse de ChatGPT : l'annonce s'affiche dessous, aux utilisateurs Free et Go, sans toucher la réponse (source : centre d'aide OpenAI, « Ads in ChatGPT », consulté le 23 octobre 2026). La règle : une marque mal décrite commence par le GEO, une marque absente face à un concurrent annoncé teste la publicité en parallèle, une marque de santé n'a en France que le GEO.
 
